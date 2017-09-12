@@ -47,3 +47,6 @@ public class ArrayListExample {
 	}
 
 }
+
+
+//indra kece
