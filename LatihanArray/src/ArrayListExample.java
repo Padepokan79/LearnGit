@@ -18,16 +18,21 @@ public class ArrayListExample {
 		System.out.println(listPizza.get(3));
 		
 		listPizza.set(0, "ikan");
-		showIsiArrayList(listPizza);
+		//showIsiArrayList(listPizza);
 		listPizza.add(0, "AAAAA");
-		showIsiArrayList(listPizza);
+		//showIsiArrayList(listPizza);
 		listPizza.add(3, "BBB");
-		showIsiArrayList(listPizza);	
+		//showIsiArrayList(listPizza);	
+		listPizza.add(1, "sandi");
+		//showIsiArrayList(listPizza);
+		listPizza.add(2, "cabrul");
+		//showIsiArrayList(listPizza);
 		
 		listPizza.remove("ikan");
 		showIsiArrayList(listPizza);	
 		listPizza.remove(0);
-		showIsiArrayList(listPizza);	
+		showIsiArrayList(listPizza);
+		listPizza.remove("sandi");
 		
 		ArrayList<Double> hargaPizza = new ArrayList<Double>();
 		
