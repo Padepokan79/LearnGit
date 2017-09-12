@@ -1,6 +1,6 @@
+
 // test Push Wandi
 public class JumlahkanIsiArray {
-
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -10,14 +10,12 @@ public class JumlahkanIsiArray {
 		boolean isHit = isHit(missmissan, sumMissMissan, isUseMKB);
 
 		if(!isHit){
-			System.out.println("aman");
+			System.out.println("Anda Aman"); //add by siska
 		}else{
-			System.out.println("Kena Damage");
+			System.out.println("Anda Kena Damage"); //add by siska
 		}
 	}
-
-	// test comment line 19
-	
+// test comment line 19
 	public static boolean isHit(int[] missmissan, int sumMissMissan, boolean isUseMKB) {
 		for (int i = 0; i < missmissan.length; i++) {
 			sumMissMissan = sumMissMissan + missmissan[i];
@@ -40,5 +38,4 @@ public class JumlahkanIsiArray {
 		return isHit;
 	}
 	
-
 }
