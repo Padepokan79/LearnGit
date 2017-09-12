@@ -35,6 +35,7 @@ public class JumlahkanIsiArray {
 		}else{
 			isHit= true;
 		}
+		// ahahahahaahahah
 		return isHit;
 		//test comment again
 	}
