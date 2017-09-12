@@ -1,4 +1,5 @@
 
+// test Push Wandi
 public class JumlahkanIsiArray {
 	
 	public static void main(String[] args) {
@@ -14,7 +15,7 @@ public class JumlahkanIsiArray {
 			System.out.println("Anda Kena Damage"); //add by siska
 		}
 	}
-
+// test comment line 19
 	public static boolean isHit(int[] missmissan, int sumMissMissan, boolean isUseMKB) {
 		for (int i = 0; i < missmissan.length; i++) {
 			sumMissMissan = sumMissMissan + missmissan[i];
@@ -35,6 +36,7 @@ public class JumlahkanIsiArray {
 			isHit= true;
 		}
 		return isHit;
+		//test comment again
 	}
 	
 }
