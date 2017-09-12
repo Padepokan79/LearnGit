@@ -15,7 +15,7 @@ public class CariAngkaDalamArray {
 			if(yangDicari==arr1[i]) {
 				ketemu = true;
 				index =i;
-				System.out.println("Hoorey");;
+				System.out.println("Yippe!");;
 			}
 		}
 		if(ketemu){
