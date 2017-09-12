@@ -16,7 +16,7 @@ public class JumlahkanIsiArray {
 		}
 	}
 
-	
+	// test comment line 19
 	
 	public static boolean isHit(int[] missmissan, int sumMissMissan, boolean isUseMKB) {
 		for (int i = 0; i < missmissan.length; i++) {
