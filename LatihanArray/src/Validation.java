@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 public class Validation {
-	
-	
 	public static int getPrice(ArrayList<String> menu, ArrayList<Integer> daftarHarga){
 		int harga = 0;
 		// tulis "Menu :"
@@ -81,16 +78,10 @@ public class Validation {
 				inpit = 0;
 				//System.out.println(e.get());
 			}
-
-
 			if(inpit>menu.size() || inpit<=0){
 				System.out.println(" Inputan salah ");
 			}
-
 		}while( inpit>menu.size() || inpit<=0 );
 		System.out.println("Berhasil !");
-
-
 	}
-
 }
