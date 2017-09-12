@@ -1,4 +1,5 @@
 
+//indra ganteng
 public class CopyArray {
 	public static void main(String[] args) {
 
@@ -40,3 +41,4 @@ public class CopyArray {
 	
 	
 }
+//indra ganteng :) hehe
