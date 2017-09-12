@@ -1,12 +1,14 @@
 
+//indra ganteng
 public class CopyArray {
 	public static void main(String[] args) {
 
 		int [] arr = {8,9,6,6,8,6};
-		int [] dup = new int[6];
-		int [] a = new int[6];
-		int [] b = new int[6];
-		int [] c = new int[6];
+		int [] dup = new int[arr.length]; // digantidariselfi dari 6 jadi arr.length
+		int [] a = new int[arr.length]; // digantidariselfi
+		int [] b = new int[arr.length];
+		int [] c = new int[arr.length];
+		int [] d = new int[arr.length];
 				
 		copyAndShow(arr, dup);
 //		destination = copyArray(source, destination);
@@ -39,3 +41,4 @@ public class CopyArray {
 	
 	
 }
+//indra ganteng :) hehe
