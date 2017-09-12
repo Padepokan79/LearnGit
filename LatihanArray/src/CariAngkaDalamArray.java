@@ -1,4 +1,4 @@
-//siska coba coba
+//jangan di coba
 import java.util.Scanner;
 
 public class CariAngkaDalamArray {
