@@ -12,6 +12,8 @@ public class ArrayListExample {
 		listPizza.add("Super Supreme");
 		listPizza.add("Supreme");
 		
+		listPizza.add("Sundanes Pizza");
+		listPizza.add("Steak Cikawao");
 		
 		showIsiArrayList(listPizza);
 		System.out.println(" ----------- ");
@@ -22,7 +24,10 @@ public class ArrayListExample {
 		listPizza.add(0, "AAAAA");
 		showIsiArrayList(listPizza);
 		listPizza.add(3, "BBB");
-		showIsiArrayList(listPizza);	
+		showIsiArrayList(listPizza);
+		listPizza.add(2, "QAY");
+		
+		
 		
 		listPizza.remove("ikan");
 		showIsiArrayList(listPizza);	
@@ -47,6 +52,3 @@ public class ArrayListExample {
 	}
 
 }
-
-
-//indra kece
