@@ -19,7 +19,7 @@ public class Validation {
 		harga = daftarHarga.get(pilihan);
 		return harga;
 	}
-	
+	//add  komentar
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<String> menu = new ArrayList<String>();
@@ -27,7 +27,6 @@ public class Validation {
 		menu.add("American Fav");
 		menu.add("Italian Meatballs");
 		menu.add("Super Supreme");
-		menu.add("Supreme");
 		ArrayList<Integer> daftarHarga = new ArrayList<Integer>();
 		
 		
