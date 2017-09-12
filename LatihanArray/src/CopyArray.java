@@ -40,4 +40,4 @@ public class CopyArray {
 	
 }
 
-//indra ganteng :)
+//indra ganteng :) hehe
