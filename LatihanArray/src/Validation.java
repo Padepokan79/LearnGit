@@ -1,10 +1,14 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+//nopan
 
 public class Validation {
 	
 	
+
+public class Validation {
+
 	public static int getPrice(ArrayList<String> menu, ArrayList<Integer> daftarHarga){
 		int harga = 0;
 		// tulis "Menu :"
@@ -19,7 +23,11 @@ public class Validation {
 		harga = daftarHarga.get(pilihan);
 		return harga;
 	}
+
 	//add  komentar
+
+	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<String> menu = new ArrayList<String>();
@@ -27,6 +35,8 @@ public class Validation {
 		menu.add("American Fav");
 		menu.add("Italian Meatballs");
 		menu.add("Super Supreme");
+		menu.add("Supreme");
+
 		ArrayList<Integer> daftarHarga = new ArrayList<Integer>();
 		
 		
@@ -82,6 +92,7 @@ public class Validation {
 			}
 
 
+
 			if(inpit>menu.size() || inpit<=0){
 				System.out.println(" Inputan salah ");
 			}
@@ -91,5 +102,14 @@ public class Validation {
 
 
 	}
-
 }
+}
+
+			if(inpit>menu.size() || inpit<=0){
+				System.out.println(" Inputan salah ");
+			}
+		}while( inpit>menu.size() || inpit<=0 );
+		System.out.println("Berhasil !");
+	}
+}
+
