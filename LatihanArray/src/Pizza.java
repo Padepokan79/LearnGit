@@ -23,7 +23,7 @@ public class Pizza {
 		// add hahahahahaah hendra
 		
 		
-		// add
+		// add hahahahaha nambah deui
 		
 		
 		System.out.println("Total Yang harus dibayarkan Rp."+total);
