@@ -37,7 +37,7 @@ public class PrintIsiArray {
 			System.out.println(i + " "+ arr1[i]);
 			i--;
 		}
-		System.out.println(" \n GGWP ");
+		System.out.println("\n KIKI QUOTE : SOLO MID TQ, 2 TANGO PLEASE ");
 	}
 
 }
