@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CariAngkaDalamArray {
 	public static void main(String[] args) {
 		
-		int [] arr1 = {8,9,6,6,8,6,1,2,3,4,5};
+		int [] arr1 = {8,9,6,6,8,6};
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("MAsukan angka yang dicari : ");
@@ -15,7 +15,7 @@ public class CariAngkaDalamArray {
 			if(yangDicari==arr1[i]) {
 				ketemu = true;
 				index =i;
-				System.out.println("Hoorey");;
+				System.out.println("Yippe!");;
 			}
 		}
 		if(ketemu){
