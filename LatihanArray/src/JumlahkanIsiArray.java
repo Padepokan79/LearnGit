@@ -9,7 +9,7 @@ public class JumlahkanIsiArray {
 		boolean isHit = isHit(missmissan, sumMissMissan, isUseMKB);
 
 		if(!isHit){
-			System.out.println("Anda aman"); //add by siska
+			System.out.println("Anda Aman"); //add by siska
 		}else{
 			System.out.println("Anda Kena Damage"); //add by siska
 		}
