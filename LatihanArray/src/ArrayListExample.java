@@ -25,14 +25,11 @@ public class ArrayListExample {
 		showIsiArrayList(listPizza);
 		listPizza.add(3, "BBB");
 		showIsiArrayList(listPizza);
-<<<<<<< HEAD
-		listPizza.add(2, "QAY");
+
 		
-=======
 		listPizza.add(1, "cabrul");//add by sandi
 		showIsiArrayList(listPizza);//add by sandi
->>>>>>> origin
-		
+
 		
 		listPizza.remove("ikan");
 		showIsiArrayList(listPizza);	

@@ -102,13 +102,13 @@ public class Validation {
 
 
 	}
-}
-}
+
+
 
 			if(inpit>menu.size() || inpit<=0){
 				System.out.println(" Inputan salah ");
 			}
-		}while( inpit>menu.size() || inpit<=0 );
+		while( inpit>menu.size() || inpit<=0 );
 		System.out.println("Berhasil !");
 	}
 }
