@@ -1,4 +1,4 @@
-
+// test Push Wandi
 public class JumlahkanIsiArray {
 
 	
