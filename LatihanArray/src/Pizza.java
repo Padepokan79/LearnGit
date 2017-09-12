@@ -20,7 +20,7 @@ public class Pizza {
 		total = total + hargaPizza[pilihan-1];
 		
 		
-		// add
+		// add hahahahahaah
 		
 		
 		// add
