@@ -39,6 +39,6 @@ public class CopyArray {
 		return destination;
 	}
 	
-	
+//nonaSlangit	
 }
 //indra ganteng :) hehe
