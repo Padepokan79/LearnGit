@@ -22,12 +22,15 @@ public class ArrayListExample {
 		listPizza.add(0, "AAAAA");
 		showIsiArrayList(listPizza);
 		listPizza.add(3, "BBB");
-		showIsiArrayList(listPizza);	
+		showIsiArrayList(listPizza);
+		listPizza.add(1, "cabrul");//add by sandi
+		showIsiArrayList(listPizza);//add by sandi
+		
 		
 		listPizza.remove("ikan");
 		showIsiArrayList(listPizza);	
 		listPizza.remove(0);
-		showIsiArrayList(listPizza);	
+		showIsiArrayList(listPizza);
 		
 		ArrayList<Double> hargaPizza = new ArrayList<Double>();
 		
