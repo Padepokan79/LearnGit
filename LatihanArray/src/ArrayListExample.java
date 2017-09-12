@@ -12,6 +12,8 @@ public class ArrayListExample {
 		listPizza.add("Super Supreme");
 		listPizza.add("Supreme");
 		
+		listPizza.add("Sundanes Pizza");
+		listPizza.add("Steak Cikawao");
 		
 		showIsiArrayList(listPizza);
 		System.out.println(" ----------- ");
@@ -23,8 +25,13 @@ public class ArrayListExample {
 		showIsiArrayList(listPizza);
 		listPizza.add(3, "BBB");
 		showIsiArrayList(listPizza);
+<<<<<<< HEAD
+		listPizza.add(2, "QAY");
+		
+=======
 		listPizza.add(1, "cabrul");//add by sandi
 		showIsiArrayList(listPizza);//add by sandi
+>>>>>>> origin
 		
 		
 		listPizza.remove("ikan");
@@ -50,6 +57,3 @@ public class ArrayListExample {
 	}
 
 }
-
-
-//indra kece
