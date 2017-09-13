@@ -2,7 +2,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;  
 import java.sql.ResultSet;  
 
-
+// change log by ikan, create JSON OBJECT 
 
 /**
  * Utility for converting ResultSets into some Output formats
@@ -20,7 +20,7 @@ import java.sql.ResultSet;
         JSONArray jsonArray = new JSONArray();
         while (resultSet.next()) {
             int total_rows = resultSet.getMetaData().getColumnCount();
-            //JSONArray jsonArrayDalam = new JSONArray();
+            
             JSONObject obj = new JSONObject();
             for (int i = 0; i < total_rows; i++) {
                 
@@ -28,8 +28,6 @@ import java.sql.ResultSet;
                         .toLowerCase(), resultSet.getObject(i + 1));
             }
             jsonArray.put(obj);
-            
-           // jsonArray.put(jsonArrayDalam);
         }
         return jsonArray;
     }

@@ -30,19 +30,24 @@ public class Select {
 
 			System.out.println("------ ------ ------ ----- -----");
 			JSONArray arrayData = Convertor.convertToJSON(rs);
-			JSONObject obj =  arrayData.getJSONObject(0);
-			System.out.println(obj);
-			obj =  arrayData.getJSONObject(1);
-			System.out.println(obj);
-			obj =  arrayData.getJSONObject(2);
-			System.out.println(obj);
+			System.out.println(arrayData.length());
+			for (int i = 0; i < arrayData.length(); i++) {
+				JSONObject obj =  arrayData.getJSONObject(i);
+				System.out.println(obj);
+				System.out.println(obj.get("tjberas"));
+			}
+			
+//			obj =  arrayData.getJSONObject(1);
+//			System.out.println(obj);
+//			obj =  arrayData.getJSONObject(2);
+//			System.out.println(obj);
 
 
 //			System.out.println("********************************");
 //			System.out.println(arrayData.toString());
 //			System.out.println("++++++++++++++++++++++++++++++++");
 //			
-			System.out.println(Convertor.convertToXML(rs));
+			//System.out.println(Convertor.convertToXML(rs));
 			
 //			// iterate through the java resultset
 //			while (rs.next())
