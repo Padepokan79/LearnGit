@@ -21,22 +21,27 @@ public class Select {
 
 			// our SQL SELECT query. 
 			// if you only need a few columns, specify them by name instead of using "*"
-			String query = "SELECT * FROM fgaji limit 10;";
+			
+			int jumlahAnak = 2;
+			//String data = "5;select from tbluser ";
+			String query = "SELECT nama,bersih FROM fgaji where janak = ? and masker > ? limit 0 , 10;";
 			
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+			
+			st.setInt(1, jumlahAnak);
+			st.setInt(2, 20);
+			
 			
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
 
 			System.out.println("------ ------ ------ ----- -----");
 			JSONArray arrayData = Convertor.convertToJSON(rs);
-			System.out.println(arrayData.length());
-			for (int i = 0; i < arrayData.length(); i++) {
-				JSONObject obj =  arrayData.getJSONObject(i);
-				System.out.println(obj);
-				System.out.println(obj.get("tjberas"));
-			}
 			
+			showDataTop10AllFields(arrayData);
+			//showDataTop10(arrayData);
+			
+			st.close();
 //			obj =  arrayData.getJSONObject(1);
 //			System.out.println(obj);
 //			obj =  arrayData.getJSONObject(2);
@@ -64,7 +69,7 @@ public class Select {
 //				
 //			}
 
-			st.close();
+			
 		}
 		catch (Exception e)
 		{
@@ -72,5 +77,23 @@ public class Select {
 			System.err.println(e.getMessage());
 		}
 	}
+
+	public static void showDataTop10(JSONArray arrayData) {
+		System.out.println(arrayData.length());
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);
+			System.out.println(obj);
+			System.out.println(obj.get("nip")+ " "+ "Rp."+obj.get("tjberas") );
+		}
+	}
+	public static void showDataTop10AllFields(JSONArray arrayData) {
+		System.out.println(arrayData.length());
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);
+			System.out.println(obj);
+			
+		}
+	}
+	
 
 }
