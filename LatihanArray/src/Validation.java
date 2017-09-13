@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+//nopan
+
 
 public class Validation {
-	
-	
+
 	public static int getPrice(ArrayList<String> menu, ArrayList<Integer> daftarHarga){
 		int harga = 0;
 		// tulis "Menu :"
@@ -19,7 +20,11 @@ public class Validation {
 		harga = daftarHarga.get(pilihan);
 		return harga;
 	}
-	
+
+	//add  komentar
+
+
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<String> menu = new ArrayList<String>();
@@ -28,17 +33,18 @@ public class Validation {
 		menu.add("Italian Meatballs");
 		menu.add("Super Supreme");
 		menu.add("Supreme");
+
 		ArrayList<Integer> daftarHarga = new ArrayList<Integer>();
-		
-		
-		
+
+
+
 
 		ArrayList<String> optionTopping = new ArrayList<String>();
 		optionTopping.add("1. Vegetables");
 		optionTopping.add("2. Meat");
 		optionTopping.add("3. Cheese");
 		optionTopping.add("4. Selesai pilih topping");
-		
+
 		// scanner
 		// ambil pilihanMenu
 		int pilihanMenu = 0;
@@ -60,7 +66,7 @@ public class Validation {
 		default:
 			break;
 		}
-		
+
 		int inpit = 0;
 		do{	
 			int i = 1;
@@ -68,7 +74,7 @@ public class Validation {
 				System.out.println(i + " "+pizza);
 				i++;
 			}
-			
+
 			System.out.print(" Silahkan inputkan pilihan anda : ");
 			try{
 				Scanner sc = new Scanner(System.in);
@@ -76,11 +82,12 @@ public class Validation {
 				String coba1 = sc.next();
 				double coba2 = sc.nextDouble();
 				inpit = sc.nextInt();
-				
+
 			}catch(Exception e){
 				inpit = 0;
 				//System.out.println(e.get());
 			}
+
 
 
 			if(inpit>menu.size() || inpit<=0){

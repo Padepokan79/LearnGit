@@ -20,9 +20,10 @@ public class Pizza {
 		total = total + hargaPizza[pilihan-1];
 		
 		
+		// add hahahahahaah hendra
 		
 		
-		
+		// add hahahahaha nambah deui
 		
 		
 		System.out.println("Total Yang harus dibayarkan Rp."+total);
