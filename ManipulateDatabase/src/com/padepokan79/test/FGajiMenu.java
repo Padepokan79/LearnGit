@@ -12,15 +12,15 @@ import com.padepokan79.model.Fgaji;
 public class FGajiMenu{
 	
 	
-	public void mainMenu () {
+	public void mainMenu () {//Modify by Ipin
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 		System.out.println("+------------------------------------------------------------------------------------+");
-		System.out.println("|                                       Menu                                         |");
+		System.out.println("|                                     Fgaji  Menu                                         |");
 		System.out.println("| 1. Nama dan Gaji Bersih | 2. Nama dan Status Kawin | 3. Nama laki -laki dan Jomblo |");
 		System.out.println("|                                                                                    |");
 		System.out.println("+------------------------------------------------------------------------------------+"); 
 		try {
-			System.out.println("Masukan PIlihan : ");
+			System.out.print("Masukan PIlihan : ");
 			String input=dataIn.readLine();
 			switch (input) {
 				case "1":
@@ -67,10 +67,10 @@ public class FGajiMenu{
 		//System.out.println(arrayData);
 		
 		System.out.println("+-------------------------------------------------+");
-		System.out.println("|   Nama                       |  Status          |");
+		System.out.println("|   Nama                            |  Status     |");
 		System.out.println("+-------------------------------------------------+");
 		String space;
-		for (int i = 0; i < arrayData.length(); i++) {
+		for (int i = 0; i < arrayData.length(); i++) {//modify by Ipin
 			JSONObject obj =  arrayData.getJSONObject(i);
 			
 			String status = "";
@@ -81,15 +81,25 @@ public class FGajiMenu{
 			}
 			space=(String) obj.get(fieldsa);
 			System.out.print("|"+space.trim());
-			for (int j = 0; j <38-(space.length()); j++) {
+			for (int j = 0; j <35-(space.length()); j++) {
 					System.out.print(" ");
 			}
 			if (i>0) {
 				System.out.print("  ");
 			}
-			System.out.println(status+"|");
+			System.out.println("| "+status+" |");
 			System.out.println("---------------------------------------------------");
+			
 		}
+	}
+	public static void testNamaDanJombloLebih10Thn(){
+		Fgaji fgaji = new Fgaji();
+		JSONArray data = fgaji.getNamaDanLakiJomblo();
+		showData(data,"nama","bersih");
+	}
+	public static void main(String args[]) {
+		FGajiMenu fg=new FGajiMenu();
+		fg.mainMenu();
 	}
 
 }
