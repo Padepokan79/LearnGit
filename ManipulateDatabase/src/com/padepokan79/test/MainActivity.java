@@ -42,7 +42,13 @@ public class MainActivity {
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);
 			System.out.println(obj);
-			//System.out.println(obj.get(fieldsa)+ " "+ ": "+obj.get(fieldsb) );
+			String status = "";
+			if ((int)obj.get(fieldsb) == 1){
+				status = "Kawin";
+			}else{
+				status = "Tidak kawin";
+			}
+			System.out.println(obj.get(fieldsa)+ " "+ ": "+status );
 		}
 	}
 
