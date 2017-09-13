@@ -16,7 +16,6 @@ public class PrintIsiArray {
 		System.out.println(" ******** ");
 		for (int i=arr1.length-1;i>=0;i--){
 			System.out.println(i + " "+ arr1[i]);
-
 		}	
 		System.out.println(" ******** ");
 		int i = 1;
