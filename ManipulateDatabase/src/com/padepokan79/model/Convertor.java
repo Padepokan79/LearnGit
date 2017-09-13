@@ -1,3 +1,4 @@
+package com.padepokan79.model;
 import org.json.JSONArray;  
 import org.json.JSONObject;  
 import java.sql.ResultSet;  
