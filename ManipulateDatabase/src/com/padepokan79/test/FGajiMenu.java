@@ -12,7 +12,7 @@ import com.padepokan79.model.Fgaji;
 public class FGajiMenu{
 	
 	
-	public static void main(String args[]) {
+	public void mainMenu () {
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 		System.out.println("+------------------------------------------------------------------------------------+");
 		System.out.println("|                                       Menu                                         |");
