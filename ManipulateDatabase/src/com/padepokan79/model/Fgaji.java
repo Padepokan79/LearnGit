@@ -8,7 +8,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class Fgaji {
+public class Fgaji implements ListQuery{
 
 	String myDriver = "org.gjt.mm.mysql.Driver";
 	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
@@ -60,7 +60,7 @@ public class Fgaji {
 	public JSONArray getNamaDanStatusKawin(){
 		try
 		{
-			String query = "SELECT nama,kdstawin FROM fgaji limit 0 , 10;";
+			String query = queryNamaDanStatusKawin;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -70,8 +70,8 @@ public class Fgaji {
 	public JSONArray getNamaDanLakiJomblo(){
 		try
 		{
-			String query = "SELECT nama,bersih FROM fgaji where kdjenkel=1 limit 0,10;";
-			return simpleQuery(query);
+			//String query = queryNamaDanLakiJomblo;
+			return simpleQuery(queryNamaDanLakiJomblo);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -80,7 +80,7 @@ public class Fgaji {
 	public JSONArray getNamaDanJomblo(int gender){
 		try
 		{
-			String query = "SELECT nama,bersih FROM fgaji where kdjenkel=?  limit 0,10;";
+			String query = "SELECT getNamaDanJomblo FROM fgaji where kdjenkel=?  limit 0,10;";
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
