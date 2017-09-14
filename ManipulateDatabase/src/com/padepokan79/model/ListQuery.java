@@ -5,5 +5,7 @@ public interface ListQuery {
 			"SELECT nama,bersih FROM fgaji where kdjenkel=1 limit 0,10;";
 	public final String queryNamaDanStatusKawin = 
 			"SELECT nama,bersih FROM fgaji where kdjenkel=1 limit 0,10;";
+	public final String queryNamaJandaKembang = 
+			"SELECT nama,nip,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0;"; //add by siska
 	
 }
