@@ -94,6 +94,7 @@ public class FGajiMenu{
 	public static void testNamaDanGajiBersih(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanGajiBersih();
+		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
 
 	public static void testNamaDanStatusKawin(){
