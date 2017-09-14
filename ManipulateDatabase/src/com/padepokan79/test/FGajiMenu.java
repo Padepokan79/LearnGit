@@ -132,6 +132,37 @@ public class FGajiMenu{
 	public static void main(String args[]) {
 		FGajiMenu fg=new FGajiMenu();
 		fg.mainMenu();
+		
+		
+	}
+	// update janda kembang indra
+	public static void getNamaJandaKembang(){
+		Fgaji fgaji = new Fgaji();
+		JSONArray data = fgaji.getNamaJandaKembang();
+		//System.out.println(data);
+		showData4Parameter(data,"nip", "nama", "kdstawin", "janak");
+	} // ikan added test for NamaDanGajiBersih
+	public static void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
+		//System.out.println(arrayData);
+		System.out.println("+---------------------------------------------------------------------------------+");
+		System.out.println("|   NIP            |        Nama              | Status Perkawinan  |  Jumlah Anak |");
+		System.out.println("+---------------------------------------------------------------------------------+");
+		String space;
+	
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+			//	System.out.println(obj);
+			space=(String) obj.get(fieldsb);
+			System.out.print("|"+obj.get(fieldsa));		
+			space=space.trim();
+			System.out.print("|"+space);
+			
+			for (int j = 0; j  <26-(space.length()); j++) {
+				System.out.print(" ");}
+			System.out.print("|           "+obj.get(fieldsc));
+			System.out.println("        |       "+obj.get(fieldsd)+"      |");
+			System.out.println("+---------------------------------------------------------------------------------+");
+		}
 	}
 	
 	
