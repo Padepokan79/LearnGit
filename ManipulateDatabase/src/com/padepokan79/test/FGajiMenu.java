@@ -12,15 +12,17 @@ import com.padepokan79.model.Fgaji;
 public class FGajiMenu{
 	
 	
-	public void mainMenu () {
+	public void mainMenu () {//Modify by Ipin
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 		System.out.println("+------------------------------------------------------------------------------------+");
-		System.out.println("|                                       Menu                                         |");
+		System.out.println("|                                      Submenu Gajih                                 |");
+		System.out.println("|------------------------------------------------------------------------------------|");
 		System.out.println("| 1. Nama dan Gaji Bersih | 2. Nama dan Status Kawin | 3. Nama laki -laki dan Jomblo |");
-		System.out.println("|                                                                                    |");
-		System.out.println("+------------------------------------------------------------------------------------+"); 
+		System.out.println("|------------------------------------------------------------------------------------|");
+		System.out.println("| 4. Nama dan Gaji Bersih | 2. Nama dan Status Kawin | 3. Nama laki -laki dan Jomblo |");
+		System.out.println("+------------------------------------------------------------------------------------+");
 		try {
-			System.out.println("Masukan PIlihan : ");
+			System.out.print("Masukan PIlihan : ");
 			String input=dataIn.readLine();
 			switch (input) {
 				case "1":
@@ -31,6 +33,9 @@ public class FGajiMenu{
 					break;
 				case "3":
 					testNamaDanLakiJomblo();
+					break;
+				case "4":
+					NipNamaGajiBersihDiAtas10Jt();
 					break;
 				default:
 					System.out.println("Masukan anda tidak valid !");
@@ -67,10 +72,10 @@ public class FGajiMenu{
 		//System.out.println(arrayData);
 		
 		System.out.println("+-------------------------------------------------+");
-		System.out.println("|   Nama                       |  Status          |");
+		System.out.println("|   Nama                            |  Status     |");
 		System.out.println("+-------------------------------------------------+");
 		String space;
-		for (int i = 0; i < arrayData.length(); i++) {
+		for (int i = 0; i < arrayData.length(); i++) {//modify by Ipin
 			JSONObject obj =  arrayData.getJSONObject(i);
 			
 			String status = "";
@@ -81,15 +86,79 @@ public class FGajiMenu{
 			}
 			space=(String) obj.get(fieldsa);
 			System.out.print("|"+space.trim());
-			for (int j = 0; j <38-(space.length()); j++) {
+			for (int j = 0; j <35-(space.length()); j++) {
 					System.out.print(" ");
 			}
 			if (i>0) {
 				System.out.print("  ");
 			}
-			System.out.println(status+"|");
+			System.out.println("| "+status+" |");
 			System.out.println("---------------------------------------------------");
+			
+		}
+		
+	}
+	public static void NipNamaGajiBersihDiAtas10Jt(){
+		Fgaji fgaji = new Fgaji();
+		JSONArray data = fgaji.getNipNamaGajiBersihDiAtas10Jt();
+		//System.out.println(data);
+		showData(data,"nip", "nama", "bersih", "kdpangkat");
+	} // ikan added test for NamaDanGajiBersih
+	//update data NipNamaGajiBersihDiAtas10Jt
+	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
+		//System.out.println(arrayData);
+		System.out.println("+---------------------------------------------------------------------------+");
+		System.out.println("|   NIP            |        Nama              | Status       |     Golongan |");
+		System.out.println("+---------------------------------------------------------------------------+");
+		String space;
+		
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+			//	System.out.println(obj);
+			space=(String) obj.get(fieldsb);
+			System.out.print("|"+obj.get(fieldsa));
+			System.out.print("|  "+obj.get(fieldsb));
+			for (int j = 0; j  <24-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("|  "+obj.get(fieldsc));
+			System.out.println("    |       "+obj.get(fieldsd)+"     |");
+			System.out.println("+---------------------------------------------------------------------------+");
 		}
 	}
-
+	public static void main(String args[]) {
+		FGajiMenu fg=new FGajiMenu();
+		fg.mainMenu();
+		
+		
+	}
+	// update janda kembang indra
+	public static void getNamaJandaKembang(){
+		Fgaji fgaji = new Fgaji();
+		JSONArray data = fgaji.getNamaJandaKembang();
+		//System.out.println(data);
+		showData4Parameter(data,"nip", "nama", "kdstawin", "janak");
+	} // ikan added test for NamaDanGajiBersih
+	public static void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
+		//System.out.println(arrayData);
+		System.out.println("+---------------------------------------------------------------------------------+");
+		System.out.println("|   NIP            |        Nama              | Status Perkawinan  |  Jumlah Anak |");
+		System.out.println("+---------------------------------------------------------------------------------+");
+		String space;
+	
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+			//	System.out.println(obj);
+			space=(String) obj.get(fieldsb);
+			System.out.print("|"+obj.get(fieldsa));		
+			space=space.trim();
+			System.out.print("|"+space);
+			
+			for (int j = 0; j  <26-(space.length()); j++) {
+				System.out.print(" ");}
+			System.out.print("|           "+obj.get(fieldsc));
+			System.out.println("        |       "+obj.get(fieldsd)+"      |");
+			System.out.println("+---------------------------------------------------------------------------------+");
+		}
+	}
 }
