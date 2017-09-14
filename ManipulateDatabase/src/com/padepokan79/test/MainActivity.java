@@ -23,7 +23,6 @@ public class MainActivity {
 		//System.out.println(data);
 		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
-	
 	public static void testNamaDanGajiBersih(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanGajiBersih();
