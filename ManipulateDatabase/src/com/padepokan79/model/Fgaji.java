@@ -86,6 +86,15 @@ public class Fgaji implements ListQuery{
 		}
 		return null;
 	}
+	public JSONArray getNipNamaJombloMasaKerjaDiAtas10thn() {
+		try {
+			String query = queryJombloMasaKerjaDiatas10thn;
+			return simpleQuery(query);
+		} catch (Exception e) {
+			// Add by Manto
+		}
+		return null;
+	}
 	public JSONArray getNamaDanJomblo(int gender){
 		try
 		{
