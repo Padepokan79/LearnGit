@@ -1,11 +1,8 @@
-
 package com.padepokan79.test;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import com.padepokan79.model.Fgaji;
-
 public class MainActivity {
 
 	public static void main(String[] args) {
@@ -13,31 +10,14 @@ public class MainActivity {
 		testNamaDanGajiBersih(); // add by ikan
 		testNamaDanStatusKawin();
 		testNamaDanLakiJomblo();
-<<<<<<< HEAD
 		NipNamaGajiBersihDiAtas10Jt(); // add by wandi
 	}
-
-
-
-
-=======
-	}
-	
-	
-	
-	
->>>>>>> origin
 	public static void testNamaDanLakiJomblo(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanLakiJomblo();
 		//System.out.println(data);
 		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> origin
 	public static void testNamaDanGajiBersih(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanGajiBersih();
@@ -50,8 +30,6 @@ public class MainActivity {
 		//System.out.println(data);
 		showData(data,"nama","bersih");
 	} // ikan added test for testNamaDanStatusKawin
-<<<<<<< HEAD
-
 	public static void NipNamaGajiBersihDiAtas10Jt(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNipNamaGajiBersihDiAtas10Jt();
@@ -59,18 +37,12 @@ public class MainActivity {
 		showData4Parameter(data,"nip", "nama", "bersih", "kdpangkat");
 	} // ikan added test for NamaDanGajiBersih
 
-=======
-	
->>>>>>> origin
 	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
 		System.out.println(arrayData);
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);
-<<<<<<< HEAD
 			//	System.out.println(obj);
-=======
 			System.out.println(obj);
->>>>>>> origin
 			String status = "";
 			if ((int)obj.get(fieldsb) == 1){
 				status = "Kawin";
@@ -81,7 +53,6 @@ public class MainActivity {
 		}
 	}
 
-<<<<<<< HEAD
 // Test Runing by Wandi
 	public static void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
 		System.out.println(arrayData);
@@ -91,10 +62,4 @@ public class MainActivity {
 			System.out.println(obj.get(fieldsa)+ " "+ ": "+obj.get(fieldsb)+ " "+ ": "+obj.get(fieldsc)+ " "+ ": "+obj.get(fieldsd) );
 		}
 	}
-
 }
-
-
-=======
-}
->>>>>>> origin
