@@ -5,13 +5,10 @@ public interface ListQuery {
 			"SELECT nama,bersih FROM fgaji where kdjenkel=1 limit 0,10;";
 	public final String queryNamaDanStatusKawin = 
 			"SELECT nama,bersih FROM fgaji where kdjenkel=1 limit 0,10;";
-<<<<<<< HEAD
 	public final String queryNamaJandaKembang = 
 			"SELECT nama,nip,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0;"; //add by siska
-=======
 	public final String queryNipNamaGajiBersihDiAtas10Jt =
 			"select nip, nama, bersih, kdpangkat from fgaji where bersih > 10000000";
->>>>>>> origin/master
 	
 
 }
