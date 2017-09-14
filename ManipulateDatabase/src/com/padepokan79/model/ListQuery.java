@@ -26,10 +26,23 @@ public interface ListQuery {
 			"select SATKERJA,descsatker,nama_atasa,jab_atasan from satkerja where descsatker like '%dinas%' and nama_atasa like 'h%' ;"; //add by siska	
 	public final String queryBendaharaPembantuDaftarGaji = 
 			"select SATKERJA,descsatker,nip_bend,nama_bend,jab_bend,jab_operat from satkerja where jab_bend like '%pembantu%' and jab_operat like '%gaji%';"; //add by siska	
-	public final String queryNamaOperatorDenganAkhiranH =
+	public final String queryNamaOperatorDenganAkhiranH = // add by rzkypprtm
 			"SELECT SATKERJA as Satuan_Kerja, DESCSATKER as Deskripsi, Kota, nama_opera as Nama_Operator from satkerja where nama_opera like '%h'";
-	public final String queryJumlahPegawaiYangKerjaDiDinasKesehatan =
+	public final String queryJumlahPegawaiYangKerjaDiDinasKesehatan = // add by rzkypprtm
 			"SELECT DESCSATKER as Satuan_Kerja, COUNT(*) from satkerja where DESCSATKER like '%PUSKESMAS%' or DESCSATKER like '%KESEHATAN%' GROUP BY DESCSATKER LIMIT 0,10";
 
-}
 
+
+//===========================================================================================================================================
+//tabel 3 twafat
+
+	public final String queryNIPNamaTanggalWafat = // add by rzkypprtm
+			"SELECT twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT FROM twafat,mstpegawai WHERE twafat.NIP = mstpegawai.NIP AND twafat.TGLWAFAT > '2014/04/31'";
+
+			
+			
+			
+			
+			
+			
+}
