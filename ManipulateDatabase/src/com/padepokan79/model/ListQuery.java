@@ -15,5 +15,9 @@ public interface ListQuery {
 =======
 	public final String queryNamaSuperDad = 
 			"SELECT nip,nama,kdjenkel,tgllhr,kdpangkat,masker,janak FROM fgaji where kdjenkel = 1 and kdpangkat=1  and masker > 20 and janak > 1 limit 0,10;"; //add by siska	
+<<<<<<< HEAD
+>>>>>>> origin/modeling
+=======
+
 >>>>>>> origin/modeling
 }
