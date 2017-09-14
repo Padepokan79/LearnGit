@@ -12,19 +12,27 @@ public class MainTest {
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNipNamaGajiBersihDiAtas10Jt();
 		//System.out.println(data);
-		showData4Parameter(data,"nip", "nama", "bersih", "kdpangkat");
+		showData(data,"nip", "nama", "bersih", "kdpangkat");
 	} // ikan added test for NamaDanGajiBersih
-	public static void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
+	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
 		//System.out.println(arrayData);
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|   NIP           |        Nama    |  Status       |      Golongan    |");
-		System.out.println("+-----------------------------------------------------------------+");
+		System.out.println("+---------------------------------------------------------------------------+");
+		System.out.println("|   NIP            |        Nama              | Status       |     Golongan |");
+		System.out.println("+---------------------------------------------------------------------------+");
 		String space;
+		
 		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);
+			JSONObject obj =  arrayData.getJSONObject(i);	
 			//	System.out.println(obj);
-			System.out.println("+-------------------------------------------------------+");
-			System.out.println("|"+obj.get(fieldsa)+ " "+ ": "+obj.get(fieldsb)+ " "+ ": "+obj.get(fieldsc)+ " "+ ": "+obj.get(fieldsd)+"|" );
+			space=(String) obj.get(fieldsb);
+			System.out.print("|"+obj.get(fieldsa));
+			System.out.print("|  "+obj.get(fieldsb));
+			for (int j = 0; j  <24-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("|  "+obj.get(fieldsc));
+			System.out.println("    |       "+obj.get(fieldsd)+"     |");
+			System.out.println("+---------------------------------------------------------------------------+");
 		}
 	}
 }
