@@ -13,10 +13,6 @@ public class MainActivity {
 		testNamaDanStatusKawin();
 		testNamaDanLakiJomblo();
 	}
-	
-	
-	
-	
 	public static void testNamaDanLakiJomblo(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanLakiJomblo();
@@ -34,7 +30,7 @@ public class MainActivity {
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanStatusKawin();
 		//System.out.println(data);
-		showData(data,"nama","bersih");
+		showData(data,"nama","bersih"); //mengganti kdstawin jadi bersih
 	} // ikan added test for testNamaDanStatusKawin
 	
 	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
