@@ -46,6 +46,7 @@ public interface ListQuery {
 			"SELECT twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT FROM twafat,mstpegawai WHERE twafat.TGLWAFAT < '2013/00/10' AND twafat.TGLSTOP < '2013/00/10' limit 0,10;";
 	public final String queryPNSYangMatinyaPalingLama = // add by rzkypprtm
 			"SELECT twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT FROM twafat,mstpegawai ORDER BY twafat.TGLWAFAT asc limit 1;";
+<<<<<<< HEAD
 
 
 //====================================================================================================================================================
@@ -54,5 +55,16 @@ public interface ListQuery {
 	public final String queryHutangUntukAnak =
 			"select * from hutang where KETERANGAN LIKE '%anak%' limit 10;";
 
+=======
+	
+//===========================================================================================================================================
+//tabel 4 hutang
+	
+	public final String queryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun = // add by rzkypprtm
+			"SELECT hutang.NIP, mstpegawai.nama as Nama, hutang.JMLHUTANG as Jumlah_Hutang, hutang.JMLBULAN FROM hutang, mstpegawai WHERE hutang.JMLHUTANG > 10000000 AND hutang.JMLBULAN > 12 limit 0,10;";
+	public final String queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan = // add by rzkypprtm
+			"SELECT JMLCICILAN, COUNT(*) FROM hutang GROUP BY JMLCICILAN;";
+	
+>>>>>>> origin/modeling
 	
 }
