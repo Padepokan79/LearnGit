@@ -6,26 +6,21 @@ import com.padepokan79.model.Fgaji;
 
 public class MainTest {
 	public static void main(String[]args) {
-		testNamaDanGajiBersih();
+		NipNamaGajiBersihDiAtas10Jt();
 	}
-	public static void testNamaDanGajiBersih(){
+	public static void NipNamaGajiBersihDiAtas10Jt(){
 		Fgaji fgaji = new Fgaji();
-		JSONArray data = fgaji.getNamaDanGajiBersih();
+		JSONArray data = fgaji.getNipNamaGajiBersihDiAtas10Jt();
 		//System.out.println(data);
-		showData(data,"nama","bersih");
-	} // ikan added test for testNamaDanStatusKawin
-	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
-		System.out.println(arrayData);
+		showData4Parameter(data,"nip", "nama", "bersih", "kdpangkat");
+	} // ikan added test for NamaDanGajiBersih
+	public static void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
+		//System.out.println(arrayData);
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);
-			System.out.println(obj);
-			String status = "";
-			if ((int)obj.get(fieldsb) == 1){
-				status = "Kawin";
-			}else{
-				status = "Tidak kawin";
-			}
-			System.out.println(obj.get(fieldsa)+ " "+ ": "+status );
+			//	System.out.println(obj);
+			System.out.println("+-------------------------------------------------------+");
+			System.out.println("|"+obj.get(fieldsa)+ " "+ ": "+obj.get(fieldsb)+ " "+ ": "+obj.get(fieldsc)+ " "+ ": "+obj.get(fieldsd)+"|" );
 		}
 	}
 }
