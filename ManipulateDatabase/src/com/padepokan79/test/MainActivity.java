@@ -11,6 +11,7 @@ public class MainActivity {
 		testNamaDanStatusKawin();
 		testNamaDanLakiJomblo();
 		NipNamaGajiBersihDiAtas10Jt(); // add by wandi
+		
 	}
 	public static void testNamaDanLakiJomblo(){
 		Fgaji fgaji = new Fgaji();
@@ -62,4 +63,5 @@ public class MainActivity {
 			System.out.println(obj.get(fieldsa)+ " "+ ": "+obj.get(fieldsb)+ " "+ ": "+obj.get(fieldsc)+ " "+ ": "+obj.get(fieldsd) );
 		}
 	}
+
 }
