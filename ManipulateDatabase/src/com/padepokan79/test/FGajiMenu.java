@@ -126,8 +126,13 @@ public class FGajiMenu{
 			System.out.println("+---------------------------------------------------------------------------+");
 		}
 	}
+	
+	
+	
 	public static void main(String args[]) {
 		FGajiMenu fg=new FGajiMenu();
 		fg.mainMenu();
 	}
+	
+	
 }
