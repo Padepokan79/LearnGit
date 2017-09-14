@@ -34,7 +34,7 @@ public class MainActivity {
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanStatusKawin();
 		//System.out.println(data);
-		showData(data,"nama","kdstawin");
+		showData(data,"nama","bersih");// mengganti kdstawin ke bersih
 	} // ikan added test for testNamaDanStatusKawin
 	
 	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
