@@ -10,7 +10,7 @@ public interface ListQuery {
 	public final String queryJombloMasaKerjaDiatas10thn = // add by selfi
 			"select NIP, NAMA, MASKER, KDSTAWIN FROM fgaji where MASKER > 10 and KDSTAWIN=1 limit 0,10;";
 	public final String queryNamaJandaKembang = 
-			"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"; //add by siska
+			"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=2 and janak=0 limit 0,10;"; //add by siska
 	public final String queryNamaUsiaAntara25Sampai35 = //add by rzkypprtm
 			"SELECT nip, nama, bersih, kdpangkat, TGLLHR as usia from fgaji where kdstawin = '1' and TGLLHR <= '1992/09/14' and TGLLHR >= '1982/09/14' limit 0,10";
 	public final String queryNamaSuperDad = 
