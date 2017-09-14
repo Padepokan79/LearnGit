@@ -8,7 +8,7 @@ import com.padepokan79.model.Fgaji;
 public class MainActivity {
 
 	public static void main(String[] args) {
-	
+		menuUtama();
 	}
 	// Editing By Sandi
 	
