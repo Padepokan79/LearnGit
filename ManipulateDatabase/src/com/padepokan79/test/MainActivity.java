@@ -31,7 +31,6 @@ public class MainActivity {
 		input = in.nextInt();
 		
 		if (input==1) {
-			newGaji.main("null");
 		}
 	}
 
