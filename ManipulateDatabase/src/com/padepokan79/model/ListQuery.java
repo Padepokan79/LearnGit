@@ -76,4 +76,12 @@ public interface ListQuery {
 	public final String queryNamaKeluargaPNSyangPernahMenikahLaluCerai = // add by rzkypprtm
 			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
 	
+
+//===========================================================================================================================================
+//tabel 6 skpp_pegawai
+
+	public final String queryNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri =
+			"select NIP,NAMA,TJISTRI,TJANAK from skpp_pegawai where TJISTRI = 0 AND TJANAK > 0;";
+	public final String queryNamaPnsYangPensiunTahunIni =
+			"select NIP,NAMA,TMTPENSIUN from skpp_pegawai WHERE TMTPENSIUN >= '2017-01-01'  AND TMTPENSIUN <= '2017-12-31' LIMIT 50;";
 }
