@@ -93,7 +93,7 @@ public interface ListQuery {
 //==========================================================================================================================================================================
 //Tabel 7 
 	
-	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSebelum1MingguSesudahWafat = // add by rzkypprtm ?1 = TGLBAYAR, ?2 = TGLWAFAT, ?3 = 7(1minggu)
-			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (?-?) <= ? LIMIT ?, 10;";
+	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat = // add by rzkypprtm ? = 7(1minggu)
+			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (TGLBAYAR-TGLWAFAT) <= ? LIMIT ?, 10;";
 	
 }
