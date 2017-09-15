@@ -77,3 +77,5 @@ public interface ListQuery {
 			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
 	
 }
+
+
