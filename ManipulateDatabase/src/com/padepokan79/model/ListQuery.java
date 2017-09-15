@@ -19,6 +19,7 @@ public interface ListQuery {
 
 //========================================================================================================================================
 // tabel 2 SATKERJA
+
 	
 	public final String queryNamaAtasanDRSDanJabatanCamat =  // tambahan selfi
 			"SELECT SATKERJA,JAB_ATASAN,DESCSATKER,KOTA, NAMA_ATASA AS NAMA_ATASAN FROM satkerja WHERE NAMA_ATASA LIKE 'DRS%' AND JAB_ATASAN LIKE 'CAMAT%' ;";
@@ -91,3 +92,4 @@ public interface ListQuery {
 			"SELECT PENERBITSKEP as PENERBIT , COUNT(*) as Jumlah_Surat FROM skpp_pegawai GROUP BY PENERBITSKEP ORDER BY PENERBITSKEP, COUNT(*) desc;";
 
 }
+
