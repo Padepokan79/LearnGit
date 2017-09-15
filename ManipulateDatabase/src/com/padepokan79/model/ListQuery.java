@@ -78,4 +78,18 @@ public interface ListQuery {
 	public final String queryNamaKeluargaPNSyangPernahMenikahLaluCerai = // add by rzkypprtm
 			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
 
+//===========================================================================================================================================
+//tabel 6 skpp_pegawai
+
+	public final String queryNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri = // add by novan
+			"select NIP,NAMA,TJISTRI,TJANAK from skpp_pegawai where TJISTRI = 0 AND TJANAK > 0;";
+	public final String queryNamaPnsYangPensiunTahunIni = // add by selfi
+			"select NIP,NAMA,TMTPENSIUN from skpp_pegawai WHERE TMTPENSIUN >= '2017-01-01'  AND TMTPENSIUN <= '2017-12-31' LIMIT 50;";
+	public final String queryNamaPNSYangSkepnyaDiterbitkanOlehPresiden =
+			"select distinct nip,nama,tgllhr as Tanggal_Lahir, tmtstop as Tanggal_Berhenti,kdpangkat as Pangkat,masker as Masa_Kerja,penerbitskep as Penerbit from skpp_pegawai where masker > '20' and tmtstop < '2012-06-31' and penerbitskep like '%Presiden%' limit 50;";
+	public final String queryTampilkanJumlahSKPP_PNSberdasarkanKodePangkat = // add by rzkypprtm
+			"SELECT KDPANGKAT as Kode_Pangkat, COUNT(*) as Jumlah_PNS FROM skpp_pegawai GROUP BY KDPANGKAT ORDER BY KDPANGKAT, COUNT(*);";
+	public final String queryTampilkanJumlahSuratSKPPberdasarkanPenerbitnya = // add by rzkypprtm
+			"SELECT PENERBITSKEP as PENERBIT , COUNT(*) as Jumlah_Surat FROM skpp_pegawai GROUP BY PENERBITSKEP ORDER BY PENERBITSKEP, COUNT(*) desc;";
+
 }
