@@ -17,8 +17,9 @@ public interface ListQuery {
 			"SELECT nip,nama,kdjenkel,tgllhr,kdpangkat,masker,janak FROM fgaji where kdjenkel = 1 and kdpangkat=1  and masker > 20 and janak > 1 limit 0,10;"; //add by siska
 
 
-	//========================================================================================================================================
-	// tabel 2 SATKERJA
+
+//========================================================================================================================================
+// tabel 2 SATKERJA
 
 	public final String queryNamaAtasanDRSDanJabatanCamat =  // tambahan selfi
 	"SELECT SATKERJA,JAB_ATASAN,DESCSATKER,KOTA, NAMA_ATASA AS NAMA_ATASAN FROM satkerja WHERE NAMA_ATASA LIKE 'DRS%' AND JAB_ATASAN LIKE 'CAMAT%' ;";
@@ -62,10 +63,10 @@ public interface ListQuery {
 			"select NIP, JMLHUTANG,JMLBULAN from hutang ORDER BY JMLBULAN AND JMLHUTANG ASC limit 10;"; 
 
 
-
-	//===========================================================================================================================================
-	//tabel 5 keluarga
-
+	
+//===========================================================================================================================================
+//tabel 5 keluarga
+	
 	public final String queryPNSJombloWafat =
 			"select nip,nmkel as Nama,tglnikah,tglwafat from keluarga where tglnikah IS NULL and tglwafat IS NOT NULL limit 10;"; //add by siska
 	public final String queryPNSUsiaPernikahanPerak25tahun = // add by selfi
