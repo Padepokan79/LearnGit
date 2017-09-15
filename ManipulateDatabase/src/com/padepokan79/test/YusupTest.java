@@ -4,8 +4,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.model.Satker;
+import com.padepokan79.model.Twafat;
 
 public class YusupTest {
+	
+	//Add Yusup pada tabel Satker
+	
 	public static void testBendaharaPembantuDaftarGaji(){
 		Satker objSatker =new Satker();
 		JSONArray data = objSatker.getqueryBendaharaPembantuDaftarGaji(); 
@@ -65,8 +69,48 @@ public class YusupTest {
 	}//Yusup Add ShowData Hehe...
 	
 	
+	public static void testDaftarPegawaiYangMatiSebelumTahun2013(){
+		Twafat objwafat =new Twafat();
+		
+		JSONArray data = objwafat.getqueryDaftarPegawaiYangMatiSebelumTahun2013(); 
+		
+		showData(data,"nip","nama","tglwafat");
+	} // Yusup  added test for DaftarPegawaiYangMatiSebelumTahun2013
+	
+	public static void showData(JSONArray arrayData, String fNip, String fNama, String fTgl) {
+		//System.out.println(arrayData);
+		System.out.println("+--------------------------------------------------------+");
+		System.out.println("|         NIP         |        Nama       |Tanggal Wafat |");
+		System.out.println("+--------------------------------------------------------+");
+		String space;
+
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+
+			space=(String) obj.get(fNip);
+			System.out.print("| "+space);
+
+			space=(String) obj.get(fNama);
+			space = space.trim();
+			System.out.print("  | "+space);
+			for (int j = 0; j  <16-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			
+			System.out.print("  | "+ obj.get(fTgl));
+			for (int j = 0; j  <18-(space.length()); j++) {
+				System.out.print(" ");
+			}
+		
+			System.out.println("|");
+			System.out.println("+--------------------------------------------------------+");
+		}
+	}//Yusup Add ShowData Hehe...
+	
+	
 	public static void main(String args[]) {
-		testBendaharaPembantuDaftarGaji();
+		//testBendaharaPembantuDaftarGaji();
+		testDaftarPegawaiYangMatiSebelumTahun2013();
 	}
 		
 }
