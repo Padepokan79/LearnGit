@@ -2,9 +2,13 @@ package com.padepokan79.test;
 
 import java.io.BufferedReader;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.io.IOException;
 =======
 >>>>>>> origin/Controling
+=======
+import java.io.IOException;
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -15,33 +19,46 @@ import com.padepokan79.model.Fgaji;
 
 public class FGajiMenu{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	static MainActivity ma=new MainActivity();
 
 	public static void mainMenu () {//Modify by Ipin
 
+<<<<<<< HEAD
 =======
 	
 	
 	public void mainMenu () {//Modify by Ipin
 		BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 >>>>>>> origin/Controling
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		System.out.println("+------------------------------------------------------------------------------------+");
 		System.out.println("|                                      Submenu Gajih                                 |");
 		System.out.println("|------------------------------------------------------------------------------------|");
 		System.out.println("| 1. Nama dan Gaji Bersih | 2. Nama dan Status Kawin | 3. Nama laki -laki dan Jomblo |");
 		System.out.println("|------------------------------------------------------------------------------------|");
 <<<<<<< HEAD
+<<<<<<< HEAD
 		System.out.println("| 4. Nama dan Gaji Bersih | 2. Nama dan Status Kawin | 0. Menu Utama                 |");
 =======
 		System.out.println("| 4. Nama dan Gaji Bersih | 2. Nama dan Status Kawin | 3. Nama laki -laki dan Jomblo |");
 >>>>>>> origin/Controling
+=======
+		System.out.println("| 4. Nama dan Gaji Bersih | 2. Nama dan Status Kawin | 0. Menu Utama                 |");
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		System.out.println("+------------------------------------------------------------------------------------+");
 		try {
 			System.out.print("Masukan PIlihan : ");
 			String input=dataIn.readLine();
 			switch (input) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 			case "1":
 				testNamaDanGajiBersih();
 				break;
@@ -60,6 +77,7 @@ public class FGajiMenu{
 				break;
 			default:
 				System.out.println("Masukan anda tidak valid !");
+<<<<<<< HEAD
 =======
 				case "1":
 					testNamaDanGajiBersih();
@@ -76,6 +94,8 @@ public class FGajiMenu{
 				default:
 					System.out.println("Masukan anda tidak valid !");
 >>>>>>> origin/Controling
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 			}
 		} catch (Exception e) {
 			System.out.println("Exception Print !");
@@ -83,6 +103,9 @@ public class FGajiMenu{
 		}
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 
 	public static void backto()  {
 		String inp;
@@ -103,14 +126,18 @@ public class FGajiMenu{
 			System.out.println(e.getMessage());
 		}
 	}
+<<<<<<< HEAD
 =======
 	
 	
 >>>>>>> origin/Controling
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 
 	public static void testNamaDanLakiJomblo(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanLakiJomblo();
+<<<<<<< HEAD
 <<<<<<< HEAD
 		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
@@ -120,19 +147,25 @@ public class FGajiMenu{
 		JSONArray data = fgaji.getNamaDanGajiBersih();
 =======
 		//System.out.println(data);
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
-	
+
 	public static void testNamaDanGajiBersih(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanGajiBersih();
+<<<<<<< HEAD
 		
 >>>>>>> origin/Controling
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
 	public static void testNamaDanStatusKawin(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanStatusKawin();
+<<<<<<< HEAD
 <<<<<<< HEAD
 		showData(data,"nama","bersih");
 	} // ikan added test for testNamaDanStatusKawin
@@ -149,13 +182,26 @@ public class FGajiMenu{
 
 =======
 		//System.out.println(data);
+=======
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		showData(data,"nama","bersih");
 	} // ikan added test for testNamaDanStatusKawin
 	
+	 
+	public static void usiaAntara25Dan35(){
+		Fgaji fgaji = new Fgaji();
+		JSONArray data = fgaji.queryUsiaAntara25Sampai35();
+		showData(data,"nip","nama","bersih","kdpangkat","usia");
+	}
+	
 	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
 		//System.out.println(arrayData);
+<<<<<<< HEAD
 		
 >>>>>>> origin/Controling
+=======
+
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		System.out.println("+-------------------------------------------------+");
 		System.out.println("|   Nama                            |  Status     |");
 		System.out.println("+-------------------------------------------------+");
@@ -163,10 +209,14 @@ public class FGajiMenu{
 		for (int i = 0; i < arrayData.length(); i++) {//modify by Ipin
 			JSONObject obj =  arrayData.getJSONObject(i);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 			
 >>>>>>> origin/Controling
+=======
+
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 			String status = "";
 			if ((int)obj.get(fieldsb) == 1){
 				status = "Kawin";
@@ -174,6 +224,7 @@ public class FGajiMenu{
 				status = "Tidak kawin";
 			}
 			space=(String) obj.get(fieldsa);
+<<<<<<< HEAD
 <<<<<<< HEAD
 			space=space.trim();
 			System.out.print("|"+space);
@@ -184,12 +235,19 @@ public class FGajiMenu{
 			for (int j = 0; j <35-(space.length()); j++) {
 					System.out.print(" ");
 >>>>>>> origin/Controling
+=======
+			space=space.trim();
+			System.out.print("|"+space);
+			for (int j = 0; j <35-(space.length()); j++) {
+				System.out.print(" ");
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 			}
 			if (i>0) {
 				System.out.print("  ");
 			}
 			System.out.println("| "+status+" |");
 			System.out.println("---------------------------------------------------");
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 		}
@@ -230,20 +288,54 @@ public class FGajiMenu{
 
 =======
 			
+=======
+
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		}
-		
+		backto();
 	}
+	
+	// nip, nama, bersih, kdpangkat, TGLLHR as usia
+	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb,String fieldsc,String fieldsd,String fieldse) {
+
+		System.out.println("+------------------------------------------------------------------------------------------+");
+		System.out.println("| Nip              | Nama                       | Gaji      | Kode Pangkat | Tanggal lahir |");
+		System.out.println("+------------------------------------------------------------------------------------------+");
+		String space;
+		for (int i = 0; i < arrayData.length(); i++) {//modify by Ipin
+			JSONObject obj =  arrayData.getJSONObject(i);
+
+			space=(String) obj.get(fieldsb);
+			space=space.trim();
+			System.out.print("|"+obj.get(fieldsa));
+			System.out.print("|"+space);
+			for (int j = 0; j <28-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("| Rp."+obj.get(fieldsc));
+			System.out.print("|     "+obj.get(fieldsd));
+			System.out.println("       |   "+obj.get(fieldse)+"  |");
+			System.out.println("+------------------------------------------------------------------------------------------+");
+
+		}
+		backto();
+	}
+	
 	public static void NipNamaGajiBersihDiAtas10Jt(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNipNamaGajiBersihDiAtas10Jt();
-		//System.out.println(data);
 		showData(data,"nip", "nama", "bersih", "kdpangkat");
 	} // ikan added test for NamaDanGajiBersih
+<<<<<<< HEAD
 >>>>>>> origin/Controling
+=======
+
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 	//update data NipNamaGajiBersihDiAtas10Jt
 	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------+");
+<<<<<<< HEAD
 <<<<<<< HEAD
 		System.out.println("|   NIP            |        Nama              | Gaji         |     Golongan |");
 		System.out.println("+---------------------------------------------------------------------------+");
@@ -255,6 +347,12 @@ public class FGajiMenu{
 		String space;
 		
 >>>>>>> origin/Controling
+=======
+		System.out.println("|   NIP            |        Nama              | Gaji         |     Golongan |");
+		System.out.println("+---------------------------------------------------------------------------+");
+		String space;
+
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 			//	System.out.println(obj);
@@ -264,6 +362,7 @@ public class FGajiMenu{
 			for (int j = 0; j  <24-(space.length()); j++) {
 				System.out.print(" ");
 			}
+<<<<<<< HEAD
 <<<<<<< HEAD
 			System.out.print("| Rp."+obj.get(fieldsc));
 			System.out.println("  |       "+obj.get(fieldsd)+"     |");
@@ -277,8 +376,16 @@ public class FGajiMenu{
 			System.out.print("|  "+obj.get(fieldsc));
 			System.out.println("    |       "+obj.get(fieldsd)+"     |");
 			System.out.println("+---------------------------------------------------------------------------+");
+=======
+			System.out.print("| Rp."+obj.get(fieldsc));
+			System.out.println("  |       "+obj.get(fieldsd)+"     |");
+			System.out.println("+-------------------------------------------------------------------------------+");
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 		}
+
+		backto();
 	}
+<<<<<<< HEAD
 	
 	
 	
@@ -289,6 +396,9 @@ public class FGajiMenu{
 		
 	}
 >>>>>>> origin/Controling
+=======
+
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 	// update janda kembang indra
 	public static void getNamaJandaKembang(){
 		Fgaji fgaji = new Fgaji();
@@ -318,9 +428,13 @@ public class FGajiMenu{
 			System.out.println("+---------------------------------------------------------------------------------+");
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> origin/Controling
+=======
+
+>>>>>>> f6b18d8ba36ee1ed9db6fd626d2543f2b3d0c201
 	}
 	
 	
