@@ -17,11 +17,11 @@ public interface ListQuery {
 			"SELECT nip,nama,kdjenkel,tgllhr,kdpangkat,masker,janak FROM fgaji where kdjenkel = 1 and kdpangkat=1  and masker > 20 and janak > 1 limit 0,10;"; //add by siska
 
 
-//========================================================================================================================================
-// tabel 2 SATKERJA
-	
+	//========================================================================================================================================
+	// tabel 2 SATKERJA
+
 	public final String queryNamaAtasanDRSDanJabatanCamat =  // tambahan selfi
-			"SELECT SATKERJA,JAB_ATASAN,DESCSATKER,KOTA, NAMA_ATASA AS NAMA_ATASAN FROM satkerja WHERE NAMA_ATASA LIKE 'DRS%' AND JAB_ATASAN LIKE 'CAMAT%' ;";
+	"SELECT SATKERJA,JAB_ATASAN,DESCSATKER,KOTA, NAMA_ATASA AS NAMA_ATASAN FROM satkerja WHERE NAMA_ATASA LIKE 'DRS%' AND JAB_ATASAN LIKE 'CAMAT%' ;";
 	public final String queryKepalaDinasHaji = 
 			"select SATKERJA,descsatker,nama_atasa,jab_atasan from satkerja where descsatker like '%dinas%' and nama_atasa like 'h%' ;"; //add by siska	
 	public final String queryBendaharaPembantuDaftarGaji = 
@@ -33,8 +33,8 @@ public interface ListQuery {
 
 
 
-//===========================================================================================================================================
-//tabel 3 twafat
+	//===========================================================================================================================================
+	//tabel 3 twafat
 
 	public final String queryNIPNamaTanggalWafat = // add by rzkypprtm
 			"SELECT twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT FROM twafat,mstpegawai WHERE twafat.NIP = mstpegawai.NIP AND twafat.TGLWAFAT > '2014/04/31';";
@@ -46,10 +46,10 @@ public interface ListQuery {
 			"SELECT twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT FROM twafat,mstpegawai WHERE twafat.TGLWAFAT < '2013/00/10' AND twafat.TGLSTOP < '2013/00/10' limit 0,10;";
 	public final String queryPNSYangMatinyaPalingLama = // add by rzkypprtm
 			"SELECT twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT FROM twafat,mstpegawai ORDER BY twafat.TGLWAFAT asc limit 1;";
-	
-//===========================================================================================================================================
-//tabel 4 hutang
-	
+
+	//===========================================================================================================================================
+	//tabel 4 hutang
+
 	public final String queryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun = // add by rzkypprtm
 			"SELECT hutang.NIP, mstpegawai.nama as Nama, hutang.JMLHUTANG as Jumlah_Hutang, hutang.JMLBULAN FROM hutang, mstpegawai WHERE hutang.JMLHUTANG > 10000000 AND hutang.JMLBULAN > 12 limit 0,10;";
 	public final String queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan = // add by rzkypprtm
@@ -59,16 +59,22 @@ public interface ListQuery {
 	public final String queryHutangPalingBanyak = // add by selfi
 			"SELECT hutang.NIP, mstpegawai.nama, hutang.JMLHUTANG AS JUMLAH_HUTANG from hutang,mstpegawai WHERE hutang.NIP=mstpegawai.NIP order by JUMLAH_HUTANG DESC LIMIT 10;";
 	public final String queryHutangPalingbanyak = // add by selfi
-	"select NIP, JMLHUTANG,JMLBULAN from hutang ORDER BY JMLBULAN AND JMLHUTANG ASC limit 10;"; 
+			"select NIP, JMLHUTANG,JMLBULAN from hutang ORDER BY JMLBULAN AND JMLHUTANG ASC limit 10;"; 
 
-	
-//===========================================================================================================================================
-//tabel 5 keluarga
+
+
+	//===========================================================================================================================================
+	//tabel 5 keluarga
+
 	public final String queryPNSJombloWafat =
 			"select nip,nmkel as Nama,tglnikah,tglwafat from keluarga where tglnikah IS NULL and tglwafat IS NOT NULL limit 10;"; //add by siska
 	public final String queryPNSUsiaPernikahanPerak25tahun = // add by selfi
 			"select NIP, NMKEL as NAMAKELUARGA,TGLNIKAH from keluarga where TGLNIKAH > '1992-01-01' AND TGLNIKAH < '1992-12-30';";
 	public final String queryPNSjomblosejati = // add by nopan
 			"select NMKEL,TGLLHR,TGLNIKAH from keluarga where TGLLHR <= '1987/09/15' AND TGLNIKAH IS NULL;";
-	
+	public final String queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri = // add by rzkypprtm
+			"SELECT NIP, NMKEL as Nama, TGLNIKAH, NIPSUAMIISTRI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND NIPSUAMIISTRI IS NOT NULL AND NOT NIPSUAMIISTRI = '';";
+	public final String queryNamaKeluargaPNSyangPernahMenikahLaluCerai = // add by rzkypprtm
+			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
+
 }
