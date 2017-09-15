@@ -21,7 +21,7 @@ public class MainTest {
 		System.out.println("|   NIP            |        Nama              | Status Perkawinan  |  Jumlah Anak |");
 		System.out.println("+---------------------------------------------------------------------------------+");
 		String space;
-	
+		
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 			//	System.out.println(obj);
@@ -29,7 +29,6 @@ public class MainTest {
 			System.out.print("|"+obj.get(fieldsa));		
 			space=space.trim();
 			System.out.print("|"+space);
-			
 			for (int j = 0; j  <26-(space.length()); j++) {
 				System.out.print(" ");}
 			System.out.print("|           "+obj.get(fieldsc));
