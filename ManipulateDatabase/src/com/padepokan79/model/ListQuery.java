@@ -96,19 +96,12 @@ public interface ListQuery {
 //Tabel 7 fgaji_uangduka
 	
 
-	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSebelum1MingguSesudahWafat = // add by rzkypprtm ?1 = TGLBAYAR, ?2 = TGLWAFAT
-			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (?-?) <= 7 LIMIT ?, 10;";
 	public final String queryTGLWafatTahun2016DanUangBersihLebihDari1Jt = // add by selfi, ? 2016-01-01 (sesuai tahun dan bulan)  , ?= sesuai Nominal gaji
 			"select NIP,TGLWAFAT,BERSIH from fgaji_uangduka where TGLWAFAT > ? AND BERSIH > ? limit 0,10;";
 	public final String queryNamaPNSYangMeningglTanpaTunjanganAnakIstri = //add by siska
-<<<<<<< HEAD
 			"select distinct fgaji_uangduka.NIP,mstpegawai.NAMA as Nama,tglwafat,tjistri,tjanak  from fgaji_uangduka,mstpegawai where fgaji_uangduka.NIP = mstpegawai.NIP and tjistri=? and tjanak=? limit 0,10;";
 	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSebelum1MingguSesudahWafat = // add by rzkypprtm ?1 = TGLBAYAR, ?2 = TGLWAFAT, ?3 = 7(1minggu)
 			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (?-?) <= ? LIMIT ?, 10;";
-=======
-			"select distinct fgaji_uangduka.NIP,mstpegawai.NAMA as Nama,tglwafat,tjistri,tjanak  from fgaji_uangduka,mstpegawai where fgaji_uangduka.NIP = mstpegawai.NIP and tjistri='' and tjanak='' limit 0,10;";
 
->>>>>>> origin/modeling
-	
 }
 
