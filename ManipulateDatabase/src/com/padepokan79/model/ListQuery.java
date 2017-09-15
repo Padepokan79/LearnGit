@@ -95,4 +95,7 @@ public interface ListQuery {
 	
 	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSebelum1MingguSesudahWafat = // add by rzkypprtm ?1 = TGLBAYAR, ?2 = TGLWAFAT
 			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (?-?) <= 7 LIMIT ?, 10;";
+	public final String queryTGLWafatTahun2016DanUangBersihLebihDari1Jt = // add by selfi, ? 2016-01-01 (sesuai tahun dan bulan)  , ?= sesuai Nominal gaji
+			"select NIP,TGLWAFAT,BERSIH from fgaji_uangduka where TGLWAFAT > ? AND BERSIH > ? limit 0,10;";
+
 }
