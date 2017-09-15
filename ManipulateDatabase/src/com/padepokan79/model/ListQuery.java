@@ -95,21 +95,16 @@ public interface ListQuery {
 //==========================================================================================================================================================================
 //Tabel 7 fgaji_uangduka
 	
-<<<<<<< HEAD
+
 	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat = // add by rzkypprtm ? = 7(1minggu)
 			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (TGLBAYAR-TGLWAFAT) <= ? LIMIT ?, 10;";
-	
-}
-=======
-
 	public final String queryTGLWafatTahun2016DanUangBersihLebihDari1Jt = // add by selfi, ? 2016-01-01 (sesuai tahun dan bulan)  , ?= sesuai Nominal gaji
 			"select NIP,TGLWAFAT,BERSIH from fgaji_uangduka where TGLWAFAT > ? AND BERSIH > ? limit 0,10;";
-	public final String queryNamaPNSYangMeningglTanpaTunjanganAnakIstri = //add by siska
+	public final String queryNamaPNSYangMeningglTanpaTunjanganAnakIstri = // add by siska
 			"select distinct fgaji_uangduka.NIP,mstpegawai.NAMA as Nama,tglwafat,tjistri,tjanak  from fgaji_uangduka,mstpegawai where fgaji_uangduka.NIP = mstpegawai.NIP and tjistri=? and tjanak=? limit 0,10;";
-	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSebelum1MingguSesudahWafat = // add by rzkypprtm ?1 = TGLBAYAR, ?2 = TGLWAFAT, ?3 = 7(1minggu)
-			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (?-?) <= ? LIMIT ?, 10;";
-	public final String queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak =
+	public final String queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak = // add by novan
 			"select NIP,TGLWAFAT,TJISTRI,TJANAK from fgaji_uangduka where TGLWAFAT <= ? AND (TJISTRI > ? AND TJANAK = ?) ;";
-
+	public final String queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi = // add by rzkypprtm ?1 = 0 , ?2= 0
+			"SELECT COUNT(TJESELON) as JUMLAH_PNS_NonTJSESLON_NonTJFUNGSI FROM fgaji_uangduka WHERE TJESELON = '?' AND TJFUNGSI = '?' LIMIT ?, 10;";
 }
->>>>>>> origin/modeling
+
