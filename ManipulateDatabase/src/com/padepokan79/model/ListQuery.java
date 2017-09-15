@@ -64,10 +64,16 @@ public interface ListQuery {
 	
 //===========================================================================================================================================
 //tabel 5 keluarga
+	
 	public final String queryPNSJombloWafat =
 			"select nip,nmkel as Nama,tglnikah,tglwafat from keluarga where tglnikah IS NULL and tglwafat IS NOT NULL limit 10;"; //add by siska
 	public final String queryPNSUsiaPernikahanPerak25tahun = // add by selfi
 			"select NIP, NMKEL as NAMAKELUARGA,TGLNIKAH from keluarga where TGLNIKAH > '1992-01-01' AND TGLNIKAH < '1992-12-30';";
-
+	public final String queryPNSjomblosejati = // add by nopan
+			"select NMKEL,TGLLHR,TGLNIKAH from keluarga where TGLLHR <= '1987/09/15' AND TGLNIKAH IS NULL;";
+	public final String queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri = // add by rzkypprtm
+			"SELECT NIP, NMKEL as Nama, TGLNIKAH, NIPSUAMIISTRI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND NIPSUAMIISTRI IS NOT NULL AND NOT NIPSUAMIISTRI = '';";
+	public final String queryNamaKeluargaPNSyangPernahMenikahLaluCerai = // add by rzkypprtm
+			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
 	
 }
