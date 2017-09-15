@@ -77,6 +77,7 @@ public interface ListQuery {
 	public final String queryNamaKeluargaPNSyangPernahMenikahLaluCerai = // add by rzkypprtm
 			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
 
+	
 //===========================================================================================================================================
 //tabel 6 skpp_pegawai
 
