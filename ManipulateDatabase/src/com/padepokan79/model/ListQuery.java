@@ -94,5 +94,5 @@ public interface ListQuery {
 //Tabel 7 
 	
 	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSebelum1MingguSesudahWafat = // add by rzkypprtm ?1 = TGLBAYAR, ?2 = TGLWAFAT
-			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (TGLBAYAR-TGLWAFAT) <= 7 LIMIT ?, 10;";
+			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka WHERE a.NIP = b.NIP AND (?-?) <= 7 LIMIT ?, 10;";
 }
