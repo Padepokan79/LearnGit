@@ -66,7 +66,8 @@ public interface ListQuery {
 //tabel 5 keluarga
 	public final String queryPNSJombloWafat =
 			"select nip,nmkel as Nama,tglnikah,tglwafat from keluarga where tglnikah IS NULL and tglwafat IS NOT NULL limit 10;"; //add by siska
-
+	public final String queryPNSUsiaPernikahanPerak25tahun = // add by selfi
+			"select NIP, NMKEL as NAMA,TGLNIKAH from keluarga where TGLNIKAH > '1992-01-01' AND TGLNIKAH < '1992-12-30';";
 
 	
 }
