@@ -3,58 +3,94 @@ package com.padepokan79.test;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Fgaji;
+import com.padepokan79.model.Satker;
 
 public class SandiTest {
 	
-	public static void namaSuperDad(){
-		Fgaji fgaji = new Fgaji();
-		JSONArray data = fgaji.getNamaSuperDad();
+	public static void kepalaDinasHaji(){
+		Satker satkerja = new Satker();
+		JSONArray data = satkerja.getqueryKepalaDinasHaji();
 		//System.out.println(data);
-		showData(data,"nip", "nama", "kdjenkel", "tgllhr","kdpangkat","masker","janak");
+		showData(data,"satkerja", "descsatker", "nama_atasa", "jab_atasan");
 	} 
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat, String fLima, String fEnam, String fTujuh) {
+	public static void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat) {
 		//System.out.println(arrayData);
-		System.out.println("+---------------------------------------------------------------------------------------------------------------------------+");
-		System.out.println("|        Nip         |           Nama           |  Jenis Kelamin  | Tanggal Lahir | Kode Pangkat | Masa Kerja | Jumlah Anak |");
-		System.out.println("+---------------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("| Satuan Kerja |            Deskripsi Satuan Kerja            |                 Nama Atasan                 |               Jabatan Atasan               |");
+		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------+");
 		String space;
 		
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 			
 			space=(String) obj.get(fSatu);
-			System.out.print("| "+space);
+			System.out.print("|      "+space);
 			
 			space=(String) obj.get(fDua);
 			space = space.trim();
-			System.out.print(" | "+space);
-			for (int j = 0; j  <24-(space.length()); j++) {
+			System.out.print("     | "+space);
+			for (int j = 0; j  <40-(space.length()); j++) {
 				System.out.print(" ");
 			}
 			
-			if (obj.get(fTiga).equals(1)) {
-				space = "Laki Laki";
-			}else {
-				space = "Perempuan";
+			space=(String) obj.get(fTiga);
+			space = space.trim();
+			System.out.print("     | "+space);
+			for (int j = 0; j  <40-(space.length()); j++) {
+				System.out.print(" ");
 			}
-			System.out.print(" |    "+space);
 			
-			System.out.print("    |   "+obj.get(fEmpat));
+			space=(String) obj.get(fEmpat);
+			space = space.trim();
+			System.out.print("    | "+space);
+			for (int j = 0; j  <43-(space.length()); j++) {
+				System.out.print(" ");
+			}
 			
-			System.out.print("  |      "+obj.get(fLima));
+			System.out.println("|");
+					
+			System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------+");
+		}
+	}
+	
+	public static void JumlahPegawaiYangKerjaDiDinasKesehatan(){
+		Satker satkerja = new Satker();
+		JSONArray data = satkerja.getqueryJumlahPegawaiYangKerjaDiDinasKesehatan();
+		//System.out.println(data);
+		showData(data,"satuan_kerja", "count(*)");
+	} 
+	
+	public static void showData(JSONArray arrayData, String fSatu, String fDua) {
+		//System.out.println(arrayData);
+		System.out.println("+---------------------------------------------+");
+		System.out.println("|            Satuan Kerja            | Jumlah |");
+		System.out.println("+---------------------------------------------+");
+		String space;
+		
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
 			
-			System.out.print("      |     "+obj.get(fEnam));
+			space=(String) obj.get(fSatu);
+			space = space.trim();
+			System.out.print("| "+space);
+			for (int j = 0; j  <35-(space.length()); j++) {
+				System.out.print(" ");
+			}
 			
-			System.out.println("     |      "+obj.get(fTujuh)+"      |");
+			System.out.print("|    "+obj.get(fDua));
 			
-			System.out.println("+---------------------------------------------------------------------------------------------------------------------------+");
+			
+			
+					
+			System.out.println("   |");
+					
+			System.out.println("+---------------------------------------------+");
 		}
 	}
 	
 	public static void main(String args[]) {
-		namaSuperDad();
+		JumlahPegawaiYangKerjaDiDinasKesehatan();
 	}
 
 }
