@@ -1,7 +1,6 @@
 package com.padepokan79.test;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -16,6 +15,7 @@ public class FGajiMenu{
 
 	public static void mainMenu () {//Modify by Ipin
 
+
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                      Submenu Gajih                                                 |");
 		System.out.println("|----------------------------------------------------------------------------------------------------|");
@@ -25,7 +25,7 @@ public class FGajiMenu{
 		System.out.println("|----------------------------------------------------------------------------------------------------|");
 		System.out.println("| 7. Super Dad                    |                                  | 0. Menu Utama                 |");
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
-		
+
 		try {
 			System.out.print("Masukan PIlihan : ");
 			String input=dataIn.readLine();
@@ -57,12 +57,12 @@ public class FGajiMenu{
 			default:
 				System.out.println("Masukan anda tidak valid !");
 			}
-			
+
 		} catch (Exception e) {
 			System.out.println("Exception Print !");
 			System.out.println(e.getMessage());
 		}
-		
+
 	}
 
 	public static void backto()  {
@@ -89,14 +89,14 @@ public class FGajiMenu{
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanLakiJomblo();
 		showData(data,"nama","bersih");
-	} // ikan added test for NamaDanGajiBersih
+	}
 
 	public static void testNamaDanGajiBersih(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanGajiBersih();
 		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
-	
+
 	public static void testNamaDanStatusKawin(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanStatusKawin();
@@ -130,14 +130,12 @@ public class FGajiMenu{
 	} 
 
 	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
-
 		System.out.println("+-------------------------------------------------+");
 		System.out.println("|   Nama                            |  Status     |");
 		System.out.println("+-------------------------------------------------+");
 		String space;
 		for (int i = 0; i < arrayData.length(); i++) {//modify by Ipin
 			JSONObject obj =  arrayData.getJSONObject(i);
-
 			String status = "";
 			if ((int)obj.get(fieldsb) == 1){
 				status = "Kawin";
@@ -155,7 +153,6 @@ public class FGajiMenu{
 			}
 			System.out.println("| "+status+" |");
 			System.out.println("---------------------------------------------------");
-
 		}
 		backto();
 	}
@@ -187,14 +184,12 @@ public class FGajiMenu{
 	}
 
 
-	//update data NipNamaGajiBersihDiAtas10Jt
 	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------+");
 		System.out.println("|   NIP            |        Nama              | Gaji         |     Golongan |");
 		System.out.println("+---------------------------------------------------------------------------+");
 		String space;
-
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);
 			space=(String) obj.get(fieldsb);
@@ -210,7 +205,6 @@ public class FGajiMenu{
 
 		backto();
 	}
-
 
 	public static void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
 		//System.out.println(arrayData);
@@ -232,7 +226,7 @@ public class FGajiMenu{
 			System.out.println("        |       "+obj.get(fieldsd)+"      |");
 			System.out.println("+---------------------------------------------------------------------------------+");
 		}
-		
+
 		backto();
 	}
 
@@ -276,9 +270,8 @@ public class FGajiMenu{
 		backto();
 	}
 
-public static void main(String args[]) {
+	public static void main(String args[]) {
 		FGajiMenu fg=new FGajiMenu();
 		fg.mainMenu();
 	}
-	
 }
