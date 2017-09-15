@@ -19,6 +19,10 @@ public interface ListQuery {
 
 //========================================================================================================================================
 // tabel 2 SATKERJA
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ceee6ad3a084ab93ca466e863e3ced345816057
 	
 	public final String queryNamaAtasanDRSDanJabatanCamat =  // tambahan selfi
 			"SELECT SATKERJA,JAB_ATASAN,DESCSATKER,KOTA, NAMA_ATASA AS NAMA_ATASAN FROM satkerja WHERE NAMA_ATASA LIKE 'DRS%' AND JAB_ATASAN LIKE 'CAMAT%' ;";
@@ -61,6 +65,7 @@ public interface ListQuery {
 	public final String queryHutangPalingbanyak = // add by selfi
 	"select NIP, JMLHUTANG,JMLBULAN from hutang ORDER BY JMLBULAN AND JMLHUTANG ASC limit 10;"; 
 
+<<<<<<< HEAD
 	
 //===========================================================================================================================================
 //tabel 5 keluarga
@@ -79,3 +84,6 @@ public interface ListQuery {
 }
 
 
+=======
+}
+>>>>>>> 4ceee6ad3a084ab93ca466e863e3ced345816057
