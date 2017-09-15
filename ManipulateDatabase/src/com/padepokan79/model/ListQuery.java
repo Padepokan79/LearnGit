@@ -10,7 +10,7 @@ public interface ListQuery {
 	public final String queryJombloMasaKerjaDiatas10thn = // add by selfi
 			"select NIP, NAMA, MASKER, KDSTAWIN FROM fgaji where MASKER > 10 and KDSTAWIN=0 limit 0,10;";
 	public final String queryNamaJandaKembang = 
-			"SELECT DISTINCT nip,nama,kdjenkel,kdstawin,janak FROM fgaji where kdjenkel=2 and kdstawin=3 and janak=0 limit 100;"; //add by siska
+			"SELECT distinct nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"; //add by siska
 	public final String queryNamaUsiaAntara25Sampai35 = //add by rzkypprtm
 			"SELECT nip, nama, bersih, kdpangkat, TGLLHR as usia from fgaji where kdstawin = '1' and TGLLHR <= '1992/09/14' and TGLLHR >= '1982/09/14' limit 0,10;";
 	public final String queryNamaSuperDad = 
@@ -60,11 +60,20 @@ public interface ListQuery {
 			"SELECT hutang.NIP, mstpegawai.nama, hutang.JMLHUTANG AS JUMLAH_HUTANG from hutang,mstpegawai WHERE hutang.NIP=mstpegawai.NIP order by JUMLAH_HUTANG DESC LIMIT 10;";
 	public final String queryHutangPalingbanyak = // add by selfi
 	"select NIP, JMLHUTANG,JMLBULAN from hutang ORDER BY JMLBULAN AND JMLHUTANG ASC limit 10;"; 
-	
+
 	
 //===========================================================================================================================================
-//tabel 5 
+//tabel 5 keluarga
 	
-	
+	public final String queryPNSJombloWafat =
+			"select nip,nmkel as Nama,tglnikah,tglwafat from keluarga where tglnikah IS NULL and tglwafat IS NOT NULL limit 10;"; //add by siska
+	public final String queryPNSUsiaPernikahanPerak25tahun = // add by selfi
+			"select NIP, NMKEL as NAMAKELUARGA,TGLNIKAH from keluarga where TGLNIKAH > '1992-01-01' AND TGLNIKAH < '1992-12-30';";
+	public final String queryPNSjomblosejati = // add by nopan
+			"select NMKEL,TGLLHR,TGLNIKAH from keluarga where TGLLHR <= '1987/09/15' AND TGLNIKAH IS NULL;";
+	public final String queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri = // add by rzkypprtm
+			"SELECT NIP, NMKEL as Nama, TGLNIKAH, NIPSUAMIISTRI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND NIPSUAMIISTRI IS NOT NULL AND NOT NIPSUAMIISTRI = '';";
+	public final String queryNamaKeluargaPNSyangPernahMenikahLaluCerai = // add by rzkypprtm
+			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
 	
 }
