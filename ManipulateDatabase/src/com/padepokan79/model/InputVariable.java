@@ -20,4 +20,9 @@ public class InputVariable {
 	//getMenampilkanDataNamaYangHurufAwalADanPangkat3D
 	public static String inputHurufAwal;
 	public static String inputKodePangkat;
+	
+	//getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan
+	public static String inputTempatLahir;
+	public static String inputJenisKelamin;
+	
 }
