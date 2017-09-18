@@ -17,7 +17,7 @@ public class MainTest {
 	public static void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------------------+");
-		System.out.println("|            NIP           |            Nama           |  Jumlah Hutang  | Jumlah Bulan | ");
+		System.out.println("|            NIP           |            Nama          |  Jumlah Hutang   | Jumlah Bulan | ");
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		String space;
 		
@@ -34,18 +34,18 @@ public class MainTest {
 			space=(String) obj.get(fieldb);
 			space = space.trim();
 			System.out.print("|"+space);
-			for (int j = 0; j  <27-(space.length()); j++) {
+			for (int j = 0; j  <26-(space.length()); j++) {
 				System.out.print(" ");
 			}
 			System.out.print("|");
 			System.out.print(obj.get(fieldc));
-			for (int j = 0; j  <18-(space.length()); j++) {
+			for (int j = 0; j  <25-(space.length()); j++) {
 				System.out.print(" ");
 			}
 			System.out.print("|");
 			space = space.trim();
 			System.out.print(obj.get(fieldd));
-			for (int j = 0; j  <15-(space.length()); j++) {
+			for (int j = 0; j  <27-(space.length()); j++) {
 				System.out.print(" ");
 			}
 			//
@@ -63,7 +63,13 @@ public class MainTest {
 //			}
 			
 			System.out.println("|");
+			space = space.trim();
+			for (int j = 0; j  <10-(space.length()); j++) {
+				System.out.print(" ");
+			}
 			System.out.println("+----------------------------------------------------------------------------------------+");
 		}
 	}	
+	
+	
 }
