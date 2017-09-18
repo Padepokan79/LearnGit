@@ -2,25 +2,26 @@ package com.padepokan79.test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.FgajiUangDuka;
 import com.padepokan79.model.InputVariable;
+import com.padepokan79.model.UrtNIP;
 
-public class MainDuka extends InputVariable {
-	public static Scanner bf=new Scanner( System.in );
+
+public class IpinTest extends InputVariable {
+	public static BufferedReader bf=new BufferedReader(new InputStreamReader( System.in) );
 	public static String input;
+	public static UrtNIP utp=new UrtNIP();
 	//NIP, NAMA, TGLWAFAT, TGLBAYAR
 	public static void tesNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
-		FgajiUangDuka fju=new FgajiUangDuka();
+		
 		try {
 			System.out.print("Masukan lama uang duka yang diterima keluarga : ");
-			inputHari=bf.nextInt();
-			JSONArray data = fju.getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat();
-			showData_skpp(data,"nip","nama","tglwafat","tglbayar");
+			inputMasakerja=bf.readLine();
+			JSONArray data = utp.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+			showData_skpp(data,"nip","nama","npwp","masa_kerja","golongan","jab_struktur");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
@@ -28,7 +29,7 @@ public class MainDuka extends InputVariable {
 
 	}
 
-	public static void showData_skpp(JSONArray arrayData, String pa, String pb,String pc,String pd) {
+	public static void showData_skpp(JSONArray arrayData, String pa, String pb,String pc,String pd,String pe,String pf) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------+");
 		System.out.println("|                Penerbit             |Jumlah Surat|");
@@ -54,7 +55,9 @@ public class MainDuka extends InputVariable {
 				System.out.print(" ");
 			}
 			System.out.print(" | "+obj.get(pc)+" |");
-			System.out.println(" "+obj.get(pd)+" |");
+			System.out.print(" | "+obj.get(pd)+" |");
+			System.out.print(" | "+obj.get(pe)+" |");
+			System.out.println(" "+obj.get(pf)+" |");
 			System.out.println("+--------------------------------------------------+");
 		}
 
@@ -63,7 +66,7 @@ public class MainDuka extends InputVariable {
 
 
 	public static void main(String args[]) {
-		MainDuka md=new MainDuka();
-		md.tesNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat();
+		IpinTest it=new IpinTest();
+		it.tesNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat();
 	}
 }

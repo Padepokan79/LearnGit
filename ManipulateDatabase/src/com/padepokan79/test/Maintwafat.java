@@ -278,4 +278,10 @@ public class Maintwafat {
 			System.out.println("+--------------------------------------------------------+");
 		}
 	}//Yusup Add ShowData Hehe...
+	
+	public static void main(String args[]) {
+		Maintwafat mt=new Maintwafat();
+		
+		mt.mainMenu();
+	}
 }
