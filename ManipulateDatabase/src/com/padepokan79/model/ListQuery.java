@@ -178,7 +178,10 @@ public interface ListQuery {
 			"select tahun_pajak,nourt,nama_peg,jabatan_gol,awal_pajak,akhir_pajak from form_1721_a2 where tahun_pajak='?' and jabatan_gol like '%?%' order by nourt desc limit 0,10;";
 	public final String queryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum = // add by rzkypprtm
 			"SELECT JABATAN_GOL, Status, COUNT(*) FROM form_1721_a2 GROUP BY JABATAN_GOL, Status  ORDER BY JABATAN_GOL;";
-
+	public final String queryMenampilkanStatusYangBelumBayarPajakDanLakiLaki = // add by selfi
+			"select * from form_1721_a2 where status like ? and sex like ? order by Tahun_Pajak ASC  limit ?,10;"; // ?1 0/1 ?2 1/2
+	public final String queryMenampilkanYangSudahAdaNPWP = // Add by selfi
+			"select * from form_1721_a2 where not Npwp_Peg like '0%' and not Npwp_Peg like '' limit ?,10;"; // 
 	
 
 }
