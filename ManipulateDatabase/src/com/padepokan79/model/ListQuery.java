@@ -106,5 +106,13 @@ public interface ListQuery {
 			"select NIP,TGLWAFAT,TJISTRI,TJANAK from fgaji_uangduka where TGLWAFAT <= ? AND (TJISTRI > ? AND TJANAK = ?) ;";
 	public final String queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi = // add by rzkypprtm ?1 = 0 , ?2= 0
 			"SELECT COUNT(TJESELON) as JUMLAH_PNS_NonTJSESLON_NonTJFUNGSI FROM fgaji_uangduka WHERE TJESELON = '?' AND TJFUNGSI = '?' LIMIT ?, 10;";
+
+
+//==========================================================================================================================================================================
+//Tabel 8 data_rapel
+
+	public final String queryGroupByGapokPNS = // add by siska
+			"select gapok, count(*) as Jumlah_PNS from data_rapel where gapok > ? group by gapok limit 100;"; // di database ? = 300.000
+
 }
 
