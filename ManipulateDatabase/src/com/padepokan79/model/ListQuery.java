@@ -134,5 +134,8 @@ public interface ListQuery {
 			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, n_masakerja as Masa_Kerja, c_golongan as Golongan,c_jbt_struktur as Jab_Struktur from urtnip where v_npwp IS NOT NULL  and n_masakerja > ? limit 10;"; // nb : di database ? = 20 
 	public final String queryMenampilkanJumlahPNSberdasrkanAgamadanGolongan = //add by rzkypprtm
 			"SELECT C_AGAMA as AGAMA, C_GOLONGAN as GOLONGAN, COUNT(*) as Jumlah FROM urtnip GROUP BY C_AGAMA, C_GOLONGAN ORDER BY C_AGAMA, C_GOLONGAN, COUNT(*) LIMIT ?, 10;";
+	public final String queryMenampilkanGroupByAgama = //add by siska
+			"select c_agama as Agama, count(*) as Jumlah_PNS from urtnip group by c_agama limit 10;";
+			
 }
 
