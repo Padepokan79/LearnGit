@@ -8,14 +8,13 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class DataRapel implements ListQuery{
-
+public class UrtNIP implements ListQuery {
+	
 	String myDriver = "org.gjt.mm.mysql.Driver";
 	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
 	Connection conn = null;
 	int menuOn = 0;
-
-	public DataRapel() {
+	public UrtNIP() {
 		try
 		{
 			Class.forName(myDriver);
@@ -38,17 +37,19 @@ public class DataRapel implements ListQuery{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
-				st.setInt(1, InputVariable.inputGapok);
+				st.setInt(1, InputVariable.nextPage);
 			}
-			else if( menuOn == 3) {
-				st.setString(1, InputVariable.inputBulanAwal);
-				st.setString(2, InputVariable.inputBulanAkhir);
-				st.setInt(3, InputVariable.nextPage);
-			}
-			else if( menuOn == 4) {
-				st.setString(1, InputVariable.inputHurufAwal);
-				st.setString(2, InputVariable.inputKodePangkat);
-				st.setInt(3, InputVariable.nextPage);
+			else if( menuOn == 2) {
+				st.setString(1, InputVariable.inputTempatLahir);
+				st.setString(2, InputVariable.inputJenisKelamin);
+				st.setInt(3, InputVariable.nextPage);			
+			}else if( menuOn == 3) {
+				st.setString(1, InputVariable.inputMasakerja);
+				st.setInt(2, InputVariable.nextPage);		
+			}else if( menuOn == 4) {
+				st.setInt(1, InputVariable.nextPage);		
+			}else if( menuOn == 5) {
+				st.setInt(1, InputVariable.nextPage);		
 			}
 			
 			// execute the query, and get a java resultset
@@ -60,58 +61,64 @@ public class DataRapel implements ListQuery{
 			// TODO: handle exception
 		}
 		return null;
-	}
-	public JSONArray getqueryGroupByGapokPNS(){
+		}
+	
+	public JSONArray getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama(){
 		try
 		{
+//			add by Hendra YN
 			menuOn = 1;
-			String query = queryGroupByGapokPNS;
+			String query = queryMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(){
+	
+	public JSONArray getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
 		try
 		{
-			String query = queryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya;
+			menuOn = 2;
+			String query = queryMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal(){
+	public JSONArray getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(){
 		try
 		{
 			menuOn = 3;
-			String query = queryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal;
+			String query = queryMenampilkanPNSpunyaNPWPdanMasaKerjaLama;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(){
+	public JSONArray getMenampilkanJumlahPNSberdasrkanAgamadanGolongan(){
 		try
 		{
 			menuOn = 4;
-			String query = queryMenampilkanDataNamaYangHurufAwalADanPangkat3D;
+			String query = queryMenampilkanJumlahPNSberdasrkanAgamadanGolongan;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(){
+	public JSONArray queryMenampilkanGroupByAgama(){
 		try
 		{
-			String query = queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita;
+			menuOn = 5;
+			String query = queryMenampilkanGroupByAgama;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
+
 }
