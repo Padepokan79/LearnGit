@@ -2,16 +2,15 @@ package com.padepokan79.model;
 
 public class InputVariable {
 	public static int nextPage = 0;
-
-	//getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat
-	public static String inputDate; //format nya 2016-01-01
-	public static int inputGaji;
-
-	//getTGLWafatDanUangBersihLebihDari1Jt
-	public static int inputHari;
 	
-	
-	//Class DataRapel
+	 
+	public static int inputHari;//untuk fgajiUangDuka ,menu on 1
+	public static int inputGaji;// untuk fgajiUangDuka ,menu on 2
+	public static String inputDate; //format nya 2016-01-01 untuk fgajiUangDuka, menu On 2 & 4
+	public static int inputTunjanganIstri;//untuk fgajiUangduka ,menu on 3 & 4
+	public static int inputTunjanganAnak;//untuk fgajiUangduka ,menu on 3 & 4
+
+		
 	//getGroupByGapokPNS
 	public static int inputGapok;
 
@@ -22,4 +21,8 @@ public class InputVariable {
 	//getMenampilkanDataNamaYangHurufAwalADanPangkat3D
 	public static String inputHurufAwal;
 	public static String inputKodePangkat;
+	
+	//getqueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar
+	public static int inputTunjanganEselonAwal;
+	public static int inputTunjanganEselonAkhir;
 }
