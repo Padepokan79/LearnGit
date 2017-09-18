@@ -166,4 +166,9 @@ public interface ListQuery {
 			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
 	public final String queryMenampilkanDaftarTanggalBayarberdasarkanInput = // add by rzkypprtm ?1 = batas awal ?2=batas akhir
 			"SELECT detil_kekurangan.NIP, mstpegawai.NAMA, detil_kekurangan.TGLBAYAR FROM detil_kekurangan, mstpegawai WHERE TGLBAYAR >= '?' and TGLBAYAR <= '?' GROUP BY TGLBAYAR LIMIT ? , 10;";
+	public final String queryMencariKodePangkatdanMengurutkanUPDSTAMP = // add by siska ? untuk kdpangkat bisa diisi 1/2/3/4 
+			"select distinct a.tglbayar, a.NIP, b.NAMA, a.jeniskekurangan,a.dari,a.sampai,a.kdpangkat,a.UPDSTAMP from detil_kekurangan a, mstpegawai b where a.kdpangkat like '%?%' and a.NIP = b.NIP  order by a.UPDSTAMP desc limit 10;";
+
+
+
 }
