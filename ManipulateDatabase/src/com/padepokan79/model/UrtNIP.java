@@ -36,15 +36,20 @@ public class UrtNIP implements ListQuery {
 		{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			if( menuOn == 2) {
+			if( menuOn == 1) {
+				st.setInt(1, InputVariable.nextPage);
+			}
+			else if( menuOn == 2) {
 				st.setString(1, InputVariable.inputTempatLahir);
 				st.setString(2, InputVariable.inputJenisKelamin);
-				st.setInt(3, InputVariable.nextPage);
-			}
-			else if( menuOn == 3) {
-				st.setString(1, InputVariable.inputDate);
-				st.setInt(2, InputVariable.inputGaji);
-				st.setInt(3, InputVariable.nextPage);
+				st.setInt(3, InputVariable.nextPage);			
+			}else if( menuOn == 3) {
+				st.setString(1, InputVariable.inputMasakerja);
+				st.setInt(2, InputVariable.nextPage);		
+			}else if( menuOn == 4) {
+				st.setInt(1, InputVariable.nextPage);		
+			}else if( menuOn == 5) {
+				st.setInt(1, InputVariable.nextPage);		
 			}
 			
 			// execute the query, and get a java resultset
@@ -62,7 +67,7 @@ public class UrtNIP implements ListQuery {
 		try
 		{
 //			add by Hendra YN
-//			menuOn = 1;
+			menuOn = 1;
 			String query = queryMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama;
 			return simpleQuery(query);
 		}catch (Exception e) {
@@ -87,6 +92,28 @@ public class UrtNIP implements ListQuery {
 		{
 			menuOn = 3;
 			String query = queryMenampilkanPNSpunyaNPWPdanMasaKerjaLama;
+			return simpleQuery(query);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	public JSONArray getMenampilkanJumlahPNSberdasrkanAgamadanGolongan(){
+		try
+		{
+			menuOn = 4;
+			String query = queryMenampilkanJumlahPNSberdasrkanAgamadanGolongan;
+			return simpleQuery(query);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	public JSONArray queryMenampilkanGroupByAgama(){
+		try
+		{
+			menuOn = 5;
+			String query = queryMenampilkanGroupByAgama;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception

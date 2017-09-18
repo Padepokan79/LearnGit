@@ -23,8 +23,10 @@ public class InputVariable {
 	public static String inputHurufAwal;
 	public static String inputKodePangkat;
 	
-	//getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan
+	//getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan MENU ON 2
 	public static String inputTempatLahir;
-	public static String inputJenisKelamin;
+	public static String inputJenisKelamin; // P atau L
 	
+	//getMenampilkanPNSpunyaNPWPdanMasaKerjaLama MENU ON 3
+	public static String inputMasakerja; // untuk Memasukan input masa kerja
 }
