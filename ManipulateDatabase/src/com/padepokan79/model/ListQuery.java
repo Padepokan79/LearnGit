@@ -143,6 +143,8 @@ public interface ListQuery {
 	
 	public final String queryMenampilkanRatarataTunjanganEselon = //add by siska
 			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon limit 0,10;";
+	public final String queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan = //add by rzkypprtm
+			"SELECT a.NIP, b.NAMA, a.KDESELON, a.TJESELON, a.NOMORSKEP, a.PENERBITSKEP FROM historis_eselon a,mstpegawai b WHERE NOT a.KDESELON = '00' AND NOT a.NOMORSKEP = ' ' LIMIT 0, 10;";
 	
 	
 	
