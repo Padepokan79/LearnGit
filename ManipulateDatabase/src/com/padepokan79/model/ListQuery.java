@@ -113,6 +113,8 @@ public interface ListQuery {
 
 	public final String queryGroupByGapokPNS = // add by siska
 			"select gapok, count(*) as Jumlah_PNS from data_rapel where gapok > ? group by gapok limit 100;"; // di database ? = 300.000
+	public final String queryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya = // add by rzkypprtm
+			"SELECT KDSATKER as Kode_Satuan_Kerja , NAMASATKER as Nama_Satuan_Kerja , COUNT(*) as Jumlah_PNS FROM data_rapel GROUP BY KDSATKER;"; // 
 
 }
 
