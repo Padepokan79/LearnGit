@@ -1,24 +1,24 @@
 package com.padepokan79.test;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import com.padepokan79.model.Twafat;
+import com.padepokan79.model.Hutang;
 
 public class MainTest {
 	public static void main(String[]args) {
-		getqueryPNSYangMatinyaPalingLama();
+		getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 	}
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
-	public static void getqueryPNSYangMatinyaPalingLama(){
-		Twafat twafat = new Twafat();
-		JSONArray data = twafat.getqueryPNSYangMatinyaPalingLama();
+	public static void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
+		Hutang hutang = new Hutang();
+		JSONArray data = hutang.getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 		//System.out.println(data);
-		showData3Parameter(data,"nip", "nama", "tglwafat");
+		showData4Parameter(data,"nip", "nama", "jumlah_hutang","jmlbulan");
 	} // ikan added test for NamaDanGajiBersih
-	public static void showData3Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
+	public static void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		//System.out.println(arrayData);
-		System.out.println("+------------------------------------------------------------------------------------+");
-		System.out.println("|          NIP           |                  Nama                   |  Tanggal wafat  |");
-		System.out.println("+------------------------------------------------------------------------------------+");
+		System.out.println("+---------------------------------------------------------------------------------------+");
+		System.out.println("|            NIP           |            Nama          |  Jumlah Hutang   | Jumlah Bulan | ");
+		System.out.println("+---------------------------------------------------------------------------------------+");
 		String space;
 		
 		for (int i = 0; i < arrayData.length(); i++) {
@@ -27,19 +27,25 @@ public class MainTest {
 			space=(String) obj.get(fielda);
 			space = space.trim();
 			System.out.print("|"+space);
-			for (int j = 0; j  <8-(space.length()); j++) {
+			for (int j = 0; j  <26-(space.length()); j++) {
 				System.out.print(" ");
 			}
 			
 			space=(String) obj.get(fieldb);
 			space = space.trim();
-			System.out.print("      | "+space);
-			for (int j = 0; j  <35-(space.length()); j++) {
+			System.out.print("|"+space);
+			for (int j = 0; j  <26-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			System.out.print("     | ");
+			System.out.print("|");
 			System.out.print(obj.get(fieldc));
-			for (int j = 0; j  <21-(space.length()); j++) {
+			for (int j = 0; j  <25-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("|");
+			space = space.trim();
+			System.out.print(obj.get(fieldd));
+			for (int j = 0; j  <27-(space.length()); j++) {
 				System.out.print(" ");
 			}
 			//
@@ -57,7 +63,13 @@ public class MainTest {
 //			}
 			
 			System.out.println("|");
-			System.out.println("+------------------------------------------------------------------------------------+");
+			space = space.trim();
+			for (int j = 0; j  <10-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.println("+----------------------------------------------------------------------------------------+");
 		}
 	}	
+	
+	
 }
