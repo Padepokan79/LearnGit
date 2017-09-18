@@ -119,7 +119,7 @@ public interface ListQuery {
 			"SELECT NIP, NAMA, AWAL, AKHIR FROM data_rapel where AWAL LIKE '?' AND AKHIR LIKE '?' LIMIT ?,10;"; // ? '2009-01-01' . ? '2009-02-01' . ? LIMIT
 	public final String queryMenampilkanDataNamaYangHurufAwalADanPangkat3D = // Add by selfi
 			"SELECT * FROM data_rapel WHERE NAMA LIKE '?%'AND KDPANGKAT LIKE '?' limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
-	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanit = // add by rzkypprtm
+	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita = // add by rzkypprtm
 			"SELECT * FROM data_rapel WHERE KDJENKEL is NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
 
 	
@@ -176,7 +176,8 @@ public interface ListQuery {
 	
 	public final String queryMencariTahunPajakdanJabatanGolongan = // add by siska contoh : ? tahun pajak = 2015 , ? jabatan_gol = utama
 			"select tahun_pajak,nourt,nama_peg,jabatan_gol,awal_pajak,akhir_pajak from form_1721_a2 where tahun_pajak='?' and jabatan_gol like '%?%' order by nourt desc limit 0,10;";
-	
+	public final String queryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum = // add by rzkypprtm
+			"SELECT JABATAN_GOL, Status, COUNT(*) FROM form_1721_a2 GROUP BY JABATAN_GOL, Status  ORDER BY JABATAN_GOL;";
 
 	
 
