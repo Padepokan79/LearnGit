@@ -148,7 +148,7 @@ public interface ListQuery {
 	public final String queryTJEselonYangNolBukanNull = // add by selfi
 			"select NIP,TJESELON from historis_eselon where TJESELON = 0 order by TJESELON limit ?,10;"; 
 	public final String queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar = //add by rzkypprtm ?1=batas bawah, ?2=batas atas, ?3=Limit
-			"SELECT TJESELON, COUNT(*) as JUMLAH FROM historis_eselon WHERE TJESELON >= '300000' AND TJESELON <= '1000000' GROUP BY TJESELON limit ?,10;";
+			"SELECT TJESELON, COUNT(*) as JUMLAH FROM historis_eselon WHERE TJESELON >= ? AND TJESELON <= ? GROUP BY TJESELON limit ?,10;";
 	public final String queryMenampilkanHistorisSkep = //add by siska
 			"select distinct a.NIP,b.NAMA,a.nomorskep,a.penerbitskep,a.keterangan,a.tglupdate from historis_eselon a,fgaji b where tglskep IS NOT NULL and NOT penerbitskep='' and nomorskep IS NOT NULL and NOT keterangan='' and a.NIP = b.NIP  limit ?,10;";
 	
@@ -162,4 +162,6 @@ public interface ListQuery {
 			"select DISTINCT detil_kekurangan.NIP, mstpegawai.NAMA , detil_kekurangan.MASKER , detil_kekurangan.GAPOK from detil_kekurangan left join mstpegawai ON detil_kekurangan.NIP = mstpegawai.NIP where detil_kekurangan.masker < ? and detil_kekurangan.GAPOK  > ? limit 20;"; // ?1 maske ?2 GAPOK
 	public final String queryMenampilkanJenisKekuranganYangLebihDariSatu = // add by selfi
 			"select * from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0.10;"; // ? jeniskekurangan = angka 1 atau lebih
+	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtmi
+			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
 }
