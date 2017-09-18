@@ -55,7 +55,7 @@ public class FgajiUangDuka implements ListQuery {
 				st.setInt(3, InputVariable.inputTunjanganAnak);	
 			}
 			else if ( menuOn == 5 ) {
-				st.setInt(3, InputVariable.nextPage);
+				st.setInt(1, InputVariable.nextPage);
 			}
 			
 			// execute the query, and get a java resultset
