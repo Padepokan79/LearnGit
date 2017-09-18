@@ -54,7 +54,7 @@ public interface ListQuery {
 	public final String queryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun = // add by rzkypprtm
 			"SELECT hutang.NIP, mstpegawai.nama as Nama, hutang.JMLHUTANG as Jumlah_Hutang, hutang.JMLBULAN FROM hutang, mstpegawai WHERE hutang.JMLHUTANG > 10000000 AND hutang.JMLBULAN > 12 limit 0,10;";
 	public final String queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan = // add by rzkypprtm
-			"SELECT JMLCICILAN, COUNT(*) FROM hutang GROUP BY JMLCICILAN;";
+			"SELECT JMLCICILAN, COUNT(*) as JUMLAH FROM hutang GROUP BY JMLCICILAN;";
 	public final String queryHutangUntukAnak =
 			"select nip,kdhutang,jmlhutang,jmlcicilan,cicilanakhir,jmlbulan,tmthutang,tathutang,keterangan from hutang where keterangan like '%anak%' order by jmlhutang desc limit 10;"; //add by siska
 	public final String queryHutangPalingBanyak = // add by selfi
@@ -142,14 +142,26 @@ public interface ListQuery {
 //Tabel 10 historis_eselon
 	
 	public final String queryMenampilkanRatarataTunjanganEselon = //add by siska
-			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon limit 0,10;";
+			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon limit ?,10;";
 	public final String queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan = //add by rzkypprtm
-			"SELECT a.NIP, b.NAMA, a.KDESELON, a.TJESELON, a.NOMORSKEP, a.PENERBITSKEP FROM historis_eselon a,mstpegawai b WHERE NOT a.KDESELON = '00' AND NOT a.NOMORSKEP = ' ' LIMIT 0, 10;";
+			"SELECT a.NIP, b.NAMA, a.KDESELON, a.TJESELON, a.NOMORSKEP, a.PENERBITSKEP FROM historis_eselon a,mstpegawai b WHERE NOT a.KDESELON = '00' AND NOT a.NOMORSKEP = ' ' LIMIT ?, 10;";
 	public final String queryTJEselonYangNolBukanNull = // add by selfi
 			"select NIP,TJESELON from historis_eselon where TJESELON = 0 order by TJESELON limit ?,10;"; 
-	
+	public final String queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar = //add by rzkypprtm ?1=batas bawah, ?2=batas atas, ?3=Limit
+			"SELECT TJESELON, COUNT(*) as JUMLAH FROM historis_eselon WHERE TJESELON >= ? AND TJESELON <= ? GROUP BY TJESELON limit ?,10;";
+	public final String queryMenampilkanHistorisSkep = //add by siska
+			"select distinct a.NIP,b.NAMA,a.nomorskep,a.penerbitskep,a.keterangan,a.tglupdate from historis_eselon a,fgaji b where tglskep IS NOT NULL and NOT penerbitskep='' and nomorskep IS NOT NULL and NOT keterangan='' and a.NIP = b.NIP  limit ?,10;";
 	
 	
 
+
+//==========================================================================================================================================================================
+//Tabel 11 detil_kekurangan
+
+	public final String queryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt = // Add by selfi
+			"select DISTINCT detil_kekurangan.NIP, mstpegawai.NAMA , detil_kekurangan.MASKER , detil_kekurangan.GAPOK from detil_kekurangan left join mstpegawai ON detil_kekurangan.NIP = mstpegawai.NIP where detil_kekurangan.masker < ? and detil_kekurangan.GAPOK  > ? limit 20;"; // ?1 maske ?2 GAPOK
+	public final String queryMenampilkanJenisKekuranganYangLebihDariSatu = // add by selfi
+			"select * from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0.10;"; // ? jeniskekurangan = angka 1 atau lebih
+	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtmi
+			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
 }
-
