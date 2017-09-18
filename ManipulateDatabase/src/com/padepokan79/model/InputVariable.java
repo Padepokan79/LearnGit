@@ -10,8 +10,7 @@ public class InputVariable {
 	public static int inputTunjanganIstri;//untuk fgajiUangduka ,menu on 3 & 4
 	public static int inputTunjanganAnak;//untuk fgajiUangduka ,menu on 3 & 4
 
-				
-
+		
 	//getGroupByGapokPNS
 	public static int inputGapok;
 
@@ -22,4 +21,16 @@ public class InputVariable {
 	//getMenampilkanDataNamaYangHurufAwalADanPangkat3D
 	public static String inputHurufAwal;
 	public static String inputKodePangkat;
+	
+	//getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan MENU ON 2
+	public static String inputTempatLahir;
+	public static String inputJenisKelamin; // P atau L
+	
+	//getMenampilkanPNSpunyaNPWPdanMasaKerjaLama MENU ON 3
+	public static String inputMasakerja; // untuk Memasukan input masa kerja
+
+	//getqueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar
+	public static int inputTunjanganEselonAwal;
+	public static int inputTunjanganEselonAkhir;
+
 }
