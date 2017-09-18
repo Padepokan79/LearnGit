@@ -9,7 +9,9 @@ public class InputVariable {
 
 	//getTGLWafatDanUangBersihLebihDari1Jt
 	public static int inputHari;
-
+	
+	
+	//Class DataRapel
 	//getGroupByGapokPNS
 	public static int inputGapok;
 
