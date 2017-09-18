@@ -45,6 +45,18 @@ public class FgajiUangDuka implements ListQuery {
 				st.setInt(2, InputVariable.inputGaji);
 				st.setInt(3, InputVariable.nextPage);
 			}
+			else if ( menuOn == 3) {
+				st.setInt(1, InputVariable.inputTunjanganIstri);
+				st.setInt(2, InputVariable.inputTunjanganAnak);	
+			}
+			else if ( menuOn == 4) {
+				st.setString(1, InputVariable.inputDate);
+				st.setInt(2, InputVariable.inputTunjanganIstri);
+				st.setInt(3, InputVariable.inputTunjanganAnak);	
+			}
+			else if ( menuOn == 5 ) {
+				st.setInt(3, InputVariable.nextPage);
+			}
 			
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
@@ -74,6 +86,42 @@ public class FgajiUangDuka implements ListQuery {
 		{
 			menuOn = 2;
 			String query = queryTGLWafatDanUangBersihLebihDari1Jt;
+			return simpleQuery(query);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	
+	public JSONArray queryNamaPNSYangMeningglTanpaTunjanganAnakIstri(){
+		try
+		{
+			menuOn = 3;
+			String query = queryNamaPNSYangMeningglTanpaTunjanganAnakIstri;
+			return simpleQuery(query);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	
+	public JSONArray queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
+		try
+		{
+			menuOn = 4;
+			String query = queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak;
+			return simpleQuery(query);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	
+	public JSONArray queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(){
+		try
+		{
+			menuOn = 5;
+			String query = queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
