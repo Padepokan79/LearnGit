@@ -153,5 +153,13 @@ public interface ListQuery {
 			"select distinct a.NIP,b.NAMA,a.nomorskep,a.penerbitskep,a.keterangan,a.tglupdate from historis_eselon a,fgaji b where tglskep IS NOT NULL and NOT penerbitskep='' and nomorskep IS NOT NULL and NOT keterangan='' and a.NIP = b.NIP  limit ?,10;";
 	
 	
-}
 
+
+//==========================================================================================================================================================================
+//Tabel 11 detil_kekurangan
+
+	public final String queryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt = // Add by selfi
+			"select DISTINCT detil_kekurangan.NIP, mstpegawai.NAMA , detil_kekurangan.MASKER , detil_kekurangan.GAPOK from detil_kekurangan left join mstpegawai ON detil_kekurangan.NIP = mstpegawai.NIP where detil_kekurangan.masker < ? and detil_kekurangan.GAPOK  > ? limit 20;"; // ?1 maske ?2 GAPOK
+	public final String queryMenampilkanJenisKekuranganYangLebihDariSatu = // add by selfi
+			"select * from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0.10;"; // ? jeniskekurangan = angka 1 atau lebih
+}
