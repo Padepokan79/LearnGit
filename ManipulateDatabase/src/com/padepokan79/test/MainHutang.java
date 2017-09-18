@@ -15,11 +15,11 @@ public class MainHutang {
 	public static void mainMenu () {//Modify by Ipin
 
 		System.out.println("+-----------------------------------------------------------------------------------------------------------+");
-		System.out.println("|                                      Submenu Hutang                                                 |");
+		System.out.println("|                                      Submenu Hutang                                                       |");
 		System.out.println("|-----------------------------------------------------------------------------------------------------------|");
 		System.out.println("| 1. PNS yang Memiliki Hutang Lebih Dari 10 Jt | 2. PNS dengan Hutang Paling Banyak | 3. Cicilan Hutang PNS |");
-		System.out.println("|----------------------------------------------------------------------------------------------------------|");
-		System.out.println("| 4. Hutang Untuk Anak                         | 5. Bendahara Pendaftran Haji                  | 0. Menu Utama        |");
+		System.out.println("|-----------------------------------------------------------------------------------------------------------|");
+		System.out.println("| 4. Hutang Untuk Anak                         | 5. Hutang berdasarkan Cicilan      | 0. Menu Utama         |");
 		System.out.println("+-----------------------------------------------------------------------------------------------------------+");
 
 		try {
@@ -39,7 +39,7 @@ public class MainHutang {
 				queryHutangUntukAnak();
 				break;
 			case "5":
-				//testBendaharaPembantuDaftarGaji();
+				getTampilanJumlahPNSyangBerhutangBerdasarkanCicilan();
 				break;
 			case "0":
 				ma.menuUtama();
