@@ -12,7 +12,7 @@ public class InputVariable {
 
 		
 	//getGroupByGapokPNS
-	public static int inputGapok;
+	public static int inputGapok;//umtuk class DataRapel ,menu on 1 dan class detil_kekurangan menu on 1
 
 	//getMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal
 	public static String inputBulanAwal;
@@ -20,9 +20,14 @@ public class InputVariable {
 
 	//getMenampilkanDataNamaYangHurufAwalADanPangkat3D
 	public static String inputHurufAwal;
-	public static String inputKodePangkat;
+	public static String inputKodePangkat;//untul class DataRapel ,menu on 4 dan untuk class detil_kekurangan ,menu on 5
 	
 	//getqueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar
 	public static int inputTunjanganEselonAwal;
 	public static int inputTunjanganEselonAkhir;
+	
+	
+	public static int inputMasaKerja;//untuk class detil_kekurangan menu on 1
+	public static String inputTanggalBayar;//untuk class detil_kekurangan ,menu on 4
+	
 }
