@@ -119,7 +119,7 @@ public interface ListQuery {
 			"SELECT NIP, NAMA, AWAL, AKHIR FROM data_rapel where AWAL LIKE '?' AND AKHIR LIKE '?' LIMIT ?,10;"; // ? '2009-01-01' . ? '2009-02-01' . ? LIMIT
 	public final String queryMenampilkanDataNamaYangHurufAwalADanPangkat3D = // Add by selfi
 			"SELECT * FROM data_rapel WHERE NAMA LIKE '?%'AND KDPANGKAT LIKE '?' limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
-	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanit = // add by rzkypprtm
+	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita = // add by rzkypprtm
 			"SELECT * FROM data_rapel WHERE KDJENKEL is NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
 
 	
@@ -127,15 +127,15 @@ public interface ListQuery {
 //Tabel 9 urtnip
 	
 	public final String queryMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama = //add by siska
-			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, v_tmp_lahir as Tempat_Lahir,c_jns_kelamin as JenKel,c_agama as Agama, c_golongan as Golongan from urtnip where v_npwp IS NOT NULL and v_tmp_lahir IS NOT NULL and c_agama IS NOT NULL limit 10;";
+			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, v_tmp_lahir as Tempat_Lahir,c_jns_kelamin as JenKel,c_agama as Agama, c_golongan as Golongan from urtnip where v_npwp IS NOT NULL and v_tmp_lahir IS NOT NULL and c_agama IS NOT NULL limit ?, 10;";
 	public final String queryMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan = // add by selfi
 			"SELECT nIP_V, V_NAMA, V_TMP_LAHIR, C_JNS_KELAMIN  FROM urtnip where V_TMP_LAHIR LIKE '?' AND C_JNS_KELAMIN LIKE '?' limit ?,10;"; // ?1 nama tempat lahir, ?2. jeniskelamin ?3. lIMIT
 	public final String queryMenampilkanPNSpunyaNPWPdanMasaKerjaLama = //add by siska
-			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, n_masakerja as Masa_Kerja, c_golongan as Golongan,c_jbt_struktur as Jab_Struktur from urtnip where v_npwp IS NOT NULL  and n_masakerja > ? limit 10;"; // nb : di database ? = 20 
+			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, n_masakerja as Masa_Kerja, c_golongan as Golongan,c_jbt_struktur as Jab_Struktur from urtnip where v_npwp IS NOT NULL  and n_masakerja > ? limit ?, 10;"; // nb : di database ? = 20 
 	public final String queryMenampilkanJumlahPNSberdasrkanAgamadanGolongan = //add by rzkypprtm
 			"SELECT C_AGAMA as AGAMA, C_GOLONGAN as GOLONGAN, COUNT(*) as Jumlah FROM urtnip GROUP BY C_AGAMA, C_GOLONGAN ORDER BY C_AGAMA, C_GOLONGAN, COUNT(*) LIMIT ?, 10;";
 	public final String queryMenampilkanGroupByAgama = //add by siska
-			"select c_agama as Agama, count(*) as Jumlah_PNS from urtnip group by c_agama limit 10;";
+			"select c_agama as Agama, count(*) as Jumlah_PNS from urtnip group by c_agama limit ?, 10;";
 			
 	
 //==========================================================================================================================================================================
@@ -162,6 +162,23 @@ public interface ListQuery {
 			"select DISTINCT detil_kekurangan.NIP, mstpegawai.NAMA , detil_kekurangan.MASKER , detil_kekurangan.GAPOK from detil_kekurangan left join mstpegawai ON detil_kekurangan.NIP = mstpegawai.NIP where detil_kekurangan.masker < ? and detil_kekurangan.GAPOK  > ? limit 20;"; // ?1 maske ?2 GAPOK
 	public final String queryMenampilkanJenisKekuranganYangLebihDariSatu = // add by selfi
 			"select * from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0.10;"; // ? jeniskekurangan = angka 1 atau lebih
-	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtmi
+	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtm
 			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
+	public final String queryMenampilkanDaftarTanggalBayarberdasarkanInput = // add by rzkypprtm ?1 = batas awal ?2=batas akhir
+			"SELECT detil_kekurangan.NIP, mstpegawai.NAMA, detil_kekurangan.TGLBAYAR FROM detil_kekurangan, mstpegawai WHERE TGLBAYAR >= '?' and TGLBAYAR <= '?' GROUP BY TGLBAYAR LIMIT ? , 10;";
+	public final String queryMencariKodePangkatdanMengurutkanUPDSTAMP = // add by siska ? untuk kdpangkat bisa diisi 1/2/3/4 
+			"select distinct a.tglbayar, a.NIP, b.NAMA, a.jeniskekurangan,a.dari,a.sampai,a.kdpangkat,a.UPDSTAMP from detil_kekurangan a, mstpegawai b where a.kdpangkat like '%?%' and a.NIP = b.NIP  order by a.UPDSTAMP desc limit ?,10;";
+
+	
+//==========================================================================================================================================================================
+//Tabel 12 form_1721_a2
+
+	
+	public final String queryMencariTahunPajakdanJabatanGolongan = // add by siska contoh : ? tahun pajak = 2015 , ? jabatan_gol = utama
+			"select tahun_pajak,nourt,nama_peg,jabatan_gol,awal_pajak,akhir_pajak from form_1721_a2 where tahun_pajak='?' and jabatan_gol like '%?%' order by nourt desc limit 0,10;";
+	public final String queryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum = // add by rzkypprtm
+			"SELECT JABATAN_GOL, Status, COUNT(*) FROM form_1721_a2 GROUP BY JABATAN_GOL, Status  ORDER BY JABATAN_GOL;";
+
+	
+
 }
