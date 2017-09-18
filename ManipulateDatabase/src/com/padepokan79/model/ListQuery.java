@@ -145,16 +145,10 @@ public interface ListQuery {
 			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon limit 0,10;";
 	public final String queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan = //add by rzkypprtm
 			"SELECT a.NIP, b.NAMA, a.KDESELON, a.TJESELON, a.NOMORSKEP, a.PENERBITSKEP FROM historis_eselon a,mstpegawai b WHERE NOT a.KDESELON = '00' AND NOT a.NOMORSKEP = ' ' LIMIT 0, 10;";
-<<<<<<< HEAD
-	public final String queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar = //add by rzkypprtm ?1=batas bawah, ?2=batas atas, ?3=Limit
-			"SELECT TJESELON, COUNT(*) as JUMLAH FROM historis_eselon WHERE TJESELON >= '300000' AND TJESELON <= '1000000' GROUP BY TJESELON;";
-=======
 	public final String queryTJEselonYangNolBukanNull = // add by selfi
 			"select NIP,TJESELON from historis_eselon where TJESELON = 0 order by TJESELON limit ?,10;"; 
-	
->>>>>>> origin/modeling
-	
-	
+	public final String queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar = //add by rzkypprtm ?1=batas bawah, ?2=batas atas, ?3=Limit
+			"SELECT TJESELON, COUNT(*) as JUMLAH FROM historis_eselon WHERE TJESELON >= '300000' AND TJESELON <= '1000000' GROUP BY TJESELON;";
 
 }
 
