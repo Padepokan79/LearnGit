@@ -137,5 +137,15 @@ public interface ListQuery {
 	public final String queryMenampilkanGroupByAgama = //add by siska
 			"select c_agama as Agama, count(*) as Jumlah_PNS from urtnip group by c_agama limit 10;";
 			
+	
+//==========================================================================================================================================================================
+//Tabel 10 historis_eselon
+	
+	public final String queryMenampilkanRatarataTunjanganEselon = //add by siska
+			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon limit 0,10;";
+	
+	
+	
+
 }
 
