@@ -149,6 +149,9 @@ public interface ListQuery {
 			"select NIP,TJESELON from historis_eselon where TJESELON = 0 order by TJESELON limit ?,10;"; 
 	public final String queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar = //add by rzkypprtm ?1=batas bawah, ?2=batas atas, ?3=Limit
 			"SELECT TJESELON, COUNT(*) as JUMLAH FROM historis_eselon WHERE TJESELON >= '300000' AND TJESELON <= '1000000' GROUP BY TJESELON;";
-
+	public final String queryMenampilkanHistorisSkep = //add by siska
+			"select distinct a.NIP,b.NAMA,a.nomorskep,a.penerbitskep,a.keterangan,a.tglupdate from historis_eselon a,fgaji b where tglskep IS NOT NULL and NOT penerbitskep='' and nomorskep IS NOT NULL and NOT keterangan='' and a.NIP = b.NIP  limit 10;";
+	
+	
 }
 
