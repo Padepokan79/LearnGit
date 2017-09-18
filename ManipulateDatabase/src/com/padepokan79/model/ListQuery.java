@@ -56,7 +56,7 @@ public interface ListQuery {
 	public final String queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan = // add by rzkypprtm
 			"SELECT JMLCICILAN, COUNT(*) FROM hutang GROUP BY JMLCICILAN;";
 	public final String queryHutangUntukAnak =
-			"select * from hutang where KETERANGAN LIKE '%anak%' limit 10;"; //add by siska
+			"select nip,kdhutang,jmlhutang,jmlcicilan,cicilanakhir,jmlbulan,tmthutang,tathutang,keterangan from hutang order by jmlhutang desc limit 10;"; //add by siska
 	public final String queryHutangPalingBanyak = // add by selfi
 			"SELECT hutang.NIP, mstpegawai.nama, hutang.JMLHUTANG AS JUMLAH_HUTANG from hutang,mstpegawai WHERE hutang.NIP=mstpegawai.NIP order by JUMLAH_HUTANG DESC LIMIT 10;";
 	public final String queryHutangPalingbanyak = // add by selfi
