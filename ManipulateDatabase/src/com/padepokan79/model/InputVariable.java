@@ -10,8 +10,7 @@ public class InputVariable {
 	public static int inputTunjanganIstri;//untuk fgajiUangduka ,menu on 3 & 4
 	public static int inputTunjanganAnak;//untuk fgajiUangduka ,menu on 3 & 4
 
-				
-
+		
 	//getGroupByGapokPNS
 	public static int inputGapok;
 
@@ -22,4 +21,8 @@ public class InputVariable {
 	//getMenampilkanDataNamaYangHurufAwalADanPangkat3D
 	public static String inputHurufAwal;
 	public static String inputKodePangkat;
+	
+	//getqueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar
+	public static int inputTunjanganEselonAwal;
+	public static int inputTunjanganEselonAkhir;
 }
