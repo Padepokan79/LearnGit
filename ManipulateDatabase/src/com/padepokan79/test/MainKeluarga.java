@@ -15,7 +15,7 @@ public class MainKeluarga {
 	public static void mainMenu () {//Modify by Ipin
 
 		System.out.println("+-----------------------------------------------------------------------------+");
-		System.out.println("|                              Submenu Satuan Kerja                           |");
+		System.out.println("|                                Submenu Keluarga                             |");
 		System.out.println("|-----------------------------------------------------------------------------|");
 		System.out.println("| 1. PNS Usia Nikah lebih dari 25 | 2. Jomblo Mati         | 3. Jomblo Sejati |");
 		System.out.println("|-----------------------------------------------------------------------------|");

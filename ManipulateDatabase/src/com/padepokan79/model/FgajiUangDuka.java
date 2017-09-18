@@ -78,7 +78,7 @@ public class FgajiUangDuka implements ListQuery {
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
-		return null;
+		return null; 
 	}
 	
 	public JSONArray getTGLWafatDanUangBersihLebihDari1Jt(){
