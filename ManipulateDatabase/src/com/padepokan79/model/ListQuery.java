@@ -215,7 +215,7 @@ public interface ListQuery {
 
 
 //==========================================================================================================================================================================
-		//Tabel 16 From unitkerja add by selfi
+//Tabel 16 From unitkerja add by selfi
 		public final String queryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong =
 				"select satkerja AS SATUANKERJA, unit, NIP_ATASAN, JAB_ATASAN, NAMA_ATASA as NAMA_ATASAN from UNITKERJA WHERE NOT NIP_ATASAN LIKE '' AND NOT JAB_ATASAN LIKE '' AND NOT NAMA_ATASA LIKE '' LIMIT ?,10;";
 		public final String queryMenampilkanBerdasarkanNamaJabatanAtasan = 
@@ -232,5 +232,10 @@ public final String queryMencariPNSberdasarkanNoUrut =
 				"SELECT * FROM f_spt WHERE nourt = ?;"; // ?=no urut, tanpa limit karena hanya akan memunculkan 1 record 
 public final String queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan =	
 				"SELECT * FROM f_spt WHERE nama LIKE '%?%' OR kdskpd LIKE '%?%' LIMIT ?, 10;"; // ?1 = nama PNS yang di cari, ?2 = kdskdp yang di cari
-		
+
+//==========================================================================================================================================================================
+//Tabel 18 From umum_tbl add by selfi
+		public final String queryMencariTJUmumBerdasarkanKodeGolongan = 
+					"select * from umum_tbl where KDGOL = ?  limit ?,10;"; // ?1. KDGOL 1/2/3/4 ?2. AwalLimit
+
 }			
