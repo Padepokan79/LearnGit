@@ -8,14 +8,14 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class DataRapel implements ListQuery{
+public class HistorisEselon implements ListQuery{
 
 	String myDriver = "org.gjt.mm.mysql.Driver";
 	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
 	Connection conn = null;
 	int menuOn = 0;
 
-	public DataRapel() {
+	public HistorisEselon() {
 		try
 		{
 			Class.forName(myDriver);
@@ -38,16 +38,20 @@ public class DataRapel implements ListQuery{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
-				st.setInt(1, InputVariable.inputGapok);
+				st.setInt(1, InputVariable.nextPage);
+			}
+			else if( menuOn == 2) {
+				st.setInt(3, InputVariable.nextPage);
 			}
 			else if( menuOn == 3) {
-				st.setString(1, InputVariable.inputBulanAwal);
-				st.setString(2, InputVariable.inputBulanAkhir);
 				st.setInt(3, InputVariable.nextPage);
 			}
 			else if( menuOn == 4) {
-				st.setString(1, InputVariable.inputHurufAwal);
-				st.setString(2, InputVariable.inputKodePangkat);
+				st.setInt(1, InputVariable.inputTunjanganEselonAwal);
+				st.setInt(2, InputVariable.inputTunjanganEselonAkhir);
+				st.setInt(3, InputVariable.nextPage);
+			}
+			else if( menuOn == 5) {
 				st.setInt(3, InputVariable.nextPage);
 			}
 			
@@ -61,53 +65,55 @@ public class DataRapel implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryGroupByGapokPNS(){
+	public JSONArray getqueryMenampilkanRatarataTunjanganEselon(){
 		try
 		{
 			menuOn = 1;
-			String query = queryGroupByGapokPNS;
+			String query = queryMenampilkanRatarataTunjanganEselon;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(){
+	public JSONArray getqueryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan(){
 		try
 		{
-			String query = queryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya;
+			menuOn = 2;
+			String query = queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal(){
+	public JSONArray getqueryTJEselonYangNolBukanNull(){
 		try
 		{
 			menuOn = 3;
-			String query = queryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal;
+			String query = queryTJEselonYangNolBukanNull;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(){
+	public JSONArray getqueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar(){
 		try
 		{
 			menuOn = 4;
-			String query = queryMenampilkanDataNamaYangHurufAwalADanPangkat3D;
+			String query = queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(){
+	public JSONArray getqueryMenampilkanHistorisSkep(){
 		try
 		{
-			String query = queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita;
+			menuOn = 5;
+			String query = queryMenampilkanHistorisSkep;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
