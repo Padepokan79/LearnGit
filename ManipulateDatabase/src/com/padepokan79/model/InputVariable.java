@@ -43,4 +43,18 @@ public class InputVariable {
 	public static int inputStatusPajak;    //contoh 1 sudah bayar, 0 belum bayar
 	public static int inputGender;	//contoh 1 laki2 , 2 perempuan
 	public static int inputJumalahKeluarga; //contoh 1 , 2 , 3
+	
+	//getkode
+	public static int inputKode;   // ? 1. untuk kode agama, trans, skpd, gol
+	
+	//Tabel 15 t_tunjangan
+	public static int inputJumlahAwal;
+	public static int inputJumlahAkhir;
+	
+	//getnama
+	public static String inputNama;   // untuk input nama atasan, bendahara, operator, pns.
+	
+	//getqueryMencariPNSberdasarkanNoUrut
+	public static int inputNoUrut;
+	
 }

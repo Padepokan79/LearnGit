@@ -8,14 +8,14 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class HistorisEselon implements ListQuery{
+public class AkunSP2D implements ListQuery{
 
 	String myDriver = "org.gjt.mm.mysql.Driver";
 	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
 	Connection conn = null;
 	int menuOn = 0;
 
-	public HistorisEselon() {
+	public AkunSP2D() {
 		try
 		{
 			Class.forName(myDriver);
@@ -35,26 +35,19 @@ public class HistorisEselon implements ListQuery{
 	public JSONArray simpleQuery(String query){
 		try
 		{
-
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
-				st.setInt(1, InputVariable.nextPage);
+				st.setInt(1, InputVariable.inputKode);
+				st.setInt(2, InputVariable.nextPage);
 			}
 			else if( menuOn == 2) {
-				st.setInt(1, InputVariable.nextPage);
+				st.setInt(1, InputVariable.inputKode);
+				st.setInt(2, InputVariable.nextPage);
 			}
 			else if( menuOn == 3) {
-				st.setInt(1, InputVariable.nextPage);
+				st.setInt(1, InputVariable.inputKode);
+				st.setInt(2, InputVariable.nextPage);
 			}
-			else if( menuOn == 4) {
-				st.setInt(1, InputVariable.inputTunjanganEselonAwal);
-				st.setInt(2, InputVariable.inputTunjanganEselonAkhir);
-				st.setInt(3, InputVariable.nextPage);
-			}
-			else if( menuOn == 5) {
-				st.setInt(1, InputVariable.nextPage);
-			}
-			
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
 
@@ -65,55 +58,33 @@ public class HistorisEselon implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanRatarataTunjanganEselon(){
+	public JSONArray getqueryMencariBerdasakanKDSKPDdiAkunsp2d(){
 		try
 		{
 			menuOn = 1;
-			String query = queryMenampilkanRatarataTunjanganEselon;
+			String query = queryMencariBerdasakanKDSKPDdiAkunsp2d;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan(){
+	public JSONArray getqueryMencariBerdasakanKDTRANSdiAkunsp2d(){
 		try
 		{
 			menuOn = 2;
-			String query = queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan;
+			String query = queryMencariBerdasakanKDTRANSdiAkunsp2d;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryTJEselonYangNolBukanNull(){
+	public JSONArray getqueryListKDTransdiAkunsp2d(){
 		try
 		{
 			menuOn = 3;
-			String query = queryTJEselonYangNolBukanNull;
-			return simpleQuery(query);
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		return null;
-	}
-	public JSONArray getqueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar(){
-		try
-		{
-			menuOn = 4;
-			String query = queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar;
-			return simpleQuery(query);
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		return null;
-	}
-	public JSONArray getqueryMenampilkanHistorisSkep(){
-		try
-		{
-			menuOn = 5;
-			String query = queryMenampilkanHistorisSkep;
+			String query = queryListKDTransdiAkunsp2d;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception

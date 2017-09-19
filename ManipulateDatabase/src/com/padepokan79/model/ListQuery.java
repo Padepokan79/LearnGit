@@ -204,7 +204,7 @@ public interface ListQuery {
 
 	
 //=================================================================================================================================================================================
-//Tabel 15 t_tunjangan
+//Tabel 15 t_tunjangan add by rzkypprtm
 	
 	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan =
 			"SELECT KDJAB as Kode_Jabatan, PENSIUN as Usia_Pensiun, COUNT(*) FROM t_tunjangan WHERE NOT PENSIUN is Null AND NOT PENSIUN = '0' GROUP BY KDJAB, PENSIUN ORDER BY KDJAB LIMIT ?, 10;";
@@ -213,18 +213,28 @@ public interface ListQuery {
 	public final String queryMenampilkanPNSyangPensiunKurangdariUsia60 =
 			"SELECT * FROM t_tunjangan WHERE PENSIUN < '60';";
 
+
 //==========================================================================================================================================================================
-		//Tabel 16 From unitkerja add by selfi
+//Tabel 16 From unitkerja add by selfi
 		public final String queryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong =
 				"select satkerja AS SATUANKERJA, unit, NIP_ATASAN, JAB_ATASAN, NAMA_ATASA as NAMA_ATASAN from UNITKERJA WHERE NOT NIP_ATASAN LIKE '' AND NOT JAB_ATASAN LIKE '' AND NOT NAMA_ATASA LIKE '' LIMIT ?,10;";
 		public final String queryMenampilkanBerdasarkanNamaJabatanAtasan = 
 				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN from unitkerja where JAB_ATASAN like '?%' limit ?,10;"; // ?1 namaAtasan ?2 limit ?
-		public final String querMenampilkanBerdasarkanNamaBendahara = 
+		public final String queryMenampilkanBerdasarkanNamaBendahara = 
 				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_BEND AS NAMA_BENDAHARA from unitkerja where NAMA_BEND like '?%' limit ?,10;"; // ?1. NamaBendahara ?2. limit 
-		public final String querMenampilkanBerdasarkanNamaOperator =
+		public final String queryMenampilkanBerdasarkanNamaOperator =
 				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_OPERA AS NAMA_OPERATOR from unitkerja where NAMA_OPERA like '?%' limit ?,10;"; // ?1. NamaOperator ?2. limit
+		
+//=======================================================================================================================================================================================
+//Tabel 17 F_spt add by rzkypprtm
+			
+public final String queryMencariPNSberdasarkanNoUrut =
+				"SELECT * FROM f_spt WHERE nourt = ?;"; // ?=no urut, tanpa limit karena hanya akan memunculkan 1 record 
+public final String queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan =	
+				"SELECT * FROM f_spt WHERE nama LIKE '%?%' OR kdskpd LIKE '%?%' LIMIT ?, 10;"; // ?1 = nama PNS yang di cari, ?2 = kdskdp yang di cari
 
 //==========================================================================================================================================================================
+<<<<<<< HEAD
 //Tabel 20 From data_rapel add by Hendra YN
 		public final String queryMencariBerdasarkanKDGolonganDiTabelDataRapel =
 				"select nip, nama, kdsatker as KodeSatuanKerja, namasatker, kdpangkat, gapok as KodePangkat from data_rapel where gapok is not null and kdpangkat = '?' limit ?,10 ;";
@@ -236,4 +246,10 @@ public interface ListQuery {
 				"select nip as NIP, nama as Nama, kdsatker as KodeSatuanKerja, namasatker as NamaSatuanKerja, kdjenkel as KodeJenkel, jistri as StatusNikah, kdpangkat as KodePangkat, gapok as GajiPokok from data_rapel where gapok is not null and janak is not null  and jistri = ? limit ?,10;";
 				// ?1. status nikah 1 = nikah 0 = belum nikah ?2. limit
 		
+=======
+//Tabel 18 From umum_tbl add by selfi
+		public final String queryMencariTJUmumBerdasarkanKodeGolongan = 
+					"select * from umum_tbl where KDGOL = ?  limit ?,10;"; // ?1. KDGOL 1/2/3/4 ?2. AwalLimit
+
+>>>>>>> 727b5be73ce064b5ea51cb9c9eb0f62a98d4a178
 }			
