@@ -202,14 +202,27 @@ public interface ListQuery {
 			"select distinct kdtrans as KodeTRANS, nmakun as NamaAkun, kdakun as KodeAkun from akunsp2d where kdtrans = ? limit ?,10;";
 			// ? 1. Kode Trans 101 s/d 112 201 s/d 206
 
-	//==========================================================================================================================================================================
-	//Tabel 14 From unitkerja add by selfi
-	public final String queryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong =
-			"select satkerja AS SATUANKERJA, unit, NIP_ATASAN, JAB_ATASAN, NAMA_ATASA as NAMA_ATASAN from UNITKERJA WHERE NOT NIP_ATASAN LIKE '' AND NOT JAB_ATASAN LIKE '' AND NOT NAMA_ATASA LIKE '' LIMIT ?,10;";
-	public final String queryMenampilkanBerdasarkanNamaJabatanAtasan = 
-			"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN from unitkerja where JAB_ATASAN like '?%' limit ?,10;"; // ?1 namaAtasan ?2 limit ?
-	public final String querMenampilkanBerdasarkanNamaBendahara = 
-			"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_BEND AS NAMA_BENDAHARA from unitkerja where NAMA_BEND like '?%' limit ?,10;"; // ?1. NamaBendahara ?2. limit 
-	public final String querMenampilkanBerdasarkanNamaOperator =
-			"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_OPERA AS NAMA_OPERATOR from unitkerja where NAMA_OPERA like '?%' limit ?,10;"; // ?1. NamaOperator ?2. limit
+	
+//=================================================================================================================================================================================
+//Tabel 15 t_tunjangan
+	
+	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan =
+			"SELECT KDJAB as Kode_Jabatan, PENSIUN as Usia_Pensiun, COUNT(*) FROM t_tunjangan WHERE NOT PENSIUN is Null AND NOT PENSIUN = '0' GROUP BY KDJAB, PENSIUN ORDER BY KDJAB LIMIT ?, 10;";
+	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun =
+			"SELECT JML as Jumlah , COUNT(*) as Jumlah_PNS FROM t_tunjangan WHERE JML >= ? AND JML <= ? GROUP BY JML ORDER BY JML LIMIT ?, 10;";
+	public final String queryMenampilkanPNSyangPensiunKurangdariUsia60 =
+			"SELECT * FROM t_tunjangan WHERE PENSIUN < '60';";
+
+//==========================================================================================================================================================================
+		//Tabel 16 From unitkerja add by selfi
+		public final String queryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong =
+				"select satkerja AS SATUANKERJA, unit, NIP_ATASAN, JAB_ATASAN, NAMA_ATASA as NAMA_ATASAN from UNITKERJA WHERE NOT NIP_ATASAN LIKE '' AND NOT JAB_ATASAN LIKE '' AND NOT NAMA_ATASA LIKE '' LIMIT ?,10;";
+		public final String queryMenampilkanBerdasarkanNamaJabatanAtasan = 
+				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN from unitkerja where JAB_ATASAN like '?%' limit ?,10;"; // ?1 namaAtasan ?2 limit ?
+		public final String querMenampilkanBerdasarkanNamaBendahara = 
+				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_BEND AS NAMA_BENDAHARA from unitkerja where NAMA_BEND like '?%' limit ?,10;"; // ?1. NamaBendahara ?2. limit 
+		public final String querMenampilkanBerdasarkanNamaOperator =
+				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_OPERA AS NAMA_OPERATOR from unitkerja where NAMA_OPERA like '?%' limit ?,10;"; // ?1. NamaOperator ?2. limit
+
+
 }			
