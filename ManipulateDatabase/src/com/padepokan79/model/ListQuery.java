@@ -224,5 +224,16 @@ public interface ListQuery {
 		public final String querMenampilkanBerdasarkanNamaOperator =
 				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_OPERA AS NAMA_OPERATOR from unitkerja where NAMA_OPERA like '?%' limit ?,10;"; // ?1. NamaOperator ?2. limit
 
-
+//==========================================================================================================================================================================
+//Tabel 20 From data_rapel add by Hendra YN
+		public final String queryMencariBerdasarkanKDGolonganDiTabelDataRapel =
+				"select nip, nama, kdsatker as KodeSatuanKerja, namasatker, kdpangkat, gapok as KodePangkat from data_rapel where gapok is not null and kdpangkat = '?' limit ?,10 ;";
+				// ?1. KodeGolongan 1A-1D, 2A-2D, 3A-3D, 4A-4D ?2. limit
+		public final String queryMencariBerdasarkanJenKelDiTabelDataRapel =
+				"select nip, nama, kdsatker as KodeSatuanKerja, namasatker, kdjenkel, kdpangkat as KodePangkat, gapok as GajiPokok from data_rapel where gapok is not null and kdjenkel = ? limit ?,10 ;";
+				// ?1. jenis kelamin 1 = laki laki 2 = perempuan ?2. limit
+		public final String queryMencariBerdasarkanStatusNikahDiTabelDataRapel =
+				"select nip as NIP, nama as Nama, kdsatker as KodeSatuanKerja, namasatker as NamaSatuanKerja, kdjenkel as KodeJenkel, jistri as StatusNikah, kdpangkat as KodePangkat, gapok as GajiPokok from data_rapel where gapok is not null and janak is not null  and jistri = ? limit ?,10;";
+				// ?1. status nikah 1 = nikah 0 = belum nikah ?2. limit
+		
 }			
