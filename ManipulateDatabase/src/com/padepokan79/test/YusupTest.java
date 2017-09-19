@@ -1,17 +1,20 @@
 package com.padepokan79.test;
 
-import java.sql.Date;
+
+import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.io.InputStreamReader;
 
 import com.padepokan79.model.FgajiUangDuka;
+import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.Keluarga;
 import com.padepokan79.model.Satker;
 import com.padepokan79.model.SkppPegawai;
 import com.padepokan79.model.Twafat;
 
-public class YusupTest {
+public class YusupTest extends InputVariable{
 
 	//Add Yusup pada tabel Satker
 
@@ -434,65 +437,36 @@ public class YusupTest {
 	
 	
 	//Add Yusup pada tabel fgaji_uangduka
-	public static void testNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
-		FgajiUangDuka objud =new 	FgajiUangDuka();
-
-		JSONArray data = objud.getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(); 
-
-		showData_MD(data,"nip","nama","tglwafat","tglbayar");
-	} // Yusup  added test for NamaKeluargaPNSyangPernahMenikahLaluCerai
-
-	public static void showData_MD(JSONArray arrayData, String fNip, String fNama, String Ftglwa, String ftglbay) {
-		//System.out.println(arrayData);
-		System.out.println("+----------------------------------------------------------------------------+");
-		System.out.println("|         NIP         |            Nama          |Tanggal Wafat|Tanggal Bayar|");
-		System.out.println("+----------------------------------------------------------------------------+");
-		String space;
-		Date tamp;
-
-		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);	
-
-			space=(String) obj.get(fNip);
-			System.out.print("| "+space);
-
-			space=(String) obj.get(fNama);
-			space = space.trim();
-			System.out.print(" | "+space);
-			for (int j = 0; j  <25-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			
-			System.out.print(" | "+ obj.get(Ftglwa));
-			for (int j = 0; j  <4-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			System.out.print("  |  "+obj.get(ftglbay));
-			for (int j = 0; j  <7-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			System.out.println(" |");
-			System.out.println("+-----------------------------------------------------------------------------+");
-		}
-	}//Yusup Add ShowData Hehe...
+	public static Scanner sf=new Scanner( System.in );
 	
-	public static void testTGLWafatDanUangBersihLebihDari1Jt(){
-		FgajiUangDuka objUD =new FgajiUangDuka();
-
-		JSONArray data = objUD.getTGLWafatDanUangBersihLebihDari1Jt(); 
-
-		showData_tgl(data,"nip","tglwafat","bersih");
+	
+	
+	public static void testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
+		FgajiUangDuka fju=new FgajiUangDuka();
+		
+		try {
+			System.out.print("Masukan Tanggal wafat : ");
+			inputDate=sf.next();
+			System.out.print("Masukan Tunjangan Istri : ");
+			inputTunjanganIstri=sf.nextInt();
+			System.out.print("Masukan Tunjangan Anak : ");
+			inputTunjanganAnak=sf.nextInt();
+			
+			JSONArray data = fju.queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
+			showData_tj(data,"nip","tglwafat","tjistri","tjanak");
+		}catch (Exception e) {
+			System.out.println("Inputan Salah");
+			System.out.println(e.getMessage());
+		}
 	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
 
-	public static void showData_tgl(JSONArray arrayData, String fNip, String ftglwaf, String Fbersih) {
+	public static void showData_tj(JSONArray arrayData, String fNip, String ftglwaf, String Ftjis, String Ftjanak) {
 		//System.out.println(arrayData);
-		System.out.println("+----------------------------------------------------------+");
-		System.out.println("|         NIP         |Tanggal Wafat|  Pengghasilan Bersih |");
-		System.out.println("+----------------------------------------------------------+");
+		System.out.println("+--------------------------------------------------------------------------+");
+		System.out.println("|         NIP         |Tanggal Wafat|  Tunjangan Istri  |  Tunjangan Anak  |");
+		System.out.println("+--------------------------------------------------------------------------+");
 		String space;
+		int tamp;
 
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);	
@@ -502,17 +476,22 @@ public class YusupTest {
 
 			
 			System.out.print("  | "+ obj.get(ftglwaf));
-			for (int j = 0; j  <26-(space.length()); j++) {
+			for (int j = 0; j  <6-(space.length()); j++) {
 				System.out.print(" ");
 			}
 
+			tamp =(int) obj.get(Ftjis);
+			space = space.valueOf(tamp);
+			System.out.print("  |      "+ space);
+			for (int j = 0; j  <11-(space.length()); j++) {
+				System.out.print(" ");
+			}
 
-			System.out.print("  |         "+ obj.get(Fbersih));
+			System.out.print("  |         "+ obj.get(Ftjanak));
 			System.out.println("        |");
 			System.out.println("+-------------------------------------------------------------------------------+");
 		}
 	}//Yusup Add ShowData Hehe...
-
 	
 	public static void main(String args[]) {
 		//testBendaharaPembantuDaftarGaji();
@@ -525,9 +504,10 @@ public class YusupTest {
 		//testNamaPNSYangSkepnyaDiterbitkanOlehPresiden();
 		//testTampilkanJumlahSKPP_PNSberdasarkanKodePangkat();
 		//testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya();
+		YusupTest tes =new YusupTest();
+		//tes.testTGLWafatDanUangBersihLebihDari1Jt();
+		tes.testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
 		
-		//testNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat();
-		testTGLWafatDanUangBersihLebihDari1Jt();
 	}
 
 
