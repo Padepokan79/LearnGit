@@ -248,5 +248,6 @@ public interface ListQuery {
 
 //Tabel 20 From guru_tbl add by Hendra YN
 		public final String queryMencariKodeGurudiTabelGuruTBL =
-				"select kdGuru as KodeGuru, nmguru as NamaGuru From guru_tbl where kdguru = 1;";
+				"select kdGuru as KodeGuru, nmguru as NamaGuru From guru_tbl where kdguru = ? ?,10;";
+				//?1. Kode guru 1 s.d 17 ?2. limit
 }			
