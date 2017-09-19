@@ -202,4 +202,13 @@ public interface ListQuery {
 			"select distinct kdtrans as KodeTRANS, nmakun as NamaAkun, kdakun as KodeAkun from akunsp2d where kdtrans = ? limit ?,10;";
 			// ? 1. Kode Trans 101 s/d 112 201 s/d 206
 	
+//=================================================================================================================================================================================
+//Tabel 15 t_tunjangan
+	
+	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan =
+			"SELECT KDJAB as Kode_Jabatan, PENSIUN as Usia_Pensiun, COUNT(*) FROM t_tunjangan WHERE NOT PENSIUN is Null AND NOT PENSIUN = '0' GROUP BY KDJAB, PENSIUN ORDER BY KDJAB LIMIT ?, 10;";
+	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun =
+			"SELECT JML as Jumlah , COUNT(*) as Jumlah_PNS FROM t_tunjangan WHERE JML >= ? AND JML <= ? GROUP BY JML ORDER BY JML LIMIT ?, 10;";
+	public final String queryMenampilkanPNSyangPensiunKurangdariUsia60 =
+			"SELECT * FROM t_tunjangan WHERE PENSIUN < '60';";
 }			
