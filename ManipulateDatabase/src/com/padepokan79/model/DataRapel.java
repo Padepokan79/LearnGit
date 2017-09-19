@@ -107,7 +107,7 @@ public class DataRapel implements ListQuery{
 	public JSONArray getqueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanit(){
 		try
 		{
-			String query = queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanit;
+			String query = queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception

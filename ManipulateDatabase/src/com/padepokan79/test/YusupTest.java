@@ -1,8 +1,11 @@
 package com.padepokan79.test;
 
+import java.sql.Date;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.padepokan79.model.FgajiUangDuka;
 import com.padepokan79.model.Keluarga;
 import com.padepokan79.model.Satker;
 import com.padepokan79.model.SkppPegawai;
@@ -160,8 +163,6 @@ public class YusupTest {
 		}
 	}//Yusup Add ShowData Hehe...
 
-
-
 	public static void testNamaKeluargaPNSyangPernahMenikahLaluCerai(){
 		Keluarga objkeluarga =new Keluarga();
 
@@ -209,7 +210,7 @@ public class YusupTest {
 
 
 
-	// //Add Yusup pada tabel SkppPegawai
+	 //Add Yusup pada tabel SkppPegawai
 	
 	public static void testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri(){
 		SkppPegawai objskp =new SkppPegawai();
@@ -393,7 +394,6 @@ public class YusupTest {
 		}
 	}//Yusup Add ShowData Hehe...
 
-
 	public static void testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya(){
 		SkppPegawai objskp =new SkppPegawai();
 
@@ -429,18 +429,105 @@ public class YusupTest {
 		}
 	}//Yusup Add ShowData Hehe...
 
+	
+	
+	
+	
+	//Add Yusup pada tabel fgaji_uangduka
+	public static void testNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
+		FgajiUangDuka objud =new 	FgajiUangDuka();
+
+		JSONArray data = objud.getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(); 
+
+		showData_MD(data,"nip","nama","tglwafat","tglbayar");
+	} // Yusup  added test for NamaKeluargaPNSyangPernahMenikahLaluCerai
+
+	public static void showData_MD(JSONArray arrayData, String fNip, String fNama, String Ftglwa, String ftglbay) {
+		//System.out.println(arrayData);
+		System.out.println("+----------------------------------------------------------------------------+");
+		System.out.println("|         NIP         |            Nama          |Tanggal Wafat|Tanggal Bayar|");
+		System.out.println("+----------------------------------------------------------------------------+");
+		String space;
+		Date tamp;
+
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+
+			space=(String) obj.get(fNip);
+			System.out.print("| "+space);
+
+			space=(String) obj.get(fNama);
+			space = space.trim();
+			System.out.print(" | "+space);
+			for (int j = 0; j  <25-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+			
+			System.out.print(" | "+ obj.get(Ftglwa));
+			for (int j = 0; j  <4-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+			System.out.print("  |  "+obj.get(ftglbay));
+			for (int j = 0; j  <7-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+			System.out.println(" |");
+			System.out.println("+-----------------------------------------------------------------------------+");
+		}
+	}//Yusup Add ShowData Hehe...
+	
+	public static void testTGLWafatDanUangBersihLebihDari1Jt(){
+		FgajiUangDuka objUD =new FgajiUangDuka();
+
+		JSONArray data = objUD.getTGLWafatDanUangBersihLebihDari1Jt(); 
+
+		showData_tgl(data,"nip","tglwafat","bersih");
+	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
+
+	public static void showData_tgl(JSONArray arrayData, String fNip, String ftglwaf, String Fbersih) {
+		//System.out.println(arrayData);
+		System.out.println("+----------------------------------------------------------+");
+		System.out.println("|         NIP         |Tanggal Wafat|  Pengghasilan Bersih |");
+		System.out.println("+----------------------------------------------------------+");
+		String space;
+
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+
+			space=(String) obj.get(fNip);
+			System.out.print("| "+space);
+
+			
+			System.out.print("  | "+ obj.get(ftglwaf));
+			for (int j = 0; j  <26-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+
+			System.out.print("  |         "+ obj.get(Fbersih));
+			System.out.println("        |");
+			System.out.println("+-------------------------------------------------------------------------------+");
+		}
+	}//Yusup Add ShowData Hehe...
+
+	
 	public static void main(String args[]) {
 		//testBendaharaPembantuDaftarGaji();
 		//testDaftarPegawaiYangMatiSebelumTahun2013();
 		//testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri();
 		//testNamaKeluargaPNSyangPernahMenikahLaluCerai();
 		
-		testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri();
+		//testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri();
 		//testNamaPnsYangPensiunTahunIni();
 		//testNamaPNSYangSkepnyaDiterbitkanOlehPresiden();
 		//testTampilkanJumlahSKPP_PNSberdasarkanKodePangkat();
 		//testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya();
-
+		
+		//testNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat();
+		testTGLWafatDanUangBersihLebihDari1Jt();
 	}
 
 
