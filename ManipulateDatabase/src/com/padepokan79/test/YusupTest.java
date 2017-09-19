@@ -12,6 +12,7 @@ import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.Keluarga;
 import com.padepokan79.model.Satker;
 import com.padepokan79.model.SkppPegawai;
+import com.padepokan79.model.Ttunjangan;
 import com.padepokan79.model.Twafat;
 
 public class YusupTest extends InputVariable{
@@ -435,7 +436,6 @@ public class YusupTest extends InputVariable{
 	
 	
 	
-	
 	//Add Yusup pada tabel fgaji_uangduka
 	public static Scanner sf=new Scanner( System.in );
 	
@@ -491,11 +491,155 @@ public class YusupTest extends InputVariable{
 			System.out.println("        |");
 			System.out.println("+--------------------------------------------------------------------------+");
 		}
+		
 	}//Yusup Add ShowData Hehe...
 	
+	
+	
+	
+	//Add Yusup pada tabel Ttunjangan
+	public static void testMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
+		Ttunjangan objTj =new Ttunjangan();
+
+		JSONArray data = objTj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(); 
+
+		showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah");
+	} // Yusup  added test for NamaPnsYangPensiunTahunIni
+
+	public static void showData_jml_pns(JSONArray arrayData, String Fkd, String usiap, String jml) {
+		//System.out.println(arrayData);
+		System.out.println("+-------------------------------------------+");
+		System.out.println("| Kode Jabatan | Usia Pensiun | Jumlah PNS  |");
+		System.out.println("+-------------------------------------------+");
+		String space;
+		long tam;
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+
+			space=(String) obj.get(Fkd);
+			System.out.print("|      "+space);
+			for (int j = 0; j  <6-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("  |      "+obj.get(usiap));
+			for (int j = 0; j  <6-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			tam = (long)  obj.get(jml);
+			space =space.valueOf(tam);
+			System.out.print("  |     "+ tam);
+			for (int j = 0; j  <2-(space.length()); j++) {
+				System.out.print(" ");
+			}
+	
+			System.out.println("      |");
+			System.out.println("+-------------------------------------------+");
+		}
+	}//Yusup Add ShowData Hehe...
+
+	public static void testMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(){
+		Ttunjangan ftj=new Ttunjangan();
+		
+		try {
+			System.out.print("Masukan Jumlah Tunjangan dari : ");
+			inputJumlahAwal=sf.nextInt();
+			System.out.print("Masukan Jumlah Tunjangan sampai : ");
+			inputJumlahAkhir=sf.nextInt();
+			
+			JSONArray data = ftj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun();
+			showData_jml(data,"jumlah","jumlah_pns");
+		}catch (Exception e) {
+			System.out.println("Inputan Salah");
+			System.out.println(e.getMessage());
+		}
+	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
+
+	public static void showData_jml(JSONArray arrayData, String jml_t, String jml_pns) {
+		//System.out.println(arrayData);
+		System.out.println("+-------------------------------------+");
+		System.out.println("| Jumlah Tunjangan Pensiun |Jumlah PNS|");
+		System.out.println("+-------------------------------------+");
+		String space = null;
+		long tamp;
+
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);
+			
+			tamp = (long)  obj.get(jml_t);
+			space =space.valueOf(tamp);
+			System.out.print("|        "+ tamp);
+			for (int j = 0; j  <8-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			
+			tamp = (long)  obj.get(jml_pns);
+			space =space.valueOf(tamp);
+			System.out.print("          |     "+ tamp);
+			for (int j = 0; j  <5-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.println("     |");
+			System.out.println("+---------------------------------------+");
+		}
+		
+	}//Yusup Add ShowData Hehe...
+	
+	public static void testMenampilkanPNSyangPensiunKurangdariUsia60(){
+		Ttunjangan objTj =new Ttunjangan();
+		JSONArray data = objTj.getqueryMenampilkanPNSyangPensiunKurangdariUsia60(); 
+
+		showData_tblTT(data,"kdkel","kdjab","nmjabatan","jml","pensiun");
+	} // Yusup  added test for NamaPnsYangPensiunTahunIni
+
+	public static void showData_tblTT(JSONArray arrayData, String Fkd,String kdjb,String nmjb, String jml, String pen) {
+		//System.out.println(arrayData);
+		System.out.println("+------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("| Kode Keluarga| Kode Jabatan |                       Nama Jabatan                       |    Jumlah   |  Pensiun  |");
+		System.out.println("+------------------------------------------------------------------------------------------------------------------+");
+		String space;
+		long tam;
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+
+			space=(String) obj.get(Fkd);
+			System.out.print("|    "+space);
+			for (int j = 0; j  <10-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			
+			space=(String) obj.get(kdjb);
+			System.out.print("|      "+space);
+			for (int j = 0; j  <6-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			
+			space=(String) obj.get(nmjb);
+			System.out.print("  | "+ obj.get(nmjb));
+			for (int j = 0; j  <56-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			
+			tam = (long)  obj.get(jml);
+			space =space.valueOf(tam);
+			System.out.print(" |   "+ tam);
+			for (int j = 0; j  <8-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("  |    "+ obj.get(pen));
+			for (int j = 0; j  <5-(space.length()); j++) {
+				System.out.print(" ");
+			}
+	
+			System.out.println("     |");
+			System.out.println("+------------------------------------------------------------------------------------------------------------------+");
+		}
+	}//Yusup Add ShowData Hehe...
+	//Main
 	public static void main(String args[]) {
 		YusupTest tes =new YusupTest();
-		tes.testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
+		//tes.testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
+		
+		tes.testMenampilkanPNSyangPensiunKurangdariUsia60();
 		
 	}
 
