@@ -5,20 +5,20 @@ import com.padepokan79.model.UrtNIP;
 
 public class MainTest {
 	public static void main(String[]args) {
-		getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+		getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
 	}
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
-	public static void getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(){
+	public static void getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama(){
 		UrtNIP urtNIP = new UrtNIP();
-		JSONArray data = urtNIP.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+		JSONArray data = urtNIP.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
 		//System.out.println(data);
-		showData6Parameter(data,"nip","nama","npwp","masa_kerja","golongan","jab_struktur");
+		showData7Parameter(data,"nip","nama","npwp","tempat_lahir","jenkel","agama","golongan");
 	} // ikan added test for NamaDanGajiBersih
-	public static void showData6Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf) {
+	public static void showData7Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg) {
 		//System.out.println(arrayData);
-		System.out.println("+------------------------------------------------------------------------------------------------------------------------------+");
-		System.out.println("|        NIP       |              nama            |          NPWP        |  Tempat Lahir | Jenis Kelamin |    Agama         |");
-		System.out.println("+---------------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("|        NIP       |              nama            |          NPWP        |  Tempat Lahir | Jenis Kelamin |    Agama        | Golongan  |");
+		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------+");
 		String space;
 		int tmp;
 		
@@ -56,6 +56,11 @@ public class MainTest {
 			space=(String) obj.get(fieldf);
 			System.out.print("|"+space);
 			for (int j = 0; j  <17-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			space=(String) obj.get(fieldg);
+			System.out.print("|"+space);
+			for (int j = 0; j  <11-(space.length()); j++) {
 				System.out.print(" ");
 			}
 			
