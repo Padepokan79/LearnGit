@@ -1,15 +1,19 @@
 package com.padepokan79.test;
 
+import java.util.Scanner;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.model.UrtNIP;
 
 public class MainUrtNIP {
-	
+	public static Scanner sc = new Scanner(System.in);
+	private static Object inputTempatLahir;
+	private static String inputJenisKelamin;
 		public static void main(String[]args) {
-			getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
-			getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+			//getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
+			//getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 			getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
 		}
 		//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
@@ -130,8 +134,13 @@ public class MainUrtNIP {
 				
 			}
 		}	
+		// belum di uji connection,  message from server: "Too many connections"
 		public static void getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
 			UrtNIP urtNIP = new UrtNIP();
+			System.out.println("Masukan Tempat lahir : ");
+			inputTempatLahir = sc.next();
+			System.out.println("Masukan Jenis Kelamin : ");
+			inputJenisKelamin = sc.next();
 			JSONArray data = urtNIP.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
 			//System.out.println(data);
 			showData7Parameter(data,"nip","nama","tempat_lahir","jenis_kelamin");
