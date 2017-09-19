@@ -207,11 +207,11 @@ public interface ListQuery {
 //Tabel 15 t_tunjangan add by rzkypprtm
 	
 	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan =
-			"SELECT KDJAB as Kode_Jabatan, PENSIUN as Usia_Pensiun, COUNT(*) FROM t_tunjangan WHERE NOT PENSIUN is Null AND NOT PENSIUN = '0' GROUP BY KDJAB, PENSIUN ORDER BY KDJAB LIMIT ?, 10;";
+			"SELECT KDJAB as Kode_Jabatan, PENSIUN as Usia_Pensiun, COUNT(*) as jumlah FROM t_tunjangan WHERE NOT PENSIUN is Null AND NOT PENSIUN = '0' GROUP BY KDJAB, PENSIUN ORDER BY KDJAB LIMIT ?, 10;";
 	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun =
 			"SELECT JML as Jumlah , COUNT(*) as Jumlah_PNS FROM t_tunjangan WHERE JML >= ? AND JML <= ? GROUP BY JML ORDER BY JML LIMIT ?, 10;";
 	public final String queryMenampilkanPNSyangPensiunKurangdariUsia60 =
-			"SELECT * FROM t_tunjangan WHERE PENSIUN < '60';";
+			"SELECT * FROM t_tunjangan WHERE PENSIUN < '60' LIMIT 10;";
 
 
 //==========================================================================================================================================================================
