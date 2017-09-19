@@ -153,8 +153,7 @@ public class MainHutang {
 			System.out.println("+----------------------------------------------------------------------------------------+");
 		}
 	}	
-
-
+	
 	public static void showData2Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------------------------+");
