@@ -148,9 +148,6 @@ public class FGajiMenu{
 			for (int j = 0; j <35-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			if (i>0) {
-				System.out.print("  ");
-			}
 			System.out.println("| "+status+" |");
 			System.out.println("---------------------------------------------------");
 		}
@@ -200,7 +197,7 @@ public class FGajiMenu{
 			}
 			System.out.print("| Rp."+obj.get(fieldsc));
 			System.out.println("  |       "+obj.get(fieldsd)+"     |");
-			System.out.println("+-------------------------------------------------------------------------------+");
+			System.out.println("+---------------------------------------------------------------------------+");
 		}
 
 		backto();
