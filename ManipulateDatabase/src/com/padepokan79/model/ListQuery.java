@@ -228,13 +228,24 @@ public interface ListQuery {
 //=======================================================================================================================================================================================
 //Tabel 17 F_spt add by rzkypprtm
 			
-public final String queryMencariPNSberdasarkanNoUrut =
+		public final String queryMencariPNSberdasarkanNoUrut =
 				"SELECT * FROM f_spt WHERE nourt = ?;"; // ?=no urut, tanpa limit karena hanya akan memunculkan 1 record 
-public final String queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan =	
+		public final String queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan =	
 				"SELECT * FROM f_spt WHERE nama LIKE '%?%' OR kdskpd LIKE '%?%' LIMIT ?, 10;"; // ?1 = nama PNS yang di cari, ?2 = kdskdp yang di cari
 
 //==========================================================================================================================================================================
-<<<<<<< HEAD
+
+//Tabel 18 From umum_tbl add by selfi
+		public final String queryMencariTJUmumBerdasarkanKodeGolongan = 
+					"select * from umum_tbl where KDGOL = ?  limit ?,10;"; // ?1. KDGOL 1/2/3/4 ?2. AwalLimit
+//==========================================================================================================================================================================
+//Tabel 19 From hak_akses add by selfi
+
+		public final String queryMenghitungJumlahHakAksesBerdasarkanPemakai =
+				"select pemakai, count(*) as jumlah_hak_akses from hak_akses group by pemakai limit ?,10;"; // ?1. limit 
+		public final String queryMencariYangMenggunakanKodeHakAkses =
+				"select * from hak_akses where kodeakses = ? limit ?,10"; // ?1 kodehakakses contoh 12 . ?2 limit 
+
 //Tabel 20 From data_rapel add by Hendra YN
 		public final String queryMencariBerdasarkanKDGolonganDiTabelDataRapel =
 				"select nip, nama, kdsatker as KodeSatuanKerja, namasatker, kdpangkat, gapok as KodePangkat from data_rapel where gapok is not null and kdpangkat = '?' limit ?,10 ;";
@@ -245,11 +256,5 @@ public final String queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan =
 		public final String queryMencariBerdasarkanStatusNikahDiTabelDataRapel =
 				"select nip as NIP, nama as Nama, kdsatker as KodeSatuanKerja, namasatker as NamaSatuanKerja, kdjenkel as KodeJenkel, jistri as StatusNikah, kdpangkat as KodePangkat, gapok as GajiPokok from data_rapel where gapok is not null and janak is not null  and jistri = ? limit ?,10;";
 				// ?1. status nikah 1 = nikah 0 = belum nikah ?2. limit
-		
-=======
-//Tabel 18 From umum_tbl add by selfi
-		public final String queryMencariTJUmumBerdasarkanKodeGolongan = 
-					"select * from umum_tbl where KDGOL = ?  limit ?,10;"; // ?1. KDGOL 1/2/3/4 ?2. AwalLimit
 
->>>>>>> 727b5be73ce064b5ea51cb9c9eb0f62a98d4a178
 }			
