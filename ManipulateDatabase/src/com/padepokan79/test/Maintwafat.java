@@ -17,7 +17,7 @@ public class Maintwafat {
 		System.out.println("+--------------------------------------------------------------------------------+");
 		System.out.println("|                      Submenu Satuan Tabel Wafat                                |");
 		System.out.println("|--------------------------------------------------------------------------------|");
-		System.out.println("| 1. Penerbit Bukan Lurah | 2. Kuburan keluarga Kosong        | 3. Tanggal Wafat |");
+		System.out.println("| 1. Penerbit Bukan Lurah | 2. Hubungan keluarga Kosong       | 3. Tanggal Wafat |");
 		System.out.println("|--------------------------------------------------------------------------------|");
 		System.out.println("| 4. PNS Mati Paling Lama | 5. Pegawai meninggal sebelum 2013 | 0. Menu Utama    |");
 		System.out.println("+--------------------------------------------------------------------------------+");
