@@ -9,10 +9,10 @@ import org.json.JSONObject;
 import com.padepokan79.model.Twafat;
 
 public class Maintwafat {
-	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
-	static MainActivity ma=new MainActivity();
+	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	 MainActivity ma=new MainActivity();
 
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+--------------------------------------------------------------------------------+");
 		System.out.println("|                      Submenu Satuan Tabel Wafat                                |");
@@ -55,7 +55,7 @@ public class Maintwafat {
 		
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
@@ -76,37 +76,37 @@ public class Maintwafat {
 	}
 	
 	
-	public static void getqueryPenerbitBukanDariLurah(){
+	public  void getqueryPenerbitBukanDariLurah(){
 		Twafat twafat = new Twafat();
 		JSONArray data = twafat.getqueryPenerbitBukanDariLurah();
 		showData3Parameter(data,"nip", "nama", "penerbit");
 	}
 
-	public static void KdKubKelPenerimaKosong(){
+	public  void KdKubKelPenerimaKosong(){
 		Twafat twafat = new Twafat();
 		JSONArray data = twafat.getqueryKdKubKelPenerimaKosong();
 		showData(data,"nip", "nama","tglwafat","penerbit","kdhubkelpenerima");
 	} 
 	
-	public static void NIPNamaTanggalWafat(){
+	public  void NIPNamaTanggalWafat(){
 		Twafat twafat = new Twafat();
 		JSONArray data = twafat.getqueryNIPNamaTanggalWafat();
 		showData(data,"nip", "nama","tglwafat");
 	} 
 	
-	public static void getqueryPNSYangMatinyaPalingLama(){
+	public  void getqueryPNSYangMatinyaPalingLama(){
 		Twafat twafat = new Twafat();
 		JSONArray data = twafat.getqueryPNSYangMatinyaPalingLama();
 		showData3Parameter2(data,"nip", "nama", "tglwafat");
 	} 
 	
-	public static void testDaftarPegawaiYangMatiSebelumTahun2013(){
+	public  void testDaftarPegawaiYangMatiSebelumTahun2013(){
 		Twafat objwafat =new Twafat();
 		JSONArray data = objwafat.getqueryDaftarPegawaiYangMatiSebelumTahun2013(); 
 		showDataWafat(data,"nip","nama","tglwafat");
 	} // Yusup  added test for DaftarPegawaiYangMatiSebelumTahun2013
 	
-	public static void showData3Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
+	public  void showData3Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
 		
 		System.out.println("+-----------------------------------------------------------------------------------------------------------+");
 		System.out.println("|          NIP           |                  Nama                   |               Penerbit                 |");
@@ -142,7 +142,7 @@ public class Maintwafat {
 		}
 	}	
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga) {
+	public  void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------------------------------------+");
 		System.out.println("|        Nip         |                 Nama               | Tanggal Wafat |");
@@ -174,7 +174,7 @@ public class Maintwafat {
 		}
 	}
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga,String fEmpat,String fLima) {
+	public  void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga,String fEmpat,String fLima) {
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------------------------------------------------------+");
 		System.out.println("|        Nip         |           Nama           | Tanggal Wafat | Penerbit | Kode Penerima |");
@@ -215,7 +215,7 @@ public class Maintwafat {
 		}
 	}
 	
-	public static void showData3Parameter2(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
+	public  void showData3Parameter2(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------------------------------------------------+");
 		System.out.println("|          NIP           |                  Nama                   |  Tanggal wafat  |");
@@ -249,7 +249,7 @@ public class Maintwafat {
 		}
 	}
 	
-	public static void showDataWafat(JSONArray arrayData, String fNip, String fNama, String fTgl) {
+	public  void showDataWafat(JSONArray arrayData, String fNip, String fNama, String fTgl) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("|         NIP         |        Nama       |Tanggal Wafat |");
@@ -279,7 +279,7 @@ public class Maintwafat {
 		}
 	}//Yusup Add ShowData Hehe...
 	
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		Maintwafat mt=new Maintwafat();
 		
 		mt.mainMenu();

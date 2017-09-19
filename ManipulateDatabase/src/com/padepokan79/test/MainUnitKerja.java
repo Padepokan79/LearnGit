@@ -5,13 +5,13 @@ import java.util.Scanner;
 import com.padepokan79.model.InputVariable;
 
 public class MainUnitKerja extends InputVariable{
-	public static Scanner bf=new Scanner( System.in );
-	public static String input,quiz;
+	public  Scanner bf=new Scanner( System.in );
+	public  String input,quiz;
 	
 	
-	static MainActivity ma=new MainActivity();
+	 MainActivity ma=new MainActivity();
 	
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+------------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                                           Submenu Uang Duka                                                                    |");
@@ -54,7 +54,7 @@ public class MainUnitKerja extends InputVariable{
 
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Uang Duka : ");
 		try {

@@ -4,18 +4,18 @@ import org.json.JSONObject;
 import com.padepokan79.model.Hutang;
 
 public class MainTest {
-	public static void main(String[]args) {
+	public  void main(String[]args) {
 		queryHutangUntukAnak();
 		
 	}
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
-	public static void queryHutangUntukAnak(){
+	public  void queryHutangUntukAnak(){
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.queryHutangUntukAnak();
 		//System.out.println(data);
 		showData9Parameter(data,"nip","kdhutang","jmlhutang","jmlcicilan","cicilanakhir","jmlbulan","tmthutang","tathutang","keterangan");
 	} // ikan added test for NamaDanGajiBersih
-	public static void showData9Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg,String fieldh,String fieldi) {
+	public  void showData9Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg,String fieldh,String fieldi) {
 		//System.out.println(arrayData);
 		System.out.println("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|          NIP         |Kode Hutang| Jumlah Hutang |Jumlah Cicilan | Cicilan Akhir | jmlbulan | tmthutang | tathutang |                         keterangan                          |");

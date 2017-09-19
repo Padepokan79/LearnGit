@@ -10,10 +10,10 @@ import com.padepokan79.model.Fgaji;
 import com.padepokan79.model.Satker;
 
 public class MainSatker {
-	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
-	static MainActivity ma=new MainActivity();
+	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	 MainActivity ma=new MainActivity();
 
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+----------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                      Submenu Satuan Kerja                                                |");
@@ -56,7 +56,7 @@ public class MainSatker {
 		
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
@@ -76,40 +76,40 @@ public class MainSatker {
 		}
 	}
 	
-	public static void namaOperatorDenganAkhiranH(){
+	public  void namaOperatorDenganAkhiranH(){
 		Satker satKerja=new Satker();
 		JSONArray data = satKerja.getqueryNamaOperatorDenganAkhiranH();
 		showData1(data,"nama_operator","satuan_kerja","kota","deskripsi");
 	}
 
-	public static void getqueryNamaAtasanDRSDanJabatanCamat(){
+	public  void getqueryNamaAtasanDRSDanJabatanCamat(){
 		Satker satkerja = new Satker();
 		JSONArray data = satkerja.getqueryNamaAtasanDRSDanJabatanCamat();
 		//System.out.println(data);
 		showData5Parameter(data,"satkerja", "jab_atasan", "descsatker", "kota", "nama_atasan");
 	} 
 	
-	public static void kepalaDinasHaji(){
+	public  void kepalaDinasHaji(){
 		Satker satkerja = new Satker();
 		JSONArray data = satkerja.getqueryKepalaDinasHaji();
 		//System.out.println(data);
 		showData(data,"satkerja", "descsatker", "nama_atasa", "jab_atasan");
 	} 
 	
-	public static void JumlahPegawaiYangKerjaDiDinasKesehatan(){
+	public  void JumlahPegawaiYangKerjaDiDinasKesehatan(){
 		Satker satkerja = new Satker();
 		JSONArray data = satkerja.getqueryJumlahPegawaiYangKerjaDiDinasKesehatan();
 		//System.out.println(data);
 		showData(data,"satuan_kerja", "count(*)");
 	} 
 	
-	public static void testBendaharaPembantuDaftarGaji(){
+	public  void testBendaharaPembantuDaftarGaji(){
 		Satker objSatker =new Satker();
 		JSONArray data = objSatker.getqueryBendaharaPembantuDaftarGaji(); 
 		showData(data,"satkerja","descsatker","nip_bend","nama_bend","jab_bend","jab_operat");
 	} // Yusup  added test for BendaharaPembantuDaftarGaji
 	
-	public static void showData5Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd, String fielde) {
+	public  void showData5Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd, String fielde) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("| Satuan Kerja |      Jabatan Atasan      |                Des Satuan Kerja                  |     Kota      |    Nama Atasan                |");
@@ -160,7 +160,7 @@ public class MainSatker {
 	}		
 	
 	//SATKERJA , DESCSATKER , Kota, nama_opera
-	private static void showData1(JSONArray arrayData, String fieldsa, String fieldsb, String fieldsc,String fieldsd) {
+	private  void showData1(JSONArray arrayData, String fieldsa, String fieldsb, String fieldsc,String fieldsd) {
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
 		System.out.println("|   Nama Operator           | Satuan Kerja |  Kota     |                 Deskripsi                   |");
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
@@ -198,7 +198,7 @@ public class MainSatker {
 	
 	
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat) {
+	public  void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("| Satuan Kerja |            Deskripsi Satuan Kerja            |                 Nama Atasan                 |               Jabatan Atasan               |");
@@ -240,7 +240,7 @@ public class MainSatker {
 	
 	
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua) {
+	public  void showData(JSONArray arrayData, String fSatu, String fDua) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------+");
 		System.out.println("|            Satuan Kerja            | Jumlah |");
@@ -269,7 +269,7 @@ public class MainSatker {
 	}
 	
 	
-	public static void showData(JSONArray arrayData, String fSatker, String fdescsatker, String fnip_bend, String fnama_bend, String fjab_bend, String fjab_operat) {
+	public  void showData(JSONArray arrayData, String fSatker, String fdescsatker, String fnip_bend, String fnama_bend, String fjab_bend, String fjab_operat) {
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|Satuan kerja|     Deskripsi Satuan kerja    |    Nip Bendahara    |         Nama Bendahara        |                   Jabatan Bendahara                 |             Jabatan Operator          |");
@@ -321,7 +321,7 @@ public class MainSatker {
 		}
 	}//Yusup Add ShowData Hehe...
 	
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		
 		MainSatker ms=new MainSatker();
 		ms.mainMenu();

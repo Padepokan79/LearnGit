@@ -11,13 +11,13 @@ import com.padepokan79.model.FgajiUangDuka;
 import com.padepokan79.model.InputVariable;
 
 public class MainDuka extends InputVariable {
-	public static Scanner bf=new Scanner( System.in );
-	public static String input,quiz;
+	public  Scanner bf=new Scanner( System.in );
+	public  String input,quiz;
 
 
-	static MainActivity ma=new MainActivity();
+	 MainActivity ma=new MainActivity();
 
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+------------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                                           Submenu Uang Duka                                                                    |");
@@ -60,7 +60,7 @@ public class MainDuka extends InputVariable {
 
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Uang Duka : ");
 		try {
@@ -86,7 +86,7 @@ public class MainDuka extends InputVariable {
 
 
 	//NIP, NAMA, TGLWAFAT, TGLBAYAR
-	public static void tesNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
+	public  void tesNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
 		FgajiUangDuka fju=new FgajiUangDuka();
 		try {
 			System.out.print("Masukan lama uang duka yang diterima keluarga : ");
@@ -101,7 +101,7 @@ public class MainDuka extends InputVariable {
 	}
 
 	/*NIP,Nama,tglwafat,tjistri,tjanak*/
-	public static void tesNamaPNSYangMeningglTanpaTunjanganAnakIstri(){
+	public  void tesNamaPNSYangMeningglTanpaTunjanganAnakIstri(){
 		FgajiUangDuka fju=new FgajiUangDuka();
 		try {
 			System.out.print("Masukan Tunjangan Istri : ");
@@ -116,7 +116,7 @@ public class MainDuka extends InputVariable {
 		}
 	}
 
-	public static void tesJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(){
+	public  void tesJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(){
 		FgajiUangDuka fju=new FgajiUangDuka();
 		try {
 			JSONArray data = fju.queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi();
@@ -128,7 +128,7 @@ public class MainDuka extends InputVariable {
 
 	}
 
-	public static void testTGLWafatDanUangBersihLebihDari1Jt(){
+	public  void testTGLWafatDanUangBersihLebihDari1Jt(){
 		FgajiUangDuka fju=new FgajiUangDuka();
 
 		try {
@@ -145,7 +145,7 @@ public class MainDuka extends InputVariable {
 	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
 
 	//NIP, NAMA, TGLWAFAT, TGLBAYAR
-	public static void showData(JSONArray arrayData, String pa, String pb,String pc,String pd) {
+	public  void showData(JSONArray arrayData, String pa, String pb,String pc,String pd) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------------------------------+");
 		System.out.println("|         NIP        |             Nama            |  Tgl Wafat  |  Tgl Pembayaran |");
@@ -184,7 +184,7 @@ public class MainDuka extends InputVariable {
 		}
 	}
 
-	public static void showData(JSONArray arrayData, String pa, String pb,String pc,String pd,String pe) {
+	public  void showData(JSONArray arrayData, String pa, String pb,String pc,String pd,String pe) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
 		System.out.println("|         NIP        |             Nama            |  Tgl Wafat  |  Tunjangan Istri | Tunjangan Anak |");
@@ -218,7 +218,7 @@ public class MainDuka extends InputVariable {
 		backto();
 	}
 
-	public static void showData(JSONArray arrayData, String pa) {
+	public  void showData(JSONArray arrayData, String pa) {
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------+");
 		System.out.println("| Jumlah PNS yang tidak memiliki tunjangan |");
@@ -244,7 +244,7 @@ public class MainDuka extends InputVariable {
 
 
 
-	public static void showData_tgl(JSONArray arrayData, String fNip, String ftglwaf, String Fbersih) {
+	public  void showData_tgl(JSONArray arrayData, String fNip, String ftglwaf, String Fbersih) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------+");
 		System.out.println("|         NIP         |Tanggal Wafat|  Pengghasilan Bersih |");
@@ -266,7 +266,7 @@ public class MainDuka extends InputVariable {
 		}
 	}//Yusup Add ShowData Hehe...
 
-	public static void testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
+	public  void testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
 		FgajiUangDuka fju=new FgajiUangDuka();
 
 		try {
@@ -285,7 +285,7 @@ public class MainDuka extends InputVariable {
 		}
 	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
 
-	public static void showData_tj(JSONArray arrayData, String fNip, String ftglwaf, String Ftjis, String Ftjanak) {
+	public  void showData_tj(JSONArray arrayData, String fNip, String ftglwaf, String Ftjis, String Ftjanak) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------------------+");
 		System.out.println("|         NIP         |Tanggal Wafat|  Tunjangan Istri  |  Tunjangan Anak  |");
@@ -318,7 +318,7 @@ public class MainDuka extends InputVariable {
 		}
 	}//Yusup Add ShowData Hehe...
 
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		MainDuka md=new MainDuka();
 		md.testTGLWafatDanUangBersihLebihDari1Jt();
 	}

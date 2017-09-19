@@ -7,18 +7,18 @@ import com.padepokan79.model.UrtNIP;
 
 public class MainUrtNIP {
 	
-		public static void main(String[]args) {
+		public  void main(String[]args) {
 			getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
 			getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 		}
 		//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
-		public static void getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama(){
+		public  void getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama(){
 			UrtNIP urtNIP = new UrtNIP();
 			JSONArray data = urtNIP.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
 			//System.out.println(data);
 			showData7Parameter(data,"nip","nama","npwp","tempat_lahir","jenkel","agama","golongan");
 		} // ikan added test for NamaDanGajiBersih
-		public static void showData7Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg) {
+		public  void showData7Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg) {
 			//System.out.println(arrayData);
 			System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------+");
 			System.out.println("|        NIP       |              nama            |          NPWP        |  Tempat Lahir | Jenis Kelamin |    Agama        | Golongan  |");
@@ -74,13 +74,13 @@ public class MainUrtNIP {
 				
 			}
 		}	
-		public static void getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(){
+		public  void getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(){
 			UrtNIP urtNIP = new UrtNIP();
 			JSONArray data = urtNIP.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 			//System.out.println(data);
 			showData7Parameter(data,"nip","nama","npwp","masa_kerja","golongan","jab_struktur");
 		} // ikan added test for NamaDanGajiBersih
-		public static void showData7Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf) {
+		public  void showData7Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf) {
 			//System.out.println(arrayData);
 			System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------+");
 			System.out.println("|        NIP       |              nama            |          NPWP        |   Masa Kerja  | Golongan  |    Struktur Jabatan             |");
