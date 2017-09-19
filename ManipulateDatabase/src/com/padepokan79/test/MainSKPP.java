@@ -1,216 +1,80 @@
 package com.padepokan79.test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Keluarga;
-import com.padepokan79.model.Satker;
 import com.padepokan79.model.SkppPegawai;
-import com.padepokan79.model.Twafat;
 
-public class YusupTest {
+public class MainSKPP {
+	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	static MainActivity ma=new MainActivity();
 
-	//Add Yusup pada tabel Satker
+	public static void mainMenu () {//Modify by Ipin
 
-	public static void testBendaharaPembantuDaftarGaji(){
-		Satker objSatker =new Satker();
-		JSONArray data = objSatker.getqueryBendaharaPembantuDaftarGaji(); 
-		showData(data,"satkerja","descsatker","nip_bend","nama_bend","jab_bend","jab_operat");
-	} // Yusup  added test for BendaharaPembantuDaftarGaji
+		System.out.println("+----------------------------------------------------------------------------------------------------------+");
+		System.out.println("|                                      Submenu Satuan Kerja                                                |");
+		System.out.println("|----------------------------------------------------------------------------------------------------------|");
+		System.out.println("| 1. Nama Operator dengan Akhiran H | 2. Nama Atasan bergelar Drs.dan Menjadi camat | 3. Kepala Dinas Haji |");
+		System.out.println("|----------------------------------------------------------------------------------------------------------|");
+		System.out.println("| 4. Pegawai Dinas Kesehatan        | 5. Bendahara Pendaftran Haji                  | 0. Menu Utama        |");
+		System.out.println("+----------------------------------------------------------------------------------------------------------+");
 
-	public static void showData(JSONArray arrayData, String fSatker, String fdescsatker, String fnip_bend, String fnama_bend, String fjab_bend, String fjab_operat) {
-		//System.out.println(arrayData);
-		System.out.println("+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
-		System.out.println("|Satuan kerja|     Deskripsi Satuan kerja    |    Nip Bendahara    |         Nama Bendahara        |                   Jabatan Bendahara                 |             Jabatan Operator          |");
-		System.out.println("+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
-		String space;
-
-		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);	
-
-			space=(String) obj.get(fSatker);
-			System.out.print("| "+space);
-
-			space=(String) obj.get(fdescsatker);
-			space = space.trim();
-			System.out.print("        | "+space);
-			for (int j = 0; j  <28-(space.length()); j++) {
-				System.out.print(" ");
+		try {
+			System.out.print("Masukan PIlihan : ");
+			String input=dataIn.readLine();
+			switch (input) {
+			case "1":
+				//namaOperatorDenganAkhiranH();
+				break;
+			case "2":
+				//getqueryNamaAtasanDRSDanJabatanCamat();
+				break;
+			case "3":
+				//kepalaDinasHaji();
+				break;
+			case "4":
+				//JumlahPegawaiYangKerjaDiDinasKesehatan();
+				break;
+			case "5":
+				//testBendaharaPembantuDaftarGaji();
+				break;
+			case "0":
+				ma.menuUtama();
+				break;
+			default:
+				System.out.println("Masukan anda tidak valid !");
 			}
 
-			space=(String) obj.get(fnip_bend);
-			space = space.trim();
-			System.out.print("  | "+space);
-			for (int j = 0; j  <18-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			space=(String) obj.get(fnama_bend);
-			space = space.trim();
-			System.out.print("  | "+space);
-			for (int j = 0; j  <30-(space.length()); j++) {
-				System.out.print(" ");
-			}
-			space=(String) obj.get(fjab_bend);
-			space = space.trim();
-			System.out.print("|"+space);
-			for (int j = 0; j  <53-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			space=(String) obj.get(fjab_operat);
-			space = space.trim();
-			System.out.print("| "+space);
-			for (int j = 0; j  <38-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			System.out.println("|");
-			System.out.println("+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
+		} catch (Exception e) {
+			System.out.println("Exception Print !");
+			System.out.println(e.getMessage());
 		}
-	}//Yusup Add ShowData Hehe...
 
+	}
 
-	public static void testDaftarPegawaiYangMatiSebelumTahun2013(){
-		Twafat objwafat =new Twafat();
-
-		JSONArray data = objwafat.getqueryDaftarPegawaiYangMatiSebelumTahun2013(); 
-
-		showData(data,"nip","nama","tglwafat");
-	} // Yusup  added test for DaftarPegawaiYangMatiSebelumTahun2013
-
-	public static void showData(JSONArray arrayData, String fNip, String fNama, String fTgl) {
-		//System.out.println(arrayData);
-		System.out.println("+--------------------------------------------------------+");
-		System.out.println("|         NIP         |        Nama       |Tanggal Wafat|");
-		System.out.println("+--------------------------------------------------------+");
-		String space;
-
-		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);	
-
-			space=(String) obj.get(fNip);
-			System.out.print("| "+space);
-
-			space=(String) obj.get(fNama);
-			space = space.trim();
-			System.out.print("  | "+space);
-			for (int j = 0; j  <16-(space.length()); j++) {
-				System.out.print(" ");
+	public static void backto()  {
+		String inp;
+		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
+		try {
+			inp=dataIn.readLine();
+			switch (inp) {
+			case "1":
+				ma.menuUtama();;
+				break;
+			case "2":
+				mainMenu();
+				break;
+			default:
+				System.out.println("Masukan Salah !");
 			}
-
-			System.out.print("  | "+ obj.get(fTgl));
-			for (int j = 0; j  <18-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			System.out.println("|");
-			System.out.println("+--------------------------------------------------------+");
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
 		}
-	}//Yusup Add ShowData Hehe...
+	}
 
-
-
-
-	// //Add Yusup pada tabel keluarga
-	public static void testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
-		Keluarga objkeluarga =new Keluarga();
-
-		JSONArray data = objkeluarga.queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(); 
-
-		showData(data,"nip","nama","tglnikah","nipsuamiistri");
-	} // Yusup  added test for KeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri
-
-	public static void showData(JSONArray arrayData, String fNip, String fNama, String Ftglnikah, String fnipSI) {
-		//System.out.println(arrayData);
-		System.out.println("+-------------------------------------------------------------------------------------------+");
-		System.out.println("|         NIP         |               Nama                 |Tanggal Nikah|  Nip Suami Istri |");
-		System.out.println("+-------------------------------------------------------------------------------------------+");
-		String space;
-
-		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);	
-
-			space=(String) obj.get(fNip);
-			System.out.print("| "+space);
-
-			space=(String) obj.get(fNama);
-			space = space.trim();
-			System.out.print("  | "+space);
-			for (int j = 0; j  <33-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-
-			System.out.print("  | "+ obj.get(Ftglnikah));
-			for (int j = 0; j  <5-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-
-			space=(String) obj.get(fnipSI);
-			space = space.trim();
-			System.out.print("  |"+space);
-			for (int j = 0; j  <18-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			System.out.println("|");
-			System.out.println("+-------------------------------------------------------------------------------------------+");
-		}
-	}//Yusup Add ShowData Hehe...
-
-
-
-	public static void testNamaKeluargaPNSyangPernahMenikahLaluCerai(){
-		Keluarga objkeluarga =new Keluarga();
-
-		JSONArray data = objkeluarga.queryNamaKeluargaPNSyangPernahMenikahLaluCerai(); 
-
-		showData_(data,"nip","nama","tglnikah","tglcerai");
-	} // Yusup  added test for NamaKeluargaPNSyangPernahMenikahLaluCerai
-
-	public static void showData_(JSONArray arrayData, String fNip, String fNama, String Ftglnikah, String ftglcerai) {
-		//System.out.println(arrayData);
-		System.out.println("+---------------------------------------------------------------------------+");
-		System.out.println("|         NIP         |          Nama           |Tanggal Nikah|Tanggal Cerai|");
-		System.out.println("+---------------------------------------------------------------------------+");
-		String space;
-
-		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);	
-
-			space=(String) obj.get(fNip);
-			System.out.print("| "+space);
-
-			space=(String) obj.get(fNama);
-			space = space.trim();
-			System.out.print("  | "+space);
-			for (int j = 0; j  <22-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-
-			System.out.print("  | "+ obj.get(Ftglnikah));
-			for (int j = 0; j  <5-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			System.out.print("  |"+obj.get(ftglcerai));
-			for (int j = 0; j  <9-(space.length()); j++) {
-				System.out.print(" ");
-			}
-
-			System.out.println("   |");
-			System.out.println("+---------------------------------------------------------------------------+");
-		}
-	}//Yusup Add ShowData Hehe...
-
-
-
-
-	// //Add Yusup pada tabel SkppPegawai
-	
 	public static void testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri(){
 		SkppPegawai objskp =new SkppPegawai();
 
@@ -386,7 +250,7 @@ public class YusupTest {
 			for (int j = 0; j  <4-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			
+
 
 			System.out.println("   |");
 			System.out.println("+-----------------------+");
@@ -428,21 +292,5 @@ public class YusupTest {
 			System.out.println("+--------------------------------------------------+");
 		}
 	}//Yusup Add ShowData Hehe...
-
-	public static void main(String args[]) {
-		//testBendaharaPembantuDaftarGaji();
-		//testDaftarPegawaiYangMatiSebelumTahun2013();
-		//testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri();
-		//testNamaKeluargaPNSyangPernahMenikahLaluCerai();
-		
-		testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri();
-		//testNamaPnsYangPensiunTahunIni();
-		//testNamaPNSYangSkepnyaDiterbitkanOlehPresiden();
-		//testTampilkanJumlahSKPP_PNSberdasarkanKodePangkat();
-		//testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya();
-
-	}
-
-
 
 }
