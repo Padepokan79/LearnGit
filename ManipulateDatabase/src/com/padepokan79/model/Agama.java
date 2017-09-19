@@ -38,7 +38,7 @@ public class Agama implements ListQuery{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
-				st.setInt(1, InputVariable.inputKodeAgama);
+				st.setInt(1, InputVariable.inputKode);
 				st.setInt(2, InputVariable.nextPage);
 			}
 			
