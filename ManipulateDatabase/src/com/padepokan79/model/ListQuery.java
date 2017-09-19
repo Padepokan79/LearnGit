@@ -118,9 +118,9 @@ public interface ListQuery {
 	public final String queryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal =// add by selfi 
 			"SELECT NIP, NAMA, AWAL, AKHIR FROM data_rapel where AWAL LIKE ? AND AKHIR LIKE ? LIMIT ?,10;"; // ? '2009-01-01' . ? '2009-02-01' . ? LIMIT
 	public final String queryMenampilkanDataNamaYangHurufAwalADanPangkat3D = // Add by selfi
-			"SELECT NIP, NAMA, KDPANGKAT FROM data_rapel WHERE NAMA LIKE '?%'AND KDPANGKAT LIKE '?' limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
+			"SELECT NIP, NAMA, KDPANGKAT FROM data_rapel WHERE NAMA LIKE ? AND KDPANGKAT LIKE ? limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
 	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita = // add by rzkypprtm
-			"SELECT * FROM data_rapel WHERE KDJENKEL is NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
+			"SELECT KDSATKER as Kode_Satuan_Kerja, NIP, NAMA, TGLLHR as Tanggal_Lahir FROM data_rapel WHERE KDJENKEL is NULL AND TGLLHR is NOT NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
 
 	
 //==========================================================================================================================================================================
@@ -161,7 +161,7 @@ public interface ListQuery {
 	public final String queryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt = // Add by selfi
 			"select DISTINCT detil_kekurangan.NIP, mstpegawai.NAMA , detil_kekurangan.MASKER , detil_kekurangan.GAPOK from detil_kekurangan left join mstpegawai ON detil_kekurangan.NIP = mstpegawai.NIP where detil_kekurangan.masker < ? and detil_kekurangan.GAPOK  > ? limit 20;"; // ?1 maske ?2 GAPOK
 	public final String queryMenampilkanJenisKekuranganYangLebihDariSatu = // add by selfi
-			"select * from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0.10;"; // ? jeniskekurangan = angka 1 atau lebih
+			"select NIP, JENISKEKURANGAN from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0.10;"; // ? jeniskekurangan = angka 1 atau lebih
 	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtm
 			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
 	public final String queryMenampilkanDaftarTanggalBayarberdasarkanInput = // add by rzkypprtm ?1 = batas awal ?2=batas akhir
