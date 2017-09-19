@@ -36,4 +36,12 @@ public class InputVariable {
 
 	public static int inputMasaKerja;//untuk class detil_kekurangan menu on 1
 	public static String inputTanggalBayar;//untuk class detil_kekurangan ,menu on 4
+	
+	//getqueryMencariTahunPajakdanJabatanGolongan
+	public static int inputTahunPajak;
+	public static int inputJabatanGolongan;
+	
+	public static int inputStatusPajak;    //contoh 1 sudah bayar, 0 belum bayar
+	public static int inputGender;	//contoh 1 laki2 , 2 perempuan
+	public static int inputJumalahKeluarga; //contoh 1 , 2 , 3
 }
