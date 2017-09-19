@@ -431,13 +431,7 @@ public class YusupTest extends InputVariable{
 			System.out.println("+--------------------------------------------------+");
 		}
 	}//Yusup Add ShowData Hehe...
-
-	
-	
-	
-	
-	//Add Yusup pada tabel fgaji_uangduka
-	public static Scanner sf=new Scanner( System.in );
+public static Scanner sf=new Scanner( System.in );
 	
 	
 	
@@ -489,9 +483,15 @@ public class YusupTest extends InputVariable{
 
 			System.out.print("  |         "+ obj.get(Ftjanak));
 			System.out.println("        |");
-			System.out.println("+-------------------------------------------------------------------------------+");
+			System.out.println("+--------------------------------------------------------------------------+");
 		}
 	}//Yusup Add ShowData Hehe...
+	
+	
+	
+	
+	//Add Yusup pada tabel fgaji_uangduka
+	
 	
 	public static void main(String args[]) {
 		//testBendaharaPembantuDaftarGaji();
