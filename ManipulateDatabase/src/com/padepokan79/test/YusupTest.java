@@ -494,18 +494,7 @@ public class YusupTest extends InputVariable{
 	}//Yusup Add ShowData Hehe...
 	
 	public static void main(String args[]) {
-		//testBendaharaPembantuDaftarGaji();
-		//testDaftarPegawaiYangMatiSebelumTahun2013();
-		//testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri();
-		//testNamaKeluargaPNSyangPernahMenikahLaluCerai();
-		
-		//testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri();
-		//testNamaPnsYangPensiunTahunIni();
-		//testNamaPNSYangSkepnyaDiterbitkanOlehPresiden();
-		//testTampilkanJumlahSKPP_PNSberdasarkanKodePangkat();
-		//testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya();
 		YusupTest tes =new YusupTest();
-		//tes.testTGLWafatDanUangBersihLebihDari1Jt();
 		tes.testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
 		
 	}
