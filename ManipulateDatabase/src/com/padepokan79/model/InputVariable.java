@@ -2,13 +2,7 @@ package com.padepokan79.model;
 
 public class InputVariable {
 	public static int nextPage = 0;
-<<<<<<< HEAD
-	
-	
-=======
 
-
->>>>>>> origin/master
 	public static int inputHari;//untuk fgajiUangDuka ,menu on 1
 	public static int inputGaji;// untuk fgajiUangDuka ,menu on 2
 	public static String inputDate; //format nya 2016-01-01 untuk fgajiUangDuka, menu On 2 & 4
