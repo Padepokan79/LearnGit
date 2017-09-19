@@ -440,7 +440,6 @@ public class YusupTest extends InputVariable{
 	public static Scanner sf=new Scanner( System.in );
 	
 	
-	
 	public static void testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
 		FgajiUangDuka fju=new FgajiUangDuka();
 		
@@ -489,23 +488,12 @@ public class YusupTest extends InputVariable{
 
 			System.out.print("  |         "+ obj.get(Ftjanak));
 			System.out.println("        |");
-			System.out.println("+-------------------------------------------------------------------------------+");
+			System.out.println("+--------------------------------------------------------------------------+");
 		}
 	}//Yusup Add ShowData Hehe...
 	
 	public static void main(String args[]) {
-		//testBendaharaPembantuDaftarGaji();
-		//testDaftarPegawaiYangMatiSebelumTahun2013();
-		//testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri();
-		//testNamaKeluargaPNSyangPernahMenikahLaluCerai();
-		
-		//testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri();
-		//testNamaPnsYangPensiunTahunIni();
-		//testNamaPNSYangSkepnyaDiterbitkanOlehPresiden();
-		//testTampilkanJumlahSKPP_PNSberdasarkanKodePangkat();
-		//testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya();
 		YusupTest tes =new YusupTest();
-		//tes.testTGLWafatDanUangBersihLebihDari1Jt();
 		tes.testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
 		
 	}
