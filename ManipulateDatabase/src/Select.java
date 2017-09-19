@@ -43,6 +43,8 @@ public class Select {
 			//showDataTop10(arrayData);
 			
 			st.close();
+			st = null;
+			rs = null;
 //			obj =  arrayData.getJSONObject(1);
 //			System.out.println(obj);
 //			obj =  arrayData.getJSONObject(2);

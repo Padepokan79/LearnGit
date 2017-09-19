@@ -440,7 +440,6 @@ public class YusupTest extends InputVariable{
 	public static Scanner sf=new Scanner( System.in );
 	
 	
-	
 	public static void testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
 		FgajiUangDuka fju=new FgajiUangDuka();
 		

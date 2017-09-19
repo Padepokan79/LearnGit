@@ -116,9 +116,9 @@ public interface ListQuery {
 	public final String queryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya = // add by rzkypprtm
 			"SELECT KDSATKER as Kode_Satuan_Kerja , NAMASATKER as Nama_Satuan_Kerja , COUNT(*) as Jumlah_PNS FROM data_rapel GROUP BY KDSATKER;"; // 
 	public final String queryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal =// add by selfi 
-			"SELECT NIP, NAMA, AWAL, AKHIR FROM data_rapel where AWAL LIKE '?' AND AKHIR LIKE '?' LIMIT ?,10;"; // ? '2009-01-01' . ? '2009-02-01' . ? LIMIT
+			"SELECT NIP, NAMA, AWAL, AKHIR FROM data_rapel where AWAL LIKE ? AND AKHIR LIKE ? LIMIT ?,10;"; // ? '2009-01-01' . ? '2009-02-01' . ? LIMIT
 	public final String queryMenampilkanDataNamaYangHurufAwalADanPangkat3D = // Add by selfi
-			"SELECT * FROM data_rapel WHERE NAMA LIKE '?%'AND KDPANGKAT LIKE '?' limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
+			"SELECT NIP, NAMA, KDPANGKAT FROM data_rapel WHERE NAMA LIKE '?%'AND KDPANGKAT LIKE '?' limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
 	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita = // add by rzkypprtm
 			"SELECT * FROM data_rapel WHERE KDJENKEL is NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
 
@@ -165,7 +165,7 @@ public interface ListQuery {
 	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtm
 			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
 	public final String queryMenampilkanDaftarTanggalBayarberdasarkanInput = // add by rzkypprtm ?1 = batas awal ?2=batas akhir
-			"SELECT detil_kekurangan.NIP, mstpegawai.NAMA, detil_kekurangan.TGLBAYAR FROM detil_kekurangan, mstpegawai WHERE TGLBAYAR >= '?' and TGLBAYAR <= '?' GROUP BY TGLBAYAR LIMIT ? , 10;";
+			"SELECT detil_kekurangan.NIP, mstpegawai.NAMA, detil_kekurangan.TGLBAYAR FROM detil_kekurangan, mstpegawai WHERE TGLBAYAR >= ? and TGLBAYAR <= ? GROUP BY TGLBAYAR LIMIT ? , 10;";
 	public final String queryMencariKodePangkatdanMengurutkanUPDSTAMP = // add by siska ? untuk kdpangkat bisa diisi 1/2/3/4 
 			"select distinct a.tglbayar, a.NIP, b.NAMA, a.jeniskekurangan,a.dari,a.sampai,a.kdpangkat,a.UPDSTAMP from detil_kekurangan a, mstpegawai b where a.kdpangkat like '%?%' and a.NIP = b.NIP  order by a.UPDSTAMP desc limit ?,10;";
 
@@ -248,6 +248,6 @@ public interface ListQuery {
 
 //Tabel 20 From guru_tbl add by Hendra YN
 		public final String queryMencariKodeGurudiTabelGuruTBL =
-				"select kdGuru as KodeGuru, nmguru as NamaGuru From guru_tbl where kdguru = ? ?,10;";
+				"select kdGuru as KodeGuru, nmguru as NamaGuru From guru_tbl where kdguru = ? and nmguru is not null;";
 				//?1. Kode guru 1 s.d 17 ?2. limit
 }			
