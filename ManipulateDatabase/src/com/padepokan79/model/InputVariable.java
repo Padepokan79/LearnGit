@@ -43,4 +43,15 @@ public class InputVariable {
 	public static int inputStatusPajak;    //contoh 1 sudah bayar, 0 belum bayar
 	public static int inputGender;	//contoh 1 laki2 , 2 perempuan
 	public static int inputJumalahKeluarga; //contoh 1 , 2 , 3
+	
+	//getqueryMencariNamaAgama
+	public static int inputKodeAgama;    //contoh 1 islam, 2 kristen, 3 katolik, 4 hindu, 5 budha, 6 khonghucu
+	
+	//getqueryMencariBerdasakanKDSKPDdiAkunsp2d
+	public static int inputKodeSKPD;    // ? 1. KodeSKPD 1 sampai 49 ? 2. limit page
+	public static int inputKodeTrans;   // ? 1. KodeTRANS 101 s/d 112 201 s/d 206
+	
+	//Tabel 15 t_tunjangan
+	public static int inputJumlahAwal;
+	public static int inputJumlahAkhir;
 }
