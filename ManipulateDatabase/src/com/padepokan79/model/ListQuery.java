@@ -99,11 +99,11 @@ public interface ListQuery {
 	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat = // add by rzkypprtm ? = 7(1minggu)
 			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka b WHERE a.NIP = b.NIP AND (TGLBAYAR-TGLWAFAT) <= ? LIMIT ?, 10;";
 	public final String queryTGLWafatDanUangBersihLebihDari1Jt = // add by selfi, ? 2016-01-01 (sesuai tahun dan bulan)  , ?= sesuai Nominal gaji
-			"select NIP,TGLWAFAT,BERSIH from fgaji_uangduka where TGLWAFAT > '?' AND BERSIH > ? limit 0,10;";
+			"select NIP,TGLWAFAT,BERSIH from fgaji_uangduka where TGLWAFAT > ? AND BERSIH > ? limit 0,10;";
 	public final String queryNamaPNSYangMeningglTanpaTunjanganAnakIstri = // add by siska
 			"select distinct fgaji_uangduka.NIP,mstpegawai.NAMA as Nama,tglwafat,tjistri,tjanak  from fgaji_uangduka,mstpegawai where fgaji_uangduka.NIP = mstpegawai.NIP and tjistri=? and tjanak=? limit 0,10;";
 	public final String queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak = // add by novan
-			"select NIP,TGLWAFAT,TJISTRI,TJANAK from fgaji_uangduka where TGLWAFAT <= '?' AND (TJISTRI > ? AND TJANAK = ?) ;";
+			"select NIP,TGLWAFAT,TJISTRI,TJANAK from fgaji_uangduka where TGLWAFAT <= ? AND (TJISTRI > ? AND TJANAK = ?) ;";
 	public final String queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi = // add by rzkypprtm 
 			"SELECT COUNT(TJESELON) as JUMLAH_PNS_NonTJSESLON_NonTJFUNGSI FROM fgaji_uangduka WHERE TJESELON = '0' AND TJFUNGSI = '0' LIMIT ?, 10;";
 
@@ -165,7 +165,7 @@ public interface ListQuery {
 	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtm
 			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
 	public final String queryMenampilkanDaftarTanggalBayarberdasarkanInput = // add by rzkypprtm ?1 = batas awal ?2=batas akhir
-			"SELECT detil_kekurangan.NIP, mstpegawai.NAMA, detil_kekurangan.TGLBAYAR FROM detil_kekurangan, mstpegawai WHERE TGLBAYAR >= '?' and TGLBAYAR <= '?' GROUP BY TGLBAYAR LIMIT ? , 10;";
+			"SELECT detil_kekurangan.NIP, mstpegawai.NAMA, detil_kekurangan.TGLBAYAR FROM detil_kekurangan, mstpegawai WHERE TGLBAYAR >= ? and TGLBAYAR <= ? GROUP BY TGLBAYAR LIMIT ? , 10;";
 	public final String queryMencariKodePangkatdanMengurutkanUPDSTAMP = // add by siska ? untuk kdpangkat bisa diisi 1/2/3/4 
 			"select distinct a.tglbayar, a.NIP, b.NAMA, a.jeniskekurangan,a.dari,a.sampai,a.kdpangkat,a.UPDSTAMP from detil_kekurangan a, mstpegawai b where a.kdpangkat like '%?%' and a.NIP = b.NIP  order by a.UPDSTAMP desc limit ?,10;";
 
@@ -248,6 +248,6 @@ public interface ListQuery {
 
 //Tabel 20 From guru_tbl add by Hendra YN
 		public final String queryMencariKodeGurudiTabelGuruTBL =
-				"select kdGuru as KodeGuru, nmguru as NamaGuru From guru_tbl where kdguru = ? ?,10;";
+				"select kdGuru as KodeGuru, nmguru as NamaGuru From guru_tbl where kdguru = ? and nmguru is not null;";
 				//?1. Kode guru 1 s.d 17 ?2. limit
 }			

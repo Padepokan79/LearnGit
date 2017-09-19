@@ -39,7 +39,7 @@ public class Guru implements ListQuery{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
 				st.setInt(1, InputVariable.inputKode);
-				st.setInt(2, InputVariable.nextPage);
+				//st.setInt(2, InputVariable.nextPage);
 			}
 			
 			// execute the query, and get a java resultset

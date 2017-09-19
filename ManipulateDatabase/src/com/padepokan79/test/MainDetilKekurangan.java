@@ -31,9 +31,9 @@ public class MainDetilKekurangan extends InputVariable{
 	}
 	public static void showData_dk(JSONArray arrayData, String nip, String nama, String masakerja, String gapok) {
 		//System.out.println(arrayData);
-		System.out.println("+--------------------------------------------------------------+");
-		System.out.println("|  NIP                |    Nama Pegawai   | Masa Kerja    |    Gaji Pokok   |");
-		System.out.println("+--------------------------------------------------------------+");
+		System.out.println("+-------------------------------------------------------------------------------------------+");
+		System.out.println("|  NIP                |            Nama Pegawai           | Masa Kerja    |    Gaji Pokok   |");
+		System.out.println("+-------------------------------------------------------------------------------------------+");
 		String space;
 		int tamp;
 
@@ -49,19 +49,19 @@ public class MainDetilKekurangan extends InputVariable{
 				System.out.print(" ");
 			}
 			tamp=(int) obj.get(masakerja);
-			space = space.valueOf(tamp);
+			//space = space.valueOf(tamp);
 			System.out.print("              | "+ tamp);
-			for (int j = 0; j  < 16 - (space.length()); j++) {
+			for (int j = 0; j  < 10 - (space.length()); j++) {
 				System.out.print(" ");
 			}
 			tamp=(int) obj.get(gapok);
-			space = space.valueOf(tamp);
-			System.out.print("              | "+ tamp);
-			for (int j = 0; j  < 16 - (space.length()); j++) {
+			//space = space.valueOf(tamp);
+			System.out.print("| "+ tamp);
+			for (int j = 0; j  < (space.length()); j++) {
 				System.out.print(" ");
 			}
 			System.out.println("|");
-			System.out.println("+----------------------------------+");
+			System.out.println("+---------------------------------------------------------------------------------------+");
 		}
 	}
 	public static void main(String args[]) {
