@@ -46,6 +46,7 @@ public class InputVariable {
 	
 	//getkode
 	public static int inputKode;   // ? 1. untuk kode agama, trans, skpd, gol
+	public static String inputGolongan;
 	
 	//Tabel 15 t_tunjangan
 	public static int inputJumlahAwal;
