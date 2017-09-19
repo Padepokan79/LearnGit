@@ -237,5 +237,11 @@ public final String queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan =
 //Tabel 18 From umum_tbl add by selfi
 		public final String queryMencariTJUmumBerdasarkanKodeGolongan = 
 					"select * from umum_tbl where KDGOL = ?  limit ?,10;"; // ?1. KDGOL 1/2/3/4 ?2. AwalLimit
+//==========================================================================================================================================================================
+//Tabel 19 From hak_akses add by selfi
 
+		public final String queryMenghitungJumlahHakAksesBerdasarkanPemakai =
+				"select pemakai, count(*) as jumlah_hak_akses from hak_akses group by pemakai limit ?,10;"; // ?1. limit 
+		public final String queryMencariYangMenggunakanKodeHakAkses =
+				"select * from hak_akses where kodeakses = ? limit ?,10"; // ?1 kodehakakses contoh 12 . ?2 limit 
 }			
