@@ -246,15 +246,7 @@ public interface ListQuery {
 		public final String queryMencariYangMenggunakanKodeHakAkses =
 				"select * from hak_akses where kodeakses = ? limit ?,10"; // ?1 kodehakakses contoh 12 . ?2 limit 
 
-//Tabel 20 From data_rapel add by Hendra YN
-		public final String queryMencariBerdasarkanKDGolonganDiTabelDataRapel =
-				"select nip, nama, kdsatker as KodeSatuanKerja, namasatker, kdpangkat, gapok as KodePangkat from data_rapel where gapok is not null and kdpangkat = '?' limit ?,10 ;";
-				// ?1. KodeGolongan 1A-1D, 2A-2D, 3A-3D, 4A-4D ?2. limit
-		public final String queryMencariBerdasarkanJenKelDiTabelDataRapel =
-				"select nip, nama, kdsatker as KodeSatuanKerja, namasatker, kdjenkel, kdpangkat as KodePangkat, gapok as GajiPokok from data_rapel where gapok is not null and kdjenkel = ? limit ?,10 ;";
-				// ?1. jenis kelamin 1 = laki laki 2 = perempuan ?2. limit
-		public final String queryMencariBerdasarkanStatusNikahDiTabelDataRapel =
-				"select nip as NIP, nama as Nama, kdsatker as KodeSatuanKerja, namasatker as NamaSatuanKerja, kdjenkel as KodeJenkel, jistri as StatusNikah, kdpangkat as KodePangkat, gapok as GajiPokok from data_rapel where gapok is not null and janak is not null  and jistri = ? limit ?,10;";
-				// ?1. status nikah 1 = nikah 0 = belum nikah ?2. limit
-
+//Tabel 20 From guru_tbl add by Hendra YN
+		public final String queryMencariKodeGurudiTabelGuruTBL =
+				"select kdGuru as KodeGuru, nmguru as NamaGuru From guru_tbl where kdguru = 1;";
 }			
