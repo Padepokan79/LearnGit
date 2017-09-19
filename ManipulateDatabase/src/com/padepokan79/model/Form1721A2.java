@@ -8,13 +8,14 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class FgajiUangDuka implements ListQuery {
-	
+public class Form1721A2 implements ListQuery{
+
 	String myDriver = "org.gjt.mm.mysql.Driver";
 	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
 	Connection conn = null;
 	int menuOn = 0;
-	public FgajiUangDuka() {
+
+	public Form1721A2() {
 		try
 		{
 			Class.forName(myDriver);
@@ -37,25 +38,22 @@ public class FgajiUangDuka implements ListQuery {
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
-				st.setInt(1, InputVariable.inputHari);
-				st.setInt(2, InputVariable.nextPage);
-			}
-			else if( menuOn == 2) {
-				st.setString(1, InputVariable.inputDate);
-				st.setInt(2, InputVariable.inputGaji);
+				st.setInt(1, InputVariable.inputTahunPajak);
+				st.setInt(2, InputVariable.inputJabatanGolongan);
 				st.setInt(3, InputVariable.nextPage);
 			}
-			else if ( menuOn == 3) {
-				st.setInt(1, InputVariable.inputTunjanganIstri);
-				st.setInt(2, InputVariable.inputTunjanganAnak);	
+			else if( menuOn == 3) {
+				st.setInt(1, InputVariable.inputStatusPajak);
+				st.setInt(2, InputVariable.inputGender);
+				st.setInt(3, InputVariable.nextPage);
 			}
-			else if ( menuOn == 4) {
-				st.setString(1, InputVariable.inputDate);
-				st.setInt(2, InputVariable.inputTunjanganIstri);
-				st.setInt(3, InputVariable.inputTunjanganAnak);	
-			}
-			else if ( menuOn == 5 ) {
+			else if( menuOn == 4) {
 				st.setInt(1, InputVariable.nextPage);
+			}
+			else if( menuOn == 5) {
+				st.setInt(1, InputVariable.inputGender);
+				st.setInt(2, InputVariable.inputJumalahKeluarga);
+				st.setInt(3, InputVariable.nextPage);
 			}
 			
 			// execute the query, and get a java resultset
@@ -67,66 +65,59 @@ public class FgajiUangDuka implements ListQuery {
 			// TODO: handle exception
 		}
 		return null;
-		}
-	
-	public JSONArray getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
+	}
+	public JSONArray getqueryMencariTahunPajakdanJabatanGolongan(){
 		try
 		{
 			menuOn = 1;
-			String query = queryNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat;
-			return simpleQuery(query);
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		return null; 
-	}
-	
-	public JSONArray getTGLWafatDanUangBersihLebihDari1Jt(){
-		try
-		{
-			menuOn = 2;
-			String query = queryTGLWafatDanUangBersihLebihDari1Jt;
+			String query = queryMencariTahunPajakdanJabatanGolongan;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	
-	public JSONArray queryNamaPNSYangMeningglTanpaTunjanganAnakIstri(){
+	public JSONArray getqueryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum(){
+		try
+		{
+			String query = queryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum;
+			return simpleQuery(query);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	public JSONArray getqueryMenampilkanStatusYangBelumBayarPajakDanLakiLaki(){
 		try
 		{
 			menuOn = 3;
-			String query = queryNamaPNSYangMeningglTanpaTunjanganAnakIstri;
+			String query = queryMenampilkanStatusYangBelumBayarPajakDanLakiLaki;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	
-	public JSONArray queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
+	public JSONArray getqueryMenampilkanYangSudahAdaNPWP(){
 		try
 		{
 			menuOn = 4;
-			String query = queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak;
+			String query = queryMenampilkanYangSudahAdaNPWP;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	
-	public JSONArray queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(){
+	public JSONArray getqueryMenampilkanStatusBerdasarkanGenderdanJumlahKeluarga(){
 		try
 		{
 			menuOn = 5;
-			String query = queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi;
+			String query = queryMenampilkanStatusBerdasarkanGenderdanJumlahKeluarga;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-
 }
