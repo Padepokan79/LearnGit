@@ -201,5 +201,15 @@ public interface ListQuery {
 	public final String queryListKDTransdiAkunsp2d =
 			"select distinct kdtrans as KodeTRANS, nmakun as NamaAkun, kdakun as KodeAkun from akunsp2d where kdtrans = ? limit ?,10;";
 			// ? 1. Kode Trans 101 s/d 112 201 s/d 206
-	
+
+	//==========================================================================================================================================================================
+	//Tabel 14 From unitkerja add by selfi
+	public final String queryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong =
+			"select satkerja AS SATUANKERJA, unit, NIP_ATASAN, JAB_ATASAN, NAMA_ATASA as NAMA_ATASAN from UNITKERJA WHERE NOT NIP_ATASAN LIKE '' AND NOT JAB_ATASAN LIKE '' AND NOT NAMA_ATASA LIKE '' LIMIT ?,10;";
+	public final String queryMenampilkanBerdasarkanNamaJabatanAtasan = 
+			"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN from unitkerja where JAB_ATASAN like '?%' limit ?,10;"; // ?1 namaAtasan ?2 limit ?
+	public final String querMenampilkanBerdasarkanNamaBendahara = 
+			"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_BEND AS NAMA_BENDAHARA from unitkerja where NAMA_BEND like '?%' limit ?,10;"; // ?1. NamaBendahara ?2. limit 
+	public final String querMenampilkanBerdasarkanNamaOperator =
+			"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_OPERA AS NAMA_OPERATOR from unitkerja where NAMA_OPERA like '?%' limit ?,10;"; // ?1. NamaOperator ?2. limit
 }			
