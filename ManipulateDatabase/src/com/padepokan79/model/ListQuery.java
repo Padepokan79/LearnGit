@@ -99,11 +99,11 @@ public interface ListQuery {
 	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat = // add by rzkypprtm ? = 7(1minggu)
 			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka b WHERE a.NIP = b.NIP AND (TGLBAYAR-TGLWAFAT) <= ? LIMIT ?, 10;";
 	public final String queryTGLWafatDanUangBersihLebihDari1Jt = // add by selfi, ? 2016-01-01 (sesuai tahun dan bulan)  , ?= sesuai Nominal gaji
-			"select NIP,TGLWAFAT,BERSIH from fgaji_uangduka where TGLWAFAT > ? AND BERSIH > ? limit 0,10;";
+			"select NIP,TGLWAFAT,BERSIH from fgaji_uangduka where TGLWAFAT > '?' AND BERSIH > ? limit 0,10;";
 	public final String queryNamaPNSYangMeningglTanpaTunjanganAnakIstri = // add by siska
 			"select distinct fgaji_uangduka.NIP,mstpegawai.NAMA as Nama,tglwafat,tjistri,tjanak  from fgaji_uangduka,mstpegawai where fgaji_uangduka.NIP = mstpegawai.NIP and tjistri=? and tjanak=? limit 0,10;";
 	public final String queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak = // add by novan
-			"select NIP,TGLWAFAT,TJISTRI,TJANAK from fgaji_uangduka where TGLWAFAT <= ? AND (TJISTRI > ? AND TJANAK = ?) ;";
+			"select NIP,TGLWAFAT,TJISTRI,TJANAK from fgaji_uangduka where TGLWAFAT <= '?' AND (TJISTRI > ? AND TJANAK = ?) ;";
 	public final String queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi = // add by rzkypprtm 
 			"SELECT COUNT(TJESELON) as JUMLAH_PNS_NonTJSESLON_NonTJFUNGSI FROM fgaji_uangduka WHERE TJESELON = '0' AND TJFUNGSI = '0' LIMIT ?, 10;";
 
@@ -175,10 +175,54 @@ public interface ListQuery {
 
 	
 	public final String queryMencariTahunPajakdanJabatanGolongan = // add by siska contoh : ? tahun pajak = 2015 , ? jabatan_gol = utama
-			"select tahun_pajak,nourt,nama_peg,jabatan_gol,awal_pajak,akhir_pajak from form_1721_a2 where tahun_pajak='?' and jabatan_gol like '%?%' order by nourt desc limit 0,10;";
+			"select tahun_pajak,nourt,nama_peg,jabatan_gol,awal_pajak,akhir_pajak from form_1721_a2 where tahun_pajak='?' and jabatan_gol like '%?%' order by nourt desc limit ?,10;";
 	public final String queryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum = // add by rzkypprtm
 			"SELECT JABATAN_GOL, Status, COUNT(*) FROM form_1721_a2 GROUP BY JABATAN_GOL, Status  ORDER BY JABATAN_GOL;";
+	public final String queryMenampilkanStatusYangBelumBayarPajakDanLakiLaki = // add by selfi
+			"select * from form_1721_a2 where status like ? and sex like ? order by Tahun_Pajak ASC  limit ?,10;"; // ?1 0/1 ?2 1/2
+	public final String queryMenampilkanYangSudahAdaNPWP = // Add by selfi
+			"select * from form_1721_a2 where not Npwp_Peg like '0%' and not Npwp_Peg like '' limit ?,10;"; // 
+	public final String queryMenampilkanStatusBerdasarkanGenderdanJumlahKeluarga = // Add by siska contoh : ? sex = 1/2 ? jml_kel = 1/2/3
+			"select nip,nama_peg,jabatan_gol,sex,jml_kel as Jumlah_Keluarga,status from form_1721_a2 where sex='?' and jml_kel='?' order by nourt desc limit ?,10;";
+
+//==========================================================================================================================================================================
+//Tabel 13 From Agama_tbl add by Hendra YN
+	public final String queryMencariNamaAgama = 
+			"select kdagama as KodeAgama, nmagama as NamaAgama from agama_tbl where kdagama = ? limit ?,10;"; // 1. KodeAgama = 1/2/3/4/5/6 2. limit next page
+
+//==========================================================================================================================================================================
+//Tabel 14 From Agama_tbl add by Hendra YN
+	public final String queryMencariBerdasakanKDSKPDdiAkunsp2d =
+			"select kdssbp as KodeSSBP, kdskpd as KodeSKPD, kdtrans as KodeTRANS, kdakun  as KodeAkun, nmakun as NamaAkun from akunsp2d where not kdskpd = ' ' and kdskpd = ? limit ?,10;";
+			// ? 1. KodeSKPD 1 sampai 49 ? 2. limit page
+	public final String queryMencariBerdasakanKDTRANSdiAkunsp2d =
+			"select kdssbp as KodeSSBP, kdskpd as KodeSKPD, kdtrans as KodeTRANS, kdakun  as KodeAkun, nmakun as NamaAkun from akunsp2d where not kdskpd = ' ' and kdtrans = ? limit ?,10;";
+			// ? 1. KodeTRANS 101 s/d 112 201 s/d 206
+	public final String queryListKDTransdiAkunsp2d =
+			"select distinct kdtrans as KodeTRANS, nmakun as NamaAkun, kdakun as KodeAkun from akunsp2d where kdtrans = ? limit ?,10;";
+			// ? 1. Kode Trans 101 s/d 112 201 s/d 206
 
 	
+//=================================================================================================================================================================================
+//Tabel 15 t_tunjangan
+	
+	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan =
+			"SELECT KDJAB as Kode_Jabatan, PENSIUN as Usia_Pensiun, COUNT(*) FROM t_tunjangan WHERE NOT PENSIUN is Null AND NOT PENSIUN = '0' GROUP BY KDJAB, PENSIUN ORDER BY KDJAB LIMIT ?, 10;";
+	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun =
+			"SELECT JML as Jumlah , COUNT(*) as Jumlah_PNS FROM t_tunjangan WHERE JML >= ? AND JML <= ? GROUP BY JML ORDER BY JML LIMIT ?, 10;";
+	public final String queryMenampilkanPNSyangPensiunKurangdariUsia60 =
+			"SELECT * FROM t_tunjangan WHERE PENSIUN < '60';";
 
-}
+//==========================================================================================================================================================================
+		//Tabel 16 From unitkerja add by selfi
+		public final String queryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong =
+				"select satkerja AS SATUANKERJA, unit, NIP_ATASAN, JAB_ATASAN, NAMA_ATASA as NAMA_ATASAN from UNITKERJA WHERE NOT NIP_ATASAN LIKE '' AND NOT JAB_ATASAN LIKE '' AND NOT NAMA_ATASA LIKE '' LIMIT ?,10;";
+		public final String queryMenampilkanBerdasarkanNamaJabatanAtasan = 
+				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN from unitkerja where JAB_ATASAN like '?%' limit ?,10;"; // ?1 namaAtasan ?2 limit ?
+		public final String querMenampilkanBerdasarkanNamaBendahara = 
+				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_BEND AS NAMA_BENDAHARA from unitkerja where NAMA_BEND like '?%' limit ?,10;"; // ?1. NamaBendahara ?2. limit 
+		public final String querMenampilkanBerdasarkanNamaOperator =
+				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_OPERA AS NAMA_OPERATOR from unitkerja where NAMA_OPERA like '?%' limit ?,10;"; // ?1. NamaOperator ?2. limit
+
+
+}			
