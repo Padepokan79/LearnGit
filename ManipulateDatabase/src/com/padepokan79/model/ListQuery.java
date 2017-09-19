@@ -118,9 +118,9 @@ public interface ListQuery {
 	public final String queryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal =// add by selfi 
 			"SELECT NIP, NAMA, AWAL, AKHIR FROM data_rapel where AWAL LIKE ? AND AKHIR LIKE ? LIMIT ?,10;"; // ? '2009-01-01' . ? '2009-02-01' . ? LIMIT
 	public final String queryMenampilkanDataNamaYangHurufAwalADanPangkat3D = // Add by selfi
-			"SELECT * FROM data_rapel WHERE NAMA LIKE '?%'AND KDPANGKAT LIKE '?' limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
+			"SELECT NIP, NAMA, KDPANGKAT FROM data_rapel WHERE NAMA LIKE ? AND KDPANGKAT LIKE ? limit ?,10;"; // ?1.= A, ?2=3D ,?3=Untuk limit
 	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita = // add by rzkypprtm
-			"SELECT * FROM data_rapel WHERE KDJENKEL is NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
+			"SELECT KDSATKER as Kode_Satuan_Kerja, NIP, NAMA, TGLLHR as Tanggal_Lahir FROM data_rapel WHERE KDJENKEL is NULL AND TGLLHR is NOT NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
 
 	
 //==========================================================================================================================================================================
