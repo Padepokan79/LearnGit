@@ -29,7 +29,7 @@ public class Keluarga extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryPNSJombloWafat(){
+	public JSONArray getQueryPNSJombloWafat(){
 		try
 		{
 			String query = queryPNSJombloWafat;
@@ -39,7 +39,7 @@ public class Keluarga extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryPNSUsiaPernikahanPerak25tahun(){
+	public JSONArray getQueryPNSUsiaPernikahanPerak25tahun(){
 		try
 		{
 			String query = queryPNSUsiaPernikahanPerak25tahun;
@@ -49,7 +49,7 @@ public class Keluarga extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryPNSjomblosejati(){
+	public JSONArray getQueryPNSjomblosejati(){
 		try
 		{
 			String query = queryPNSjomblosejati;
@@ -59,7 +59,7 @@ public class Keluarga extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
+	public JSONArray getQueryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
 		try
 		{
 			String query = queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri;
@@ -69,7 +69,7 @@ public class Keluarga extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryNamaKeluargaPNSyangPernahMenikahLaluCerai(){
+	public JSONArray getQueryNamaKeluargaPNSyangPernahMenikahLaluCerai(){
 		try
 		{
 			String query = queryNamaKeluargaPNSyangPernahMenikahLaluCerai;

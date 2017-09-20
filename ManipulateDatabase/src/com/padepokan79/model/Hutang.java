@@ -30,7 +30,7 @@ public class Hutang extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
+	public JSONArray getQueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
 		try
 		{
 			String query = queryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun;
@@ -40,7 +40,7 @@ public class Hutang extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan(){
+	public JSONArray getQueryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan(){
 		try
 		{
 			String query = queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan;
@@ -50,7 +50,7 @@ public class Hutang extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryHutangUntukAnak(){
+	public JSONArray getQueryHutangUntukAnak(){
 		try
 		{
 			String query = queryHutangUntukAnak;
@@ -60,7 +60,7 @@ public class Hutang extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryHutangPalingBanyak(){
+	public JSONArray getQueryHutangPalingBanyak(){
 		try
 		{
 			String query = queryHutangPalingBanyak;
@@ -70,7 +70,7 @@ public class Hutang extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray queryHutangPalingbanyak(){
+	public JSONArray getQueryHutangPalingbanyak(){
 		try
 		{
 			String query = queryHutangPalingbanyak;
