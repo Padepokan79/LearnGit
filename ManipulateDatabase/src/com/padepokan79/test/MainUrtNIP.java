@@ -5,23 +5,27 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.UrtNIP;
 
-public class MainUrtNIP {
-<<<<<<< HEAD
-	public static Scanner sc = new Scanner(System.in);
-	private static Object inputTempatLahir;
-	private static String inputJenisKelamin;
-		public static void main(String[]args) {
-			//getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
-			//getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
-			getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
-=======
+public class MainUrtNIP extends InputVariable {
+	public  Scanner sc = new Scanner(System.in);
+//<<<<<<< HEAD
+//	public static Scanner sc = new Scanner(System.in);
+//	private static Object inputTempatLahir;
+//	private static String inputJenisKelamin;
+//		public static void main(String[]args) {
+//			//getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
+//			//getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+//			getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
+//=======
 	
-		public  void main(String[]args) {
-			getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
-			getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
->>>>>>> origin/master
+		public  static void main(String[]args) {
+//			getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
+//			getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+			MainUrtNIP obj =  new MainUrtNIP();
+			obj.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
+//>>>>>>> origin/master
 		}
 		//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
 		public  void getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama(){
@@ -142,7 +146,7 @@ public class MainUrtNIP {
 			}
 		}	
 		// belum di uji connection,  message from server: "Too many connections"
-		public static void getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
+		public  void getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
 			UrtNIP urtNIP = new UrtNIP();
 			System.out.println("Masukan Tempat lahir : ");
 			inputTempatLahir = sc.next();
@@ -150,9 +154,9 @@ public class MainUrtNIP {
 			inputJenisKelamin = sc.next();
 			JSONArray data = urtNIP.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
 			//System.out.println(data);
-			showData7Parameter(data,"nip","nama","tempat_lahir","jenis_kelamin");
+			showData7Parameter(data,"nip_v", "v_nama", "v_tmp_lahir", "c_jns_kelamin");
 		} // ikan added test for NamaDanGajiBersih
-		public static void showData7Parameter(JSONArray arrayData,String a1,String a2,String a3,String a4) {
+		public  void showData7Parameter(JSONArray arrayData,String a1,String a2,String a3,String a4) {
 			//System.out.println(arrayData);
 			System.out.println("+---------------------------------------------------------------------------------------------------+");
 			System.out.println("|        NIP       |              nama            |          Tempat_Lahir        |   Jenis_Kelamin  | ");

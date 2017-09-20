@@ -8,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.model.Fgaji;
+import com.padepokan79.model.Guru;
 import com.padepokan79.model.HakAkses;
 import com.padepokan79.model.InputVariable;
 
@@ -89,7 +90,7 @@ public class MainHakAkses extends InputVariable {
 	public  Scanner sc=new Scanner( System.in );
 	//KodeGuru, NamaGuru,
 	public  void tesMencariKodeGuruDitabelGuru(){
-		Guru guru = new Guru();
+		Guru guru =new Guru();
 		try {
 			System.out.print("Masukan Kode Guru 1 s.d 17 : ");
 			inputKode = sc.nextInt();

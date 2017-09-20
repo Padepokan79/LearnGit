@@ -20,7 +20,7 @@ public class MainGuru {
 		try {
 			InputVariable in = new InputVariable();
 			System.out.print("Masukan Kode Guru 1 s.d 17 : ");
-			 = sc.nextInt();
+			int masukan = sc.nextInt();
 			JSONArray data = guru.getqueryMencariKodeGurudiTabelGuruTBL();
 			showData_skpp(data,"kodeguru","namaguru");
 		}catch (Exception e) {
