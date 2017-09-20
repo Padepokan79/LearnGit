@@ -7,22 +7,27 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.FgajiUangDuka;
-import com.padepokan79.model.Guru;
-import com.padepokan79.model.InputVariable;
 
-public class MainGuru {
+import com.padepokan79.model.InputVariable;
+import com.padepokan79.model.NyobaHitPajak;
+
+public class tesNyobaHitPajak {
 	static MainActivity ma=new MainActivity();
 	public static Scanner sc=new Scanner( System.in );
+	
 	//KodeGuru, NamaGuru,
-	public static void tesMencariKodeGuruDitabelGuru(){
-		Guru guru = new Guru();
+	public static void tesMencariHitPajak(){
+		
+		NyobaHitPajak hit = new NyobaHitPajak();
 		try {
 			InputVariable in = new InputVariable();
-			System.out.print("Masukan Kode Guru 1 s.d 17 : ");
-			 = sc.nextInt();
-			JSONArray data = guru.getqueryMencariKodeGurudiTabelGuruTBL();
-			showData_skpp(data,"kodeguru","namaguru");
+			System.out.print("Masukan jumlah anak 1 s.d 17 : ");
+			int masukan = sc.nextInt();
+			System.out.print("Masukan jumlah anak 1 s.d 17 : ");
+			int masukan2 = sc.nextInt();
+			JSONArray data = hit.getHitPajak(masukan, masukan)
+//			showData_skpp(data,"kodeguru","namaguru");
+			showDataTop10AllFields(data);
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
@@ -38,7 +43,7 @@ public class MainGuru {
 				ma.menuUtama();;
 				break;
 			case "2":
-				tesMencariKodeGuruDitabelGuru();
+				tesMencariHitPajak();
 				break;
 			default:
 				System.out.println("Masukan Salah !");
@@ -79,11 +84,19 @@ public class MainGuru {
 		backto();
 
 	}//Hendra Add ShowData Hehe... 
-
+	public static void showDataTop10AllFields(JSONArray arrayData) {
+		System.out.println(arrayData.length());
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);
+			System.out.println(obj);
+			
+		}
+		backto();
+	}
 
 	public static void main(String args[]) {
-		MainGuru md=new MainGuru();
-		md.tesMencariKodeGuruDitabelGuru();
+		tesNyobaHitPajak md=new tesNyobaHitPajak();
+		md.tesMencariHitPajak();
 	}
 
 

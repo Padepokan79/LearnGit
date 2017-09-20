@@ -16,22 +16,22 @@ public class Select {
 			// create our mysql database connection
 			
 			String myDriver = "org.gjt.mm.mysql.Driver";
-			String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
+			String myUrl = "jdbc:mysql://127.0.0.1:3306/nyoba";
 			Class.forName(myDriver);
-			Connection conn = (Connection) DriverManager.getConnection(myUrl, "taspen", "taspen");
+			Connection conn = (Connection) DriverManager.getConnection(myUrl, "root", "");
 
 			// our SQL SELECT query. 
 			// if you only need a few columns, specify them by name instead of using "*"
 			
 			int jumlahAnak = 2;
 			//String data = "5;select from tbluser ";
-			String query = "SELECT nama,bersih FROM fgaji where janak = ? and masker > ? limit 0 , 10;";
+			String query = "select nip, thp, kotorinduk, subkotor, istri, anak from hit_pajak where anak =1;";
 			
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			
-			st.setInt(1, jumlahAnak);
-			st.setInt(2, 20);
-			
+//			st.setInt(1, jumlahAnak);
+//			st.setInt(2, 20);
+//			
 			
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();

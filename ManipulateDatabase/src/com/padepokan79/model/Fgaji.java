@@ -11,7 +11,7 @@ import com.mysql.jdbc.ResultSet;
 public class Fgaji implements ListQuery{
 
 	String myDriver = "org.gjt.mm.mysql.Driver";
-	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
+	String myUrl = "jdbc:mysql://121.0.0.1:3306/nyoba";
 	Connection conn = null;
 
 	public Fgaji() {
@@ -21,7 +21,7 @@ public class Fgaji implements ListQuery{
 			// create our mysql database connection
 			conn = (Connection) 
 					DriverManager.getConnection(
-							myUrl, "taspen", "taspen");
+							myUrl, "root", "");
 
 		}
 		catch (Exception e)

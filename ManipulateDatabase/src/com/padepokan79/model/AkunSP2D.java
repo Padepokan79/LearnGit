@@ -8,7 +8,7 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class AkunSP2D implements ListQuery{
+public class AkunSP2D implements ListQuery {
 
 	String myDriver = "org.gjt.mm.mysql.Driver";
 	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
@@ -34,19 +34,20 @@ public class AkunSP2D implements ListQuery{
 
 	public JSONArray simpleQuery(String query){
 		try
-		{
+		{	
+			InputVariable in = new InputVariable();
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
-				st.setInt(1, InputVariable.inputKode);
-				st.setInt(2, InputVariable.nextPage);
+				st.setInt(1, in.inputKode);
+				st.setInt(2, in.nextPage);
 			}
 			else if( menuOn == 2) {
-				st.setInt(1, InputVariable.inputKode);
-				st.setInt(2, InputVariable.nextPage);
+				st.setInt(1, in.inputKode);
+				st.setInt(2, in.nextPage);
 			}
 			else if( menuOn == 3) {
-				st.setInt(1, InputVariable.inputKode);
-				st.setInt(2, InputVariable.nextPage);
+				st.setInt(1, in.inputKode);
+				st.setInt(2, in.nextPage);
 			}
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
