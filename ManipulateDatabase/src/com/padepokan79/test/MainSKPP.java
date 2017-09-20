@@ -15,7 +15,7 @@ public class MainSKPP {
 	public static void mainMenu () {//Modify by Ipin
 
 		System.out.println("+----------------------------------------------------------------------------------------------------------+");
-		System.out.println("|                                      Submenu Satuan Kerja                                                |");
+		System.out.println("|                                      Submenu SKPP                                                |");
 		System.out.println("|----------------------------------------------------------------------------------------------------------|");
 		System.out.println("| 1. Nama Operator dengan Akhiran H | 2. Nama Atasan bergelar Drs.dan Menjadi camat | 3. Kepala Dinas Haji |");
 		System.out.println("|----------------------------------------------------------------------------------------------------------|");

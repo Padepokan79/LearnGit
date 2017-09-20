@@ -16,6 +16,9 @@ public class MainActivity {
 		Maintwafat newWafat = new Maintwafat();
 		MainHutang newHutang = new MainHutang();
 		MainKeluarga newKeluarga = new MainKeluarga();
+		MainSKPP newSKPP = new MainSKPP();
+		MainDuka newDuka = new MainDuka();
+		MainDataRapel newRapel = new MainDataRapel();
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("+---------------------------------------------------------------------------------+");
@@ -40,6 +43,12 @@ public class MainActivity {
 			newHutang.mainMenu();
 		}else if (input == 5){
 			newKeluarga.mainMenu();
+		}else if  (input == 6){
+			newSKPP.mainMenu();
+		}else if (input == 7){
+			newDuka.mainMenu();
+		}else if (input == 8){
+			newRapel.mainMenu();
 		}
 		{
 			System.out.println("Maaf, inputan anda salah");

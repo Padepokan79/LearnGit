@@ -37,10 +37,10 @@ public class MainDataRapel {
 				testQueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal();
 				break;
 			case "4":
-				//JumlahPegawaiYangKerjaDiDinasKesehatan();
+				TestQueryMenampilkanDataNamaYangHurufAwalADanPangkat3D();
 				break;
 			case "5":
-				//testBendaharaPembantuDaftarGaji();
+				testQueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita();
 				break;
 			case "0":
 				ma.menuUtama();
@@ -104,11 +104,37 @@ public class MainDataRapel {
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			System.out.print("Masukan Tanggal Awal (format YYYY-MM-DD) : ");
-			InputVariable.inputBulanAwal=bf.next().trim();
+			InputVariable.inputBulanAwal=bf.next();
 			System.out.print("Masukan Tanggal Akhir (format YYYY-MM-DD) : ");
-			InputVariable.inputBulanAkhir=bf.next().trim();
+			InputVariable.inputBulanAkhir=bf.next();
 			JSONArray data = objDataRapel.getqueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal(); 
 			showData(data,"nip","nama","awal","akhir");
+		}catch (Exception e) {
+			System.out.println("Inputan Salah");
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void TestQueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(){
+		DataRapel objDataRapel=new DataRapel();
+		try {
+			System.out.print("Masukan Huruf Nama PNS : ");
+			InputVariable.inputHurufAwal=bf.next()+"%";
+			System.out.print("Masukan Kode Pangkat (2D, 3D, Etc.) : ");
+			InputVariable.inputKodePangkat=bf.next();
+			JSONArray data = objDataRapel.getqueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(); 
+			showData2(data,"nip","nama","kdpangkat");
+		}catch (Exception e) {
+			System.out.println("Inputan Salah");
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void testQueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(){
+		DataRapel objDataRapel=new DataRapel();
+		try {
+			JSONArray data = objDataRapel.getqueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(); 
+			showData2(data,"kode_satuan_kerja","nip","nama","tanggal_lahir");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
@@ -204,6 +230,77 @@ public class MainDataRapel {
 			
 			System.out.println(" |");
 		System.out.println("+----------------------------------------------------------------------+");
+		}
+		backto();
+	}
+	
+	public static void showData2(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
+		System.out.println("+-----------------------------------------------------------------+");
+		System.out.println("|          NIP          |         NAMA PNS         | KODE PANGKAT |");
+		System.out.println("+-----------------------------------------------------------------+");
+		String space;
+
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+			
+//			System.out.print("| ");
+			space=(String) obj.get(fielda);
+			space = space.trim();
+			System.out.print("| "+space);
+			for (int j = 0; j  <15-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			space=(String) obj.get(fieldb);
+			space = space.trim();
+			System.out.print("\t| "+space);
+			for (int j = 0; j  <25-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+			System.out.print("| "+obj.get(fieldc));
+			space=String.valueOf(obj.get(fieldc)) ;
+			space = space.trim();
+			for (int j = 0; j  <12-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			
+			System.out.println(" |");
+			System.out.println("+-----------------------------------------------------------------+");
+		}
+	}
+	
+	public static void showData2(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
+		System.out.println("+------------------------------------------------------------------------------------+");
+		System.out.println("| KODE SATUAN KERJA |         NIP          |        NAMA PNS         | TANGGAL LAHIR |");
+		System.out.println("+------------------------------------------------------------------------------------+");
+		String space;
+
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+			
+			space=(String) obj.get(fielda);
+			space = space.trim();
+			System.out.print("| "+space);
+			for (int j = 0; j  <18-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			space=(String) obj.get(fieldb);
+			space = space.trim();
+			System.out.print("| "+space);
+			for (int j = 0; j  <20-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+			System.out.print(" | "+obj.get(fieldc));
+			space=String.valueOf(obj.get(fieldc)) ;
+			space = space.trim();
+			for (int j = 0; j  <23-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print(" | "+obj.get(fieldd));
+			
+			System.out.println("    |");
+		System.out.println("+------------------------------------------------------------------------------------+");
 		}
 		backto();
 	}
