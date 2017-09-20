@@ -9,10 +9,10 @@ import org.json.JSONObject;
 import com.padepokan79.model.Keluarga;
 
 public class MainKeluarga {
-	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
-	static MainActivity ma=new MainActivity();
+	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	 MainActivity ma=new MainActivity();
 
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+-----------------------------------------------------------------------------+");
 		System.out.println("|                                Submenu Keluarga                             |");
@@ -55,7 +55,7 @@ public class MainKeluarga {
 
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
@@ -77,27 +77,27 @@ public class MainKeluarga {
 
 	/*NIP,NAMAKELUARGA,TGLNIKAH*/
 
-	public static void PNSUsiaPernikahanPerak25tahun(){
+	public  void PNSUsiaPernikahanPerak25tahun(){
 		Keluarga objKeluarga=new Keluarga();
 		JSONArray data = objKeluarga.queryPNSUsiaPernikahanPerak25tahun(); 
 		showData(data,"nip","namakeluarga","tglnikah");
 	}
 
 	/*nip,Nama,tglnikah,tglwafat*/
-	public static void jombloWafat(){
+	public  void jombloWafat(){
 		Keluarga objKeluarga=new Keluarga();
 		JSONArray data = objKeluarga.queryPNSJombloWafat(); 
 		showData(data,"nip","nama","tglwafat","");
 	}
 
 	/*NMKEL,TGLLHR,TGLNIKAH*/
-	public static void jombloSejati(){
+	public  void jombloSejati(){
 		Keluarga objKeluarga=new Keluarga();
 		JSONArray data = objKeluarga.queryPNSjomblosejati(); 
 		showData(data,"nmkel","tgllhr");
 	}
 
-	public static void testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
+	public  void testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
 		Keluarga objkeluarga =new Keluarga();
 
 		JSONArray data = objkeluarga.queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(); 
@@ -105,7 +105,7 @@ public class MainKeluarga {
 		showData2(data,"nip","nama","tglnikah","nipsuamiistri");
 	} // Yusup  added test for KeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri
 
-	public static void testNamaKeluargaPNSyangPernahMenikahLaluCerai(){
+	public  void testNamaKeluargaPNSyangPernahMenikahLaluCerai(){
 		Keluarga objkeluarga =new Keluarga();
 
 		JSONArray data = objkeluarga.queryNamaKeluargaPNSyangPernahMenikahLaluCerai(); 
@@ -114,7 +114,7 @@ public class MainKeluarga {
 	} // Yusup  added test for NamaKeluargaPNSyangPernahMenikahLaluCerai
 
 
-	public static void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
+	public  void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------+");
 		System.out.println("|        NIP           |      Nama Keluarga    | Tanggal Nikah |");
@@ -140,7 +140,7 @@ public class MainKeluarga {
 	}		
 
 
-	public static void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc,String fieldd) {
+	public  void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc,String fieldd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------+");
 		System.out.println("|        NIP           |     Nama Keluarga      | Tanggal Wafat |");
@@ -166,7 +166,7 @@ public class MainKeluarga {
 	}
 
 
-	public static void showData(JSONArray arrayData,String fielda, String fieldb) {
+	public  void showData(JSONArray arrayData,String fielda, String fieldb) {
 		System.out.println("+----------------------------------------------------+");
 		System.out.println("|               Nama                |  Tanggal Lahir |");
 		System.out.println("+----------------------------------------------------+");
@@ -187,7 +187,7 @@ public class MainKeluarga {
 	}
 
 
-	public static void showData2(JSONArray arrayData, String fNip, String fNama, String Ftglnikah, String fnipSI) {
+	public  void showData2(JSONArray arrayData, String fNip, String fNama, String Ftglnikah, String fnipSI) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------------------------------------------------------+");
 		System.out.println("|         NIP         |               Nama                 |Tanggal Nikah|  Nip Suami Istri |");
@@ -229,7 +229,7 @@ public class MainKeluarga {
 
 
 
-	public static void showData_(JSONArray arrayData, String fNip, String fNama, String Ftglnikah, String ftglcerai) {
+	public  void showData_(JSONArray arrayData, String fNip, String fNama, String Ftglnikah, String ftglcerai) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------+");
 		System.out.println("|         NIP         |          Nama           |Tanggal Nikah|Tanggal Cerai|");
@@ -265,7 +265,7 @@ public class MainKeluarga {
 		}
 	}
 
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		MainKeluarga mk=new MainKeluarga();
 		mk.mainMenu();
 	}

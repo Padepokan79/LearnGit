@@ -1,8 +1,12 @@
 package com.padepokan79.model;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 public class InputVariable {
 	public static int nextPage = 0;
-
+	public  Scanner dataIn = new Scanner(System.in );
 	public static int inputHari;//untuk fgajiUangDuka ,menu on 1
 	public static int inputGaji;// untuk fgajiUangDuka ,menu on 2
 	public static String inputDate; //format nya 2016-01-01 untuk fgajiUangDuka, menu On 2 & 4

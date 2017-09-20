@@ -10,9 +10,9 @@ import com.padepokan79.model.InputVariable;
 import com.padepokan79.test.MainAgama;
 
 public class MainDetilKekurangan extends InputVariable{
-	public static Scanner keyboard = new Scanner( System.in );
+	public  Scanner keyboard = new Scanner( System.in );
 	
-	public static void testqueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt() {
+	public  void testqueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt() {
 		DetilKekurangan dk = new DetilKekurangan();
 		
 		//try {
@@ -29,7 +29,7 @@ public class MainDetilKekurangan extends InputVariable{
 			// TODO: handle exception
 		//}
 	}
-	public static void showData_dk(JSONArray arrayData, String nip, String nama, String masakerja, String gapok) {
+	public  void showData_dk(JSONArray arrayData, String nip, String nama, String masakerja, String gapok) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------------------------------------------------------+");
 		System.out.println("|  NIP                |            Nama Pegawai           | Masa Kerja    |    Gaji Pokok   |");
@@ -64,7 +64,7 @@ public class MainDetilKekurangan extends InputVariable{
 			System.out.println("+---------------------------------------------------------------------------------------+");
 		}
 	}
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		MainDetilKekurangan test = new MainDetilKekurangan();
 		test.testqueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt();
 	}

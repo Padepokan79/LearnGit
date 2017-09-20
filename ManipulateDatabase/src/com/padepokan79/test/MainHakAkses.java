@@ -12,9 +12,9 @@ import com.padepokan79.model.Guru;
 import com.padepokan79.model.InputVariable;
 
 public class MainHakAkses extends InputVariable {
-	public static Scanner sc=new Scanner( System.in );
+	public  Scanner sc=new Scanner( System.in );
 	//KodeGuru, NamaGuru,
-	public static void tesMencariKodeGuruDitabelGuru(){
+	public  void tesMencariKodeGuruDitabelGuru(){
 		Guru guru = new Guru();
 		try {
 			System.out.print("Masukan Kode Guru 1 s.d 17 : ");
@@ -27,7 +27,7 @@ public class MainHakAkses extends InputVariable {
 		}
 	}
 	
-	public static void showData_skpp(JSONArray arrayData, String pa, String pb) {
+	public  void showData_skpp(JSONArray arrayData, String pa, String pb) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------+");
 		System.out.println("|                KodeGuru             |  NamaGuru  |");
@@ -59,7 +59,7 @@ public class MainHakAkses extends InputVariable {
 	}//Yusup Add ShowData Hehe... 
 
 
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		MainGuru md=new MainGuru();
 		md.tesMencariKodeGuruDitabelGuru();
 	}

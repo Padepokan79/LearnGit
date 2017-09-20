@@ -11,24 +11,24 @@ import com.padepokan79.model.InputVariable;
 
 
 public class MainAgama extends InputVariable{
-	public static Scanner keyboard = new Scanner( System.in );
+	public  Scanner keyboard = new Scanner( System.in );
 	
-	public static void testqueryMencariNamaAgama() {
+	public  void testqueryMencariNamaAgama() {
 		Agama agama = new Agama();
 		
-		//try {
+		try {
 			System.out.print("Masukan Kode Agama : ");
 			inputKode=keyboard.nextInt();
 			
 			JSONArray data = agama.getqueryMencariNamaAgama();
 			showData_agama(data,"kodeagama","namaagama");
-		//} catch (Exception e) {
-			//System.out.println("Inputan Salah");
-			//System.out.println(e.getMessage());
-			// TODO: handle exception
-		//}
+		} catch (Exception e) {
+			System.out.println("Inputan Salah");
+			System.out.println(e.getMessage());
+			 
+		}
 	}
-	public static void showData_agama(JSONArray arrayData, String kdagama, String nmagama) {
+	public  void showData_agama(JSONArray arrayData, String kdagama, String nmagama) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------+");
 		System.out.println("|  Kode Agama    |    Nama Agama   |");
@@ -51,7 +51,7 @@ public class MainAgama extends InputVariable{
 			System.out.println("+----------------------------------+");
 		}
 	}
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		MainAgama test = new MainAgama();
 		test.testqueryMencariNamaAgama();
 	}
