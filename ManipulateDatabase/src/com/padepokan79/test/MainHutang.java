@@ -77,7 +77,7 @@ public class MainHutang {
 
 	public  void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
 		Hutang hutang = new Hutang();
-		JSONArray data = hutang.getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
+		JSONArray data = hutang.getQueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 		//System.out.println(data);
 		showData4Parameter(data,"nip", "nama", "jumlah_hutang","jmlbulan");
 	} // By Indra
@@ -85,19 +85,19 @@ public class MainHutang {
 	/*JMLCICILAN, COUNT(*) as JUMLAH*/
 	public  void getTampilanJumlahPNSyangBerhutangBerdasarkanCicilan(){
 		Hutang hutang = new Hutang();
-		JSONArray data = hutang.queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan();
+		JSONArray data = hutang.getQueryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan();
 		showData2Parameter(data,"jmlcicilan", "jumlah");
 	}
 
 	public  void queryHutangPalingBanyak(){
 		Hutang hutang = new Hutang();
-		JSONArray data = hutang.queryHutangPalingBanyak();
+		JSONArray data = hutang.getQueryHutangPalingBanyak();
 		showData2Parameter(data,"nip","nama","jumlah_hutang");
 	} // ikan added test for NamaDanGajiBersih
 
 	public  void queryHutangPalingbanyak(){
 		Hutang hutang = new Hutang();
-		JSONArray data = hutang.queryHutangPalingbanyak();
+		JSONArray data = hutang.getQueryHutangPalingbanyak();
 		showData3Parameter(data,"nip","jmlbulan","jmlhutang");
 	} // ikan added test for NamaDanGajiBersih
 
@@ -105,7 +105,7 @@ public class MainHutang {
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
 	public  void queryHutangUntukAnak(){
 		Hutang hutang = new Hutang();
-		JSONArray data = hutang.queryHutangUntukAnak();
+		JSONArray data = hutang.getQueryHutangUntukAnak();
 		//System.out.println(data);
 		showData9Parameter(data,"nip","kdhutang","jmlhutang","jmlcicilan","cicilanakhir","jmlbulan","tmthutang","tathutang","keterangan");
 	}

@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import com.padepokan79.model.Agama;
 
 
+
 public class MainAgama{
 	public  Scanner keyboard = new Scanner( System.in );
 	

@@ -8,25 +8,13 @@ import org.json.JSONObject;
 import com.padepokan79.model.UrtNIP;
 
 public class MainUrtNIP {
-<<<<<<< HEAD
-	public static Scanner sc = new Scanner(System.in);
-	private static Object inputTempatLahir;
-	private static String inputJenisKelamin;
-		public static void main(String[]args) {
-			//getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
-			//getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
-			getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
-=======
+
+	public Scanner sc = new Scanner(System.in);
 	
-		public  void main(String[]args) {
-			getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
-			getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
->>>>>>> origin/master
-		}
 		//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
 		public  void getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama(){
 			UrtNIP urtNIP = new UrtNIP();
-			JSONArray data = urtNIP.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
+			JSONArray data = urtNIP.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama(0);
 			//System.out.println(data);
 			showData7Parameter(data,"nip","nama","npwp","tempat_lahir","jenkel","agama","golongan");
 		} // ikan added test for NamaDanGajiBersih
@@ -88,7 +76,9 @@ public class MainUrtNIP {
 		}	
 		public  void getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(){
 			UrtNIP urtNIP = new UrtNIP();
-			JSONArray data = urtNIP.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+			System.out.println("Masukan lama masa kerja : ");
+			int masaKerja=sc.nextInt();
+			JSONArray data = urtNIP.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(masaKerja, 0);
 			//System.out.println(data);
 			showData7Parameter(data,"nip","nama","npwp","masa_kerja","golongan","jab_struktur");
 		} // ikan added test for NamaDanGajiBersih
@@ -142,17 +132,17 @@ public class MainUrtNIP {
 			}
 		}	
 		// belum di uji connection,  message from server: "Too many connections"
-		public static void getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
+		public  void getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
 			UrtNIP urtNIP = new UrtNIP();
 			System.out.println("Masukan Tempat lahir : ");
-			inputTempatLahir = sc.next();
+			String inputTempatLahir = sc.next();
 			System.out.println("Masukan Jenis Kelamin : ");
-			inputJenisKelamin = sc.next();
-			JSONArray data = urtNIP.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
+			String inputJenisKelamin = sc.next();
+			JSONArray data = urtNIP.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(inputTempatLahir, inputJenisKelamin, 0);
 			//System.out.println(data);
 			showData7Parameter(data,"nip","nama","tempat_lahir","jenis_kelamin");
 		} // ikan added test for NamaDanGajiBersih
-		public static void showData7Parameter(JSONArray arrayData,String a1,String a2,String a3,String a4) {
+		public  void showData7Parameter(JSONArray arrayData,String a1,String a2,String a3,String a4) {
 			//System.out.println(arrayData);
 			System.out.println("+---------------------------------------------------------------------------------------------------+");
 			System.out.println("|        NIP       |              nama            |          Tempat_Lahir        |   Jenis_Kelamin  | ");

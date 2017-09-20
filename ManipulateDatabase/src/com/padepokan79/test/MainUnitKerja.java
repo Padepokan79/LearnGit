@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.padepokan79.model.InputVariable;
 
-public class MainUnitKerja extends InputVariable{
+public class MainUnitKerja {
 	public  Scanner bf=new Scanner( System.in );
 	public  String input,quiz;
 	

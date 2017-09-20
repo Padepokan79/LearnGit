@@ -10,59 +10,41 @@ import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.UrtNIP;
 
 
-public class IpinTest extends InputVariable {
-	public static BufferedReader bf=new BufferedReader(new InputStreamReader( System.in) );
-	public static String input;
-	public static UrtNIP utp=new UrtNIP();
-	//AGAMA, C_GOLONGAN as GOLONGAN, COUNT(*) as Jumlah 
-	public static void tesMenampilkanJumlahPNSberdasrkanAgamadanGolongan(){
-		
-		try {
-			
-			JSONArray data = utp.getMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
-			showData(data,"agama","golongan","jumlah");
-		}catch (Exception e) {
-			System.out.println("Inputan Salah");
-			System.out.println(e.getMessage());
-		}
-
-	}
-
-	public static void showData(JSONArray arrayData, String pa, String pb,String pc) {
-		System.out.println(arrayData);
-		System.out.println("+--------------------------------------------------+");
-		System.out.println("|                Penerbit             |Jumlah Surat|");
-		System.out.println("+--------------------------------------------------+");
-		String space;
-		int tamp=0;
-		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);
-			space = (String) obj.get(pb);
-			space=space.trim();
-			if(tamp<space.length())
-				tamp=space.length();
-		}
-		for (int i = 0; i < arrayData.length(); i++) {
-			JSONObject obj =  arrayData.getJSONObject(i);	
-
-			System.out.print("| "+obj.get(pa)+" |");
-
-			space = (String) obj.get(pb);
-			space=space.trim();
-			System.out.print(" "+space);
-			for (int j = 0; j  <tamp-(space.length()); j++) {
-				System.out.print(" ");
-			}
-			System.out.println(" | "+obj.get(pc)+" |");
-			System.out.println("+--------------------------------------------------+");
-		}
-
-
-	}//Yusup Add ShowData Hehe... 
-
-
-	public static void main(String args[]) {
-		IpinTest it=new IpinTest();
-		it.tesMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
-	}
+public class IpinTest {
+//	public static void menu(String arg[]) {
+//		int tmp[]= {arg[1].length()+arg[2].length()+arg[3].length()+8,arg[1].length(),arg[2].length(),arg[3].length()};
+//		int stat=1,batas,s=arg[0].length();
+//		for (int i = 0; i < 5; i++) {
+//			batas=tmp[0];
+//			for (int j = 0; j < batas; j++) {
+//				if(i%2==0) {
+//					System.out.print("-");
+//				}else if(i==1) {
+////					batas=batas/2;
+////					if(i==batas) {
+////						System.out.print(arg[stat]);
+////						stat++;
+////						j=j+s;
+////					}else {
+////						System.out.print("I");
+////					}
+//				}else {
+//					if(j==0) {
+//						System.out.print("| ");
+//					}else { 
+//						j+=tmp[stat];
+//						System.out.print(arg[stat]+" |");
+//						stat++;
+//					}
+//				}
+//			}
+//			System.out.println("");
+//		}
+//	}
+//
+//	public static void main(String args[]) {
+//		IpinTest it=new IpinTest();
+//		String arr[]= {"Main menu","Nama","Alamat","Asal"};
+//		it.menu(arr);
+//	}
 }

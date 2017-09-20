@@ -1,17 +1,13 @@
 package com.padepokan79.test;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.model.DataRapel;
-import com.padepokan79.model.InputVariable;;
 
 public class MainDataRapel {
-	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	 MainActivity ma=new MainActivity();
 	public  Scanner bf=new Scanner( System.in );
 	public  void mainMenu () {//Modify by Manto
@@ -26,7 +22,7 @@ public class MainDataRapel {
 		
 		try {
 			System.out.print("Masukan PIlihan : ");
-			String input=dataIn.readLine();
+			String input=bf.next();
 			switch (input) {
 			case "1":
 				testQueryGroupByGapokPNS();	
@@ -60,7 +56,7 @@ public class MainDataRapel {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
-			inp=dataIn.readLine();
+			inp=bf.next();
 			switch (inp) {
 			case "1":
 				ma.menuUtama();;
@@ -80,8 +76,8 @@ public class MainDataRapel {
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			System.out.print("Masukan Gaji Pokok Lebih Dari : ");
-			InputVariable.inputGapok=bf.nextInt();
-			JSONArray data = objDataRapel.getqueryGroupByGapokPNS(); 
+			int gapok=bf.nextInt();
+			JSONArray data = objDataRapel.getQueryGroupByGapokPNS(gapok); 
 			showData(data,"gapok","jumlah_pns");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -92,7 +88,7 @@ public class MainDataRapel {
 	public  void testQueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(){
 		DataRapel objDataRapel=new DataRapel();
 		try {
-			JSONArray data = objDataRapel.getqueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(); 
+			JSONArray data = objDataRapel.getQueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(); 
 			showData(data,"kode_satuan_kerja","nama_satuan_kerja","jumlah_pns");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -104,10 +100,10 @@ public class MainDataRapel {
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			System.out.print("Masukan Tanggal Awal (format YYYY-MM-DD) : ");
-			InputVariable.inputBulanAwal=bf.next();
+			String tglAwal=bf.next();
 			System.out.print("Masukan Tanggal Akhir (format YYYY-MM-DD) : ");
-			InputVariable.inputBulanAkhir=bf.next();
-			JSONArray data = objDataRapel.getqueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal(); 
+			String tglAkhir=bf.next();
+			JSONArray data = objDataRapel.getQueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal(tglAwal, tglAkhir, 0); 
 			showData(data,"nip","nama","awal","akhir");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -119,10 +115,10 @@ public class MainDataRapel {
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			System.out.print("Masukan Huruf Nama PNS : ");
-			InputVariable.inputHurufAwal=bf.next()+"%";
+			String hurufAwal=bf.next()+"%";
 			System.out.print("Masukan Kode Pangkat (2D, 3D, Etc.) : ");
-			InputVariable.inputKodePangkat=bf.next();
-			JSONArray data = objDataRapel.getqueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(); 
+			String kodePangkat=bf.next();
+			JSONArray data = objDataRapel.getQueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(hurufAwal, kodePangkat, 0); 
 			showData2(data,"nip","nama","kdpangkat");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -133,7 +129,7 @@ public class MainDataRapel {
 	public  void testQueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(){
 		DataRapel objDataRapel=new DataRapel();
 		try {
-			JSONArray data = objDataRapel.getqueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(); 
+			JSONArray data = objDataRapel.getQueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(); 
 			showData2(data,"kode_satuan_kerja","nip","nama","tanggal_lahir");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -305,7 +301,7 @@ public class MainDataRapel {
 		backto();
 	}
 	
-	public  void main(String args[]) {
+	public static void main(String args[]) {
 		MainDataRapel mk=new MainDataRapel();
 		mk.mainMenu();
 	}
