@@ -1,87 +1,80 @@
 package com.padepokan79.model;
 
-import java.sql.DriverManager;
-
 import org.json.JSONArray;
 
-import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
 public class UnitKerja extends DatabaseConnection implements ListQuery{
-
-	int menuOn = 0;
-
 	public UnitKerja() {
-		
+
 	}
 
-	public JSONArray simpleQuery(String query){
+	public JSONArray simpleQuery(String query, int nextPage){
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			if( menuOn == 1) {
-				st.setInt(1, InputVariable.nextPage);
-			}
-			else if( menuOn == 2) {
-				st.setString(1, InputVariable.inputNama);
-				st.setInt(2, InputVariable.nextPage);
-			}
-			else if( menuOn == 3) {
-				st.setString(1, InputVariable.inputNama);
-				st.setInt(2, InputVariable.nextPage);
-			}
-			else if( menuOn == 4) {
-				st.setString(1, InputVariable.inputNama);
-				st.setInt(2, InputVariable.nextPage);
-			}
-			// execute the query, and get a java resultset
+			st.setInt(1, nextPage);
 			ResultSet rs = (ResultSet) st.executeQuery();
-
-			//System.out.println("------ ------ ------ ----- -----");
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong(){
+
+	public JSONArray simpleQuery(String query, String inputName, int nextPage){
 		try
 		{
-			menuOn = 1;
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+			st.setString(1, inputName);
+			st.setInt(2, nextPage);
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
+	public JSONArray getQueryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong(int nextPage){
+		try
+		{
 			String query = queryNIPAtasanDanJabatanAtasanDanNamaAtasanTidakKosong;
-			return simpleQuery(query);
+			return simpleQuery(query, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanBerdasarkanNamaJabatanAtasan(){
+	
+	public JSONArray getQueryMenampilkanBerdasarkanNamaJabatanAtasan(String inputName, int nextPage){
 		try
 		{
-			menuOn = 2;
 			String query = queryMenampilkanBerdasarkanNamaJabatanAtasan;
-			return simpleQuery(query);
+			return simpleQuery(query, inputName, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanBerdasarkanNamaBendahara(){
+	
+	public JSONArray getQueryMenampilkanBerdasarkanNamaBendahara(String inputName, int nextPage){
 		try
 		{
 			String query = queryMenampilkanBerdasarkanNamaBendahara;
-			return simpleQuery(query);
+			return simpleQuery(query, inputName, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanBerdasarkanNamaOperator(){
+
+	public JSONArray getQueryMenampilkanBerdasarkanNamaOperator(String inputName, int nextPage){
 		try
 		{
 			String query = queryMenampilkanBerdasarkanNamaOperator;
-			return simpleQuery(query);
+			return simpleQuery(query, inputName, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
