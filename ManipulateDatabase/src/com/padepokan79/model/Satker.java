@@ -31,7 +31,7 @@ public class Satker extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryNamaAtasanDRSDanJabatanCamat(){
+	public JSONArray getQueryNamaAtasanDRSDanJabatanCamat(){
 		try
 		{
 			String query = queryNamaAtasanDRSDanJabatanCamat;
@@ -41,7 +41,7 @@ public class Satker extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryKepalaDinasHaji(){
+	public JSONArray getQueryKepalaDinasHaji(){
 		try
 		{
 			String query = queryKepalaDinasHaji;
@@ -51,7 +51,7 @@ public class Satker extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryBendaharaPembantuDaftarGaji(){
+	public JSONArray getQueryBendaharaPembantuDaftarGaji(){
 		try
 		{
 			String query = queryBendaharaPembantuDaftarGaji;
@@ -61,7 +61,7 @@ public class Satker extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryNamaOperatorDenganAkhiranH(){
+	public JSONArray getQueryNamaOperatorDenganAkhiranH(){
 		try
 		{
 			String query = queryNamaOperatorDenganAkhiranH;
@@ -71,7 +71,7 @@ public class Satker extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryJumlahPegawaiYangKerjaDiDinasKesehatan(){
+	public JSONArray getQueryJumlahPegawaiYangKerjaDiDinasKesehatan(){
 		try
 		{
 			String query = queryJumlahPegawaiYangKerjaDiDinasKesehatan;

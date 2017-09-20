@@ -10,24 +10,17 @@ import com.mysql.jdbc.ResultSet;
 
 public class Fspt extends DatabaseConnection implements ListQuery{
 
-	int menuOn = 0;
-
 	public Fspt() {
-		
+
 	}
 
-	public JSONArray simpleQuery(String query){
+	public JSONArray queryMencariPNSberdasarkanNoUrut(String query, int noUrut){
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			if( menuOn == 1) {
-				st.setInt(1, InputVariable.inputNoUrut);
-			}
-			else if( menuOn == 2) {
-				st.setString(1, InputVariable.inputNama);
-				st.setInt(2, InputVariable.inputKode);
-				st.setInt(3, InputVariable.nextPage);
-			}
+
+			st.setInt(1, noUrut);
+
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
 
@@ -38,23 +31,43 @@ public class Fspt extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryMencariPNSberdasarkanNoUrut(){
+	public JSONArray getQueryMencariPNSberdasarkanNoUrut(int noUrut){
 		try
 		{
-			menuOn = 1;
+
 			String query = queryMencariPNSberdasarkanNoUrut;
-			return simpleQuery(query);
+			return queryMencariPNSberdasarkanNoUrut(query, noUrut);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan(){
+
+	public JSONArray queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan(String query, String namaPNS, int kodeKDSKPD, int nextPage){
 		try
 		{
-			menuOn = 2;
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+
+			st.setString(1, namaPNS);
+			st.setInt(2, kodeKDSKPD);
+			st.setInt(3, nextPage);
+
+			// execute the query, and get a java resultset
+			ResultSet rs = (ResultSet) st.executeQuery();
+
+			//System.out.println("------ ------ ------ ----- -----");
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	public JSONArray getQueryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan(String namaPNS, int kodeKDSKPD, int nextPage){
+		try
+		{
+
 			String query = queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan;
-			return simpleQuery(query);
+			return queryMencariPNSberdasrkanNamaDanKDSKPDsecaraBersanaan(query, namaPNS, kodeKDSKPD, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}

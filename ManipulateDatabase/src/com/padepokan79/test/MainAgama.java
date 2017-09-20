@@ -6,24 +6,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.model.Agama;
-import com.padepokan79.model.Guru;
-import com.padepokan79.model.InputVariable;
 
 
-public class MainAgama extends InputVariable{
+
+public class MainAgama{
 	public  Scanner keyboard = new Scanner( System.in );
 	
 	public  void testqueryMencariNamaAgama() {
-		Agama agama = new Agama();
+		Agama ag = new Agama();
 		
 		try {
 			System.out.print("Masukan Kode Agama : ");
-			inputKode=keyboard.nextInt();
-			
-			JSONArray data = agama.getqueryMencariNamaAgama();
+			int inputKode=keyboard.nextInt();
+			JSONArray data = ag.getQueryMencariNamaAgama(inputKode);
 			showData_agama(data,"kodeagama","namaagama");
 		} catch (Exception e) {
-			System.out.println("Inputan Salah");
+//			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
 			 
 		}
@@ -51,7 +49,7 @@ public class MainAgama extends InputVariable{
 			System.out.println("+----------------------------------+");
 		}
 	}
-	public  void main(String args[]) {
+	public static void main(String args[]) {
 		MainAgama test = new MainAgama();
 		test.testqueryMencariNamaAgama();
 	}

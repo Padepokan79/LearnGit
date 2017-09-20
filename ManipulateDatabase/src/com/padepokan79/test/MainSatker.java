@@ -78,34 +78,34 @@ public class MainSatker {
 	
 	public  void namaOperatorDenganAkhiranH(){
 		Satker satKerja=new Satker();
-		JSONArray data = satKerja.getqueryNamaOperatorDenganAkhiranH();
+		JSONArray data = satKerja.getQueryNamaOperatorDenganAkhiranH();
 		showData1(data,"nama_operator","satuan_kerja","kota","deskripsi");
 	}
 
 	public  void getqueryNamaAtasanDRSDanJabatanCamat(){
 		Satker satkerja = new Satker();
-		JSONArray data = satkerja.getqueryNamaAtasanDRSDanJabatanCamat();
+		JSONArray data = satkerja.getQueryNamaAtasanDRSDanJabatanCamat();
 		//System.out.println(data);
 		showData5Parameter(data,"satkerja", "jab_atasan", "descsatker", "kota", "nama_atasan");
 	} 
 	
 	public  void kepalaDinasHaji(){
 		Satker satkerja = new Satker();
-		JSONArray data = satkerja.getqueryKepalaDinasHaji();
+		JSONArray data = satkerja.getQueryKepalaDinasHaji();
 		//System.out.println(data);
 		showData(data,"satkerja", "descsatker", "nama_atasa", "jab_atasan");
 	} 
 	
 	public  void JumlahPegawaiYangKerjaDiDinasKesehatan(){
 		Satker satkerja = new Satker();
-		JSONArray data = satkerja.getqueryJumlahPegawaiYangKerjaDiDinasKesehatan();
+		JSONArray data = satkerja.getQueryJumlahPegawaiYangKerjaDiDinasKesehatan();
 		//System.out.println(data);
 		showData(data,"satuan_kerja", "count(*)");
 	} 
 	
 	public  void testBendaharaPembantuDaftarGaji(){
 		Satker objSatker =new Satker();
-		JSONArray data = objSatker.getqueryBendaharaPembantuDaftarGaji(); 
+		JSONArray data = objSatker.getQueryBendaharaPembantuDaftarGaji(); 
 		showData(data,"satkerja","descsatker","nip_bend","nama_bend","jab_bend","jab_operat");
 	} // Yusup  added test for BendaharaPembantuDaftarGaji
 	

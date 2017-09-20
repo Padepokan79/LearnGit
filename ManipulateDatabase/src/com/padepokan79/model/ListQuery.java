@@ -18,11 +18,11 @@ public interface ListQuery {
 
 
 
-//========================================================================================================================================
-// tabel 2 SATKERJA
+	//========================================================================================================================================
+	// tabel 2 SATKERJA
 
 	public final String queryNamaAtasanDRSDanJabatanCamat =  // tambahan selfi
-	"SELECT SATKERJA,JAB_ATASAN,DESCSATKER,KOTA, NAMA_ATASA AS NAMA_ATASAN FROM satkerja WHERE NAMA_ATASA LIKE 'DRS%' AND JAB_ATASAN LIKE 'CAMAT%' ;";
+			"SELECT SATKERJA,JAB_ATASAN,DESCSATKER,KOTA, NAMA_ATASA AS NAMA_ATASAN FROM satkerja WHERE NAMA_ATASA LIKE 'DRS%' AND JAB_ATASAN LIKE 'CAMAT%' ;";
 	public final String queryKepalaDinasHaji = 
 			"select SATKERJA,descsatker,nama_atasa,jab_atasan from satkerja where descsatker like '%dinas%' and nama_atasa like 'h%' ;"; //add by siska	
 	public final String queryBendaharaPembantuDaftarGaji = 
@@ -39,7 +39,7 @@ public interface ListQuery {
 
 	public final String queryNIPNamaTanggalWafat = // add by rzkypprtm
 			"SELECT twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT FROM twafat,mstpegawai WHERE twafat.NIP = mstpegawai.NIP AND twafat.TGLWAFAT > '2014/04/31';";
-	public final String queryKdKubKelPenerimaKosong =
+	public final String queryKdHubKelPenerimaKosong =
 			"select twafat.NIP,mstpegawai.nama,twafat.TGLWAFAT,penerbit,kdhubkelpenerima from  twafat,mstpegawai where twafat.NIP = mstpegawai.NIP AND twafat.TGLWAFAT and kdhubkelpenerima=''  limit 10;"; //add by siska
 	public final String queryPenerbitBukanDariLurah = // add by selfi
 			"select twafat.NIP,mstpegawai.nama, twafat.PENERBIT from twafat,mstpegawai where twafat.NIP=mstpegawai.NIP AND NOT PENERBIT LIKE '%lurah%' limit 10;";
@@ -62,10 +62,10 @@ public interface ListQuery {
 	public final String queryHutangPalingbanyak = // add by selfi
 			"select NIP, JMLHUTANG,JMLBULAN from hutang ORDER BY JMLBULAN AND JMLHUTANG ASC limit 10;"; 
 
-	
-//===========================================================================================================================================
-//tabel 5 keluarga
-	
+
+	//===========================================================================================================================================
+	//tabel 5 keluarga
+
 	public final String queryPNSJombloWafat =
 			"select nip,nmkel as Nama,tglnikah,tglwafat from keluarga where tglnikah IS NULL and tglwafat IS NOT NULL limit 10;"; //add by siska
 	public final String queryPNSUsiaPernikahanPerak25tahun = // add by selfi
@@ -77,9 +77,9 @@ public interface ListQuery {
 	public final String queryNamaKeluargaPNSyangPernahMenikahLaluCerai = // add by rzkypprtm
 			"SELECT NIP, NMKEL as Nama, TGLNIKAH, TGLCERAI FROM keluarga WHERE TGLNIKAH IS NOT NULL AND TGLCERAI IS NOT NULL;";
 
-	
-//===========================================================================================================================================
-//tabel 6 skpp_pegawai
+
+	//===========================================================================================================================================
+	//tabel 6 skpp_pegawai
 
 	public final String queryNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri = // add by novan
 			"select NIP,NAMA,TJISTRI,TJANAK from skpp_pegawai where TJISTRI = 0 AND TJANAK > 0;";
@@ -92,9 +92,9 @@ public interface ListQuery {
 	public final String queryTampilkanJumlahSuratSKPPberdasarkanPenerbitnya = // add by rzkypprtm
 			"SELECT PENERBITSKEP as PENERBIT , COUNT(*) as Jumlah_Surat FROM skpp_pegawai GROUP BY PENERBITSKEP ORDER BY PENERBITSKEP, COUNT(*) desc;";
 
-//==========================================================================================================================================================================
-//Tabel 7 fgaji_uangduka
-	
+	//==========================================================================================================================================================================
+	//Tabel 7 fgaji_uangduka
+
 
 	public final String queryNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat = // add by rzkypprtm ? = 7(1minggu)
 			"SELECT  b.NIP, a.NAMA, b.TGLWAFAT, b.TGLBAYAR FROM mstpegawai a, fgaji_uangduka b WHERE a.NIP = b.NIP AND (TGLBAYAR-TGLWAFAT) <= ? LIMIT ?, 10;";
@@ -108,8 +108,8 @@ public interface ListQuery {
 			"SELECT COUNT(TJESELON) as JUMLAH_PNS_NonTJSESLON_NonTJFUNGSI FROM fgaji_uangduka WHERE TJESELON = '0' AND TJFUNGSI = '0' LIMIT ?, 10;";
 
 
-//==========================================================================================================================================================================
-//Tabel 8 data_rapel
+	//==========================================================================================================================================================================
+	//Tabel 8 data_rapel
 
 	public final String queryGroupByGapokPNS = // add by siska
 			"select gapok, count(*) as Jumlah_PNS from data_rapel where gapok > ? group by gapok limit 100;"; // di database ? = 300.000
@@ -122,10 +122,10 @@ public interface ListQuery {
 	public final String queryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita = // add by rzkypprtm
 			"SELECT KDSATKER as Kode_Satuan_Kerja, NIP, NAMA, TGLLHR as Tanggal_Lahir FROM data_rapel WHERE KDJENKEL is NULL AND TGLLHR is NOT NULL OR KDJENKEL = '3' ORDER BY KDJENKEL;";
 
-	
-//==========================================================================================================================================================================
-//Tabel 9 urtnip
-	
+
+	//==========================================================================================================================================================================
+	//Tabel 9 urtnip
+
 	public final String queryMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama = //add by siska
 			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, v_tmp_lahir as Tempat_Lahir,c_jns_kelamin as JenKel,c_agama as Agama, c_golongan as Golongan from urtnip where v_npwp IS NOT NULL and v_tmp_lahir IS NOT NULL and c_agama IS NOT NULL limit ?, 10;";
 	public final String queryMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan = // add by selfi
@@ -136,11 +136,11 @@ public interface ListQuery {
 			"SELECT C_AGAMA as AGAMA, C_GOLONGAN as GOLONGAN, COUNT(*) as Jumlah FROM urtnip GROUP BY C_AGAMA, C_GOLONGAN ORDER BY C_AGAMA, C_GOLONGAN, COUNT(*) LIMIT ?, 10;";
 	public final String queryMenampilkanGroupByAgama = //add by siska
 			"select c_agama as Agama, count(*) as Jumlah_PNS from urtnip group by c_agama limit ?, 10;";
-			
-	
-//==========================================================================================================================================================================
-//Tabel 10 historis_eselon
-	
+
+
+	//==========================================================================================================================================================================
+	//Tabel 10 historis_eselon
+
 	public final String queryMenampilkanRatarataTunjanganEselon = //add by siska
 			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon limit ?,10;";
 	public final String queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan = //add by rzkypprtm
@@ -151,12 +151,12 @@ public interface ListQuery {
 			"SELECT TJESELON, COUNT(*) as JUMLAH FROM historis_eselon WHERE TJESELON >= ? AND TJESELON <= ? GROUP BY TJESELON limit ?,10;";
 	public final String queryMenampilkanHistorisSkep = //add by siska
 			"select distinct a.NIP,b.NAMA,a.nomorskep,a.penerbitskep,a.keterangan,a.tglupdate from historis_eselon a,fgaji b where tglskep IS NOT NULL and NOT penerbitskep='' and nomorskep IS NOT NULL and NOT keterangan='' and a.NIP = b.NIP  limit ?,10;";
-	
-	
 
 
-//==========================================================================================================================================================================
-//Tabel 11 detil_kekurangan
+
+
+	//==========================================================================================================================================================================
+	//Tabel 11 detil_kekurangan
 
 	public final String queryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt = // Add by selfi
 			"select DISTINCT detil_kekurangan.NIP, mstpegawai.NAMA , detil_kekurangan.MASKER , detil_kekurangan.GAPOK from detil_kekurangan left join mstpegawai ON detil_kekurangan.NIP = mstpegawai.NIP where detil_kekurangan.masker < ? and detil_kekurangan.GAPOK  > ? limit 20;"; // ?1 maske ?2 GAPOK
@@ -169,11 +169,11 @@ public interface ListQuery {
 	public final String queryMencariKodePangkatdanMengurutkanUPDSTAMP = // add by siska ? untuk kdpangkat bisa diisi 1/2/3/4 
 			"select distinct a.tglbayar, a.NIP, b.NAMA, a.jeniskekurangan,a.dari,a.sampai,a.kdpangkat,a.UPDSTAMP from detil_kekurangan a, mstpegawai b where a.kdpangkat like '%?%' and a.NIP = b.NIP  order by a.UPDSTAMP desc limit ?,10;";
 
-	
-//==========================================================================================================================================================================
-//Tabel 12 form_1721_a2
 
-	
+	//==========================================================================================================================================================================
+	//Tabel 12 form_1721_a2
+
+
 	public final String queryMencariTahunPajakdanJabatanGolongan = // add by siska contoh : ? tahun pajak = 2015 , ? jabatan_gol = utama
 			"select tahun_pajak,nourt,nama_peg,jabatan_gol,awal_pajak,akhir_pajak from form_1721_a2 where tahun_pajak='?' and jabatan_gol like '%?%' order by nourt desc limit ?,10;";
 	public final String queryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum = // add by rzkypprtm
@@ -185,27 +185,27 @@ public interface ListQuery {
 	public final String queryMenampilkanStatusBerdasarkanGenderdanJumlahKeluarga = // Add by siska contoh : ? sex = 1/2 ? jml_kel = 1/2/3
 			"select nip,nama_peg,jabatan_gol,sex,jml_kel as Jumlah_Keluarga,status from form_1721_a2 where sex='?' and jml_kel='?' order by nourt desc limit ?,10;";
 
-//==========================================================================================================================================================================
-//Tabel 13 From Agama_tbl add by Hendra YN
+	//==========================================================================================================================================================================
+	//Tabel 13 From Agama_tbl add by Hendra YN
 	public final String queryMencariNamaAgama = 
-			"select kdagama as KodeAgama, nmagama as NamaAgama from agama_tbl where kdagama = ? limit ?,10;"; // 1. KodeAgama = 1/2/3/4/5/6 2. limit next page
+			"select kdagama as KodeAgama, nmagama as NamaAgama from agama_tbl where kdagama = ?;"; // 1. KodeAgama = 1/2/3/4/5/6 2. limit next page
 
-//==========================================================================================================================================================================
-//Tabel 14 From akunsp2d add by Hendra YN
+	//==========================================================================================================================================================================
+	//Tabel 14 From akunsp2d add by Hendra YN
 	public final String queryMencariBerdasakanKDSKPDdiAkunsp2d =
 			"select kdssbp as KodeSSBP, kdskpd as KodeSKPD, kdtrans as KodeTRANS, kdakun  as KodeAkun, nmakun as NamaAkun from akunsp2d where not kdskpd = ' ' and kdskpd = ? limit ?,10;";
-			// ? 1. KodeSKPD 1 sampai 49 ? 2. limit page
+	// ? 1. KodeSKPD 1 sampai 49 ? 2. limit page
 	public final String queryMencariBerdasakanKDTRANSdiAkunsp2d =
 			"select kdssbp as KodeSSBP, kdskpd as KodeSKPD, kdtrans as KodeTRANS, kdakun  as KodeAkun, nmakun as NamaAkun from akunsp2d where not kdskpd = ' ' and kdtrans = ? limit ?,10;";
-			// ? 1. KodeTRANS 101 s/d 112 201 s/d 206
+	// ? 1. KodeTRANS 101 s/d 112 201 s/d 206
 	public final String queryListKDTransdiAkunsp2d =
 			"select distinct kdtrans as KodeTRANS, nmakun as NamaAkun, kdakun as KodeAkun from akunsp2d where kdtrans = ? limit ?,10;";
-			// ? 1. Kode Trans 101 s/d 112 201 s/d 206
+	// ? 1. Kode Trans 101 s/d 112 201 s/d 206
 
-	
-//=================================================================================================================================================================================
-//Tabel 15 t_tunjangan add by rzkypprtm
-	
+
+	//=================================================================================================================================================================================
+	//Tabel 15 t_tunjangan add by rzkypprtm
+
 	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan =
 			"SELECT KDJAB as Kode_Jabatan, PENSIUN as Usia_Pensiun, COUNT(*) as jumlah FROM t_tunjangan WHERE NOT PENSIUN is Null AND NOT PENSIUN = '0' GROUP BY KDJAB, PENSIUN ORDER BY KDJAB LIMIT ?, 10;";
 	public final String queryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun =
@@ -242,7 +242,7 @@ public interface ListQuery {
 //Tabel 19 From hak_akses add by selfi
 
 		public final String queryMenghitungJumlahHakAksesBerdasarkanPemakai =
-				"select pemakai, count(*) as jumlah_hak_akses from hak_akses where not pemakai =' ' group by pemakai;"; // ?1. limit 
+				"select pemakai, count(*) as jumlah_hak_akses from hak_akses where not pemakai =' ' group by pemakai;"; 
 		public final String queryMencariYangMenggunakanKodeHakAkses =
 				"select * from hak_akses where kodeakses > ? "; // ?1 kodehakakses contoh 12 . ?2 limit 
 
