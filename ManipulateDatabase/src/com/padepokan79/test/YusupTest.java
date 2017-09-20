@@ -14,6 +14,7 @@ import com.padepokan79.model.Satker;
 import com.padepokan79.model.SkppPegawai;
 import com.padepokan79.model.Ttunjangan;
 import com.padepokan79.model.Twafat;
+import com.padepokan79.model.UrtNIP;
 
 public class YusupTest extends InputVariable{
 
@@ -634,11 +635,64 @@ public class YusupTest extends InputVariable{
 		}
 	}//Yusup Add ShowData Hehe...
 	//Main
+	
+	
+	
+	public static void MenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
+		UrtNIP urtNIP = new UrtNIP();
+		System.out.println("Masukan Tempat lahir : ");
+		inputTempatLahir = sf.next();
+		System.out.println("Masukan Jenis Kelamin : ");
+		inputJenisKelamin = sf.next();
+		JSONArray data = urtNIP.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
+		//System.out.println(data);
+		showData7Parameter(data,"nip_v","v_nama","v_tmp_lahir","c_jns_kelamin");
+	} // ikan added test for NamaDanGajiBersih
+	public static void showData7Parameter(JSONArray arrayData,String a1,String a2,String a3,String a4) {
+		//System.out.println(arrayData);
+		System.out.println("+---------------------------------------------------------------------------------------------------+");
+		System.out.println("|        NIP       |              nama            |          Tempat_Lahir        |   Jenis_Kelamin  | ");
+		System.out.println("+---------------------------------------------------------------------------------------------------+");
+		String space;
+		int tmp;
+
+		for (int i = 0; i < arrayData.length(); i++) {
+			JSONObject obj =  arrayData.getJSONObject(i);	
+
+
+			space=(String) obj.get(a1);
+			System.out.print("|"+space);
+			for (int j = 0; j  <18-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			space=(String) obj.get(a2);
+			System.out.print("|"+space);
+			for (int j = 0; j  <30-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+			space=(String) obj.get(a3);
+			space = space.trim();
+			System.out.print("|"+space);
+			for (int j = 0; j  <22-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			space=(String) obj.get(a4);
+			System.out.print("|"+space);
+			for (int j = 0; j  <15-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
+			System.out.println("|");
+			System.out.println("+------------------------------------------------------------------------------------------------------------------------------------+");
+
+	}
+	}
 	public static void main(String args[]) {
 		YusupTest tes =new YusupTest();
 		//tes.testPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
 		
-		tes.testMenampilkanPNSyangPensiunKurangdariUsia60();
+		tes.MenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
 		
 	}
 
