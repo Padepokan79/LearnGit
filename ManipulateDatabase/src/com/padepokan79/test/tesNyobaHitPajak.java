@@ -20,7 +20,7 @@ public class tesNyobaHitPajak {
 		
 		NyobaHitPajak hit = new NyobaHitPajak();
 		try {
-			InputVariable in = new InputVariable();
+//			InputVariable in = new InputVariable();
 			System.out.print("Masukan jumlah anak 1 s.d 17 : ");
 			int masukan = sc.nextInt();
 			System.out.print("Masukan jumlah anak 1 s.d 17 : ");

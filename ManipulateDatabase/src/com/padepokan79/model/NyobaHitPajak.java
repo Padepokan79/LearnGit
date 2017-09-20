@@ -36,7 +36,6 @@ public class NyobaHitPajak implements ListQuery{
 	public JSONArray simpleQuery(String query, int inputKode, int inputkode2){
 		try
 		{
-			InputVariable in = new InputVariable();
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 				st.setInt(1, inputKode);
 				st.setInt(2, inputkode2);
@@ -51,13 +50,13 @@ public class NyobaHitPajak implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getHitPajak(int input, int input2){
+	public JSONArray getHitPajak(int KodeInput, int nextPage){
 		try
 		{
 //			menuOn = input;
 //			menuOn2 = input2;
 			String query = "select nip, thp, kotorinduk, subkotor, istri, anak from hit_pajak where istri =? and anak =?;";
-			return simpleQuery(query, input, input2);
+			return simpleQuery(query, KodeInput, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}

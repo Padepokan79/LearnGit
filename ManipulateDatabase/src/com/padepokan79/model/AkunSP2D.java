@@ -15,23 +15,15 @@ public class AkunSP2D extends DatabaseConnection implements ListQuery{
 		
 	}
 
-	public JSONArray simpleQuery(String query){
+	public JSONArray queryMencariKDSKPDdiAkunsp2d(String query, int inputKode, int nextPage){
 		try
 		{	
 			InputVariable in = new InputVariable();
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			if( menuOn == 1) {
-				st.setInt(1, in.inputKode);
-				st.setInt(2, in.nextPage);
-			}
-			else if( menuOn == 2) {
-				st.setInt(1, in.inputKode);
-				st.setInt(2, in.nextPage);
-			}
-			else if( menuOn == 3) {
-				st.setInt(1, in.inputKode);
-				st.setInt(2, in.nextPage);
-			}
+			
+				st.setInt(1, inputKode);
+				st.setInt(2, nextPage);
+			
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
 
@@ -42,12 +34,11 @@ public class AkunSP2D extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryMencariBerdasakanKDSKPDdiAkunsp2d(){
+	public JSONArray getqueryMencariBerdasakanKDSKPDdiAkunsp2d(int kodeSKPD, int nextPage){
 		try
 		{
-			menuOn = 1;
 			String query = queryMencariBerdasakanKDSKPDdiAkunsp2d;
-			return simpleQuery(query);
+			return queryMencariKDSKPDdiAkunsp2d(query, kodeSKPD, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
