@@ -8,28 +8,11 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class DataRapel implements ListQuery{
-
-	String myDriver = "org.gjt.mm.mysql.Driver";
-	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
-	Connection conn = null;
+public class DataRapel extends DatabaseConnection implements ListQuery{
 	int menuOn = 0;
 
 	public DataRapel() {
-		try
-		{
-			Class.forName(myDriver);
-			// create our mysql database connection
-			conn = (Connection) 
-					DriverManager.getConnection(
-							myUrl, "taspen", "taspen");
-
-		}
-		catch (Exception e)
-		{
-			System.err.println("Got an exception! ");
-			System.err.println(e.getMessage());
-		}
+		
 	}
 
 	public JSONArray simpleQuery(String query){
