@@ -71,7 +71,7 @@ public class MainTunjangan extends InputVariable{
 	public  void testMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
 		Ttunjangan objTj =new Ttunjangan();
 
-		JSONArray data = objTj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(); 
+		JSONArray data = objTj.getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(); 
 
 		showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah");
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni

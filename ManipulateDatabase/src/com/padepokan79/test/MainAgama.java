@@ -10,7 +10,7 @@ import com.padepokan79.model.Guru;
 import com.padepokan79.model.InputVariable;
 
 
-public class MainAgama extends InputVariable{
+public class MainAgama {
 	public  Scanner keyboard = new Scanner( System.in );
 	
 	public  void testqueryMencariNamaAgama() {
@@ -18,9 +18,9 @@ public class MainAgama extends InputVariable{
 		
 		try {
 			System.out.print("Masukan Kode Agama : ");
-			inputKode=keyboard.nextInt();
+			int inputKode=keyboard.nextInt();
 			
-			JSONArray data = agama.getqueryMencariNamaAgama();
+			JSONArray data = agama.getQueryMencariNamaAgama(inputKode, 0);
 			showData_agama(data,"kodeagama","namaagama");
 		} catch (Exception e) {
 			System.out.println("Inputan Salah");

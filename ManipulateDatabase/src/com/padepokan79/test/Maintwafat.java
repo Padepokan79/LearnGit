@@ -78,31 +78,31 @@ public class Maintwafat {
 	
 	public  void getqueryPenerbitBukanDariLurah(){
 		Twafat twafat = new Twafat();
-		JSONArray data = twafat.getqueryPenerbitBukanDariLurah();
+		JSONArray data = twafat.getQueryPenerbitBukanDariLurah();
 		showData3Parameter(data,"nip", "nama", "penerbit");
 	}
 
 	public  void KdKubKelPenerimaKosong(){
 		Twafat twafat = new Twafat();
-		JSONArray data = twafat.getqueryKdKubKelPenerimaKosong();
+		JSONArray data = twafat.getQueryKdKubKelPenerimaKosong();
 		showData(data,"nip", "nama","tglwafat","penerbit","kdhubkelpenerima");
 	} 
 	
 	public  void NIPNamaTanggalWafat(){
 		Twafat twafat = new Twafat();
-		JSONArray data = twafat.getqueryNIPNamaTanggalWafat();
+		JSONArray data = twafat.getQueryNIPNamaTanggalWafat();
 		showData(data,"nip", "nama","tglwafat");
 	} 
 	
 	public  void getqueryPNSYangMatinyaPalingLama(){
 		Twafat twafat = new Twafat();
-		JSONArray data = twafat.getqueryPNSYangMatinyaPalingLama();
+		JSONArray data = twafat.getQueryPNSYangMatinyaPalingLama();
 		showData3Parameter2(data,"nip", "nama", "tglwafat");
 	} 
 	
 	public  void testDaftarPegawaiYangMatiSebelumTahun2013(){
 		Twafat objwafat =new Twafat();
-		JSONArray data = objwafat.getqueryDaftarPegawaiYangMatiSebelumTahun2013(); 
+		JSONArray data = objwafat.getQueryDaftarPegawaiYangMatiSebelumTahun2013(); 
 		showDataWafat(data,"nip","nama","tglwafat");
 	} // Yusup  added test for DaftarPegawaiYangMatiSebelumTahun2013
 	
