@@ -14,7 +14,6 @@ public class AkunSP2D extends DatabaseConnection implements ListQuery{
 	public JSONArray queryMencariKDSKPDdiAkunsp2d(String query, int inputKode, int nextPage){
 		try
 		{	
-			InputVariable in = new InputVariable();
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			
 				st.setInt(1, inputKode);
@@ -33,7 +32,6 @@ public class AkunSP2D extends DatabaseConnection implements ListQuery{
 	public JSONArray queryMencariKDTRANSdiAkunsp2d(String query, int inputKode, int nextPage){
 		try
 		{	
-			InputVariable in = new InputVariable();
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			
 				st.setInt(1, inputKode);
@@ -52,7 +50,6 @@ public class AkunSP2D extends DatabaseConnection implements ListQuery{
 	public JSONArray queryListKDTransdiAkunsp2d(String query, int inputKode, int nextPage){
 		try
 		{	
-			InputVariable in = new InputVariable();
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			
 				st.setInt(1, inputKode);
