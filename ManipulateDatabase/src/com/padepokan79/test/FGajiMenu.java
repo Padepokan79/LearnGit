@@ -8,14 +8,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.model.Fgaji;
+import com.padepokan79.model.InputVariable;
 
-public class FGajiMenu{
-	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
-	static MainActivity ma=new MainActivity();
+public class FGajiMenu {
+	BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	 MainActivity ma=new MainActivity();
+	
+	public void mainMenu () {//Modify by Ipin
 
-	public static void mainMenu () {//Modify by Ipin
-
-
+		InputVariable iv=new InputVariable();
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                      Submenu Gajih                                                 |");
 		System.out.println("|----------------------------------------------------------------------------------------------------|");
@@ -28,7 +29,7 @@ public class FGajiMenu{
 
 		try {
 			System.out.print("Masukan PIlihan : ");
-			String input=dataIn.readLine();
+			String input=iv.dataIn.next();
 			switch (input) {
 			case "1":
 				testNamaDanGajiBersih();
@@ -65,11 +66,12 @@ public class FGajiMenu{
 
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
+		InputVariable iv=new InputVariable();
 		System.out.print("1. Menu Utama 2. Submenu Gajih  : ");
 		try {
-			inp=dataIn.readLine();
+			inp=iv.dataIn.next();
 			switch (inp) {
 			case "1":
 				ma.menuUtama();;
@@ -85,51 +87,51 @@ public class FGajiMenu{
 		}
 	}
 
-	public static void testNamaDanLakiJomblo(){
+	public  void testNamaDanLakiJomblo(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanLakiJomblo();
 		showData(data,"nama","bersih");
 	}
 
-	public static void testNamaDanGajiBersih(){
+	public  void testNamaDanGajiBersih(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanGajiBersih();
 		showData(data,"nama","bersih");
 	} // ikan added test for NamaDanGajiBersih
 
-	public static void testNamaDanStatusKawin(){
+	public  void testNamaDanStatusKawin(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaDanStatusKawin();
 		showData(data,"nama","bersih");
 	} // ikan added test for testNamaDanStatusKawin
 
 
-	public static void usiaAntara25Dan35(){
+	public  void usiaAntara25Dan35(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.queryUsiaAntara25Sampai35();
 		showData(data,"nip","nama","bersih","kdpangkat","usia");
 	}
 
-	public static void NipNamaGajiBersihDiAtas10Jt(){
+	public  void NipNamaGajiBersihDiAtas10Jt(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNipNamaGajiBersihDiAtas10Jt();
 		showData(data,"nip", "nama", "bersih", "kdpangkat");
 	} // ikan added test for NamaDanGajiBersih
 
 	// update janda kembang indra
-	public static void getNamaJandaKembang(){
+	public  void getNamaJandaKembang(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaJandaKembang();
 		showData4Parameter(data,"nip", "nama", "kdstawin", "janak");
 	} // ikan added test for NamaDanGajiBersih
 
-	public static void namaSuperDad(){
+	public  void namaSuperDad(){
 		Fgaji fgaji = new Fgaji();
 		JSONArray data = fgaji.getNamaSuperDad();
 		showData(data,"nip", "nama", "kdjenkel", "tgllhr","kdpangkat","masker","janak");
 	} 
 
-	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
+	public  void showData(JSONArray arrayData,String fieldsa, String fieldsb) {
 		System.out.println("+-------------------------------------------------+");
 		System.out.println("|   Nama                            |  Status     |");
 		System.out.println("+-------------------------------------------------+");
@@ -155,7 +157,7 @@ public class FGajiMenu{
 	}
 
 	// nip, nama, bersih, kdpangkat, TGLLHR as usia
-	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb,String fieldsc,String fieldsd,String fieldse) {
+	public  void showData(JSONArray arrayData,String fieldsa, String fieldsb,String fieldsc,String fieldsd,String fieldse) {
 
 		System.out.println("+------------------------------------------------------------------------------------------+");
 		System.out.println("| Nip              | Nama                       | Gaji      | Kode Pangkat | Tanggal lahir |");
@@ -181,7 +183,7 @@ public class FGajiMenu{
 	}
 
 
-	public static void showData(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
+	public  void showData(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------+");
 		System.out.println("|   NIP            |        Nama              | Gaji         |     Golongan |");
@@ -203,7 +205,7 @@ public class FGajiMenu{
 		backto();
 	}
 
-	public static void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
+	public  void showData4Parameter(JSONArray arrayData,String fieldsa, String fieldsb, String fieldsc, String fieldsd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------------+");
 		System.out.println("|   NIP            |        Nama              | Status Perkawinan  |  Jumlah Anak |");
@@ -227,7 +229,7 @@ public class FGajiMenu{
 		backto();
 	}
 
-	public static void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat, String fLima, String fEnam, String fTujuh) {
+	public  void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat, String fLima, String fEnam, String fTujuh) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|        Nip         |           Nama           |  Jenis Kelamin  | Tanggal Lahir | Kode Pangkat | Masa Kerja | Jumlah Anak |");
@@ -267,7 +269,7 @@ public class FGajiMenu{
 		backto();
 	}
 
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		FGajiMenu fg=new FGajiMenu();
 		fg.mainMenu();
 	}

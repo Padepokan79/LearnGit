@@ -9,10 +9,10 @@ import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.Umum;
 
 public  class MainUmum extends InputVariable{
-	public static Scanner sc = new Scanner(System.in);
+	public  Scanner sc = new Scanner(System.in);
 	
-	public static MainActivity Umum = new MainActivity();
-	public static void backto()  {
+	public  MainActivity Umum = new MainActivity();
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Mencari Tunjangan Umum  : ");
 		try {
@@ -32,14 +32,14 @@ public  class MainUmum extends InputVariable{
 		}
 	}
 	
-	public static void getMencariTJUmumBerdasarkanKodeGolongan() {
+	public  void getMencariTJUmumBerdasarkanKodeGolongan() {
 		Umum umum = new Umum ();
 		System.out.println("Masukan Kode Golongan : (1/2/3/4) ");
 		inputKode = sc.nextInt();
 		JSONArray Data = umum.getqueryMencariTJUmumBerdasarkanKodeGolongan();
 		showDataMencariTJUmumBerdasarkanKodeGolongan(Data,"tmtberlaku" , "kdgol" , "tjumum");
 	}
-	public static void showDataMencariTJUmumBerdasarkanKodeGolongan(JSONArray Data,String p1, String p2, String p3 )
+	public  void showDataMencariTJUmumBerdasarkanKodeGolongan(JSONArray Data,String p1, String p2, String p3 )
 	{
 		System.out.println();
 		System.out.println("+------------------------------------------------------------+");
@@ -65,7 +65,7 @@ public  class MainUmum extends InputVariable{
 			System.out.println("+------------------------------------------------------------+");
 		} backto();
 	}	
-	public static void main(String[] args) {
+	public  void main(String[] args) {
 		// TODO Auto-generated method stub
 		MainUmum mu = new MainUmum();
 		mu.getMencariTJUmumBerdasarkanKodeGolongan();

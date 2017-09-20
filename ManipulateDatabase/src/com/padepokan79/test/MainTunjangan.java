@@ -9,10 +9,10 @@ import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.Ttunjangan;
 
 public class MainTunjangan extends InputVariable{
-	public static Scanner sf=new Scanner(System.in); 
-	static MainActivity ma=new MainActivity();
+	public  Scanner sf=new Scanner(System.in); 
+	 MainActivity ma=new MainActivity();
 
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+---------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                                 Submenu Tunjangan                                                               |");
@@ -31,7 +31,7 @@ public class MainTunjangan extends InputVariable{
 			case "2":
 				testMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun();
 				break;
-			case "3":
+			case "3": 
 				testMenampilkanPNSyangPensiunKurangdariUsia60();
 				break;
 			
@@ -49,7 +49,7 @@ public class MainTunjangan extends InputVariable{
 
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
@@ -68,7 +68,7 @@ public class MainTunjangan extends InputVariable{
 			System.out.println(e.getMessage());
 		}
 	}
-	public static void testMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
+	public  void testMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
 		Ttunjangan objTj =new Ttunjangan();
 
 		JSONArray data = objTj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(); 
@@ -76,7 +76,7 @@ public class MainTunjangan extends InputVariable{
 		showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah");
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni
 
-	public static void showData_jml_pns(JSONArray arrayData, String Fkd, String usiap, String jml) {
+	public  void showData_jml_pns(JSONArray arrayData, String Fkd, String usiap, String jml) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------+");
 		System.out.println("| Kode Jabatan | Usia Pensiun | Jumlah PNS  |");
@@ -107,7 +107,7 @@ public class MainTunjangan extends InputVariable{
 		}
 	}//Yusup Add ShowData Hehe...
 
-	public static void testMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(){
+	public  void testMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(){
 		Ttunjangan ftj=new Ttunjangan();
 		
 		try {
@@ -124,7 +124,7 @@ public class MainTunjangan extends InputVariable{
 		}
 	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
 
-	public static void showData_jml(JSONArray arrayData, String jml_t, String jml_pns) {
+	public  void showData_jml(JSONArray arrayData, String jml_t, String jml_pns) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------+");
 		System.out.println("| Jumlah Tunjangan Pensiun |Jumlah PNS|");
@@ -154,14 +154,14 @@ public class MainTunjangan extends InputVariable{
 		
 	}//Yusup Add ShowData Hehe...
 	
-	public static void testMenampilkanPNSyangPensiunKurangdariUsia60(){
+	public  void testMenampilkanPNSyangPensiunKurangdariUsia60(){
 		Ttunjangan objTj =new Ttunjangan();
 		JSONArray data = objTj.getqueryMenampilkanPNSyangPensiunKurangdariUsia60(); 
 
 		showData_tblTT(data,"kdkel","kdjab","nmjabatan","jml","pensiun");
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni
 
-	public static void showData_tblTT(JSONArray arrayData, String Fkd,String kdjb,String nmjb, String jml, String pen) {
+	public  void showData_tblTT(JSONArray arrayData, String Fkd,String kdjb,String nmjb, String jml, String pen) {
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("| Kode Keluarga| Kode Jabatan |                       Nama Jabatan                       |    Jumlah   |  Pensiun  |");

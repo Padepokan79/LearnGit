@@ -9,10 +9,10 @@ import org.json.JSONObject;
 import com.padepokan79.model.SkppPegawai;
 
 public class MainSKPP {
-	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
-	static MainActivity ma=new MainActivity();
+	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	 MainActivity ma=new MainActivity();
 
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+----------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                      Submenu SKPP                                                |");
@@ -55,7 +55,7 @@ public class MainSKPP {
 
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
@@ -75,7 +75,7 @@ public class MainSKPP {
 		}
 	}
 
-	public static void testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri(){
+	public  void testNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri(){
 		SkppPegawai objskp =new SkppPegawai();
 
 		JSONArray data = objskp.getNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri(); 
@@ -83,7 +83,7 @@ public class MainSKPP {
 		showData_Duda(data,"nip","nama","tjistri","tjanak");
 	} // Yusup  added test for NamaKeluargaPNSyangPernahMenikahLaluCerai
 
-	public static void showData_Duda(JSONArray arrayData, String fNip, String fNama, String Ftjis, String ftjanak) {
+	public  void showData_Duda(JSONArray arrayData, String fNip, String fNama, String Ftjis, String ftjanak) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------------------------------+");
 		System.out.println("|         NIP         |            Nama              |Tunjangan Istri|  Tunjangan Anak |");
@@ -123,7 +123,7 @@ public class MainSKPP {
 	}//Yusup Add ShowData Hehe...
 
 
-	public static void testNamaPnsYangPensiunTahunIni(){
+	public  void testNamaPnsYangPensiunTahunIni(){
 		SkppPegawai objskp =new SkppPegawai();
 
 		JSONArray data = objskp.getNamaPnsYangPensiunTahunIni(); 
@@ -131,7 +131,7 @@ public class MainSKPP {
 		showData_YangpensiunTahunini(data,"nip","nama","tmtpensiun");
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni
 
-	public static void showData_YangpensiunTahunini(JSONArray arrayData, String fNip, String fNama, String Ftmtpensiun) {
+	public  void showData_YangpensiunTahunini(JSONArray arrayData, String fNip, String fNama, String Ftmtpensiun) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------------------------------------------+");
 		System.out.println("|         NIP         |             Nama            |Tanggal Mulai Tugas Pensiun|");
@@ -158,7 +158,7 @@ public class MainSKPP {
 		}
 	}//Yusup Add ShowData Hehe...
 
-	public static void testNamaPNSYangSkepnyaDiterbitkanOlehPresiden(){
+	public  void testNamaPNSYangSkepnyaDiterbitkanOlehPresiden(){
 		SkppPegawai objskp =new SkppPegawai();
 
 		JSONArray data = objskp.getNamaPNSYangSkepnyaDiterbitkanOlehPresiden(); 
@@ -166,7 +166,7 @@ public class MainSKPP {
 		showData(data,"nip","nama","tanggal_lahir","tanggal_berhenti","pangkat","masa_kerja","penerbit");
 	} // Yusup  added test for NamaPNSYangSkepnyaDiterbitkanOlehPresiden
 
-	public static void showData(JSONArray arrayData, String fNip, String fNama, String Ftgllahir, String ftglhenti, String Fpkt, String Fmasa_k, String Fpnerbit) {
+	public  void showData(JSONArray arrayData, String fNip, String fNama, String Ftgllahir, String ftglhenti, String Fpkt, String Fmasa_k, String Fpnerbit) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|         NIP         |              Nama             |Tanggal Lahir|Tanggal Berhenti|  Pangkat  |Masa Kerja|              Penerbit          |");
@@ -222,7 +222,7 @@ public class MainSKPP {
 		}
 	}//Yusup Add ShowData Hehe...
 
-	public static void testTampilkanJumlahSKPP_PNSberdasarkanKodePangkat(){
+	public  void testTampilkanJumlahSKPP_PNSberdasarkanKodePangkat(){
 		SkppPegawai objskp =new SkppPegawai();
 
 		JSONArray data = objskp.getTampilkanJumlahSKPP_PNSberdasarkanKodePangkat(); 
@@ -230,7 +230,7 @@ public class MainSKPP {
 		showData(data,"kode_pangkat","jumlah_pns");
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni
 
-	public static void showData(JSONArray arrayData, String fkdPns, String fjmlPns) {
+	public  void showData(JSONArray arrayData, String fkdPns, String fjmlPns) {
 		//System.out.println(arrayData);
 		System.out.println("+-----------------------+");
 		System.out.println("|Kode Pangkat|Jumlah PNS|");
@@ -258,7 +258,7 @@ public class MainSKPP {
 	}//Yusup Add ShowData Hehe...
 
 
-	public static void testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya(){
+	public  void testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya(){
 		SkppPegawai objskp =new SkppPegawai();
 
 		JSONArray data = objskp.getTampilkanJumlahSuratSKPPberdasarkanPenerbitnya(); 
@@ -266,7 +266,7 @@ public class MainSKPP {
 		showData_skpp(data,"penerbit","jumlah_surat");
 	} // Yusup  added test for testTampilkanJumlahSuratSKPPberdasarkanPenerbitnya()
 
-	public static void showData_skpp(JSONArray arrayData, String fpenerbit, String fjmls) {
+	public  void showData_skpp(JSONArray arrayData, String fpenerbit, String fjmls) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------+");
 		System.out.println("|                Penerbit             |Jumlah Surat|");

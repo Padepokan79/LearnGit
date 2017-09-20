@@ -9,10 +9,10 @@ import org.json.JSONObject;
 import com.padepokan79.model.Hutang;
 
 public class MainHutang {
-	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
-	static MainActivity ma=new MainActivity();
+	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	 MainActivity ma=new MainActivity();
 
-	public static void mainMenu () {//Modify by Ipin
+	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+-----------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                      Submenu Hutang                                                       |");
@@ -55,7 +55,7 @@ public class MainHutang {
 
 	}
 
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
@@ -75,7 +75,7 @@ public class MainHutang {
 		}
 	}
 
-	public static void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
+	public  void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 		//System.out.println(data);
@@ -83,19 +83,19 @@ public class MainHutang {
 	} // By Indra
 
 	/*JMLCICILAN, COUNT(*) as JUMLAH*/
-	public static void getTampilanJumlahPNSyangBerhutangBerdasarkanCicilan(){
+	public  void getTampilanJumlahPNSyangBerhutangBerdasarkanCicilan(){
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan();
 		showData2Parameter(data,"jmlcicilan", "jumlah");
 	}
 
-	public static void queryHutangPalingBanyak(){
+	public  void queryHutangPalingBanyak(){
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.queryHutangPalingBanyak();
 		showData2Parameter(data,"nip","nama","jumlah_hutang");
 	} // ikan added test for NamaDanGajiBersih
 
-	public static void queryHutangPalingbanyak(){
+	public  void queryHutangPalingbanyak(){
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.queryHutangPalingbanyak();
 		showData3Parameter(data,"nip","jmlbulan","jmlhutang");
@@ -103,14 +103,14 @@ public class MainHutang {
 
 
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
-	public static void queryHutangUntukAnak(){
+	public  void queryHutangUntukAnak(){
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.queryHutangUntukAnak();
 		//System.out.println(data);
 		showData9Parameter(data,"nip","kdhutang","jmlhutang","jmlcicilan","cicilanakhir","jmlbulan","tmthutang","tathutang","keterangan");
 	}
 
-	public static void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
+	public  void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("|            NIP           |            Nama          |  Jumlah Hutang   | Jumlah Bulan | ");
@@ -154,7 +154,7 @@ public class MainHutang {
 		}
 	}	
 	
-	public static void showData2Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc) {
+	public  void showData2Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------------------------+");
 		System.out.println("|          NIP         |                NAMA             |   Jumlah Hutang   |");
@@ -188,7 +188,7 @@ public class MainHutang {
 		}
 	}	
 
-	public static void showData3Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc) {
+	public  void showData3Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc) {
 		//System.out.println(arrayData);
 		System.out.println("+-----------------------------------------------------------+");
 		System.out.println("|          NIP         |  Jumlah Bulan |   Jumlah Hutang    |");
@@ -222,7 +222,7 @@ public class MainHutang {
 
 	//belum di benerin
 	/*JMLCICILAN, COUNT(*) as JUMLAH*/
-	public static void showData2Parameter(JSONArray arrayData,String fielda,String fieldb) {
+	public  void showData2Parameter(JSONArray arrayData,String fielda,String fieldb) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------+");
 		System.out.println("|  Besaran Cicilan  |  Jumlah Cicilan |");
@@ -251,7 +251,7 @@ public class MainHutang {
 	}	
 
 
-	public static void showData9Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg,String fieldh,String fieldi) {
+	public  void showData9Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg,String fieldh,String fieldi) {
 		//System.out.println(arrayData);
 		System.out.println("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|          NIP         |Kode Hutang| Jumlah Hutang |Jumlah Cicilan | Cicilan Akhir | jmlbulan | tmthutang | tathutang |                         keterangan                          |");
@@ -322,8 +322,8 @@ public class MainHutang {
 		}
 	}
 
-	public static void main(String args[]) {
-		MainHutang mh =new MainHutang();
-		mh.getTampilanJumlahPNSyangBerhutangBerdasarkanCicilan();
-	}
+//	public  void main(String args[]) {
+//		MainHutang mh =new MainHutang();
+//		mh.getTampilanJumlahPNSyangBerhutangBerdasarkanCicilan();
+//	}
 }
