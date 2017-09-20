@@ -161,7 +161,7 @@ public interface ListQuery {
 	public final String queryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt = // Add by selfi
 			"select DISTINCT detil_kekurangan.NIP, mstpegawai.NAMA , detil_kekurangan.MASKER , detil_kekurangan.GAPOK from detil_kekurangan left join mstpegawai ON detil_kekurangan.NIP = mstpegawai.NIP where detil_kekurangan.masker < ? and detil_kekurangan.GAPOK  > ? limit 20;"; // ?1 maske ?2 GAPOK
 	public final String queryMenampilkanJenisKekuranganYangLebihDariSatu = // add by selfi
-			"select NIP, JENISKEKURANGAN from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0.10;"; // ? jeniskekurangan = angka 1 atau lebih
+			"select NIP, JENISKEKURANGAN from detil_kekurangan where JENISKEKURANGAN > ? ORDER BY JENISKEKURANGAN ASC limit 0,10;"; // ? jeniskekurangan = angka 1 atau lebih
 	public final String queryJumlahPNSBerdasarkanGolonganJumlahAnakJumlahIstri = // add by rzkypprtm
 			"SELECT KDPANGKAT as Kode_Pangkat, JISTRI as Jumlah_Istri, JANAK as Jumlah_Anak, COUNT(*) as JUMLAH FROM detil_kekurangan WHERE NOT KDPANGKAT = '' GROUP BY KDPANGKAT, JISTRI, JANAK LIMIT 0 , 10;";
 	public final String queryMenampilkanDaftarTanggalBayarberdasarkanInput = // add by rzkypprtm ?1 = batas awal ?2=batas akhir
@@ -242,9 +242,9 @@ public interface ListQuery {
 //Tabel 19 From hak_akses add by selfi
 
 		public final String queryMenghitungJumlahHakAksesBerdasarkanPemakai =
-				"select pemakai, count(*) as jumlah_hak_akses from hak_akses group by pemakai limit ?,10;"; // ?1. limit 
+				"select pemakai, count(*) as jumlah_hak_akses from hak_akses where not pemakai =' ' group by pemakai;"; // ?1. limit 
 		public final String queryMencariYangMenggunakanKodeHakAkses =
-				"select * from hak_akses where kodeakses = ? limit ?,10"; // ?1 kodehakakses contoh 12 . ?2 limit 
+				"select * from hak_akses where kodeakses > ? "; // ?1 kodehakakses contoh 12 . ?2 limit 
 
 //Tabel 20 From guru_tbl add by Hendra YN
 		public final String queryMencariKodeGurudiTabelGuruTBL =

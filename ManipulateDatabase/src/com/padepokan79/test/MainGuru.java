@@ -18,8 +18,9 @@ public class MainGuru {
 	public  void tesMencariKodeGuruDitabelGuru(){
 		Guru guru = new Guru();
 		try {
+			InputVariable in = new InputVariable();
 			System.out.print("Masukan Kode Guru 1 s.d 17 : ");
-			InputVariable.inputKode = sc.nextInt();
+			 = sc.nextInt();
 			JSONArray data = guru.getqueryMencariKodeGurudiTabelGuruTBL();
 			showData_skpp(data,"kodeguru","namaguru");
 		}catch (Exception e) {

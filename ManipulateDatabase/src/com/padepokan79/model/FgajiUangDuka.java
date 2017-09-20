@@ -8,27 +8,11 @@ import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
-public class FgajiUangDuka implements ListQuery {
+public class FgajiUangDuka extends DatabaseConnection implements ListQuery {
 	
-	String myDriver = "org.gjt.mm.mysql.Driver";
-	String myUrl = "jdbc:mysql://192.168.2.192:3000/dbgajido";
-	Connection conn = null;
 	int menuOn = 0;
 	public FgajiUangDuka() {
-		try
-		{
-			Class.forName(myDriver);
-			// create our mysql database connection
-			conn = (Connection) 
-					DriverManager.getConnection(
-							myUrl, "taspen", "taspen");
-
-		}
-		catch (Exception e)
-		{
-			System.err.println("Got an exception! ");
-			System.err.println(e.getMessage());
-		}
+		
 	}
 
 	public JSONArray simpleQuery(String query){
