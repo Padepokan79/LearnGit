@@ -48,7 +48,7 @@ public class MainAgama{
 			System.out.println("+----------------------------------+");
 		}
 	}
-	public  void main(String args[]) {
+	public static void main(String args[]) {
 		MainAgama test = new MainAgama();
 		test.testqueryMencariNamaAgama();
 	}

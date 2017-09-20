@@ -242,7 +242,7 @@ public interface ListQuery {
 //Tabel 19 From hak_akses add by selfi
 
 		public final String queryMenghitungJumlahHakAksesBerdasarkanPemakai =
-				"select pemakai, count(*) as jumlah_hak_akses from hak_akses where not pemakai =' ' group by pemakai;"; // ?1. limit 
+				"select pemakai, count(*) as jumlah_hak_akses from hak_akses where not pemakai =' ' group by pemakai;"; 
 		public final String queryMencariYangMenggunakanKodeHakAkses =
 				"select * from hak_akses where kodeakses > ? "; // ?1 kodehakakses contoh 12 . ?2 limit 
 
