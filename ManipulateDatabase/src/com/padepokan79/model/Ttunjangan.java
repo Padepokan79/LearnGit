@@ -17,18 +17,11 @@ public class Ttunjangan  extends DatabaseConnection implements ListQuery{
 		
 	}
 
-	public JSONArray simpleQuery(String query){
+	public JSONArray getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(String query, int nextPage){
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			if( menuOn == 1) {
 				st.setInt(1, InputVariable.nextPage);
-			}
-			else if( menuOn == 2) {
-				st.setInt(1, InputVariable.inputJumlahAwal);
-				st.setInt(2, InputVariable.inputJumlahAkhir);
-				st.setInt(3, InputVariable.nextPage);
-			}
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
 
@@ -39,7 +32,36 @@ public class Ttunjangan  extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
+	public JSONArray simpleQuery(String query, int jumlahAwal, int jumlahAkhir, int nextPage){
+		try
+		{
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+				st.setInt(1, jumlahAwal);
+				st.setInt(2, jumlahAkhir);
+				st.setInt(3, nextPage);
+			// execute the query, and get a java resultset
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	public JSONArray simpleQuery(String query){
+		try
+		{
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+			// execute the query, and get a java resultset
+			ResultSet rs = (ResultSet) st.executeQuery();
+
+			//System.out.println("------ ------ ------ ----- -----");
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	public JSONArray getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
 		try
 		{
 			menuOn = 1;

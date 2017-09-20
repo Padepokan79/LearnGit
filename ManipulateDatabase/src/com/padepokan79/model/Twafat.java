@@ -1,17 +1,11 @@
 package com.padepokan79.model;
 
-import java.sql.DriverManager;
-
 import org.json.JSONArray;
 
-import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
 public class Twafat extends DatabaseConnection implements ListQuery{
-
-	
-
 	public Twafat() {
 		
 	}
@@ -19,19 +13,17 @@ public class Twafat extends DatabaseConnection implements ListQuery{
 	public JSONArray simpleQuery(String query){
 		try
 		{
-
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
-
-			//System.out.println("------ ------ ------ ----- -----");
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryNIPNamaTanggalWafat(){
+	
+	public JSONArray getQueryNIPNamaTanggalWafat(){
 		try
 		{
 			String query = queryNIPNamaTanggalWafat;
@@ -41,7 +33,8 @@ public class Twafat extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryKdKubKelPenerimaKosong(){
+	
+	public JSONArray getQueryKdKubKelPenerimaKosong(){
 		try
 		{
 			String query = queryKdKubKelPenerimaKosong;
@@ -51,7 +44,8 @@ public class Twafat extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryPenerbitBukanDariLurah(){
+	
+	public JSONArray getQueryPenerbitBukanDariLurah(){
 		try
 		{
 			String query = queryPenerbitBukanDariLurah;
@@ -61,7 +55,8 @@ public class Twafat extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryDaftarPegawaiYangMatiSebelumTahun2013(){
+	
+	public JSONArray getQueryDaftarPegawaiYangMatiSebelumTahun2013(){
 		try
 		{
 			String query = queryDaftarPegawaiYangMatiSebelumTahun2013;
@@ -71,7 +66,7 @@ public class Twafat extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getqueryPNSYangMatinyaPalingLama(){
+	public JSONArray getQueryPNSYangMatinyaPalingLama(){
 		try
 		{
 			String query = queryPNSYangMatinyaPalingLama;

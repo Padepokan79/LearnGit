@@ -10,42 +10,19 @@ import com.mysql.jdbc.ResultSet;
 
 public class FgajiUangDuka extends DatabaseConnection implements ListQuery {
 	
-	int menuOn = 0;
 	public FgajiUangDuka() {
 		
 	}
 
-	public JSONArray simpleQuery(String query){
+	public JSONArray queryLamanyaUangDukaDibayar(String query, int inputLamaHari, int nextPage){
 		try
 		{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			if( menuOn == 1) {
-				st.setInt(1, InputVariable.inputHari);
-				st.setInt(2, InputVariable.nextPage);
-			}
-			else if( menuOn == 2) {
-				st.setString(1, InputVariable.inputDate);
-				st.setInt(2, InputVariable.inputGaji);
-				st.setInt(3, InputVariable.nextPage);
-			}
-			else if ( menuOn == 3) {
-				st.setInt(1, InputVariable.inputTunjanganIstri);
-				st.setInt(2, InputVariable.inputTunjanganAnak);	
-			}
-			else if ( menuOn == 4) {
-				st.setString(1, InputVariable.inputDate);
-				st.setInt(2, InputVariable.inputTunjanganIstri);
-				st.setInt(3, InputVariable.inputTunjanganAnak);	
-			}
-			else if ( menuOn == 5 ) {
-				st.setInt(1, InputVariable.nextPage);
-			}
-			
+				st.setInt(1, inputLamaHari);
+				st.setInt(2, nextPage);
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
-
-			//System.out.println("------ ------ ------ ----- -----");
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -53,60 +30,117 @@ public class FgajiUangDuka extends DatabaseConnection implements ListQuery {
 		return null;
 		}
 	
-	public JSONArray getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
+	public JSONArray queryTglWafatDanBersih(String query, String inputTanggal, int inputBersih, int nextPage){
 		try
 		{
-			menuOn = 1;
+
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+				st.setString(1, inputTanggal);
+				st.setInt(2, inputBersih);
+				st.setInt(3, nextPage);	
+			// execute the query, and get a java resultset
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		}
+	public JSONArray queryNamaPNSYangMeninggldariTunjanganAnakIstri(String query, int jmlIstri, int nextPage){
+		try
+		{
+
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+				st.setInt(1, jmlIstri);
+				st.setInt(2, nextPage);	
+			// execute the query, and get a java resultset
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		}
+	public JSONArray queryPnsLamanyaWafatdariIstridaniAnak(String query, String tanggal, int jmlIstri, int jmlAnak){
+		try
+		{
+
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+				st.setString(1, tanggal);
+				st.setInt(2, jmlIstri);
+				st.setInt(3, jmlAnak);	
+			// execute the query, and get a java resultset
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		}
+	public JSONArray queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(String query, int nextPage){
+		try
+		{
+
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+				st.setInt(1, nextPage);	
+			// execute the query, and get a java resultset
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		}
+	
+	public JSONArray getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(int inputLamaHari, int nextPage){
+		try
+		{
 			String query = queryNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat;
-			return simpleQuery(query);
+			return queryLamanyaUangDukaDibayar(query, inputLamaHari, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null; 
 	}
 	
-	public JSONArray getTGLWafatDanUangBersihLebihDari1Jt(){
+	public JSONArray getTGLWafatDanUangBersihLebihDari1Jt(String inputTanggal, int inputBersih, int nextPage){
 		try
 		{
-			menuOn = 2;
 			String query = queryTGLWafatDanUangBersihLebihDari1Jt;
-			return simpleQuery(query);
+			return queryTglWafatDanBersih(query, inputTanggal, inputBersih, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
 	
-	public JSONArray queryNamaPNSYangMeningglTanpaTunjanganAnakIstri(){
+	public JSONArray getNamaPNSYangMeningglTanpaTunjanganAnakIstri(int jmlIstri, int nextPage){
 		try
 		{
-			menuOn = 3;
 			String query = queryNamaPNSYangMeningglTanpaTunjanganAnakIstri;
-			return simpleQuery(query);
+			return queryNamaPNSYangMeninggldariTunjanganAnakIstri(query, jmlIstri, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
 	
-	public JSONArray queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak(){
+	public JSONArray getPNSLamanyaWafatdariIstridaniAnak(String tanggal, int jmlIstri, int jmlAnak){
 		try
 		{
-			menuOn = 4;
 			String query = queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak;
-			return simpleQuery(query);
+			return queryPnsLamanyaWafatdariIstridaniAnak(query, tanggal, jmlIstri, jmlAnak);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
 	
-	public JSONArray queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(){
+	public JSONArray getJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(int nextPage){
 		try
 		{
-			menuOn = 5;
 			String query = queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi;
-			return simpleQuery(query);
+			return queryJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(query, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
