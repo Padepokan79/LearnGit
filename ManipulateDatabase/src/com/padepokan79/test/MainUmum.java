@@ -36,7 +36,7 @@ public  class MainUmum extends InputVariable{
 		Umum umum = new Umum ();
 		System.out.println("Masukan Kode Golongan : (1/2/3/4) ");
 		inputKode = sc.nextInt();
-		JSONArray Data = umum.getqueryMencariTJUmumBerdasarkanKodeGolongan();
+		JSONArray Data = umum.queryMencariTJUmumBerdasarkanKodeGolongan();
 		showDataMencariTJUmumBerdasarkanKodeGolongan(Data,"tmtberlaku" , "kdgol" , "tjumum");
 	}
 	public  void showDataMencariTJUmumBerdasarkanKodeGolongan(JSONArray Data,String p1, String p2, String p3 )
