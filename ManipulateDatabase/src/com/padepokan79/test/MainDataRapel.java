@@ -11,10 +11,10 @@ import com.padepokan79.model.DataRapel;
 import com.padepokan79.model.InputVariable;;
 
 public class MainDataRapel {
-	static BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
-	static MainActivity ma=new MainActivity();
-	public static Scanner bf=new Scanner( System.in );
-	public static void mainMenu () {//Modify by Manto
+	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	 MainActivity ma=new MainActivity();
+	public  Scanner bf=new Scanner( System.in );
+	public  void mainMenu () {//Modify by Manto
 
 		System.out.println("+-------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                             Submenu Data Rapel                                                    |");
@@ -56,7 +56,7 @@ public class MainDataRapel {
 		
 	}
 	
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Satuan Kerja  : ");
 		try {
@@ -76,7 +76,7 @@ public class MainDataRapel {
 		}
 	}
 	
-	public static void testQueryGroupByGapokPNS(){
+	public  void testQueryGroupByGapokPNS(){
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			System.out.print("Masukan Gaji Pokok Lebih Dari : ");
@@ -89,7 +89,7 @@ public class MainDataRapel {
 		}
 	}
 	
-	public static void testQueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(){
+	public  void testQueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(){
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			JSONArray data = objDataRapel.getqueryGroupKodeSatuanKerjaNamaSatuanKerjaDanJumlahPNSNya(); 
@@ -100,7 +100,7 @@ public class MainDataRapel {
 		}
 	}
 	
-	public static void testQueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal(){
+	public  void testQueryMenampilkanDataYangDibayarkanSatuBulanSetelahDataAwal(){
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			System.out.print("Masukan Tanggal Awal (format YYYY-MM-DD) : ");
@@ -115,7 +115,7 @@ public class MainDataRapel {
 		}
 	}
 	
-	public static void TestQueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(){
+	public  void TestQueryMenampilkanDataNamaYangHurufAwalADanPangkat3D(){
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			System.out.print("Masukan Huruf Nama PNS : ");
@@ -130,7 +130,7 @@ public class MainDataRapel {
 		}
 	}
 	
-	public static void testQueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(){
+	public  void testQueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(){
 		DataRapel objDataRapel=new DataRapel();
 		try {
 			JSONArray data = objDataRapel.getqueryMenampilkanPNSyangJenisKElaminNULLdanBukanPriadaWanita(); 
@@ -141,7 +141,7 @@ public class MainDataRapel {
 		}
 	}
 	
-	public static void showData(JSONArray arrayData,String fielda, String fieldb) {
+	public  void showData(JSONArray arrayData,String fielda, String fieldb) {
 		System.out.println("+-------------------------------+");
 		System.out.println("|  GAJI POKOK   | JUMLAH PNS    |");
 		System.out.println("+-------------------------------+");
@@ -162,7 +162,7 @@ public class MainDataRapel {
 		backto();
 	}
 	
-	public static void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
+	public  void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
 		System.out.println("+----------------------------------------------------------------------------------------+");
 		System.out.println("|  KODE SATUAN KERJA    |     NAMA SATUAN KERJA                             | JUMLAH PNS |");
 		System.out.println("+----------------------------------------------------------------------------------------+");
@@ -198,7 +198,7 @@ public class MainDataRapel {
 		backto();
 	}
 	
-	public static void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
+	public  void showData(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		System.out.println("+----------------------------------------------------------------------+");
 		System.out.println("| NIP       |           NAMA PNS             | DATE AWAL  | DATE AKHIR |");
 		System.out.println("+----------------------------------------------------------------------+");
@@ -234,7 +234,7 @@ public class MainDataRapel {
 		backto();
 	}
 	
-	public static void showData2(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
+	public  void showData2(JSONArray arrayData,String fielda, String fieldb, String fieldc) {
 		System.out.println("+-----------------------------------------------------------------+");
 		System.out.println("|          NIP          |         NAMA PNS         | KODE PANGKAT |");
 		System.out.println("+-----------------------------------------------------------------+");
@@ -269,7 +269,7 @@ public class MainDataRapel {
 		}
 	}
 	
-	public static void showData2(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
+	public  void showData2(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		System.out.println("+------------------------------------------------------------------------------------+");
 		System.out.println("| KODE SATUAN KERJA |         NIP          |        NAMA PNS         | TANGGAL LAHIR |");
 		System.out.println("+------------------------------------------------------------------------------------+");
@@ -305,7 +305,7 @@ public class MainDataRapel {
 		backto();
 	}
 	
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		MainDataRapel mk=new MainDataRapel();
 		mk.mainMenu();
 	}

@@ -3,13 +3,13 @@ package com.padepokan79.test;
 import java.util.Scanner;
 public class MainActivity {
 
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		menuUtama();
 	}
 	// Editing By Sandi
 	
 	
-	public static void menuUtama() {
+	public void menuUtama() {
 		int input;
 		FGajiMenu newGaji = new FGajiMenu();
 		MainSatker newSatker = new MainSatker();

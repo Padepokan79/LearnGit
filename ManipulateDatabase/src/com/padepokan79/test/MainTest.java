@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import com.padepokan79.model.UrtNIP;
 
 public class MainTest {
+
 	public static void main(String[]args) {
 		getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 	}
@@ -11,10 +12,13 @@ public class MainTest {
 	public static void getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(){
 		UrtNIP urtNIP = new UrtNIP();
 		JSONArray data = urtNIP.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
+
 		//System.out.println(data);
 		showData6Parameter(data,"nip","nama","npwp","masa_kerja","golongan","jab_struktur");
 	} // ikan added test for NamaDanGajiBersih
+
 	public static void showData6Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf) {
+
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|        NIP       |              nama            |          NPWP        |  Tempat Lahir | Jenis Kelamin |    Agama         |");
