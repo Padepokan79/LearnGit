@@ -1,104 +1,138 @@
 package com.padepokan79.model;
 
-import java.sql.DriverManager;
-
 import org.json.JSONArray;
 
-import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
 
 public class HistorisEselon extends DatabaseConnection implements ListQuery{
 
-	int menuOn = 0;
-
 	public HistorisEselon() {
-		
+
 	}
 
-	public JSONArray simpleQuery(String query){
+	public JSONArray queryMenampilkanRatarataTunjanganEselon(String query, int nextPage){
 		try
 		{
-
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			if( menuOn == 1) {
-				st.setInt(1, InputVariable.nextPage);
-			}
-			else if( menuOn == 2) {
-				st.setInt(1, InputVariable.nextPage);
-			}
-			else if( menuOn == 3) {
-				st.setInt(1, InputVariable.nextPage);
-			}
-			else if( menuOn == 4) {
-				st.setInt(1, InputVariable.inputTunjanganEselonAwal);
-				st.setInt(2, InputVariable.inputTunjanganEselonAkhir);
-				st.setInt(3, InputVariable.nextPage);
-			}
-			else if( menuOn == 5) {
-				st.setInt(1, InputVariable.nextPage);
-			}
-			
-			// execute the query, and get a java resultset
+			st.setInt(1, nextPage);
 			ResultSet rs = (ResultSet) st.executeQuery();
 
-			//System.out.println("------ ------ ------ ----- -----");
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanRatarataTunjanganEselon(){
+
+	public JSONArray queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan(String query, int nextPage){
 		try
 		{
-			menuOn = 1;
+
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+			st.setInt(1, nextPage);
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
+	public JSONArray queryTJEselonYangNolBukanNull(String query, int nextPage){
+		try
+		{
+
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);			
+			st.setInt(1, nextPage);
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
+	public JSONArray queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar(String query,
+			int inputTunjanganEselonAwal, int inputTunjanganEselonAkhir, int nextPage){
+		try
+		{
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+			st.setInt(1, inputTunjanganEselonAwal);
+			st.setInt(2, inputTunjanganEselonAkhir);
+			st.setInt(3, nextPage);
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
+	public JSONArray queryMenampilkanHistorisSkep(String query, int nextPage){
+		try
+		{
+
+			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
+			st.setInt(1, InputVariable.nextPage);
+			ResultSet rs = (ResultSet) st.executeQuery();
+			return Convertor.convertToJSON(rs);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+
+	public JSONArray getQueryMenampilkanRatarataTunjanganEselon(int nextPage){
+		try
+		{
 			String query = queryMenampilkanRatarataTunjanganEselon;
-			return simpleQuery(query);
+			return queryMenampilkanRatarataTunjanganEselon(query, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan(){
+
+	public JSONArray getQueryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan(int nextPage){
 		try
 		{
-			menuOn = 2;
 			String query = queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan;
-			return simpleQuery(query);
+			return queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan(query, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryTJEselonYangNolBukanNull(){
+
+	public JSONArray getQueryTJEselonYangNolBukanNull(int nextPage){
 		try
 		{
-			menuOn = 3;
 			String query = queryTJEselonYangNolBukanNull;
-			return simpleQuery(query);
+			return queryTJEselonYangNolBukanNull(query, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar(){
+	public JSONArray getQueryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar(
+			int inputTunjanganEselonAwal, int inputTunjanganEselonAkhir, int nextPage){
 		try
 		{
-			menuOn = 4;
 			String query = queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar;
-			return simpleQuery(query);
+			return queryMenampilkanJumlahPNSyangMempunyaiTunjanganEselonberdasrakanInputanBatasKecildanBatasBesar(query,
+					inputTunjanganEselonAwal, inputTunjanganEselonAkhir, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanHistorisSkep(){
+
+	public JSONArray getQueryMenampilkanHistorisSkep(int nextPage){
 		try
 		{
-			menuOn = 5;
 			String query = queryMenampilkanHistorisSkep;
-			return simpleQuery(query);
+			return queryMenampilkanHistorisSkep(query, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
