@@ -45,6 +45,7 @@ public class  InputVariable {
 	public  int inputJumalahKeluarga; //contoh 1 , 2 , 3
 	
 	//getkode
+<<<<<<< HEAD
 	public  int inputKode;   // ? 1. untuk kode agama, trans, skpd, gol
 	public String getInputKodePangkat() {
 		return inputKodePangkat;
@@ -63,6 +64,9 @@ public class  InputVariable {
 	}
 
 	public  String inputGolongan;
+=======
+	public static int inputKode;   // ? 1. untuk kode agama, trans, skpd, gol
+>>>>>>> 756b504a5259ff218898cbbac35fa523e3e3277d
 	
 	public int getNextPage() {
 		return nextPage;

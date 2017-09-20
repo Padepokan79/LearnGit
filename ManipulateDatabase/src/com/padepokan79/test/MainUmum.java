@@ -11,9 +11,30 @@ import com.padepokan79.model.Umum;
 public  class MainUmum extends InputVariable{
 	public static Scanner sc = new Scanner(System.in);
 	
+	public static MainActivity Umum = new MainActivity();
+	public static void backto()  {
+		String inp;
+		System.out.print("1. Menu Utama 2. Submenu Mencari Tunjangan Umum  : ");
+		try {
+			inp=sc.next();
+			switch (inp) {
+			case "1":
+				Umum.menuUtama();;
+				break;
+			case "2":
+				getMencariTJUmumBerdasarkanKodeGolongan();
+				break;
+			default:
+				System.out.println("Masukan Salah !");
+			}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public static void getMencariTJUmumBerdasarkanKodeGolongan() {
 		Umum umum = new Umum ();
-		System.out.println("Masukan Kode Golongan");
+		System.out.println("Masukan Kode Golongan : (1/2/3/4) ");
 		inputKode = sc.nextInt();
 		JSONArray Data = umum.getqueryMencariTJUmumBerdasarkanKodeGolongan();
 		showDataMencariTJUmumBerdasarkanKodeGolongan(Data,"tmtberlaku" , "kdgol" , "tjumum");
@@ -21,28 +42,28 @@ public  class MainUmum extends InputVariable{
 	public static void showDataMencariTJUmumBerdasarkanKodeGolongan(JSONArray Data,String p1, String p2, String p3 )
 	{
 		System.out.println();
-		System.out.println("+-------------------------------------------------------------------------------------+");
-		System.out.println("| 	TMTBERLAKU	 |            KDGOLONGAN            |     TJUMUM              |");
-		System.out.println("+-------------------------------------------------------------------------------------+");
+		System.out.println("+------------------------------------------------------------+");
+		System.out.println("| 	TMTBERLAKU	 |    KDGOLONGAN   |      TJUMUM     |");
+		System.out.println("+------------------------------------------------------------+");
 		String space;
-				System.out.println(Data);
+				//System.out.println(Data);
 		for (int i = 0; i < Data.length(); i++) {
 			JSONObject obj =  Data.getJSONObject(i);	
 			
-			System.out.println("halo");
-			System.out.print("|      "+obj.get(p1));
+			//System.out.println("halo");
+			System.out.print("|       "+obj.get(p1));
 			
 			space=String.valueOf(obj.get(p2)) ;
-			System.out.print("     | "+space);
+			System.out.print("       |      "+space);
 			
 			
-			System.out.print("     | "+obj.get(p3));
+			System.out.print("          |      "+obj.get(p3));
 			
 			
-			System.out.println("|");
+			System.out.println("     |");
 					
-			System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------+");
-		}
+			System.out.println("+------------------------------------------------------------+");
+		} backto();
 	}	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -50,5 +71,6 @@ public  class MainUmum extends InputVariable{
 		mu.getMencariTJUmumBerdasarkanKodeGolongan();
 
 	}
+	
 
 }

@@ -38,7 +38,7 @@ public class Umum implements ListQuery{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			if( menuOn == 1) {
-				st.setString(1, InputVariable.inputGolongan);
+				st.setInt(1, InputVariable.inputKode);
 				st.setInt(2, InputVariable.nextPage);
 			}
 			

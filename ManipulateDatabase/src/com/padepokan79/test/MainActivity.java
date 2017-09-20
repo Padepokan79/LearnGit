@@ -16,6 +16,13 @@ public class MainActivity {
 		Maintwafat newWafat = new Maintwafat();
 		MainHutang newHutang = new MainHutang();
 		MainKeluarga newKeluarga = new MainKeluarga();
+		MainSKPP newSKPP = new MainSKPP();
+		MainDuka newDuka = new MainDuka();
+		MainDataRapel newRapel = new MainDataRapel();
+		MainAgama newAgama = new MainAgama();
+		MainGuru newGuru = new MainGuru();
+		MainUmum newUmum = new MainUmum();
+		MainTunjangan newTunjangan = new MainTunjangan();
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("+---------------------------------------------------------------------------------+");
@@ -26,6 +33,8 @@ public class MainActivity {
 		System.out.println("| 5. Keluarga   |  6. SKPP Pegawai      | 7. Uang duka          |  8. Data Rapel  |");
 		System.out.println("+---------------------------------------------------------------------------------+");
 		System.out.println("| 9. URT NIP    |  10. Historis Eselon  | 11. Detil Kekurangan  |  12. Pajak      |");
+		System.out.println("+---------------------------------------------------------------------------------+");
+		System.out.println("| 13.Tabel Agama|  14. Tabel Guru       | 15. Tabel Umum        |  16.T Tunjangan |");
 		System.out.println("+---------------------------------------------------------------------------------+");
 		System.out.print("Pilihan : ");
 		input = in.nextInt();
@@ -40,11 +49,22 @@ public class MainActivity {
 			newHutang.mainMenu();
 		}else if (input == 5){
 			newKeluarga.mainMenu();
+		}else if  (input == 6){
+			newSKPP.mainMenu();
+		}else if (input == 7){
+			newDuka.mainMenu();
+		}else if (input == 8){
+			newRapel.mainMenu();
+		}else if(input == 13) {
+			newAgama.testqueryMencariNamaAgama();
+		}else if (input == 14){
+			newGuru.tesMencariKodeGuruDitabelGuru();
+		}else if (input == 15){
+			newUmum.getMencariTJUmumBerdasarkanKodeGolongan();	
+		}else if (input == 16) {
+			newTunjangan.mainMenu();
 		}
-		{
-			System.out.println("Maaf, inputan anda salah");
-			menuUtama();
-		}
+		System.out.println("Maaf, inputan anda salah");
+		menuUtama();
 	}
-
 }
