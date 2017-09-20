@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.Ttunjangan;
 
-public class MainTunjangan extends InputVariable{
+public class MainTunjangan {
 	public  Scanner sf=new Scanner(System.in); 
 	 MainActivity ma=new MainActivity();
 
@@ -71,7 +71,7 @@ public class MainTunjangan extends InputVariable{
 	public  void testMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
 		Ttunjangan objTj =new Ttunjangan();
 
-		JSONArray data = objTj.getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(); 
+		JSONArray data = objTj.getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(0); 
 
 		showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah");
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni
@@ -112,11 +112,11 @@ public class MainTunjangan extends InputVariable{
 		
 		try {
 			System.out.print("Masukan Jumlah Tunjangan dari : ");
-			inputJumlahAwal=sf.nextInt();
+			int inputJumlahAwal=sf.nextInt();
 			System.out.print("Masukan Jumlah Tunjangan sampai : ");
-			inputJumlahAkhir=sf.nextInt();
+			int inputJumlahAkhir=sf.nextInt();
 			
-			JSONArray data = ftj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun();
+			JSONArray data = ftj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(inputJumlahAwal, inputJumlahAkhir, 0);
 			showData_jml(data,"jumlah","jumlah_pns");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");

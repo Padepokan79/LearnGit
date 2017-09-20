@@ -188,7 +188,7 @@ public interface ListQuery {
 //==========================================================================================================================================================================
 //Tabel 13 From Agama_tbl add by Hendra YN
 	public final String queryMencariNamaAgama = 
-			"select kdagama as KodeAgama, nmagama as NamaAgama from agama_tbl where kdagama = ? limit ?,10;"; // 1. KodeAgama = 1/2/3/4/5/6 2. limit next page
+			"select kdagama as KodeAgama, nmagama as NamaAgama from agama_tbl where kdagama = ?;"; // 1. KodeAgama = 1/2/3/4/5/6 2. limit next page
 
 //==========================================================================================================================================================================
 //Tabel 14 From akunsp2d add by Hendra YN
