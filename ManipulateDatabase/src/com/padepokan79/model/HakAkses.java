@@ -11,11 +11,10 @@ public class HakAkses extends DatabaseConnection implements ListQuery{
 		
 	}
 	
-	public JSONArray queryMenghitungJumlahHakAksesBerdasarkanPemakai(String query, int nextPage){
+	public JSONArray queryMenghitungJumlahHakAksesBerdasarkanPemakai(String query){
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			st.setInt(1, nextPage);
 			
 			ResultSet rs = (ResultSet) st.executeQuery();
 
@@ -42,11 +41,11 @@ public class HakAkses extends DatabaseConnection implements ListQuery{
 		return null;
 	}
 	
-	public JSONArray getQueryMenghitungJumlahHakAksesBerdasarkanPemakai(int nextPage){
+	public JSONArray getQueryMenghitungJumlahHakAksesBerdasarkanPemakai(){
 		try
 		{
 			String query = queryMenghitungJumlahHakAksesBerdasarkanPemakai;
-			return queryMenghitungJumlahHakAksesBerdasarkanPemakai(query, nextPage);
+			return queryMenghitungJumlahHakAksesBerdasarkanPemakai(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
