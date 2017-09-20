@@ -12,10 +12,10 @@ import com.padepokan79.model.Guru;
 import com.padepokan79.model.InputVariable;
 
 public class MainGuru {
-	static MainActivity ma=new MainActivity();
-	public static Scanner sc=new Scanner( System.in );
+	 MainActivity ma=new MainActivity();
+	public  Scanner sc=new Scanner( System.in );
 	//KodeGuru, NamaGuru,
-	public static void tesMencariKodeGuruDitabelGuru(){
+	public  void tesMencariKodeGuruDitabelGuru(){
 		Guru guru = new Guru();
 		try {
 			InputVariable in = new InputVariable();
@@ -28,7 +28,7 @@ public class MainGuru {
 			System.out.println(e.getMessage());
 		}
 	}
-	public static void backto()  {
+	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Mencari Guru Berdasarkan Kode  : ");
 		try {
@@ -48,7 +48,7 @@ public class MainGuru {
 		}
 	}
 	
-	public static void showData_skpp(JSONArray arrayData, String pa, String pb) {
+	public  void showData_skpp(JSONArray arrayData, String pa, String pb) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------+");
 		System.out.println("| KodeGuru |          NamaGuru         |");
@@ -81,7 +81,7 @@ public class MainGuru {
 	}//Hendra Add ShowData Hehe... 
 
 
-	public static void main(String args[]) {
+	public  void main(String args[]) {
 		MainGuru md=new MainGuru();
 		md.tesMencariKodeGuruDitabelGuru();
 	}

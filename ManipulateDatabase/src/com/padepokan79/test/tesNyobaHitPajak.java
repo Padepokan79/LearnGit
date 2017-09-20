@@ -25,7 +25,7 @@ public class tesNyobaHitPajak {
 			int masukan = sc.nextInt();
 			System.out.print("Masukan jumlah anak 1 s.d 17 : ");
 			int masukan2 = sc.nextInt();
-			JSONArray data = hit.getHitPajak(masukan, masukan)
+			JSONArray data = hit.getHitPajak(masukan, masukan2);
 //			showData_skpp(data,"kodeguru","namaguru");
 			showDataTop10AllFields(data);
 		}catch (Exception e) {
