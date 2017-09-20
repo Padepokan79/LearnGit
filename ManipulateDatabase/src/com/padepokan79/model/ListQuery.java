@@ -244,7 +244,7 @@ public interface ListQuery {
 		public final String queryMenghitungJumlahHakAksesBerdasarkanPemakai =
 				"select pemakai, count(*) as jumlah_hak_akses from hak_akses where not pemakai =' ' group by pemakai;"; 
 		public final String queryMencariYangMenggunakanKodeHakAkses =
-				"select * from hak_akses where kodeakses > ? "; // ?1 kodehakakses contoh 12 . ?2 limit 
+				"select * from hak_akses where kodeakses > ? LIMIT ?,10;"; // ?1 kodehakakses contoh 12 . ?2 limit 
 
 //Tabel 20 From guru_tbl add by Hendra YN
 		public final String queryMencariKodeGurudiTabelGuruTBL =
