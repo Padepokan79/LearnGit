@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Fgaji;
-import com.padepokan79.model.Satker;
+import com.padepokan79.controller.Fgaji;
+import com.padepokan79.controller.Satker;
 
 public class MainSatker {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );

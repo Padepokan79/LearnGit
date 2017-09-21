@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Hutang;
+import com.padepokan79.controller.Hutang;
 
 public class MainHutang {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );

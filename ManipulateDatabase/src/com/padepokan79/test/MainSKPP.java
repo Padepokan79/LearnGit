@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.SkppPegawai;
+import com.padepokan79.controller.SkppPegawai;
 
 public class MainSKPP {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );

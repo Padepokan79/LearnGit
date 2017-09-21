@@ -5,8 +5,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.InputVariable;
-import com.padepokan79.model.Umum;
+import com.padepokan79.controller.Umum;
 
 public  class MainUmum {
 	public  Scanner sc = new Scanner(System.in);

@@ -1,17 +1,14 @@
 package com.padepokan79.test;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Fgaji;
-import com.padepokan79.model.InputVariable;
+import com.padepokan79.controller.Fgaji;
 
 public class FGajiMenu {
-	BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	public  Scanner bf=new Scanner( System.in );
 	 MainActivity ma=new MainActivity();
 	
 	 public FGajiMenu() {
@@ -20,7 +17,6 @@ public class FGajiMenu {
  	 
 	public void mainMenu () {//Modify by Ipin
 
-		InputVariable iv=new InputVariable();
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                      Submenu Gajih                                                 |");
 		System.out.println("|----------------------------------------------------------------------------------------------------|");
@@ -33,7 +29,7 @@ public class FGajiMenu {
 
 		try {
 			System.out.print("Masukan PIlihan : ");
-			String input=iv.dataIn.next();
+			String input=bf.next();
 			switch (input) {
 			case "1":
 				testNamaDanGajiBersih();
@@ -72,10 +68,9 @@ public class FGajiMenu {
 
 	public  void backto()  {
 		String inp;
-		InputVariable iv=new InputVariable();
 		System.out.print("1. Menu Utama 2. Submenu Gajih  : ");
 		try {
-			inp=iv.dataIn.next();
+			inp=bf.next();
 			switch (inp) {
 			case "1":
 				ma.menuUtama();;

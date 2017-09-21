@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Guru;
+import com.padepokan79.controller.Guru;
 
 public class MainGuru {
 	 MainActivity ma=new MainActivity();

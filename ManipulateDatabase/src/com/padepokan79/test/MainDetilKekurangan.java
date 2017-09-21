@@ -5,9 +5,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.DetilKekurangan;
-import com.padepokan79.model.InputVariable;
-import com.padepokan79.test.MainAgama;
+import com.padepokan79.controller.DetilKekurangan;
 
 public class MainDetilKekurangan{
 	public  Scanner keyboard = new Scanner( System.in );

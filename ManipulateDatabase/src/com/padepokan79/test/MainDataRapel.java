@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.DataRapel;
+import com.padepokan79.controller.DataRapel;
 
 public class MainDataRapel {
 	 MainActivity ma=new MainActivity();

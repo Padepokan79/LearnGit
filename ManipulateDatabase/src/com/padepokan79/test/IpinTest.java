@@ -1,13 +1,9 @@
 package com.padepokan79.test;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.InputVariable;
-import com.padepokan79.model.UrtNIP;
+import com.padepokan79.controller.UrtNIP;
 
 
 public class IpinTest {
