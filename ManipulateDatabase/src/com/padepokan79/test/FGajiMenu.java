@@ -14,6 +14,10 @@ public class FGajiMenu {
 	BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	 MainActivity ma=new MainActivity();
 	
+	 public FGajiMenu() {
+		 mainMenu();
+	 }
+ 	 
 	public void mainMenu () {//Modify by Ipin
 
 		InputVariable iv=new InputVariable();

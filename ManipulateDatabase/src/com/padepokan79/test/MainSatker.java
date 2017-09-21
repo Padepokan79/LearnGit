@@ -12,7 +12,10 @@ import com.padepokan79.model.Satker;
 public class MainSatker {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	 MainActivity ma=new MainActivity();
-
+	 public MainSatker() {
+		 mainMenu();
+	 }
+	 
 	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+----------------------------------------------------------------------------------------------------------+");

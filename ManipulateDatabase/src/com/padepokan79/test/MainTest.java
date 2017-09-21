@@ -8,21 +8,7 @@ import com.padepokan79.model.Hutang;
 public class MainTest {
 
 	public static void main(String[]args) {
-<<<<<<< HEAD
-		MainTest objmain = new MainTest();
-		objmain.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
-	}
-	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
-	public  void getMenampilkanPNSpunyaNPWPdanMasaKerjaLama(){
-		UrtNIP urtNIP = new UrtNIP();
-		JSONArray data = urtNIP.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 
-		//System.out.println(data);
-		showData6Parameter(data,"nip","nama","npwp","masa_kerja","golongan","jab_struktur");
-	} // ikan added test for NamaDanGajiBersih
-
-	public  void showData6Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf) {
-=======
 		getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 	}
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
@@ -32,7 +18,6 @@ public class MainTest {
 		//System.out.println(data);
 		showData4Parameter(data,"nip", "nama", "jumlah_hutang","jmlbulan");
 	}
->>>>>>> 4040e8994d5d1e96289b82a6af825e3b306d1c35
 
 	public static  void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		//System.out.println(arrayData);

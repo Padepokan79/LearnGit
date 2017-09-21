@@ -35,13 +35,10 @@ public  class MainUmum {
 	public  void getMencariTJUmumBerdasarkanKodeGolongan() {
 		Umum umum = new Umum ();
 		System.out.println("Masukan Kode Golongan : (1/2/3/4) ");
-<<<<<<< HEAD
-		inputKode = sc.nextInt();
-		JSONArray Data = umum.queryMencariTJUmumBerdasarkanKodeGolongan();
-=======
+
 		int inputKode = sc.nextInt();
 		JSONArray Data = umum.getQueryMencariTJUmumBerdasarkanKodeGolongan(inputKode, 0);
->>>>>>> origin/master
+
 		showDataMencariTJUmumBerdasarkanKodeGolongan(Data,"tmtberlaku" , "kdgol" , "tjumum");
 	}
 	public  void showDataMencariTJUmumBerdasarkanKodeGolongan(JSONArray Data,String p1, String p2, String p3 )

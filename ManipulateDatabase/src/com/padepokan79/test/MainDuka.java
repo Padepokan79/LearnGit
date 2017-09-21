@@ -1,22 +1,22 @@
 package com.padepokan79.test;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.model.FgajiUangDuka;
-import com.padepokan79.model.InputVariable;
+
 
 public class MainDuka {
 	public  Scanner bf=new Scanner( System.in );
 	public  String input,quiz;
-	int nextPage=0;
+	
+	MainActivity ma=new MainActivity();
 
-	 MainActivity ma=new MainActivity();
-
+	public MainDuka(){
+		mainMenu();
+	}	
 	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+------------------------------------------------------------------------------------------------------------------------------------------------+");
@@ -87,12 +87,13 @@ public class MainDuka {
 
 	//NIP, NAMA, TGLWAFAT, TGLBAYAR
 	public  void tesNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(){
+		int nextPage=0;
 		FgajiUangDuka fju=new FgajiUangDuka();
 		try {
 			System.out.print("Masukan lama uang duka yang diterima keluarga : ");
 			int inputHari=bf.nextInt();
 			JSONArray data = fju.getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(inputHari, nextPage);
-			showData(data,"nip","nama","tglwafat","tglbayar",inputHari);
+			showData(data,"nip","nama","tglwafat","tglbayar",inputHari,nextPage);
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
@@ -102,13 +103,14 @@ public class MainDuka {
 
 	/*NIP,Nama,tglwafat,tjistri,tjanak*/
 	public  void tesNamaPNSYangMeningglTanpaTunjanganAnakIstri(){
+		int nextPage=0;
 		FgajiUangDuka fju=new FgajiUangDuka();
 		try {
 			System.out.print("Masukan Tunjangan Istri : ");
 			int jmlIstri=bf.nextInt();
 			
-			JSONArray data = fju.getNamaPNSYangMeningglTanpaTunjanganAnakIstri(jmlIstri, 0);
-			showData(data,"nip","nama","tglwafat","tjistri","tjanak");
+			JSONArray data = fju.getNamaPNSYangMeningglTanpaTunjanganAnakIstri(jmlIstri, nextPage);
+			showData(data,"nip","nama","tglwafat","tjistri","tjanak",jmlIstri,nextPage);
 		}catch (Exception e) {
 			//System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
@@ -116,10 +118,11 @@ public class MainDuka {
 	}
 
 	public  void tesJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(){
+		int nextPage=0;
 		FgajiUangDuka fju=new FgajiUangDuka();
 		try {
-			JSONArray data = fju.getJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(0);
-			showData(data,"jumlah_pns_nontjseslon_nontjfungsi");
+			JSONArray data = fju.getJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(nextPage);
+			showData(data,"jumlah_pns_nontjseslon_nontjfungsi",nextPage);
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
@@ -129,14 +132,14 @@ public class MainDuka {
 
 	public  void testTGLWafatDanUangBersihLebihDari1Jt(){
 		FgajiUangDuka fju=new FgajiUangDuka();
-
+		int nextPage=0;
 		try {
 			System.out.print("Masukan Tanggal wafat : ");
 			String inputTanggal=bf.next();
 			System.out.print("Masukan Penghasilan Bersih : ");
 			int inputBersih=bf.nextInt();
-			JSONArray data = fju.getTGLWafatDanUangBersihLebihDari1Jt(inputTanggal, inputBersih, 0);
-			showData_tgl(data,"nip","tglwafat","bersih");
+			JSONArray data = fju.getTGLWafatDanUangBersihLebihDari1Jt(inputTanggal, inputBersih, nextPage);
+			showData_tgl(data,"nip","tglwafat","bersih",inputTanggal,inputBersih,nextPage);
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
@@ -144,7 +147,7 @@ public class MainDuka {
 	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
 
 	//NIP, NAMA, TGLWAFAT, TGLBAYAR
-	public  void showData(JSONArray arrayData, String pa, String pb,String pc,String pd,int x) {
+	public  void showData(JSONArray arrayData, String pa, String pb,String pc,String pd,int inputHari,int nextPage) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------------------------------+");
 		System.out.println("|         NIP        |             Nama            |  Tgl Wafat  |  Tgl Pembayaran |");
@@ -178,14 +181,14 @@ public class MainDuka {
 		if(quiz.equalsIgnoreCase("N")) {
 			nextPage+=10;
 			FgajiUangDuka fju=new FgajiUangDuka();
-			JSONArray data = fju.getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(x, nextPage);
-			showData(data,"nip","nama","tglwafat","tglbayar",x);
+			JSONArray data = fju.getNamaPNSyangMeninggaldanUangDukaDibayarSetelah1MingguSesudahWafat(inputHari, nextPage);
+			showData(data,"nip","nama","tglwafat","tglbayar",inputHari,nextPage);
 		}else {
 			backto();
 		}
 	}
 
-	public  void showData(JSONArray arrayData, String pa, String pb,String pc,String pd,String pe) {
+	public  void showData(JSONArray arrayData, String pa, String pb,String pc,String pd,String pe,int jmlIstri,int nextPage) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
 		System.out.println("|         NIP        |             Nama            |  Tgl Wafat  |  Tunjangan Istri | Tunjangan Anak |");
@@ -215,11 +218,19 @@ public class MainDuka {
 			System.out.println("       "+obj.get(pe)+"        |");
 			System.out.println("+----------------------------------------------------------------------------------------------------+");
 		}
-		System.out.println("Tidak ada next paging !");
-		backto();
+		System.out.println("N lanjut M Menu : ");
+		quiz=bf.next();
+		if(quiz.equalsIgnoreCase("N")) {
+			nextPage+=10;
+			FgajiUangDuka fju=new FgajiUangDuka();
+			JSONArray data = fju.getNamaPNSYangMeningglTanpaTunjanganAnakIstri(jmlIstri, nextPage);
+			showData(data,"nip","nama","tglwafat","tjistri","tjanak",jmlIstri,nextPage);
+		}else {
+			backto();
+		}
 	}
 
-	public  void showData(JSONArray arrayData, String pa) {
+	public  void showData(JSONArray arrayData, String pa,int nextPage) {
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------+");
 		System.out.println("| Jumlah PNS yang tidak memiliki tunjangan |");
@@ -237,7 +248,9 @@ public class MainDuka {
 		quiz=bf.next();
 		if(quiz.equalsIgnoreCase("N")) {
 			nextPage+=10;
-			tesJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi();
+			FgajiUangDuka fju=new FgajiUangDuka();
+			JSONArray data = fju.getJumlahPNSYangTidakMempunyaiTunjanganEselonDanTunjanganFungsi(nextPage);
+			showData(data,"jumlah_pns_nontjseslon_nontjfungsi",nextPage);
 		}else {
 			backto();
 		}
@@ -245,7 +258,7 @@ public class MainDuka {
 
 
 
-	public  void showData_tgl(JSONArray arrayData, String fNip, String ftglwaf, String Fbersih) {
+	public  void showData_tgl(JSONArray arrayData, String fNip, String ftglwaf, String Fbersih,String inputTanggal,int inputBersih,int nextPage) {
 		//System.out.println(arrayData);
 		System.out.println("+----------------------------------------------------------+");
 		System.out.println("|         NIP         |Tanggal Wafat|  Pengghasilan Bersih |");
@@ -264,6 +277,16 @@ public class MainDuka {
 			System.out.print("  |         "+ obj.get(Fbersih));
 			System.out.println("        |");
 			System.out.println("+-------------------------------------------------------------------------------+");
+		}
+		System.out.println("N lanjut M Menu : ");
+		quiz=bf.next();
+		if(quiz.equalsIgnoreCase("N")) {
+			nextPage+=10;
+			FgajiUangDuka fju=new FgajiUangDuka();
+			JSONArray data = fju.getTGLWafatDanUangBersihLebihDari1Jt(inputTanggal, inputBersih, nextPage);
+			showData_tgl(data,"nip","tglwafat","bersih",inputTanggal,inputBersih, nextPage);
+		}else {
+			backto();
 		}
 	}//Yusup Add ShowData Hehe...
 

@@ -1,4 +1,4 @@
-package com.padepokan79.test;
+ package com.padepokan79.test;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,7 +11,11 @@ import com.padepokan79.model.Hutang;
 public class MainHutang {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	 MainActivity ma=new MainActivity();
-
+	 
+	 public MainHutang() {
+		 mainMenu();
+	 }
+	 
 	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+-----------------------------------------------------------------------------------------------------------+");

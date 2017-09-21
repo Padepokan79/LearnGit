@@ -10,8 +10,13 @@ import com.padepokan79.model.DataRapel;
 public class MainDataRapel {
 	 MainActivity ma=new MainActivity();
 	public  Scanner bf=new Scanner( System.in );
+	
+	public MainDataRapel() {
+		mainMenu();
+	}
+	
 	public  void mainMenu () {//Modify by Manto
-
+		
 		System.out.println("+-------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|                                             Submenu Data Rapel                                                    |");
 		System.out.println("|-------------------------------------------------------------------------------------------------------------------|");
@@ -263,6 +268,7 @@ public class MainDataRapel {
 			System.out.println(" |");
 			System.out.println("+-----------------------------------------------------------------+");
 		}
+		backto();
 	}
 	
 	public  void showData2(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
