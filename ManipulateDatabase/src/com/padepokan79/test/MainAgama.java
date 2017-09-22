@@ -26,6 +26,9 @@ public class MainAgama{
 			 
 		}
 	}
+	public MainAgama(){
+		testqueryMencariNamaAgama();
+	}
 	public  void backto()  {
 		String inp;
 		MainActivity ma = new MainActivity();
@@ -72,7 +75,7 @@ public class MainAgama{
 		//add by Hendra YN
 	}
 	public static void main(String args[]) {
-		MainAgama test = new MainAgama();
-		test.testqueryMencariNamaAgama();
+		MainAgama mainAgama = new MainAgama();
+		mainAgama.testqueryMencariNamaAgama();
 	}
 }
