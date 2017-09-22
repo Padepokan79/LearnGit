@@ -79,28 +79,28 @@ public class MainKeluarga {
 
 	public  void PNSUsiaPernikahanPerak25tahun(){
 		Keluarga objKeluarga=new Keluarga();
-		JSONArray data = objKeluarga.queryPNSUsiaPernikahanPerak25tahun(); 
+		JSONArray data = objKeluarga.getQueryPNSUsiaPernikahanPerak25tahun(); 
 		showData(data,"nip","namakeluarga","tglnikah");
 	}
 
 	/*nip,Nama,tglnikah,tglwafat*/
 	public  void jombloWafat(){
 		Keluarga objKeluarga=new Keluarga();
-		JSONArray data = objKeluarga.queryPNSJombloWafat(); 
+		JSONArray data = objKeluarga.getQueryPNSJombloWafat(); 
 		showData(data,"nip","nama","tglwafat","");
 	}
 
 	/*NMKEL,TGLLHR,TGLNIKAH*/
 	public  void jombloSejati(){
 		Keluarga objKeluarga=new Keluarga();
-		JSONArray data = objKeluarga.queryPNSjomblosejati(); 
+		JSONArray data = objKeluarga.getQueryPNSjomblosejati(); 
 		showData(data,"nmkel","tgllhr");
 	}
 
 	public  void testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
 		Keluarga objkeluarga =new Keluarga();
 
-		JSONArray data = objkeluarga.queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(); 
+		JSONArray data = objkeluarga.getQueryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(); 
 
 		showData2(data,"nip","nama","tglnikah","nipsuamiistri");
 	} // Yusup  added test for KeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri
@@ -108,7 +108,7 @@ public class MainKeluarga {
 	public  void testNamaKeluargaPNSyangPernahMenikahLaluCerai(){
 		Keluarga objkeluarga =new Keluarga();
 
-		JSONArray data = objkeluarga.queryNamaKeluargaPNSyangPernahMenikahLaluCerai(); 
+		JSONArray data = objkeluarga.getQueryNamaKeluargaPNSyangPernahMenikahLaluCerai(); 
 
 		showData_(data,"nip","nama","tglnikah","tglcerai");
 	} // Yusup  added test for NamaKeluargaPNSyangPernahMenikahLaluCerai

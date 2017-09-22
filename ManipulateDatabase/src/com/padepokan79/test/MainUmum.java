@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.Umum;
 
-public  class MainUmum extends InputVariable{
+public  class MainUmum {
 	public  Scanner sc = new Scanner(System.in);
 	
 	public  MainActivity Umum = new MainActivity();
@@ -35,8 +35,13 @@ public  class MainUmum extends InputVariable{
 	public  void getMencariTJUmumBerdasarkanKodeGolongan() {
 		Umum umum = new Umum ();
 		System.out.println("Masukan Kode Golongan : (1/2/3/4) ");
+<<<<<<< HEAD
 		inputKode = sc.nextInt();
 		JSONArray Data = umum.queryMencariTJUmumBerdasarkanKodeGolongan();
+=======
+		int inputKode = sc.nextInt();
+		JSONArray Data = umum.getQueryMencariTJUmumBerdasarkanKodeGolongan(inputKode, 0);
+>>>>>>> origin/master
 		showDataMencariTJUmumBerdasarkanKodeGolongan(Data,"tmtberlaku" , "kdgol" , "tjumum");
 	}
 	public  void showDataMencariTJUmumBerdasarkanKodeGolongan(JSONArray Data,String p1, String p2, String p3 )

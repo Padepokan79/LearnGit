@@ -9,7 +9,7 @@ import com.padepokan79.model.DetilKekurangan;
 import com.padepokan79.model.InputVariable;
 import com.padepokan79.test.MainAgama;
 
-public class MainDetilKekurangan extends InputVariable{
+public class MainDetilKekurangan{
 	public  Scanner keyboard = new Scanner( System.in );
 	
 	public  void testqueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt() {
@@ -17,11 +17,11 @@ public class MainDetilKekurangan extends InputVariable{
 		
 		//try {
 			System.out.print("Masukan Masa Kerja : ");
-			inputMasaKerja=keyboard.nextInt();
+			int inputMasaKerja=keyboard.nextInt();
 			System.out.print("Masukan Gaji Pokok : ");
-			inputGapok=keyboard.nextInt();
+			int inputGapok=keyboard.nextInt();
 			
-			JSONArray data = dk.queryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt();
+			JSONArray data = dk.getQueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt(inputMasaKerja, inputGapok);
 			showData_dk(data,"nip","nama","masker","gapok");
 		//} catch (Exception e) {
 			//System.out.println("Inputan Salah");

@@ -37,7 +37,7 @@ public class Twafat extends DatabaseConnection implements ListQuery{
 	public JSONArray getQueryKdKubKelPenerimaKosong(){
 		try
 		{
-			String query = queryKdKubKelPenerimaKosong;
+			String query = queryKdHubKelPenerimaKosong;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception

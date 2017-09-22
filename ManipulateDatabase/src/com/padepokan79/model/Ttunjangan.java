@@ -17,7 +17,7 @@ public class Ttunjangan  extends DatabaseConnection implements ListQuery{
 		
 	}
 
-	public JSONArray getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(String query, int nextPage){
+	public JSONArray MenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(String query, int nextPage){
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
@@ -32,7 +32,7 @@ public class Ttunjangan  extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray simpleQuery(String query, int jumlahAwal, int jumlahAkhir, int nextPage){
+	public JSONArray MenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(String query, int jumlahAwal, int jumlahAkhir, int nextPage){
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
@@ -61,23 +61,21 @@ public class Ttunjangan  extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
+	public JSONArray getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(int nextPage){
 		try
 		{
-			menuOn = 1;
 			String query = queryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan;
-			return simpleQuery(query);
+			return MenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(query, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(){
+	public JSONArray getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(int jumlahAwal, int jumlahAkhir, int nextPage){
 		try
 		{
-			menuOn = 2;
 			String query = queryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun;
-			return simpleQuery(query);
+			return MenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(query, jumlahAwal, jumlahAkhir, nextPage);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}

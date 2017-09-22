@@ -1,27 +1,28 @@
 package com.padepokan79.test;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.FgajiUangDuka;
 import com.padepokan79.model.Guru;
-import com.padepokan79.model.InputVariable;
 
 public class MainGuru {
 	 MainActivity ma=new MainActivity();
+	 int input;
 	public  Scanner sc=new Scanner( System.in );
 	//KodeGuru, NamaGuru,
 	public  void tesMencariKodeGuruDitabelGuru(){
 		Guru guru = new Guru();
 		try {
-			InputVariable in = new InputVariable();
 			System.out.print("Masukan Kode Guru 1 s.d 17 : ");
+<<<<<<< HEAD
 			int masukan = sc.nextInt();
 			JSONArray data = guru.getqueryMencariKodeGurudiTabelGuruTBL();
+=======
+			 input= sc.nextInt();
+			JSONArray data = guru.getQueryMencariKodeGurudiTabelGuruTBL(input);
+>>>>>>> origin/master
 			showData_skpp(data,"kodeguru","namaguru");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -81,10 +82,8 @@ public class MainGuru {
 	}//Hendra Add ShowData Hehe... 
 
 
-	public  void main(String args[]) {
-		MainGuru md=new MainGuru();
-		md.tesMencariKodeGuruDitabelGuru();
+	public static void main(String args[]) {
+		MainGuru tesGuru = new MainGuru();
+		tesGuru.tesMencariKodeGuruDitabelGuru();
 	}
-
-
 }

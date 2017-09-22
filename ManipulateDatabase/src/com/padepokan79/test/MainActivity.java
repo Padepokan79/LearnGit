@@ -2,29 +2,13 @@ package com.padepokan79.test;
 
 import java.util.Scanner;
 public class MainActivity {
-
-	public void main(String[] args) {
-		menuUtama();
+	public static void main(String[] args) {
+		MainActivity newMenu = new MainActivity();
+		newMenu.menuUtama();
 	}
-	// Editing By Sandi
-	
-	
-	public void menuUtama() {
-		int input;
-		FGajiMenu newGaji = new FGajiMenu();
-		MainSatker newSatker = new MainSatker();
-		Maintwafat newWafat = new Maintwafat();
-		MainHutang newHutang = new MainHutang();
-		MainKeluarga newKeluarga = new MainKeluarga();
-		MainSKPP newSKPP = new MainSKPP();
-		MainDuka newDuka = new MainDuka();
-		MainDataRapel newRapel = new MainDataRapel();
-		MainAgama newAgama = new MainAgama();
-		MainGuru newGuru = new MainGuru();
-		MainUmum newUmum = new MainUmum();
-		MainTunjangan newTunjangan = new MainTunjangan();
+		public  void  menuUtama() {
+		int input;	
 		Scanner in = new Scanner(System.in);
-		
 		System.out.println("+---------------------------------------------------------------------------------+");
 		System.out.println("|                            Menu Utama                                           |");
 		System.out.println("+---------------------------------------------------------------------------------+");
@@ -38,30 +22,41 @@ public class MainActivity {
 		System.out.println("+---------------------------------------------------------------------------------+");
 		System.out.print("Pilihan : ");
 		input = in.nextInt();
-		
 		if (input==1) {
+			FGajiMenu newGaji = new FGajiMenu();
 			newGaji.mainMenu();
 		}else if(input == 2) {
+			MainSatker newSatker = new MainSatker();
 			newSatker.mainMenu();
 		}else if( input == 3){
+			Maintwafat newWafat = new Maintwafat();
 			newWafat.mainMenu();
 		}else if(input == 4){
+			MainHutang newHutang = new MainHutang();
 			newHutang.mainMenu();
 		}else if (input == 5){
+			MainKeluarga newKeluarga = new MainKeluarga();
 			newKeluarga.mainMenu();
 		}else if  (input == 6){
+			MainSKPP newSKPP = new MainSKPP();
 			newSKPP.mainMenu();
 		}else if (input == 7){
+			MainDuka newDuka = new MainDuka();
 			newDuka.mainMenu();
 		}else if (input == 8){
+			MainDataRapel newRapel = new MainDataRapel();
 			newRapel.mainMenu();
 		}else if(input == 13) {
+			MainAgama newAgama = new MainAgama();
 			newAgama.testqueryMencariNamaAgama();
 		}else if (input == 14){
+			MainGuru newGuru = new MainGuru();
 			newGuru.tesMencariKodeGuruDitabelGuru();
 		}else if (input == 15){
+			MainUmum newUmum = new MainUmum();
 			newUmum.getMencariTJUmumBerdasarkanKodeGolongan();	
 		}else if (input == 16) {
+			MainTunjangan newTunjangan = new MainTunjangan();
 			newTunjangan.mainMenu();
 		}
 		System.out.println("Maaf, inputan anda salah");

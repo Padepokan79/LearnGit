@@ -58,6 +58,7 @@ public class UrtNIP extends DatabaseConnection implements ListQuery {
 			//System.out.println("------ ------ ------ ----- -----");
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
+			System.out.println(e.getMessage());
 			// TODO: handle exception
 		}
 		return null;

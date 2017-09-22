@@ -10,13 +10,13 @@ public class Agama extends DatabaseConnection implements ListQuery{
 
 	}
 
-	public JSONArray queryMencariNamaAgama(String query, int inputKode, int nextPage){
+	public JSONArray queryMencariNamaAgama(String query, int inputKode){
 		try
 		{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
 			st.setInt(1, inputKode);
-			st.setInt(2, nextPage);
+			
 			ResultSet rs = (ResultSet) st.executeQuery();
 			return Convertor.convertToJSON(rs);
 
@@ -25,11 +25,11 @@ public class Agama extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getQueryMencariNamaAgama(int inputKode, int nextPage){
+	public JSONArray getQueryMencariNamaAgama(int inputKode){
 		try
 		{
 			String query = queryMencariNamaAgama;
-			return queryMencariNamaAgama(query, inputKode, nextPage);
+			return queryMencariNamaAgama(query, inputKode);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
