@@ -53,7 +53,7 @@ public class MainActivity {
 			newUrt.mainMenu();
 		}else if(input == 11) {
 			MainDetilKekurangan newDetilKekurangan = new MainDetilKekurangan();
-			newDetilKekurangan.testqueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt();
+			newDetilKekurangan.mainMenu();
 		}else if(input == 13) {
 			MainAgama newAgama = new MainAgama();
 			newAgama.testqueryMencariNamaAgama();

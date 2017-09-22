@@ -6,27 +6,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.padepokan79.controller.Fgaji;
+import com.padepokan79.controller.Form1721A2;
 
 public class MainForm1721A2 {
-	
+	public static void main(String args[]) {
+		MainForm1721A2 fg=new MainForm1721A2();
+		fg.mainMenu();
+	}
 	public  Scanner bf=new Scanner( System.in );
 	 MainActivity ma=new MainActivity();
-	
-	 public MainForm1721A2() {
-		 mainMenu();
-	 }
- 	 
 	public void mainMenu () {//Modify by Ipin
 
-		System.out.println("+----------------------------------------------------------------------------------------------------+");
-		System.out.println("|                                      Submenu Gajih                                                 |");
-		System.out.println("|----------------------------------------------------------------------------------------------------|");
-		System.out.println("| 1. Nama dan Gaji Bersih         | 2. Nama dan Status Kawin         | 3. Nama laki -laki dan Jomblo |");
-		System.out.println("|----------------------------------------------------------------------------------------------------|");
-		System.out.println("| 4. Nama dan Gaji Bersih > 10 Jt | 5. Pegawai Usia antara 25 dan 35 | 6. Janda kembang              |");
-		System.out.println("|----------------------------------------------------------------------------------------------------|");
-		System.out.println("| 7. Super Dad                    |                                  | 0. Menu Utama                 |");
-		System.out.println("+----------------------------------------------------------------------------------------------------+");
+		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("|                                      Submenu Form1721A2                                                                              |");
+		System.out.println("|--------------------------------------------------------------------------------------------------------------------------------------|");
+		System.out.println("| 1. Mencari Tahun Pajak dan Tahun Jabatan | 2.Cek PNS yang sudah atau belum bayar Pajak   | 3. Mengecek laki laki yang membayar pajak |");
+		System.out.println("|--------------------------------------------------------------------------------------------------------------------------------------|");
+		System.out.println("| 4. menampilkan yang sudah ada NPWP       | 5. Menampilkan status berdasarkan  keluarga   | 6. Main Menu                              |");
+		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------+");
 
 		try {
 			System.out.print("Masukan PIlihan : ");
@@ -269,8 +266,5 @@ public class MainForm1721A2 {
 		backto();
 	}
 
-	public  void main(String args[]) {
-		MainForm1721A2 fg=new MainForm1721A2();
-		fg.mainMenu();
-	}
+	
 }
