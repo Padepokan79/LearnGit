@@ -46,6 +46,12 @@ public class MainActivity {
 		}else if (input == 8){
 			MainDataRapel newRapel = new MainDataRapel();
 			newRapel.mainMenu();
+		}else if(input == 9) {
+			MainUrtNIP newUrt = new MainUrtNIP();
+			newUrt.getMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
+		}else if(input == 11) {
+			MainDetilKekurangan newDetilKekurangan = new MainDetilKekurangan();
+			newDetilKekurangan.testqueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt();
 		}else if(input == 13) {
 			MainAgama newAgama = new MainAgama();
 			newAgama.testqueryMencariNamaAgama();
