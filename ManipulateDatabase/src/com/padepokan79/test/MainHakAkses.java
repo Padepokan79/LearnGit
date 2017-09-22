@@ -5,11 +5,6 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-<<<<<<< HEAD
-import com.padepokan79.model.Fgaji;
-import com.padepokan79.model.Guru;
-=======
->>>>>>> origin/master
 import com.padepokan79.model.HakAkses;
 
 public class MainHakAkses {
@@ -64,16 +59,8 @@ public class MainHakAkses {
 			System.out.println(e.getMessage());
 		}
 	}
-<<<<<<< HEAD
-	public  Scanner sc=new Scanner( System.in );
-	//KodeGuru, NamaGuru,
-	public  void tesMencariKodeGuruDitabelGuru(){
-		Guru guru =new Guru();
-=======
-	
 	public  void testQueryMenghitungJumlahHakAksesBerdasarkanPemakai(){
 		HakAkses objHakAkses=new HakAkses();
->>>>>>> origin/master
 		try {
 			JSONArray data = objHakAkses.getQueryMenghitungJumlahHakAksesBerdasarkanPemakai();
 			showData(data,"pemakai","jumlah_hak_akses");
