@@ -59,7 +59,6 @@ public class MainHakAkses {
 			System.out.println(e.getMessage());
 		}
 	}
-	
 	public  void testQueryMenghitungJumlahHakAksesBerdasarkanPemakai(){
 		HakAkses objHakAkses=new HakAkses();
 		try {
