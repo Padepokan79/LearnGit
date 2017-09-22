@@ -1,4 +1,4 @@
-package com.padepokan79.model;
+package com.padepokan79.controller;
 
 import java.sql.DriverManager;
 
@@ -7,12 +7,13 @@ import org.json.JSONArray;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import com.padepokan79.model.Convertor;
+import com.padepokan79.model.ListQuery;
+import com.padepokan79.util.DatabaseConnection;
 
-public class Satker extends DatabaseConnection implements ListQuery{
-
+public class SkppPegawai extends DatabaseConnection implements ListQuery{
 	
-
-	public Satker() {
+	public SkppPegawai() {
 		
 	}
 
@@ -30,55 +31,61 @@ public class Satker extends DatabaseConnection implements ListQuery{
 			// TODO: handle exception
 		}
 		return null;
-	}
-	public JSONArray getQueryNamaAtasanDRSDanJabatanCamat(){
+		}
+	
+	public JSONArray getNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri(){
 		try
 		{
-			String query = queryNamaAtasanDRSDanJabatanCamat;
+			String query = queryNamaPnsYangmempunyaiAnakTapiTidakMempunyaiIstri;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryKepalaDinasHaji(){
+	
+	public JSONArray getNamaPnsYangPensiunTahunIni(){
 		try
 		{
-			String query = queryKepalaDinasHaji;
+			String query = queryNamaPnsYangPensiunTahunIni;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryBendaharaPembantuDaftarGaji(){
+	
+	public JSONArray getNamaPNSYangSkepnyaDiterbitkanOlehPresiden(){
 		try
 		{
-			String query = queryBendaharaPembantuDaftarGaji;
+			String query = queryNamaPNSYangSkepnyaDiterbitkanOlehPresiden;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryNamaOperatorDenganAkhiranH(){
+	
+	public JSONArray getTampilkanJumlahSKPP_PNSberdasarkanKodePangkat(){
 		try
 		{
-			String query = queryNamaOperatorDenganAkhiranH;
+			String query = queryTampilkanJumlahSKPP_PNSberdasarkanKodePangkat;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryJumlahPegawaiYangKerjaDiDinasKesehatan(){
+	
+	public JSONArray getTampilkanJumlahSuratSKPPberdasarkanPenerbitnya(){
 		try
 		{
-			String query = queryJumlahPegawaiYangKerjaDiDinasKesehatan;
+			String query = queryTampilkanJumlahSuratSKPPberdasarkanPenerbitnya;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
+
 }

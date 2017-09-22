@@ -1,9 +1,12 @@
-package com.padepokan79.model;
+package com.padepokan79.controller;
 
 import org.json.JSONArray;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import com.padepokan79.model.Convertor;
+import com.padepokan79.model.ListQuery;
+import com.padepokan79.util.DatabaseConnection;
 
 public class HistorisEselon extends DatabaseConnection implements ListQuery{
 
@@ -74,7 +77,7 @@ public class HistorisEselon extends DatabaseConnection implements ListQuery{
 		{
 
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			st.setInt(1, InputVariable.nextPage);
+			st.setInt(1, nextPage);
 			ResultSet rs = (ResultSet) st.executeQuery();
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
