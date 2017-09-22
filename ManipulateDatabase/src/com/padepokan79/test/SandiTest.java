@@ -3,8 +3,8 @@ package com.padepokan79.test;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Satker;
-import com.padepokan79.model.Twafat;
+import com.padepokan79.controller.Satker;
+import com.padepokan79.controller.Twafat;
 
 public class SandiTest {
 	

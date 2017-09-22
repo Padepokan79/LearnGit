@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.HakAkses;
+import com.padepokan79.controller.HakAkses;
 
 public class MainHakAkses {
 	MainActivity ma=new MainActivity();

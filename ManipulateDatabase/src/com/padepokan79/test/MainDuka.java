@@ -1,14 +1,11 @@
 package com.padepokan79.test;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.FgajiUangDuka;
-import com.padepokan79.model.InputVariable;
+import com.padepokan79.controller.FgajiUangDuka;
 
 public class MainDuka {
 	public  Scanner bf=new Scanner( System.in );

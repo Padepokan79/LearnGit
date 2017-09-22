@@ -5,10 +5,9 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.InputVariable;
-import com.padepokan79.model.UrtNIP;
+import com.padepokan79.controller.UrtNIP;
 
-public class MainUrtNIP extends InputVariable {
+public class MainUrtNIP {
 	public  Scanner sc = new Scanner(System.in);
 
 	public  static void main(String[]args) {
