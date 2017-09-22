@@ -1,5 +1,7 @@
 package com.padepokan79.test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import org.json.JSONArray;
@@ -10,14 +12,9 @@ import com.padepokan79.model.UrtNIP;
 
 public class MainUrtNIP extends InputVariable {
 	public  Scanner sc = new Scanner(System.in);
-
-	public  static void main(String[]args) {
+		public  static void main(String[]args) {
 		MainUrtNIP obj =  new MainUrtNIP();
 		//obj.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
-		obj.getMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
-		//obj.getMenampilkanGroupByAgama();
-		//obj.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
-		//obj.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 
 
 	}
@@ -155,7 +152,7 @@ public class MainUrtNIP extends InputVariable {
 		//System.out.println(data);
 		showData7Parameter(data,"nip_v", "v_nama", "v_tmp_lahir", "c_jns_kelamin");
 	} // ikan added test for NamaDanGajiBersih
-	public  void showData7Parameter(JSONArray arrayData,String a1,String a2,String a3,String a4) {
+	public  void showData7Parameter(JSONArray arrayData,String fieldNIP,String fieldNama,String fieldTempat_Lahir,String fieldJenis_Kelamin) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------------------------+");
 		System.out.println("|        NIP       |              nama            |    Tempat_Lahir      |   Jenis_Kelamin    | ");
@@ -167,24 +164,24 @@ public class MainUrtNIP extends InputVariable {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 
 
-			space=(String) obj.get(a1);
+			space=(String) obj.get(fieldNIP);
 			System.out.print("|"+space);
 			for (int j = 0; j  <18-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(a2);
+			space=(String) obj.get(fieldNama);
 			System.out.print("|"+space);
 			for (int j = 0; j  <30-(space.length()); j++) {
 				System.out.print(" ");
 			}
 
-			space=(String) obj.get(a3);
+			space=(String) obj.get(fieldTempat_Lahir);
 			space = space.trim();
 			System.out.print("|"+space);
 			for (int j = 0; j  <22-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(a4);
+			space=(String) obj.get(fieldJenis_Kelamin);
 			System.out.print("|    "+space);
 			for (int j = 0; j  <15-(space.length()); j++) {
 				System.out.print(" ");
@@ -195,6 +192,7 @@ public class MainUrtNIP extends InputVariable {
 
 		}
 	}
+
 
 	//query 4
 	public  void getMenampilkanJumlahPNSberdasrkanAgamadanGolongan(){ //modify by siska
