@@ -11,7 +11,10 @@ import com.padepokan79.controller.Keluarga;
 public class MainKeluarga {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	 MainActivity ma=new MainActivity();
-
+	 public MainKeluarga() {
+		 mainMenu();
+	 }
+	 
 	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+-----------------------------------------------------------------------------+");
