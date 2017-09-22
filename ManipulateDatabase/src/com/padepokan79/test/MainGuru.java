@@ -24,6 +24,9 @@ public class MainGuru {
 			System.out.println(e.getMessage());
 		}
 	}
+	public MainGuru(){
+		tesMencariKodeGuruDitabelGuru();
+	}
 	public  void backto()  {
 		String inp;
 		System.out.print("1. Menu Utama 2. Submenu Mencari Guru Berdasarkan Kode  : ");
