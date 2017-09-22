@@ -20,6 +20,8 @@ public class MainActivity {
 		System.out.println("+---------------------------------------------------------------------------------+");
 		System.out.println("| 13.Tabel Agama|  14. Tabel Guru       | 15. Tabel Umum        |  16.T Tunjangan |");
 		System.out.println("+---------------------------------------------------------------------------------+");
+		System.out.println("| 17.Hak Akses  |  18. Tabel 1721A      | 19. Tabel F_spt       |  20.T akunsp2d  |");
+		System.out.println("+---------------------------------------------------------------------------------+");
 		System.out.print("Pilihan : ");
 		input = in.nextInt();
 		if (input==1) {
@@ -48,7 +50,7 @@ public class MainActivity {
 			newRapel.mainMenu();
 		}else if(input == 9) {
 			MainUrtNIP newUrt = new MainUrtNIP();
-			newUrt.getMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
+			newUrt.mainMenu();
 		}else if(input == 11) {
 			MainDetilKekurangan newDetilKekurangan = new MainDetilKekurangan();
 			newDetilKekurangan.testqueryMenampikanMaskerDibawah5TahunDanGajiDiatas25jt();
@@ -64,6 +66,9 @@ public class MainActivity {
 		}else if (input == 16) {
 			MainTunjangan newTunjangan = new MainTunjangan();
 			newTunjangan.mainMenu();
+		}else if (input == 17) {
+			MainHakAkses newHakAkses = new  MainHakAkses();
+			newHakAkses.mainMenu();
 		}
 		System.out.println("Maaf, inputan anda salah");
 		menuUtama();

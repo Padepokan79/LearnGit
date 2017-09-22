@@ -40,6 +40,9 @@ public class MainHakAkses {
 		}
 		
 	}
+	public MainHakAkses(){
+		mainMenu();
+	}
 	
 	public  void backto()  {
 		String inp;
