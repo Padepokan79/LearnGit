@@ -11,7 +11,9 @@ import com.padepokan79.controller.SkppPegawai;
 public class MainSKPP {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	 MainActivity ma=new MainActivity();
-
+	 public MainSKPP() {
+		 mainMenu();
+	 }
 	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+----------------------------------------------------------------------------------------------------------+");

@@ -1,11 +1,12 @@
 package com.padepokan79.test;
-
 import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 import com.padepokan79.controller.HakAkses;
+
 
 public class MainHakAkses {
 	MainActivity ma=new MainActivity();
@@ -59,8 +60,10 @@ public class MainHakAkses {
 			System.out.println(e.getMessage());
 		}
 	}
+
 	public  void testQueryMenghitungJumlahHakAksesBerdasarkanPemakai(){
 		HakAkses objHakAkses=new HakAkses();
+
 		try {
 			JSONArray data = objHakAkses.getQueryMenghitungJumlahHakAksesBerdasarkanPemakai();
 			showData(data,"pemakai","jumlah_hak_akses");
