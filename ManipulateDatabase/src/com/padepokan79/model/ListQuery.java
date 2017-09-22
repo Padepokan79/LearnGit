@@ -253,8 +253,8 @@ public interface ListQuery {
 		
 //Tabel 21 From automut add by siska
 		public final String queryMencariTanggalPensiundanKodeStapeg = // ? tglpensiun = 2010-01-01, ? kdstapeg = 4
-				"select automut.nip, mstpegawai.nama, automut.kdstapeg_l , automut.TGLPENSIUN from automut inner join mstpegawai on automut.nip = mstpegawai.nip where TGLPENSIUN < '?' and kdstapeg_l='?' limit ?,10;";
+				"select automut.nip, mstpegawai.nama, automut.kdstapeg_l , automut.TGLPENSIUN from automut inner join mstpegawai on automut.nip = mstpegawai.nip where TGLPENSIUN < ? and kdstapeg_l=? limit ?,10;";
 		public final String queryKodeStapegdanNamaStapeg = // ? = 2015-01-01 (contoh format)
-				"select automut.nip, mstpegawai.nama, automut.kdstapeg_l as Kode_Status_Pegawai , stapeg_tbl.NMSTAPEG, automut.TGLPENSIUN from automut,mstpegawai,stapeg_tbl where TGLPENSIUN < '?' and NOT TGLPENSIUN like '%0000%' and automut.kdstapeg_l  = stapeg_tbl.KDSTAPEG  and automut.nip=mstpegawai.nip limit 10;";
+				"select automut.nip, mstpegawai.nama, automut.kdstapeg_l as Kode_Status_Pegawai , stapeg_tbl.NMSTAPEG, automut.TGLPENSIUN from automut,mstpegawai,stapeg_tbl where TGLPENSIUN < ? and NOT TGLPENSIUN like '%0000%' and automut.kdstapeg_l  = stapeg_tbl.KDSTAPEG  and automut.nip=mstpegawai.nip limit 10;";
 
 }			
