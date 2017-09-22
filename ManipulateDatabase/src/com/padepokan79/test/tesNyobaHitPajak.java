@@ -8,7 +8,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
-import com.padepokan79.model.InputVariable;
 import com.padepokan79.model.NyobaHitPajak;
 
 public class tesNyobaHitPajak {

@@ -1,9 +1,12 @@
-package com.padepokan79.model;
+package com.padepokan79.controller;
 
 import org.json.JSONArray;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import com.padepokan79.model.Convertor;
+import com.padepokan79.model.ListQuery;
+import com.padepokan79.util.DatabaseConnection;
 
 public class Agama extends DatabaseConnection implements ListQuery{
 	public Agama() {

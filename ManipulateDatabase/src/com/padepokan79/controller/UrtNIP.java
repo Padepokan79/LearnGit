@@ -1,4 +1,4 @@
-package com.padepokan79.model;
+package com.padepokan79.controller;
 
 import java.sql.DriverManager;
 
@@ -7,6 +7,9 @@ import org.json.JSONArray;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import com.padepokan79.model.Convertor;
+import com.padepokan79.model.ListQuery;
+import com.padepokan79.util.DatabaseConnection;
 
 public class UrtNIP extends DatabaseConnection implements ListQuery {
 
@@ -58,6 +61,7 @@ public class UrtNIP extends DatabaseConnection implements ListQuery {
 			//System.out.println("------ ------ ------ ----- -----");
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
+			System.out.println(e.getMessage());
 			// TODO: handle exception
 		}
 		return null;

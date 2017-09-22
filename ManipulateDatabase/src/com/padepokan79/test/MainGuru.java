@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Guru;
+import com.padepokan79.controller.Guru;
 
 public class MainGuru {
 	 MainActivity ma=new MainActivity();
@@ -50,7 +50,7 @@ public class MainGuru {
 		System.out.println("| KodeGuru |          NamaGuru         |");
 		System.out.println("+--------------------------------------+");
 		String space;
-		int tamp=0;
+//		int tamp=0;
 //		for (int i = 0; i < arrayData.length(); i++) {
 //			JSONObject obj =  arrayData.getJSONObject(i);
 //			space = (String) obj.get(pb);

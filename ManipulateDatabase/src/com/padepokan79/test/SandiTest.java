@@ -3,19 +3,19 @@ package com.padepokan79.test;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.Satker;
-import com.padepokan79.model.Twafat;
+import com.padepokan79.controller.Satker;
+import com.padepokan79.controller.Twafat;
 
 public class SandiTest {
 	
-	public static void kepalaDinasHaji(){
+	public void kepalaDinasHaji(){
 		Satker satkerja = new Satker();
 		JSONArray data = satkerja.getQueryKepalaDinasHaji();
 		//System.out.println(data);
 		showData(data,"satkerja", "descsatker", "nama_atasa", "jab_atasan");
 	} 
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat) {
+	public void showData(JSONArray arrayData, String fSatu, String fDua, String fTiga, String fEmpat) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("| Satuan Kerja |            Deskripsi Satuan Kerja            |                 Nama Atasan                 |               Jabatan Atasan               |");
@@ -55,14 +55,14 @@ public class SandiTest {
 		}
 	}
 	
-	public static void JumlahPegawaiYangKerjaDiDinasKesehatan(){
+	public void JumlahPegawaiYangKerjaDiDinasKesehatan(){
 		Satker satkerja = new Satker();
 		JSONArray data = satkerja.getQueryJumlahPegawaiYangKerjaDiDinasKesehatan();
 		//System.out.println(data);
 		showData(data,"satuan_kerja", "count(*)");
 	} 
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua) {
+	public void showData(JSONArray arrayData, String fSatu, String fDua) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------+");
 		System.out.println("|            Satuan Kerja            | Jumlah |");
@@ -90,14 +90,14 @@ public class SandiTest {
 		}
 	}
 	
-	public static void NIPNamaTanggalWafat(){
+	public void NIPNamaTanggalWafat(){
 		Twafat twafat = new Twafat();
 		JSONArray data = twafat.getQueryNIPNamaTanggalWafat();
 		//System.out.println(data);
 		showData(data,"nip", "nama","tglwafat");
 	} 
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga) {
+	public void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------------------------------------+");
 		System.out.println("|        Nip         |                 Nama               | Tanggal Wafat |");
@@ -129,14 +129,14 @@ public class SandiTest {
 		}
 	}
 	
-	public static void KdKubKelPenerimaKosong(){
+	public void KdKubKelPenerimaKosong(){
 		Twafat twafat = new Twafat();
 		JSONArray data = twafat.getQueryKdKubKelPenerimaKosong();
 		//System.out.println(data);
 		showData(data,"nip", "nama","tglwafat","penerbit","kdhubkelpenerima");
 	} 
 	
-	public static void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga,String fEmpat,String fLima) {
+	public void showData(JSONArray arrayData, String fSatu, String fDua,String fTiga,String fEmpat,String fLima) {
 		//System.out.println(arrayData);
 		System.out.println("+------------------------------------------------------------------------------------------+");
 		System.out.println("|        Nip         |           Nama           | Tanggal Wafat | Penerbit | Kode Penerima |");
@@ -179,7 +179,8 @@ public class SandiTest {
 
 	
 	public static void main(String args[]) {
-		KdKubKelPenerimaKosong();
+		SandiTest st = new SandiTest();
+		st.KdKubKelPenerimaKosong();
 	}
 
 }
