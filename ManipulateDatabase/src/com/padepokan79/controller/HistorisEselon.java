@@ -14,11 +14,10 @@ public class HistorisEselon extends DatabaseConnection implements ListQuery{
 
 	}
 
-	public JSONArray queryMenampilkanRatarataTunjanganEselon(String query, int nextPage){
+	public JSONArray queryMenampilkanRatarataTunjanganEselon(String query){
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-			st.setInt(1, nextPage);
 			ResultSet rs = (ResultSet) st.executeQuery();
 
 			return Convertor.convertToJSON(rs);
@@ -86,11 +85,11 @@ public class HistorisEselon extends DatabaseConnection implements ListQuery{
 		return null;
 	}
 
-	public JSONArray getQueryMenampilkanRatarataTunjanganEselon(int nextPage){
+	public JSONArray getQueryMenampilkanRatarataTunjanganEselon(){
 		try
 		{
 			String query = queryMenampilkanRatarataTunjanganEselon;
-			return queryMenampilkanRatarataTunjanganEselon(query, nextPage);
+			return queryMenampilkanRatarataTunjanganEselon(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}

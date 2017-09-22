@@ -129,11 +129,11 @@ public interface ListQuery {
 	public final String queryMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama = //add by siska
 			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, v_tmp_lahir as Tempat_Lahir,c_jns_kelamin as JenKel,c_agama as Agama, c_golongan as Golongan from urtnip where v_npwp IS NOT NULL and v_tmp_lahir IS NOT NULL and c_agama IS NOT NULL limit ?, 10;";
 	public final String queryMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan = // add by selfi
-			"SELECT nIP_V, V_NAMA, V_TMP_LAHIR, C_JNS_KELAMIN  FROM urtnip where V_TMP_LAHIR LIKE ? AND C_JNS_KELAMIN LIKE ? limit ?,10;"; // ?1 nama tempat lahir, ?2. jeniskelamin ?3. lIMIT
+			"SELECT nIP_V, V_NAMA, V_TMP_LAHIR, C_JNS_KELAMIN  FROM urtnip where V_TMP_LAHIR LIKE '?' AND C_JNS_KELAMIN LIKE '?' limit ?,10;"; // ?1 nama tempat lahir, ?2. jeniskelamin ?3. lIMIT
 	public final String queryMenampilkanPNSpunyaNPWPdanMasaKerjaLama = //add by siska
 			"select nip_v as NIP,v_nama as Nama, v_npwp as NPWP, n_masakerja as Masa_Kerja, c_golongan as Golongan,c_jbt_struktur as Jab_Struktur from urtnip where v_npwp IS NOT NULL  and n_masakerja > ? limit ?, 10;"; // nb : di database ? = 20 
 	public final String queryMenampilkanJumlahPNSberdasrkanAgamadanGolongan = //add by rzkypprtm
-			"SELECT C_GOLONGAN as GOLONGAN, COUNT(*) as Jumlah FROM urtnip GROUP BY C_AGAMA, C_GOLONGAN ORDER BY C_AGAMA, C_GOLONGAN, COUNT(*) LIMIT ?, 10;";
+			"SELECT C_AGAMA as AGAMA, C_GOLONGAN as GOLONGAN, COUNT(*) as Jumlah FROM urtnip GROUP BY C_AGAMA, C_GOLONGAN ORDER BY C_AGAMA, C_GOLONGAN, COUNT(*) LIMIT ?, 10;";
 	public final String queryMenampilkanGroupByAgama = //add by siska
 			"select c_agama as Agama, count(*) as Jumlah_PNS from urtnip group by c_agama limit ?, 10;";
 
@@ -142,7 +142,7 @@ public interface ListQuery {
 	//Tabel 10 historis_eselon
 
 	public final String queryMenampilkanRatarataTunjanganEselon = //add by siska
-			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon limit ?,10;";
+			"select avg(tjeselon) as Tunjangan_Eselon from historis_eselon;";
 	public final String queryMenampilkanDaftarPNSYangMempunyaiKodeEselonBersuratKeputusan = //add by rzkypprtm
 			"SELECT a.NIP, b.NAMA, a.KDESELON, a.TJESELON, a.NOMORSKEP, a.PENERBITSKEP FROM historis_eselon a,mstpegawai b WHERE NOT a.KDESELON = '00' AND NOT a.NOMORSKEP = ' ' LIMIT ?, 10;";
 	public final String queryTJEselonYangNolBukanNull = // add by selfi
@@ -177,7 +177,7 @@ public interface ListQuery {
 	public final String queryMencariTahunPajakdanJabatanGolongan = // add by siska contoh : ? tahun pajak = 2015 , ? jabatan_gol = utama
 			"select tahun_pajak,nourt,nama_peg,jabatan_gol,awal_pajak,akhir_pajak from form_1721_a2 where tahun_pajak='?' and jabatan_gol like '%?%' order by nourt desc limit ?,10;";
 	public final String queryMenunjukanJumlahJabatanPNSyangsudahbayardanBelum = // add by rzkypprtm
-			"SELECT JABATAN_GOL, Status, COUNT(*) FROM form_1721_a2 GROUP BY JABATAN_GOL, Status  ORDER BY JABATAN_GOL;";
+			"SELECT JABATAN_GOL, Status, COUNT(*) as JUMLAH_PNS_YG_BELUM_BAYAR FROM form_1721_a2 GROUP BY JABATAN_GOL, Status  ORDER BY JABATAN_GOL;";
 	public final String queryMenampilkanStatusYangBelumBayarPajakDanLakiLaki = // add by selfi
 			"select * from form_1721_a2 where status like ? and sex like ? order by Tahun_Pajak ASC  limit ?,10;"; // ?1 0/1 ?2 1/2
 	public final String queryMenampilkanYangSudahAdaNPWP = // Add by selfi
@@ -240,7 +240,6 @@ public interface ListQuery {
 					"select * from umum_tbl where KDGOL = ?  limit ?,10;"; // ?1. KDGOL 1/2/3/4 ?2. AwalLimit
 //==========================================================================================================================================================================
 //Tabel 19 From hak_akses add by selfi
-
 
 		public final String queryMenghitungJumlahHakAksesBerdasarkanPemakai =
 				"select pemakai, count(*) as jumlah_hak_akses from hak_akses where not pemakai =' ' group by pemakai;"; 
