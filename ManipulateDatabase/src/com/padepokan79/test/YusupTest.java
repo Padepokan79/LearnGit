@@ -22,7 +22,7 @@ public class YusupTest extends InputVariable{
 
 	public static void testBendaharaPembantuDaftarGaji(){
 		Satker objSatker =new Satker();
-		JSONArray data = objSatker.getqueryBendaharaPembantuDaftarGaji(); 
+		JSONArray data = objSatker.getQueryBendaharaPembantuDaftarGaji(); 
 		showData(data,"satkerja","descsatker","nip_bend","nama_bend","jab_bend","jab_operat");
 	} // Yusup  added test for BendaharaPembantuDaftarGaji
 
@@ -82,7 +82,7 @@ public class YusupTest extends InputVariable{
 	public static void testDaftarPegawaiYangMatiSebelumTahun2013(){
 		Twafat objwafat =new Twafat();
 
-		JSONArray data = objwafat.getqueryDaftarPegawaiYangMatiSebelumTahun2013(); 
+		JSONArray data = objwafat.getQueryDaftarPegawaiYangMatiSebelumTahun2013(); 
 
 		showData(data,"nip","nama","tglwafat");
 	} // Yusup  added test for DaftarPegawaiYangMatiSebelumTahun2013
@@ -124,7 +124,7 @@ public class YusupTest extends InputVariable{
 	public static void testKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
 		Keluarga objkeluarga =new Keluarga();
 
-		JSONArray data = objkeluarga.queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(); 
+		JSONArray data = objkeluarga.getQueryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(); 
 
 		showData(data,"nip","nama","tglnikah","nipsuamiistri");
 	} // Yusup  added test for KeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri
@@ -171,7 +171,7 @@ public class YusupTest extends InputVariable{
 	public static void testNamaKeluargaPNSyangPernahMenikahLaluCerai(){
 		Keluarga objkeluarga =new Keluarga();
 
-		JSONArray data = objkeluarga.queryNamaKeluargaPNSyangPernahMenikahLaluCerai(); 
+		JSONArray data = objkeluarga.getQueryNamaKeluargaPNSyangPernahMenikahLaluCerai(); 
 
 		showData_(data,"nip","nama","tglnikah","tglcerai");
 	} // Yusup  added test for NamaKeluargaPNSyangPernahMenikahLaluCerai
@@ -446,13 +446,13 @@ public class YusupTest extends InputVariable{
 		
 		try {
 			System.out.print("Masukan Tanggal wafat : ");
-			inputDate=sf.next();
+			String inputDate=sf.next();
 			System.out.print("Masukan Tunjangan Istri : ");
-			inputTunjanganIstri=sf.nextInt();
+			int inputTunjanganIstri=sf.nextInt();
 			System.out.print("Masukan Tunjangan Anak : ");
-			inputTunjanganAnak=sf.nextInt();
+			int inputTunjanganAnak=sf.nextInt();
 			
-			JSONArray data = fju.queryPnsWafatLebihdar4thnYangmempunyaiIstriTidakMempunyaiAnak();
+			JSONArray data = fju.getPNSLamanyaWafatdariIstridaniAnak(inputDate, inputTunjanganIstri, inputTunjanganAnak);
 			showData_tj(data,"nip","tglwafat","tjistri","tjanak");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -501,7 +501,7 @@ public class YusupTest extends InputVariable{
 	public static void testMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
 		Ttunjangan objTj =new Ttunjangan();
 
-		JSONArray data = objTj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(); 
+		JSONArray data = objTj.getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(0); 
 
 		showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah");
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni
@@ -542,11 +542,11 @@ public class YusupTest extends InputVariable{
 		
 		try {
 			System.out.print("Masukan Jumlah Tunjangan dari : ");
-			inputJumlahAwal=sf.nextInt();
+			int inputJumlahAwal=sf.nextInt();
 			System.out.print("Masukan Jumlah Tunjangan sampai : ");
-			inputJumlahAkhir=sf.nextInt();
+			int inputJumlahAkhir=sf.nextInt();
 			
-			JSONArray data = ftj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun();
+			JSONArray data = ftj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(inputJumlahAwal, inputJumlahAkhir, 0);
 			showData_jml(data,"jumlah","jumlah_pns");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -641,10 +641,10 @@ public class YusupTest extends InputVariable{
 	public static void MenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(){
 		UrtNIP urtNIP = new UrtNIP();
 		System.out.println("Masukan Tempat lahir : ");
-		inputTempatLahir = sf.next();
+		String inputTempatLahir = sf.next();
 		System.out.println("Masukan Jenis Kelamin : ");
-		inputJenisKelamin = sf.next();
-		JSONArray data = urtNIP.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
+		String inputJenisKelamin = sf.next();
+		JSONArray data = urtNIP.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan(inputTempatLahir, inputJenisKelamin, 0);
 		//System.out.println(data);
 		showData7Parameter(data,"nip_v","v_nama","v_tmp_lahir","c_jns_kelamin");
 	} // ikan added test for NamaDanGajiBersih

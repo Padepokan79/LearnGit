@@ -13,13 +13,11 @@ public class MainUrtNIP extends InputVariable {
 
 	public  static void main(String[]args) {
 		MainUrtNIP obj =  new MainUrtNIP();
-		//obj.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();	
-		//obj.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 		obj.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
 		//obj.getMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
 		//obj.getMenampilkanGroupByAgama();
-	
-		
+		//obj.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
+		//obj.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 
 
 	}
@@ -31,7 +29,7 @@ public class MainUrtNIP extends InputVariable {
 		//System.out.println(data);
 		showData7Parameter(data,"nip","nama","npwp","tempat_lahir","jenkel","agama","golongan");
 	} // ikan added test for NamaDanGajiBersih
-	public  void showData7Parameter(JSONArray arrayData,String fieldNIP,String fieldNama,String fieldNPWP,String fieldTempatLahir,String fieldJenisKelamin,String fieldAgama,String fieldGolongan) {
+	public  void showData7Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf,String fieldg) {
 		//System.out.println(arrayData);
 		System.out.println("+--------------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|        NIP       |              nama            |          NPWP        |  Tempat Lahir | Jenis Kelamin |    Agama        | Golongan  |");
@@ -43,39 +41,39 @@ public class MainUrtNIP extends InputVariable {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 
 
-			space=(String) obj.get(fieldNIP);
+			space=(String) obj.get(fielda);
 			System.out.print("|"+space);
 			for (int j = 0; j  <18-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldNama);
+			space=(String) obj.get(fieldb);
 			System.out.print("|"+space);
 			for (int j = 0; j  <30-(space.length()); j++) {
 				System.out.print(" ");
 			}
 
-			space=(String) obj.get(fieldNPWP);
+			space=(String) obj.get(fieldc);
 			space = space.trim();
 			System.out.print("|"+space);
 			for (int j = 0; j  <22-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldTempatLahir);
+			space=(String) obj.get(fieldd);
 			System.out.print("|"+space);
 			for (int j = 0; j  <15-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldJenisKelamin);
+			space=(String) obj.get(fielde);
 			System.out.print("|"+space);
 			for (int j = 0; j  <15-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldAgama);
+			space=(String) obj.get(fieldf);
 			System.out.print("|"+space);
 			for (int j = 0; j  <17-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldGolongan);
+			space=(String) obj.get(fieldg);
 			System.out.print("|"+space);
 			for (int j = 0; j  <11-(space.length()); j++) {
 				System.out.print(" ");
@@ -96,9 +94,8 @@ public class MainUrtNIP extends InputVariable {
 		//System.out.println(data);
 		showData7Parameter(data,"nip","nama","npwp","masa_kerja","golongan","jab_struktur");
 	} // ikan added test for NamaDanGajiBersih
-	public  void showData7Parameter(JSONArray arrayData,String fieldNIP,String fieldNama,String fieldNPWP,String fieldMasaKerja,String fieldGolongan,String fieldStrukturJabatan) {
+	public  void showData7Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf) {
 		//System.out.println(arrayData);
-		
 		System.out.println("+------------------------------------------------------------------------------------------------------------------------------+");
 		System.out.println("|        NIP       |              nama            |          NPWP        |   Masa Kerja  | Golongan  |    Struktur Jabatan     |");
 		System.out.println("+------------------------------------------------------------------------------------------------------------------------------+");
@@ -109,35 +106,35 @@ public class MainUrtNIP extends InputVariable {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 
 
-			space=(String) obj.get(fieldNIP);
+			space=(String) obj.get(fielda);
 			System.out.print("|"+space);
 			for (int j = 0; j  <18-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldNama);
+			space=(String) obj.get(fieldb);
 			System.out.print("|"+space);
 			for (int j = 0; j  <30-(space.length()); j++) {
 				System.out.print(" ");
 			}
 
-			space=(String) obj.get(fieldNPWP);
+			space=(String) obj.get(fieldc);
 			space = space.trim();
 			System.out.print("|"+space);
 			for (int j = 0; j  <22-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			tmp=(int) obj.get(fieldMasaKerja);
+			tmp=(int) obj.get(fieldd);
 			space =space.valueOf(tmp);
-			System.out.print("|"+obj.get(fieldMasaKerja));
+			System.out.print("|"+obj.get(fieldd));
 			for (int j = 0; j  <15-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldGolongan);
+			space=(String) obj.get(fielde);
 			System.out.print("|"+space);
 			for (int j = 0; j  <11-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldStrukturJabatan);
+			space=(String) obj.get(fieldf);
 			System.out.print("|"+space);
 			for (int j = 0; j  <25-(space.length()); j++) {
 				System.out.print(" ");
@@ -158,7 +155,7 @@ public class MainUrtNIP extends InputVariable {
 		//System.out.println(data);
 		showData7Parameter(data,"nip_v", "v_nama", "v_tmp_lahir", "c_jns_kelamin");
 	} // ikan added test for NamaDanGajiBersih
-	public  void showData7Parameter(JSONArray arrayData,String fieldNIP,String fieldNama,String fieldTempat_Lahir,String fieldJenis_Kelamin) {
+	public  void showData7Parameter(JSONArray arrayData,String a1,String a2,String a3,String a4) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------------------------+");
 		System.out.println("|        NIP       |              nama            |    Tempat_Lahir      |   Jenis_Kelamin    | ");
@@ -170,24 +167,24 @@ public class MainUrtNIP extends InputVariable {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 
 
-			space=(String) obj.get(fieldNIP);
+			space=(String) obj.get(a1);
 			System.out.print("|"+space);
 			for (int j = 0; j  <18-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldNama);
+			space=(String) obj.get(a2);
 			System.out.print("|"+space);
 			for (int j = 0; j  <30-(space.length()); j++) {
 				System.out.print(" ");
 			}
 
-			space=(String) obj.get(fieldTempat_Lahir);
+			space=(String) obj.get(a3);
 			space = space.trim();
 			System.out.print("|"+space);
 			for (int j = 0; j  <22-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldJenis_Kelamin);
+			space=(String) obj.get(a4);
 			System.out.print("|    "+space);
 			for (int j = 0; j  <15-(space.length()); j++) {
 				System.out.print(" ");
@@ -206,7 +203,7 @@ public class MainUrtNIP extends InputVariable {
 		showData_Parameter(data,"golongan","jumlah");
 	}
 
-	public  void showData_Parameter(JSONArray arrayData, String fieldGolongan, String fieldJumlah_PNSTakPunyaAgama) {
+	public  void showData_Parameter(JSONArray arrayData, String fieldb, String fieldc) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------------+");
 		System.out.println("|        Golongan      |Jumlah_PNS Tak punya Agama|");
@@ -216,14 +213,17 @@ public class MainUrtNIP extends InputVariable {
 
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);	
+
+
+		
 			
-			space=(String) obj.get(fieldGolongan);
+			space=(String) obj.get(fieldb);
 			System.out.print("|"+space);
 			for (int j = 0; j  <21-(space.length()); j++) {
 				System.out.print(" ");
 			}
 
-			tmp=(long) obj.get(fieldJumlah_PNSTakPunyaAgama);
+			tmp=(long) obj.get(fieldc);
 			space=space.valueOf(tmp);
 			System.out.print(" |          "+ tmp);
 			for (int j = 0; j  <16-(space.length()); j++) {
@@ -244,7 +244,7 @@ public class MainUrtNIP extends InputVariable {
 		showData2Parameter(data,"agama","jumlah_pns");
 	}
 
-	public  void showData2Parameter(JSONArray arrayData,String fieldAgama, String fieldJumlahPNS) {
+	public  void showData2Parameter(JSONArray arrayData,String fielda, String fieldb) {
 		//System.out.println(arrayData);
 		System.out.println("+-----------------------------------------------+");
 		System.out.println("|        Agama       |        Jumlah_PNS        |");
@@ -256,12 +256,12 @@ public class MainUrtNIP extends InputVariable {
 			JSONObject obj =  arrayData.getJSONObject(i);	
 
 
-			space=(String) obj.get(fieldAgama);
+			space=(String) obj.get(fielda);
 			System.out.print("|"+space);
 			for (int j = 0; j  <18-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			tmp=(long) obj.get(fieldJumlahPNS);
+			tmp=(long) obj.get(fieldb);
 			space=space.valueOf(tmp);
 			System.out.print("  |          "+ tmp);
 			for (int j = 0; j  <16-(space.length()); j++) {

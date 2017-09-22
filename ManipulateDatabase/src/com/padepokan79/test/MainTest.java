@@ -1,11 +1,14 @@
 package com.padepokan79.test;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import com.padepokan79.model.UrtNIP;
+
+import com.padepokan79.model.Hutang;
+
 
 public class MainTest {
 
 	public static void main(String[]args) {
+<<<<<<< HEAD
 		MainTest objmain = new MainTest();
 		objmain.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
 	}
@@ -19,81 +22,59 @@ public class MainTest {
 	} // ikan added test for NamaDanGajiBersih
 
 	public  void showData6Parameter(JSONArray arrayData,String fielda,String fieldb,String fieldc,String fieldd,String fielde,String fieldf) {
+=======
+		getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
+	}
+	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
+	public static  void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
+		Hutang hutang = new Hutang();
+		JSONArray data = hutang.getQueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
+		//System.out.println(data);
+		showData4Parameter(data,"nip", "nama", "jumlah_hutang","jmlbulan");
+	}
+>>>>>>> 4040e8994d5d1e96289b82a6af825e3b306d1c35
 
+	public static  void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		//System.out.println(arrayData);
-		System.out.println("+------------------------------------------------------------------------------------------------------------------------------+");
-		System.out.println("|        NIP       |              nama            |          NPWP        |  Tempat Lahir | Jenis Kelamin |    Agama         |");
-		System.out.println("+---------------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("+---------------------------------------------------------------------------------------+");
+		System.out.println("|            NIP           |            Nama          |  Jumlah Hutang   | Jumlah Bulan | ");
+		System.out.println("+---------------------------------------------------------------------------------------+");
 		String space;
-		int tmp;
-		
+
 		for (int i = 0; i < arrayData.length(); i++) {
 			JSONObject obj =  arrayData.getJSONObject(i);	
-			
-			
+
 			space=(String) obj.get(fielda);
-			System.out.print("|"+space);
-			for (int j = 0; j  <18-(space.length()); j++) {
-				System.out.print(" ");
-			}
-			space=(String) obj.get(fieldb);
-			System.out.print("|"+space);
-			for (int j = 0; j  <30-(space.length()); j++) {
-				System.out.print(" ");
-			}
-			
-			space=(String) obj.get(fieldc);
 			space = space.trim();
 			System.out.print("|"+space);
-			for (int j = 0; j  <22-(space.length()); j++) {
+			for (int j = 0; j  <26-(space.length()); j++) {
 				System.out.print(" ");
 			}
-			space=(String) obj.get(fieldd);
-			System.out.print("|"+space);
-			for (int j = 0; j  <15-(space.length()); j++) {
-				System.out.print(" ");
-			}
-			space=(String) obj.get(fielde);
-			System.out.print("|"+space);
-			for (int j = 0; j  <15-(space.length()); j++) {
-				System.out.print(" ");
-			}
-			space=(String) obj.get(fieldf);
-			System.out.print("|"+space);
-			for (int j = 0; j  <17-(space.length()); j++) {
-				System.out.print(" ");
-			}
-			
 
-//			
-//			space=(String) obj.get(fieldi);
-//			space = space.trim();
-//			System.out.print("|"+space);
-//			for (int j = 0; j  <61-(space.length()); j++) {
-//				System.out.print(" ");
-//			}
-			
-		
-		
-			//
-//			space=(String) obj.get(fieldd);
-//			space = space.trim();
-//			System.out.print("    | "+space);
-//			for (int j = 0; j  <10-(space.length()); j++) {
-//				System.out.print(" ");
-//			}
-//			space=(String) obj.get(fielde);
-//			space = space.trim();
-//			System.out.print("    | "+space);
-//			for (int j = 0; j  <50-(space.length()); j++) {
-//				System.out.print(" ");
-//			}
-			
-			
-			
+			space=(String) obj.get(fieldb);
+			space = space.trim();
+			System.out.print("|"+space);
+			for (int j = 0; j  <26-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("|");
+			System.out.print(obj.get(fieldc));
+			for (int j = 0; j  <25-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.print("|");
+			space = space.trim();
+			System.out.print(obj.get(fieldd));
+			for (int j = 0; j  <27-(space.length()); j++) {
+				System.out.print(" ");
+			}
+
 			System.out.println("|");
-			System.out.println("+------------------------------------------------------------------------------------------------------------------------------------+");
-			
+			space = space.trim();
+			for (int j = 0; j  <10-(space.length()); j++) {
+				System.out.print(" ");
+			}
+			System.out.println("+---------------------------------------------------------------------------------------+");
 		}
 	}	
 	
