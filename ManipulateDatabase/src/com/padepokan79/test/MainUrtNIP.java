@@ -267,8 +267,6 @@ public class MainUrtNIP extends InputVariable {
 			for (int j = 0; j  <16-(space.length()); j++) {
 				System.out.print(" ");
 			}
-
-
 			System.out.println("|");
 			System.out.println("+-----------------------------------------------+");
 
