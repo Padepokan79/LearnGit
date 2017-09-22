@@ -5,12 +5,20 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+
 import com.padepokan79.controller.Ttunjangan;
+
 
 public class MainTunjangan {
 	public  Scanner sf=new Scanner(System.in); 
-	 MainActivity ma=new MainActivity();
-
+	MainActivity ma=new MainActivity();
+	
+	String quiz;
+	
+	public MainTunjangan() {
+		mainMenu();
+	}
+	
 	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+---------------------------------------------------------------------------------------------------------------------------------+");
@@ -68,14 +76,13 @@ public class MainTunjangan {
 		}
 	}
 	public  void testMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(){
+		int nextPage=0;
 		Ttunjangan objTj =new Ttunjangan();
-
-		JSONArray data = objTj.getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(0); 
-
-		showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah");
+		JSONArray data = objTj.getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(nextPage); 
+		showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah",nextPage);
 	} // Yusup  added test for NamaPnsYangPensiunTahunIni
 
-	public  void showData_jml_pns(JSONArray arrayData, String Fkd, String usiap, String jml) {
+	public  void showData_jml_pns(JSONArray arrayData, String Fkd, String usiap, String jml,int nextPage) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------------+");
 		System.out.println("| Kode Jabatan | Usia Pensiun | Jumlah PNS  |");
@@ -104,26 +111,36 @@ public class MainTunjangan {
 			System.out.println("      |");
 			System.out.println("+-------------------------------------------+");
 		}
+		System.out.println("N lanjut M Menu : ");
+		quiz=sf.next();
+		if(quiz.equalsIgnoreCase("N")) {
+			nextPage+=10;
+			Ttunjangan objTj =new Ttunjangan();
+			JSONArray data = objTj.getMenampilkanJumlahPNSYangPensiunBerdasarkanKodeJabatandanUsiaJabatan(nextPage); 
+			showData_jml_pns(data,"kode_jabatan","usia_pensiun","jumlah",nextPage);
+		}else {
+			backto();
+		}
 	}//Yusup Add ShowData Hehe...
 
 	public  void testMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(){
 		Ttunjangan ftj=new Ttunjangan();
-		
+		int nextPage=0;
 		try {
 			System.out.print("Masukan Jumlah Tunjangan dari : ");
 			int inputJumlahAwal=sf.nextInt();
 			System.out.print("Masukan Jumlah Tunjangan sampai : ");
 			int inputJumlahAkhir=sf.nextInt();
 			
-			JSONArray data = ftj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(inputJumlahAwal, inputJumlahAkhir, 0);
-			showData_jml(data,"jumlah","jumlah_pns");
+			JSONArray data = ftj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(inputJumlahAwal, inputJumlahAkhir,nextPage);
+			showData_jml(data,"jumlah","jumlah_pns",inputJumlahAwal, inputJumlahAkhir,nextPage);
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
 			System.out.println(e.getMessage());
 		}
 	} // Yusup  added test for TGLWafatDanUangBersihLebihDari1Jt
 
-	public  void showData_jml(JSONArray arrayData, String jml_t, String jml_pns) {
+	public  void showData_jml(JSONArray arrayData, String jml_t, String jml_pns,int inputJumlahAwal,int inputJumlahAkhir,int nextPage) {
 		//System.out.println(arrayData);
 		System.out.println("+-------------------------------------+");
 		System.out.println("| Jumlah Tunjangan Pensiun |Jumlah PNS|");
@@ -149,6 +166,16 @@ public class MainTunjangan {
 			}
 			System.out.println("     |");
 			System.out.println("+---------------------------------------+");
+		}
+		System.out.println("N lanjut M Menu : ");
+		quiz=sf.next();
+		if(quiz.equalsIgnoreCase("N")) {
+			nextPage+=10;
+			Ttunjangan objTj =new Ttunjangan();
+			JSONArray data = objTj.getqueryMenampilkanJumlahPNSYangPensiunBerdasarkanJumlahUangPensiun(inputJumlahAwal, inputJumlahAkhir,nextPage);
+			showData_jml(data,"jumlah","jumlah_pns",inputJumlahAwal, inputJumlahAkhir,nextPage);
+		}else {
+			backto();
 		}
 		
 	}//Yusup Add ShowData Hehe...

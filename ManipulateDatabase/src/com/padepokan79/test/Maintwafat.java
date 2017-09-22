@@ -11,7 +11,10 @@ import com.padepokan79.controller.Twafat;
 public class Maintwafat {
 	 BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
 	 MainActivity ma=new MainActivity();
-
+	 public Maintwafat() {
+		 mainMenu();
+	 }
+	 
 	public  void mainMenu () {//Modify by Ipin
 
 		System.out.println("+--------------------------------------------------------------------------------+");

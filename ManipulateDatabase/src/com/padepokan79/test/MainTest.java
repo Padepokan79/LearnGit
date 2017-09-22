@@ -8,11 +8,13 @@ import com.padepokan79.controller.Hutang;
 public  class MainTest {
 
 	public static void main(String[]args) {
+
 		MainTest newTest = new MainTest();
 		newTest.getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 	}
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
 	public  void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
+
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.getQueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 		//System.out.println(data);

@@ -11,6 +11,10 @@ public class FGajiMenu {
 	public  Scanner bf=new Scanner( System.in );
 	 MainActivity ma=new MainActivity();
 	
+	 public FGajiMenu() {
+		 mainMenu();
+	 }
+ 	 
 	public void mainMenu () {//Modify by Ipin
 
 		System.out.println("+----------------------------------------------------------------------------------------------------+");
