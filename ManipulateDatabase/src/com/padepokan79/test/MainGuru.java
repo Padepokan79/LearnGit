@@ -50,7 +50,7 @@ public class MainGuru {
 		System.out.println("| KodeGuru |          NamaGuru         |");
 		System.out.println("+--------------------------------------+");
 		String space;
-		int tamp=0;
+//		int tamp=0;
 //		for (int i = 0; i < arrayData.length(); i++) {
 //			JSONObject obj =  arrayData.getJSONObject(i);
 //			space = (String) obj.get(pb);

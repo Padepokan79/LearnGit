@@ -5,20 +5,21 @@ import org.json.JSONObject;
 import com.padepokan79.controller.Hutang;
 
 
-public class MainTest {
+public  class MainTest {
 
 	public static void main(String[]args) {
-		getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
+		MainTest newTest = new MainTest();
+		newTest.getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 	}
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
-	public static  void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
+	public  void getqueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
 		Hutang hutang = new Hutang();
 		JSONArray data = hutang.getQueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun();
 		//System.out.println(data);
 		showData4Parameter(data,"nip", "nama", "jumlah_hutang","jmlbulan");
 	}
 
-	public static  void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
+	public  void showData4Parameter(JSONArray arrayData,String fielda, String fieldb, String fieldc, String fieldd) {
 		//System.out.println(arrayData);
 		System.out.println("+---------------------------------------------------------------------------------------+");
 		System.out.println("|            NIP           |            Nama          |  Jumlah Hutang   | Jumlah Bulan | ");
@@ -63,3 +64,4 @@ public class MainTest {
 	}	
 	
 }
+
