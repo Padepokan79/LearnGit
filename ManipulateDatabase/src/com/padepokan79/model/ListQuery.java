@@ -221,7 +221,7 @@ public interface ListQuery {
 		public final String queryMenampilkanBerdasarkanNamaJabatanAtasan = 
 				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN from unitkerja where JAB_ATASAN like '?%' limit ?,10;"; // ?1 namaAtasan ?2 limit ?
 		public final String queryMenampilkanBerdasarkanNamaBendahara = 
-				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_BEND AS NAMA_BENDAHARA from unitkerja where NAMA_BEND like '?%' limit ?,10;"; // ?1. NamaBendahara ?2. limit 
+				"select SATKERJA, UNIT, KOTA, if (JAB_ATASAN = '', 'SAYA ATASAN', JAB_ATASAN),  NAMA_ATASA AS NAMA_ATASAN, NAMA_BEND AS NAMA_BENDAHARA from unitkerja where NAMA_BEND like '?%'  limit ?,10;"; // ?1. NamaBendahara ?2. limit 
 		public final String queryMenampilkanBerdasarkanNamaOperator =
 				"select SATKERJA, UNIT, KOTA,  JAB_ATASAN, NAMA_ATASA AS NAMA_ATASAN, NAMA_OPERA AS NAMA_OPERATOR from unitkerja where NAMA_OPERA like '?%' limit ?,10;"; // ?1. NamaOperator ?2. limit
 		
