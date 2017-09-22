@@ -7,16 +7,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.InputStreamReader;
 
-import com.padepokan79.model.FgajiUangDuka;
-import com.padepokan79.model.InputVariable;
-import com.padepokan79.model.Keluarga;
-import com.padepokan79.model.Satker;
-import com.padepokan79.model.SkppPegawai;
-import com.padepokan79.model.Ttunjangan;
-import com.padepokan79.model.Twafat;
-import com.padepokan79.model.UrtNIP;
+import com.padepokan79.controller.FgajiUangDuka;
+import com.padepokan79.controller.Keluarga;
+import com.padepokan79.controller.Satker;
+import com.padepokan79.controller.SkppPegawai;
+import com.padepokan79.controller.Ttunjangan;
+import com.padepokan79.controller.Twafat;
+import com.padepokan79.controller.UrtNIP;
 
-public class YusupTest extends InputVariable{
+public class YusupTest {
 
 	//Add Yusup pada tabel Satker
 

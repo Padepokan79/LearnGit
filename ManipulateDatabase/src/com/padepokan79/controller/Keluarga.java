@@ -1,4 +1,4 @@
-package com.padepokan79.model;
+package com.padepokan79.controller;
 
 import java.sql.DriverManager;
 
@@ -7,11 +7,13 @@ import org.json.JSONArray;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import com.padepokan79.model.Convertor;
+import com.padepokan79.model.ListQuery;
+import com.padepokan79.util.DatabaseConnection;
 
-public class Hutang extends DatabaseConnection implements ListQuery{
+public class Keluarga extends DatabaseConnection implements ListQuery{
 
-
-	public Hutang() {
+	public Keluarga() {
 		
 	}
 
@@ -30,50 +32,50 @@ public class Hutang extends DatabaseConnection implements ListQuery{
 		}
 		return null;
 	}
-	public JSONArray getQueryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun(){
+	public JSONArray getQueryPNSJombloWafat(){
 		try
 		{
-			String query = queryNamaPegawaiYangMempunyaiHutangLebihDari10JtJumlahCicilanlebihdari1Tahun;
+			String query = queryPNSJombloWafat;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan(){
+	public JSONArray getQueryPNSUsiaPernikahanPerak25tahun(){
 		try
 		{
-			String query = queryTampilkanJumlahPNSyangBerhutangBerdasarkanCicilan;
+			String query = queryPNSUsiaPernikahanPerak25tahun;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryHutangUntukAnak(){
+	public JSONArray getQueryPNSjomblosejati(){
 		try
 		{
-			String query = queryHutangUntukAnak;
+			String query = queryPNSjomblosejati;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryHutangPalingBanyak(){
+	public JSONArray getQueryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri(){
 		try
 		{
-			String query = queryHutangPalingBanyak;
+			String query = queryKeluargaPNSyangSudahMenikahDanMempunyaiKartuSuamiIstri;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception
 		}
 		return null;
 	}
-	public JSONArray getQueryHutangPalingbanyak(){
+	public JSONArray getQueryNamaKeluargaPNSyangPernahMenikahLaluCerai(){
 		try
 		{
-			String query = queryHutangPalingbanyak;
+			String query = queryNamaKeluargaPNSyangPernahMenikahLaluCerai;
 			return simpleQuery(query);
 		}catch (Exception e) {
 			// TODO: handle exception

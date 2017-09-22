@@ -1,4 +1,4 @@
-package com.padepokan79.model;
+package com.padepokan79.controller;
 
 import java.sql.DriverManager;
 
@@ -7,12 +7,11 @@ import org.json.JSONArray;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import com.padepokan79.model.Convertor;
+import com.padepokan79.model.ListQuery;
+import com.padepokan79.util.DatabaseConnection;
 
 public class Ttunjangan  extends DatabaseConnection implements ListQuery{
-
-	
-	int menuOn = 0;
-
 	public Ttunjangan() {
 		
 	}
@@ -21,7 +20,7 @@ public class Ttunjangan  extends DatabaseConnection implements ListQuery{
 		try
 		{
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(query);
-				st.setInt(1, InputVariable.nextPage);
+			st.setInt(1, nextPage);
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
 
@@ -54,7 +53,6 @@ public class Ttunjangan  extends DatabaseConnection implements ListQuery{
 			// execute the query, and get a java resultset
 			ResultSet rs = (ResultSet) st.executeQuery();
 
-			//System.out.println("------ ------ ------ ----- -----");
 			return Convertor.convertToJSON(rs);
 		}catch (Exception e) {
 			// TODO: handle exception

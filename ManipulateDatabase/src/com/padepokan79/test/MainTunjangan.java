@@ -5,8 +5,7 @@ import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.padepokan79.model.InputVariable;
-import com.padepokan79.model.Ttunjangan;
+import com.padepokan79.controller.Ttunjangan;
 
 public class MainTunjangan {
 	public  Scanner sf=new Scanner(System.in); 

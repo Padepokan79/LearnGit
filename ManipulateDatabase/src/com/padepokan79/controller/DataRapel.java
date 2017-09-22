@@ -1,4 +1,4 @@
-package com.padepokan79.model;
+package com.padepokan79.controller;
 
 import java.sql.DriverManager;
 
@@ -7,6 +7,9 @@ import org.json.JSONArray;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSet;
+import com.padepokan79.model.Convertor;
+import com.padepokan79.model.ListQuery;
+import com.padepokan79.util.DatabaseConnection;
 
 public class DataRapel extends DatabaseConnection implements ListQuery{
 	
