@@ -1,5 +1,7 @@
 package com.padepokan79.test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import org.json.JSONArray;
@@ -9,17 +11,79 @@ import com.padepokan79.controller.UrtNIP;
 
 public class MainUrtNIP {
 	public  Scanner sc = new Scanner(System.in);
+	BufferedReader dataIn = new BufferedReader(new InputStreamReader( System.in) );
+	MainActivity ma=new MainActivity();
 
+	public  void mainMenu () {//Modify by Ipin
+
+		System.out.println("+-----------------------------------------------------------------------------------------------------------------------------+");
+		System.out.println("|                                                Submenu Main Urutan NIP                                                      |");   
+		System.out.println("|-----------------------------------------------------------------------------------------------------------------------------|");
+		System.out.println("| 1. PNS berdasarkan tempat lahir dan jens kelamin | 2. PNS tidak punya agama berdasar golongan   | 3.  PNS berdasarkan Agama |");
+		System.out.println("|-----------------------------------------------------------------------------------------------------------------------------|");
+		System.out.println("| 4. PNS punya NPWP,golongan,tempat lahir          | 5. PNS punya NPWP yang berdasarkan Lama Kerja| 0. Menu Utama             |");
+		System.out.println("+-----------------------------------------------------------------------------------------------------------------------------+");
+
+		try {
+			System.out.print("Masukan PIlihan : ");
+			String input=dataIn.readLine();
+			switch (input) {
+			case "1":
+				getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
+				break;
+			case "2":
+				getMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
+				break;
+			case "3":
+				getMenampilkanGroupByAgama();
+				break;
+			case "4":
+				getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();
+				break;
+			case "5":
+				getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();;
+				break;
+			case "0":
+				ma.menuUtama();
+				break;
+			default:
+				System.out.println("Masukan anda tidak valid !");
+			}
+			
+			backto();
+		} catch (Exception e) {
+			System.out.println("Exception Print !");
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	public  void backto()  {
+		String inp;
+		System.out.print("1. Menu Utama 2. Submenu Urutan NIP  : ");
+		try {
+			inp=dataIn.readLine();
+			switch (inp) {
+			case "1":
+				ma.menuUtama();;
+				break;
+			case "2":
+				mainMenu();
+				break;
+			default:
+				System.out.println("Masukan Salah !");
+			}
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+
+	
 	public  static void main(String[]args) {
 		MainUrtNIP obj =  new MainUrtNIP();
-		//obj.getMenampilkanPNSYangPunyaNPWPTempatLahirdanAgama();	
-		obj.getMenampilkanTempatLahirDiLimaPuluhDanJenisKelaminPerempuan();
-		//obj.getMenampilkanJumlahPNSberdasrkanAgamadanGolongan();
-		//obj.getMenampilkanGroupByAgama();
-	
-		//obj.getMenampilkanPNSpunyaNPWPdanMasaKerjaLama();
-
-
+		obj.mainMenu();
+		
 	}
 	//"SELECT nip,nama,kdstawin,janak FROM fgaji where kdstawin=3 and janak=0 limit 0,10;"
 	// query 1
@@ -196,6 +260,7 @@ public class MainUrtNIP {
 
 		}
 	}
+
 
 	//query 4
 	public  void getMenampilkanJumlahPNSberdasrkanAgamadanGolongan(){ //modify by siska
