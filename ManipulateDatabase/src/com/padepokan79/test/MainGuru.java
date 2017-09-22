@@ -16,13 +16,8 @@ public class MainGuru {
 		Guru guru = new Guru();
 		try {
 			System.out.print("Masukan Kode Guru 1 s.d 17 : ");
-<<<<<<< HEAD
-			int masukan = sc.nextInt();
-			JSONArray data = guru.getqueryMencariKodeGurudiTabelGuruTBL();
-=======
 			 input= sc.nextInt();
 			JSONArray data = guru.getQueryMencariKodeGurudiTabelGuruTBL(input);
->>>>>>> origin/master
 			showData_skpp(data,"kodeguru","namaguru");
 		}catch (Exception e) {
 			System.out.println("Inputan Salah");
@@ -55,7 +50,7 @@ public class MainGuru {
 		System.out.println("| KodeGuru |          NamaGuru         |");
 		System.out.println("+--------------------------------------+");
 		String space;
-		int tamp=0;
+//		int tamp=0;
 //		for (int i = 0; i < arrayData.length(); i++) {
 //			JSONObject obj =  arrayData.getJSONObject(i);
 //			space = (String) obj.get(pb);
