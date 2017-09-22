@@ -10,7 +10,7 @@ public class SandiTest {
 	
 	public static void kepalaDinasHaji(){
 		Satker satkerja = new Satker();
-		JSONArray data = satkerja.getqueryKepalaDinasHaji();
+		JSONArray data = satkerja.getQueryKepalaDinasHaji();
 		//System.out.println(data);
 		showData(data,"satkerja", "descsatker", "nama_atasa", "jab_atasan");
 	} 
@@ -57,7 +57,7 @@ public class SandiTest {
 	
 	public static void JumlahPegawaiYangKerjaDiDinasKesehatan(){
 		Satker satkerja = new Satker();
-		JSONArray data = satkerja.getqueryJumlahPegawaiYangKerjaDiDinasKesehatan();
+		JSONArray data = satkerja.getQueryJumlahPegawaiYangKerjaDiDinasKesehatan();
 		//System.out.println(data);
 		showData(data,"satuan_kerja", "count(*)");
 	} 
@@ -92,7 +92,7 @@ public class SandiTest {
 	
 	public static void NIPNamaTanggalWafat(){
 		Twafat twafat = new Twafat();
-		JSONArray data = twafat.getqueryNIPNamaTanggalWafat();
+		JSONArray data = twafat.getQueryNIPNamaTanggalWafat();
 		//System.out.println(data);
 		showData(data,"nip", "nama","tglwafat");
 	} 
@@ -131,7 +131,7 @@ public class SandiTest {
 	
 	public static void KdKubKelPenerimaKosong(){
 		Twafat twafat = new Twafat();
-		JSONArray data = twafat.getqueryKdKubKelPenerimaKosong();
+		JSONArray data = twafat.getQueryKdKubKelPenerimaKosong();
 		//System.out.println(data);
 		showData(data,"nip", "nama","tglwafat","penerbit","kdhubkelpenerima");
 	} 
